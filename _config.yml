@@ -5,6 +5,7 @@ markdown: kramdown
 theme: "minima"
 plugins:
   - jekyll-seo-tag
+remote_theme: jekyll/minima
 author:
   name: "Arnab Dey"
   email: "arnabdey009@gmail.com"
