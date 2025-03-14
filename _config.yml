@@ -1,6 +1,7 @@
 title: "Arnab Dey | CloudOps/DevOps Engineer"
 description: "Dynamic CloudOps/DevOps Engineer with 14 years of IT experience"
 url: "https://arnabdey73.github.io"
+markdown: kramdown
 theme: "minimal-mistakes"
 author:
   name: "Arnab Dey"
