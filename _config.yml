@@ -1,0 +1,66 @@
+title: "Arnab Dey | Cloud & DevOps Engineer"
+description: "Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure. Passionate about automation, infrastructure as code, and cloud-native solutions."
+theme: "minimal-mistakes-jekyll"
+minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+
+# Navigation Links
+header_pages:
+  - about.md
+  - projects.md
+  - certifications.md
+  - contact.md
+
+# Social Links
+social:
+  linkedin: "arnabdey73"
+  github: "arnabdey73"
+  email: "arnabdey009@gmail.com"
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  certifications:
+    output: true
+    permalink: /certifications/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "certifications"
+    values:
+      layout: "certification"
+
+# Google Analytics
+google_analytics: "G-XXXXXXXXXX"  # Replace with your tracking ID
+
+# Disqus Comments (Optional)
+disqus:
+  shortname: "your-disqus-shortname"
+
+# Placeholder for Projects & Certifications (To be updated later)
+projects:
+  - title: "Project Title"
+    description: "Short description of the project."
+    link: "https://github.com/arnabdey73/project-repo"
+
+certifications:
+  - title: "Certification Name"
+    organization: "Issuing Organization"
+    date: "Month Year"
+    link: "Certification URL"

@@ -1,0 +1,10 @@
+body {
+    margin-left: 200px; /* Adjust as needed */
+    margin-right: 20px;
+}
+
+.container {
+    max-width: 900px; /* Adjust for better readability */
+    margin: 0 auto;
+    padding: 20px;
+}

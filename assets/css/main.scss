@@ -1,0 +1,21 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+search: false
+---
+
+@charset "utf-8";
+$link-color: red;
+$paragraph-indent: 1.5em;
+$paragraph-spacing: 1.5em;
+$code-font-size: 1.2em;
+$code-font-family: "Courier New", Courier, monospace;
+$code-background: #f8f8f8;
+$code-border-radius: 0.5em;
+$code-border: 1px solid #ccc;
+$code-padding: 0.5em;
+$code-color: #333;
+$code-line-height: 1.5em;
+
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
