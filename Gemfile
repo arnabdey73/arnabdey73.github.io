@@ -5,3 +5,4 @@ gem "minimal-mistakes-jekyll"
 gem "jekyll-seo-tag"
 gem "faraday-retry"
 gem "bundler"
+gem "github-pages", group: :jekyll_plugins
