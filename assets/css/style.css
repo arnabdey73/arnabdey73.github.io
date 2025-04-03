@@ -3,8 +3,8 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 18px;
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #121212;
+    color: #ffffff;
     margin: 0;
     padding: 0;
 }
@@ -14,8 +14,8 @@ body {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #1e1e1e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
 }
 
@@ -25,14 +25,22 @@ header {
     margin-bottom: 20px;
 }
 
-header h1 {
-    font-size: 32px;
-    font-weight: bold;
+/* Profile Image */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid #00bcd4;
+    display: block;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
 }
 
-header p {
-    font-size: 16px;
-    color: #666;
+/* Headings */
+h1, h2, h3 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 /* Navigation */
@@ -43,8 +51,8 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #0073e6;
-    margin: 0 10px;
+    color: #00bcd4;
+    margin: 0 15px;
     font-weight: 500;
 }
 
@@ -61,18 +69,8 @@ main {
 footer {
     text-align: center;
     font-size: 14px;
-    color: #666;
-    margin-top: 30px;
+    color: #ccc;
+    background: #191919;
     padding: 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-
-    header h1 {
-        font-size: 28px;
-    }
+    margin-top: 30px;
 }

@@ -8,7 +8,7 @@
     {% include head.html %}
     {% include head/custom.html %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <img src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="Arnab Dey" class="profile-img">
+    <img src="{{ '/assets/img/img.png' | relative_url }}" alt="Arnab Dey" class="profile-img">
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
