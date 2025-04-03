@@ -38,7 +38,7 @@ title: "My Portfolio"
 
 <section id="contact">
     <h2>Contact</h2>
-    <p>Email: arnab@example.com</p>
+    Email: [arnabdey009@gmail.com](mailto:arnabdey009@gmail.com)
     <p>GitHub: <a href="https://github.com/arnabdey73">github.com/arnabdey73</a></p>
     <p>LinkedIn: <a href="https://linkedin.com/in/arnabdey73">linkedin.com/in/arnabdey73</a></p>
 </section>
