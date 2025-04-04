@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://kit.fontawesome.com/19a52b3bff.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <div class="profile">
-            <img src="img.png" alt="Profile Picture" class="profile-pic">
-            <h1>Your Name</h1>
-            <p>Your Profession / Tagline</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </header>
-    <main>
-        <section class="content">
-            {{ content }}
-        </section>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="Profile Photo" class="profile-pic">
+      <h1 class="name">Arnab Dey</h1>
+      <p class="caption">Cloud & DevOps Engineer</p>
+      <div class="social-icons">
+        <a href="https://github.com/arnabdey73"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/arnabdey73/"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:arnab@example.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </aside>
+
+    <main class="content">
+      {{ content }}
     </main>
+  </div>
 </body>
 </html>
