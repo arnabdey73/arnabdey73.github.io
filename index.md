@@ -11,19 +11,21 @@ title: "My Portfolio"
 <section id="about">
     <h2>About Me</h2>
     <p>
-        I am a Cloud & DevOps Engineer with 14 years of experience, specializing in CI/CD, automation, and cloud infrastructure. 
-        I help teams streamline deployment workflows and optimize cloud resources.
+        An accomplished Senior Cloud DevOps Engineer with 8+ years of experience in public cloud environments (14+ years in IT). Proven expertise in optimizing CI/CD pipelines for high-quality deployments on public and hybrid cloud platforms. Strong problem solver with a focus on performance monitoring, cloud security, and promoting DevOps best practices.
+        - Skilled in Azure DevOps, Jenkins, Kubernetes, Docker, GitHub, GitHub Actions, Ansible, and Terraform.
+        - Proficient in scripting with Bash, Python, and PowerShell for automated infrastructure management.
+        - Experienced in the SAFe framework and Product Owner roles, aligning product vision with stakeholder needs.
     </p>
 </section>
 
 <section id="skills">
     <h2>Skills & Expertise</h2>
     <ul>
-        <li>Cloud Platforms: Azure, AWS</li>
-        <li>Infrastructure as Code: Terraform, Bicep</li>
-        <li>CI/CD: Jenkins, Azure DevOps, GitHub Actions</li>
-        <li>Containerization & Orchestration: Docker, Kubernetes</li>
-        <li>Scripting & Automation: Bash, Python</li>
+        <li>- Cloud Platforms: Azure, AWS, OpenStack</li>
+        <li>- CI/CD Tools: Azure DevOps, Jenkins, GitLab CI, GitHub Actions</li>
+        <li>- Orchestration & Containerization: Kubernetes, Docker, Rancher</li>
+        <li>- Configuration Management: Ansible</li>
+        <li>- Scripting Languages: Bash, Python, PowerShell</li>
     </ul>
 </section>
 
