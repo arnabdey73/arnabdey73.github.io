@@ -33,9 +33,9 @@ title: "My Portfolio"
 <section id="projects">
     <h2>Projects</h2>
     <ul>
-        <li><a href="https://github.com/arnabdey73/project1">Project 1 - Cloud Infrastructure Automation</a></li>
-        <li><a href="https://github.com/arnabdey73/project2">Project 2 - Kubernetes Deployment Pipeline</a></li>
-        <li><a href="https://github.com/arnabdey73/project3">Project 3 - DevSecOps Implementation</a></li>
+        <li><a href="https://github.com/arnabdey73/devops-python-automation-project">Project 1 - Cloud Infrastructure Automation</a></li>
+        <li><a href="https://github.com/arnabdey73/personal-expense-tracker">Project 2 - Personal Expense Tracker(PCEP)</a></li>
+        <li><a href="https://github.com/arnabdey73/triforce-first">Project 3 - Triforce Implementation</a></li>
     </ul>
 </section>
 
@@ -45,6 +45,20 @@ title: "My Portfolio"
     <p>GitHub: <a href="https://github.com/arnabdey73">github.com/arnabdey73</a></p>
     <p>LinkedIn: <a href="https://linkedin.com/in/arnabdey73">linkedin.com/in/arnabdey73</a></p>
 </section>
+
+<section id="resume">
+    <h2>Resume</h2>
+    <p>
+        <a href="https://github.com/arnabdey73/resume/raw/master/Arnab-Dey-Cloud-DevOps-Engineer.pdf" 
+           download="Arnab-Dey-Cloud-DevOps-Engineer.pdf"
+           target="_blank" 
+           rel="noopener noreferrer">
+            Download My Resume (PDF)
+        </a>
+    </p>
+</section>
+
+
 
 <footer>
     <p>&copy; 2025 Arnab Dey. All rights reserved.</p>
