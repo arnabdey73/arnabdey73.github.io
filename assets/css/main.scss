@@ -27,7 +27,7 @@ $heading-font-family: "Merriweather", Georgia, serif;
 
 body {
   font-family: $body-font-family;
-  color: #785858;
+  color: #2d1313;
   background-color: #ffffff; // Clean white background
 }
 
@@ -57,4 +57,15 @@ a:active {
 
 a {
   transition: color 0.2s ease;
+}
+
+.recent-projects ul li a {
+  color: teal; /* Changed project URL color to teal */
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth hover effect */
+}
+
+.recent-projects ul li a:hover {
+  color: #1da1f2; /* Hover effect color */
+  text-decoration: underline;
 }
