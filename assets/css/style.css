@@ -79,3 +79,13 @@ body {
   .recent-posts ul li a:hover {
     color: #1da1f2; /* Hover effect color */
   }
+
+  .recent-posts ul li a[href*='Dummy'] {
+    color: teal; /* Changed color for dummy post URLs */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .recent-posts ul li a[href*='Dummy']:hover {
+    color: #1da1f2; /* Hover effect color for dummy post URLs */
+  }
