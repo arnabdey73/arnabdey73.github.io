@@ -39,7 +39,10 @@ h1, h2, h3, h4, h5, h6 {
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-a:link,
+a:link {
+  color: teal; /* Changed link color to teal */
+}
+
 a:visited {
   color: #3b82f6;  /* soothing blue */
   text-decoration: none;
@@ -47,9 +50,11 @@ a:visited {
 
 a:hover,
 a:active {
-  color: #2563eb;  /* darker on hover */
+  color: #2563eb; /* darker on hover */
   text-decoration: underline;
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth hover effect */
 }
+
 a {
   transition: color 0.2s ease;
 }
