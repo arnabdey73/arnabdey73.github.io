@@ -9,7 +9,7 @@ search: false
 @tailwind components;
 @tailwind utilities;
 
-$link-color: #007acc; // Updated to match Major Hayden's color scheme
+$link-color: teal; // Updated link color to teal
 $paragraph-indent: 1.5em;
 $paragraph-spacing: 1.5em;
 $code-font-size: 1.2em;
@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 @import "minimal-mistakes"; // main partials
 
 a:link {
-  color: teal; /* Changed link color to teal */
+  color: $link-color;
 }
 
 a:visited {
