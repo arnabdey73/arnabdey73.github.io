@@ -56,6 +56,10 @@ body {
   .social-icons a:hover {
     color: #1da1f2; /* Twitter blue for hover effect */
   }
+
+  .social-icons a .fa-bluesky {
+    color: #00acee; /* Bluesky blue */
+  }
   
   .content {
     flex: 1;
@@ -65,4 +69,3 @@ body {
     margin: auto;
     text-align: justify;
   }
-  
