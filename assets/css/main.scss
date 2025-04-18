@@ -38,3 +38,18 @@ h1, h2, h3, h4, h5, h6 {
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+a:link,
+a:visited {
+  color: #3b82f6;  /* soothing blue */
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #2563eb;  /* darker on hover */
+  text-decoration: underline;
+}
+a {
+  transition: color 0.2s ease;
+}
