@@ -4,18 +4,37 @@ search: false
 ---
 
 @charset "utf-8";
-$link-color: red;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$link-color: #007acc; // Updated to match Major Hayden's color scheme
 $paragraph-indent: 1.5em;
 $paragraph-spacing: 1.5em;
 $code-font-size: 1.2em;
-$code-font-family: "Courier New", Courier, monospace;
-$code-background: #f8f8f8;
+$code-font-family: "Fira Code", "Courier New", Courier, monospace; // Updated font
+$code-background: #f4f4f4; // Softer background color
 $code-border-radius: 0.5em;
-$code-border: 1px solid #ccc;
+$code-border: 1px solid #e0e0e0; // Lighter border
 $code-padding: 0.5em;
 $code-color: #333;
 $code-line-height: 1.5em;
 
+// Adding new font variables for body and headings
+$body-font-family: "Open Sans", Arial, sans-serif;
+$heading-font-family: "Merriweather", Georgia, serif;
+
+body {
+  font-family: $body-font-family;
+  color: #333;
+  background-color: #ffffff; // Clean white background
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+  color: #222; // Darker heading color
+}
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
