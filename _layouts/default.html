@@ -20,6 +20,14 @@
         <a href="https://www.linkedin.com/in/arnabdey73/"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:arnabdey009@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
+      <div class="recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+          {% for post in site.posts limit:5 %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
     </aside>
 
     <main class="content">
