@@ -1,9 +1,9 @@
 ---
-layout: home
+layout: default
 #title: "My Portfolio"
 ---
 <header style="text-align: center;">
-  <img src="assets/img/cover-image.png" alt="My Portfolio Cover Image" style="width: 100%; max-height: 400px; object-fit: cover;" />
+  <img src="assets/img/cover-image.png" alt="My Portfolio Cover Image" style="width: 100%; max-height: 100%; object-fit: cover;" />
 </header>
 
 <header>
