@@ -102,22 +102,4 @@ body {
     text-decoration: underline;
   }
 
-  .hero-image {
-    width: 100%;
-    height: auto;
-    max-height: 400px; /* adjust this height as needed */
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .overlay-text {
-    position: absolute;
-    top: 50%;   /* was 30%, now center vertically */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-  }
   
