@@ -92,7 +92,7 @@ body {
   }
 
   a {
-    color: teal; /* Set all URLs to teal */
+    color: black; /* Set all URLs to teal */
     text-decoration: none;
     transition: color 0.3s ease;
   }
