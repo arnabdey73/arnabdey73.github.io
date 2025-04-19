@@ -1,7 +1,11 @@
 ---
 layout: home
-title: "My Portfolio"
+#title: "My Portfolio"
 ---
+<header style="text-align: center;">
+  <img src="assets/cover-image.png" alt="My Portfolio Cover Image" style="width: 100%; max-height: 600px; object-fit: cover;" />
+</header>
+<div style="padding: 2rem;"></div>
 
 <header>
     <h1>Arnab Dey</h1>
