@@ -34,7 +34,7 @@ layout: default
     </ul>
 </section>
 
-<!-- 
+<!--
 <section id="projects">
     <h2>Projects</h2>
     <ul>
@@ -43,28 +43,14 @@ layout: default
         <li><a href="https://github.com/arnabdey73/triforce-first">Triforce Implementation</a></li>
     </ul>
 </section>
--->
     <h2>Projects</h2>
     <ul>
         <li><a href="https://github.com/arnabdey73/devops-python-automation-project">Cloud Infrastructure Automation</a></li>
         <li><a href="https://github.com/arnabdey73/personal-expense-tracker">Personal Expense Tracker(PCEP)</a></li>
         <li><a href="https://github.com/arnabdey73/triforce-first">Triforce Implementation</a></li>
     </ul>
-</section>
-
-<!-- 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/arnabdey73">github.com/arnabdey73</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/arnabdey73">linkedin.com/in/arnabdey73</a></p>
-</section>
+</section> 
 -->
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/arnabdey73">github.com/arnabdey73</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/arnabdey73">linkedin.com/in/arnabdey73</a></p>
-</section>
 
 <footer>
     <p>&copy; 2025 Arnab Dey. All rights reserved.</p>
