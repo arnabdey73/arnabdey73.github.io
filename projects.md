@@ -1,6 +1,5 @@
 ---
 layout: default
-banner: "assets/img/cover-image.png"
 ---
 
 ## Projects

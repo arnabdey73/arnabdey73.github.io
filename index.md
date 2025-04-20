@@ -1,6 +1,5 @@
 ---
 layout: default
-banner: "assets/img/cover-image.png"
 ---
 <header style="text-align: center; position: relative;">
   <img src="assets/img/devops_image.png" alt="My Portfolio Cover Image" class="content" />
