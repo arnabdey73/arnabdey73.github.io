@@ -106,3 +106,26 @@ body {
     padding: 10px 20px;
   }
 
+  /* Ensure the body image takes full width excluding the sidebar */
+  .content img {
+      width: calc(100% - 300px); /* Adjust for sidebar width */
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+  }
+
+  /* Overlay caption on the image */
+  .content img + .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-align: center;
+  }
+

@@ -2,8 +2,9 @@
 layout: default
 #title: "My Portfolio"
 ---
-<header style="text-align: center;">
-  <img src="assets/img/devops_image.png" alt="My Portfolio Cover Image" style="width: 1600px; max-width: 840px; height: auto; object-fit: cover;" />
+<header style="text-align: center; position: relative;">
+  <img src="assets/img/devops_image.png" alt="My Portfolio Cover Image" class="content" />
+  <div class="caption">My Portfolio Cover Image</div>
 </header>
 
 <header>
