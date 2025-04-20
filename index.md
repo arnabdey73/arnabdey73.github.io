@@ -2,8 +2,8 @@
 layout: default
 ---
 <header style="text-align: center; position: relative;">
-  <img src="assets/img/devops_image.png" alt="My Portfolio Cover Image" class="content" />
-  <div class="caption">My Portfolio Cover Image</div>
+  <img src="assets/img/banner.png" alt="My Portfolio Banner" class="content" />
+  <!--<div class="caption">My Portfolio Cover Image</div>-->
 </header>
 
 <!--
