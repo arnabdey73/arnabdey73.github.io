@@ -52,7 +52,14 @@ layout: default
     </ul>
 </section>
 
+<!-- 
 <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/arnabdey73">github.com/arnabdey73</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/arnabdey73">linkedin.com/in/arnabdey73</a></p>
+</section>
+-->
     <h2>Contact</h2>
     <p>Email: <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/arnabdey73">github.com/arnabdey73</a></p>
