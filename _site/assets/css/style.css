@@ -1,10 +1,15 @@
 body {
     margin-left: 200px; /* Adjust as needed */
     margin-right: 20px;
+    background-color: black; /* Changed body background color to black */
 }
 
 .container {
     max-width: 900px; /* Adjust for better readability */
     margin: 0 auto;
     padding: 20px;
+}
+
+.sidebar {
+    background-color: black; /* Changed sidebar background color to black */
 }
