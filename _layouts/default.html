@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,57 +19,22 @@
     </style>
 </head>
 <body>
-  <nav class="top-nav">
-    <div class="container">
-      <div class="logo">
-        <a href="/">Arnab Dey</a>
-      </div>
-      <ul class="nav-links">
-        <li><a href="/about.md">About</a></li>
-        <li><a href="/certifications.md">Certifications</a></li>
-        <li><a href="/projects.md">Projects</a></li>
-        <li><a href="/contact.md">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    {%- include header.html -%}
+  </header>
 
   <div class="container">
-    <section class="banner">
-
-    </section>
-
     <aside class="sidebar">
-      <img src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="Profile Photo" class="profile-pic">
-      <h1 class="name">Arnab Dey</h1>
-      <p class="caption">Cloud & DevOps Engineer</p>
-      <div class="social-icons">
-        <a href="https://github.com/arnabdey73" title="GitHub Profile"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/arnabdey73/" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:arnabdey009@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://bsky.app/profile/arnabdey73.bsky.social" title="Bluesky Profile"><i class="fab fa-bluesky"></i></a>
-      </div>
-      <button class="cta" onclick="window.location.href='https://github.com/arnabdey73/resume/raw/master/Arnab-Dey-Cloud-DevOps-Engineer.pdf'">
-        Download Resume
-      </button>
-      <div class="margin-top-20"></div>
-      <div class="recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-          {% for post in site.posts limit:5 %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <ul>
-          <li><a href="https://codemyinfra.hashnode.dev/a-complete-devops-automation-project-with-python-azure-and-kubernetes">DevOps Automation Project</a></li>
-          <li><a href="#">Dummy Post 2</a></li>
-          <li><a href="#">Dummy Post 3</a></li>
-        </ul>
-      </div>
+      {%- include sidebar.html -%}
     </aside>
 
     <main class="content">
       {{ content }}
     </main>
   </div>
+
+  <footer>
+    {%- include footer.html -%}
+  </footer>
 </body>
 </html>
