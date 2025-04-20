@@ -107,6 +107,15 @@ body {
     padding: 10px 20px;
   }
 
+  .cta {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .cta:hover {
+    transform: scale(1.05);
+    background-color: #ff7f50; /* Coral color */
+  }
+
   /* Ensure the body image takes full width excluding the sidebar */
   .content img {
       width: calc(100% - 300px); /* Adjust for sidebar width */
