@@ -10,15 +10,19 @@
     <script src="https://kit.fontawesome.com/19a52b3bff.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container">
-    <nav class="site-nav">
-      <ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/certifications">Certifications</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
+  <main class="main-content">
+    <!-- Top Navigation Bar -->
+    <nav class="w-full flex justify-center gap-10 py-4 bg-[#36221c] text-white text-lg font-medium sticky top-0 z-50 shadow-md">
+      <a href="#about" class="hover:text-orange-400 transition">About</a>
+      <a href="#certifications" class="hover:text-orange-400 transition">Certifications</a>
+      <a href="#projects" class="hover:text-orange-400 transition">Projects</a>
+      <a href="#contact" class="hover:text-orange-400 transition">Contact</a>
     </nav>
+
+
+    <section class="banner">
+
+    </section>
 
     <aside class="sidebar">
       <img src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="Profile Photo" class="profile-pic">
