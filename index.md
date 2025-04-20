@@ -53,7 +53,3 @@ layout: default
 </section> 
 
 -->
-
-<footer>
-    <p>&copy; 2025 Arnab Dey. All rights reserved.</p>
-</footer>
