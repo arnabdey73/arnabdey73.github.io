@@ -2,7 +2,7 @@
 layout: default
 ---
 <header style="text-align: center; position: relative;">
-  <img src="assets/img/banner.png" alt="My Portfolio Banner" class="content" />
+  <img src="assets/img/banner.png" alt="My Portfolio Banner" alt="Banner" style="width:100%; height:auto;" class="content" />
   <!--<div class="caption">My Portfolio Cover Image</div>-->
 </header>
 
