@@ -204,3 +204,8 @@ body {
     margin: 0 auto;
   }
 
+  /* Center-align the footer */
+  footer {
+      text-align: center;
+  }
+
