@@ -102,4 +102,7 @@ body {
     text-decoration: underline;
   }
 
-  
+  button.cta {
+    padding: 10px 20px;
+  }
+
