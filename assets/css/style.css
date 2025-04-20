@@ -195,3 +195,12 @@ body {
     color: #007BFF;
   }
 
+  /* Center-align the banner in the body */
+  .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
