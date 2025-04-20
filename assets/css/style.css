@@ -95,7 +95,7 @@ body {
   }
 
   a {
-    color: black; /* Set all URLs to teal */
+    color: white; /* Updated font color to white */
     text-decoration: none;
     transition: color 0.3s ease;
   }
