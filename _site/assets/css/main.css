@@ -7,7 +7,7 @@
 .author__urls.social-icons .svg-inline--fa,
 .page__footer-follow .social-icons i,
 .page__footer-follow .social-icons .svg-inline--fa {
-  color: inherit;
+  color: white; /* Updated URL color to white */
 }
 
 .ais-search-box .ais-search-box--input {
@@ -629,7 +629,7 @@ audio:not([controls]) {
 }
 
 a {
-  color: red;
+  color: white; /* Updated URL color to white */
 }
 
 /* Apply focus state */
@@ -850,10 +850,10 @@ blockquote cite:before {
 
 /* links */
 a:visited {
-  color: rgb(191.25, 0, 0);
+  color: white; /* Updated URL color to white */
 }
 a:hover {
-  color: rgb(255, 63.75, 63.75);
+  color: white; /* Updated URL color to white */
   outline: 0;
 }
 
@@ -949,7 +949,7 @@ figcaption a {
   transition: all 0.2s ease-in-out;
 }
 figcaption a:hover {
-  color: rgb(255, 63.75, 63.75);
+  color: white; /* Updated URL color to white */
 }
 
 /* Fix IE9 SVG bug */
@@ -1645,13 +1645,13 @@ th {
   padding-top: 0;
 }
 .notice a {
-  color: rgb(169.65, 173.25, 175.95);
+  color: white; /* Updated URL color to white */
 }
 .notice a:hover {
-  color: rgb(94.25, 96.25, 97.75);
+  color: white; /* Updated URL color to white */
 }
 blockquote.notice {
-  border-left-color: rgb(169.65, 173.25, 175.95);
+  border-left-color: white; /* Updated URL color to white */
 }
 
 .notice code {
@@ -1696,13 +1696,13 @@ blockquote.notice {
   padding-top: 0;
 }
 .notice--primary a {
-  color: rgb(0, 155.7, 162.9);
+  color: white; /* Updated URL color to white */
 }
 .notice--primary a:hover {
-  color: rgb(0, 86.5, 90.5);
+  color: white; /* Updated URL color to white */
 }
 blockquote.notice--primary {
-  border-left-color: rgb(0, 155.7, 162.9);
+  border-left-color: white; /* Updated URL color to white */
 }
 
 .notice--primary code {
@@ -1747,13 +1747,13 @@ blockquote.notice--primary {
   padding-top: 0;
 }
 .notice--info a {
-  color: rgb(53.1, 140.4, 167.4);
+  color: white; /* Updated URL color to white */
 }
 .notice--info a:hover {
-  color: rgb(29.5, 78, 93);
+  color: white; /* Updated URL color to white */
 }
 blockquote.notice--info {
-  border-left-color: rgb(53.1, 140.4, 167.4);
+  border-left-color: white; /* Updated URL color to white */
 }
 
 .notice--info code {
@@ -1798,13 +1798,13 @@ blockquote.notice--info {
   padding-top: 0;
 }
 .notice--warning a {
-  color: rgb(192.6, 114.3, 4.5);
+  color: white; /* Updated URL color to white */
 }
 .notice--warning a:hover {
-  color: rgb(107, 63.5, 2.5);
+  color: white; /* Updated URL color to white */
 }
 blockquote.notice--warning {
-  border-left-color: rgb(192.6, 114.3, 4.5);
+  border-left-color: white; /* Updated URL color to white */
 }
 
 .notice--warning code {
@@ -1849,13 +1849,13 @@ blockquote.notice--warning {
   padding-top: 0;
 }
 .notice--success a {
-  color: rgb(56.7, 149.4, 56.7);
+  color: white; /* Updated URL color to white */
 }
 .notice--success a:hover {
-  color: rgb(31.5, 83, 31.5);
+  color: white; /* Updated URL color to white */
 }
 blockquote.notice--success {
-  border-left-color: rgb(56.7, 149.4, 56.7);
+  border-left-color: white; /* Updated URL color to white */
 }
 
 .notice--success code {
@@ -1900,13 +1900,13 @@ blockquote.notice--success {
   padding-top: 0;
 }
 .notice--danger a {
-  color: rgb(214.2, 85.5, 81.9);
+  color: white; /* Updated URL color to white */
 }
 .notice--danger a:hover {
-  color: rgb(119, 47.5, 45.5);
+  color: white; /* Updated URL color to white */
 }
 blockquote.notice--danger {
-  border-left-color: rgb(214.2, 85.5, 81.9);
+  border-left-color: white; /* Updated URL color to white */
 }
 
 .notice--danger code {
@@ -2100,12 +2100,12 @@ blockquote.notice--danger {
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
   border: 1px solid rgb(60.45, 63.45, 69.45);
   border-radius: 0;
 }
 .pagination li a:hover {
-  color: rgb(255, 63.75, 63.75);
+  color: white; /* Updated URL color to white */
 }
 .pagination li a.current, .pagination li a.current.disabled {
   color: #fff;
@@ -2137,7 +2137,7 @@ blockquote.notice--danger {
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
   border: 1px solid rgb(60.45, 63.45, 69.45);
   border-radius: 4px;
 }
@@ -2187,13 +2187,13 @@ blockquote.notice--danger {
 .greedy-nav a {
   display: block;
   margin: 0 1rem;
-  color: #eaeaea;
+  color: white; /* Updated URL color to white */
   text-decoration: none;
   -webkit-transition: none;
   transition: none;
 }
 .greedy-nav a:hover {
-  color: rgb(187.2, 187.2, 187.2);
+  color: white; /* Updated URL color to white */
 }
 .greedy-nav a.site-logo {
   margin-left: 0;
@@ -2274,7 +2274,7 @@ blockquote.notice--danger {
   font-size: 1em;
 }
 .greedy-nav .hidden-links a:hover {
-  color: rgb(187.2, 187.2, 187.2);
+  color: white; /* Updated URL color to white */
   background: rgb(25.9, 29.4, 36.4);
 }
 .greedy-nav .hidden-links:before {
@@ -2370,7 +2370,7 @@ blockquote.notice--danger {
     background-color: #fff;
   }
   .nav__list input:checked + label {
-    color: white;
+    color: white; /* Updated URL color to white */
     background-color: #333333;
   }
   .nav__list input:checked + label:before, .nav__list input:checked + label:after {
@@ -2505,13 +2505,13 @@ blockquote.notice--danger {
 .toc__menu a {
   display: block;
   padding: 0.25rem 0.75rem;
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
   font-weight: bold;
   line-height: 1.5;
   border-bottom: 1px solid rgb(80.6, 84.6, 92.6);
 }
 .toc__menu a:hover {
-  color: #eaeaea;
+  color: white; /* Updated URL color to white */
 }
 .toc__menu li ul > li a {
   padding-left: 1.25rem;
@@ -2540,7 +2540,7 @@ blockquote.notice--danger {
   margin-right: 0;
   width: 100%;
   margin-top: 3em;
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
   -webkit-animation: intro 0.3s both;
   animation: intro 0.3s both;
   -webkit-animation-delay: 0.45s;
@@ -2581,7 +2581,7 @@ blockquote.notice--danger {
 .page__footer .fab,
 .page__footer .far,
 .page__footer .fal {
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
 }
 
 .page__footer-copyright {
@@ -3487,12 +3487,12 @@ body:hover .visually-hidden button {
    Footnotes
    ========================================================================== */
 .footnote {
-  color: rgb(155.25, 161.25, 165.75);
+  color: white; /* Updated URL color to white */
   text-decoration: none;
 }
 
 .footnotes {
-  color: rgb(155.25, 161.25, 165.75);
+  color: white; /* Updated URL color to white */
 }
 .footnotes ol,
 .footnotes li,
@@ -3899,7 +3899,7 @@ body {
    ========================================================================== */
 .page__meta, .comment__date {
   margin-top: 2em;
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
   font-size: 0.75em;
 }
@@ -3943,7 +3943,7 @@ body {
 }
 .page__taxonomy-item:hover {
   text-decoration: none;
-  color: rgb(255, 63.75, 63.75);
+  color: white; /* Updated URL color to white */
 }
 
 .taxonomy__section {
@@ -3966,11 +3966,11 @@ body {
 
 .taxonomy__title {
   margin-bottom: 0.5em;
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
 }
 
 .taxonomy__count {
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
 }
 
 .taxonomy__index {
@@ -4003,7 +4003,7 @@ body {
 .back-to-top {
   display: block;
   clear: both;
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
   font-size: 0.6em;
   text-transform: uppercase;
   text-align: right;
@@ -4205,7 +4205,7 @@ body {
   margin: 1.414em 0 0.5em;
   padding-bottom: 0.5em;
   font-size: 1em;
-  color: rgb(238.2, 238.2, 238.2);
+  color: white; /* Updated URL color to white */
   border-bottom: 1px solid rgb(80.6, 84.6, 92.6);
 }
 .archive__subtitle + .list__item .archive__item-title {

@@ -48,7 +48,7 @@ body {
   }
   
   .social-icons a {
-    color: #ccc;
+    color: white; /* Updated URL color to white */
     margin: 0 0.5rem;
     font-size: 1.2rem;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -74,7 +74,7 @@ body {
   }
 
   .recent-posts ul li a {
-    color: teal; /* Changed post URL color to teal */
+    color: white; /* Updated URL color to white */
     text-decoration: none;
     transition: color 0.3s ease;
   }
@@ -85,7 +85,7 @@ body {
   }
 
   .recent-posts ul li a[href*='Dummy'] {
-    color: teal; /* Changed color for dummy post URLs */
+    color: white; /* Updated URL color to white */
     text-decoration: none;
     transition: color 0.3s ease;
   }
@@ -95,7 +95,7 @@ body {
   }
 
   a {
-    color: white; /* Updated font color to white */
+    color: white; /* Updated URL color to white */
     text-decoration: none;
     transition: color 0.3s ease;
   }
@@ -185,7 +185,7 @@ body {
   }
 
   .top-nav .nav-links li a {
-    color: #333;
+    color: white; /* Updated URL color to white */
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s;
