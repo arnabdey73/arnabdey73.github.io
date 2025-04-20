@@ -13,6 +13,7 @@ body {
   
   .sidebar {
     background-color: #3E2723;
+    gap: 1rem;
     padding: 2rem;
     width: 300px;
     box-shadow: 2px 0 5px rgba(61, 50, 50, 0.4);
