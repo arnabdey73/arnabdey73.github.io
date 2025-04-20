@@ -34,7 +34,16 @@ layout: default
     </ul>
 </section>
 
+<!-- 
 <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li><a href="https://github.com/arnabdey73/devops-python-automation-project">Cloud Infrastructure Automation</a></li>
+        <li><a href="https://github.com/arnabdey73/personal-expense-tracker">Personal Expense Tracker(PCEP)</a></li>
+        <li><a href="https://github.com/arnabdey73/triforce-first">Triforce Implementation</a></li>
+    </ul>
+</section>
+-->
     <h2>Projects</h2>
     <ul>
         <li><a href="https://github.com/arnabdey73/devops-python-automation-project">Cloud Infrastructure Automation</a></li>
