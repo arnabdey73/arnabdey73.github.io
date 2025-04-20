@@ -49,20 +49,6 @@ layout: default
     <p>LinkedIn: <a href="https://linkedin.com/in/arnabdey73">linkedin.com/in/arnabdey73</a></p>
 </section>
 
-<section id="resume">
-    <h2>Resume</h2>
-    <p>
-        <a href="https://github.com/arnabdey73/resume/raw/master/Arnab-Dey-Cloud-DevOps-Engineer.pdf" 
-           download="Arnab-Dey-Cloud-DevOps-Engineer.pdf"
-           target="_blank" 
-           rel="noopener noreferrer">
-            Download My Resume (PDF)
-        </a>
-    </p>
-</section>
-
-
-
 <footer>
     <p>&copy; 2025 Arnab Dey. All rights reserved.</p>
 </footer>
