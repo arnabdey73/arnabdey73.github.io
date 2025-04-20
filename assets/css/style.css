@@ -203,9 +203,20 @@ body {
     text-align: center;
     margin: 0 auto;
   }
-
-  /* Center-align the footer */
-  footer {
-      text-align: center;
+  .site-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #aaa;
   }
+
+  .site-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  
 
