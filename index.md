@@ -1,16 +1,18 @@
 ---
 layout: default
-#title: "My Portfolio"
+banner: "assets/img/cover-image.png"
 ---
 <header style="text-align: center; position: relative;">
   <img src="assets/img/devops_image.png" alt="My Portfolio Cover Image" class="content" />
   <div class="caption">My Portfolio Cover Image</div>
 </header>
 
+<!--
 <header>
     <h1>Arnab Dey</h1>
     <p>Cloud & DevOps Engineer | Freelancer | Open Source Contributor</p>
 </header>
+-->
 
 <section id="about">
     <h2>About Me</h2>
@@ -50,6 +52,7 @@ layout: default
         <li><a href="https://github.com/arnabdey73/triforce-first">Triforce Implementation</a></li>
     </ul>
 </section> 
+
 -->
 
 <footer>

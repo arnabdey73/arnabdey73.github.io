@@ -1,3 +1,8 @@
+---
+layout: default
+banner: "assets/img/cover-image.png"
+---
+
 ## Projects
 
 ### Cloud Engineer – Stena Metall AB *(August 2024 - January 2025)*

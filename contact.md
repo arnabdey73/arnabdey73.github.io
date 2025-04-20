@@ -1,3 +1,8 @@
+---
+layout: default
+banner: "assets/img/cover-image.png"
+---
+
 ## Contact
 
 📍 Göteborg, Sweden  
