@@ -1,10 +1,27 @@
+<style>
+  .nav-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 10px;
+    background-color: #0078D4; /* Azure blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-button:hover {
+    background-color: #005A9E; /* Darker Azure blue */
+  }
+</style>
+
 <nav>
   <ul style="display: flex; list-style: none; padding: 0; margin: 0; justify-content: flex-end;">
-    <li style="margin-right: 15px;"><a href="/">Home</a></li>
-    <li style="margin-right: 15px;"><a href="/about">About</a></li>
-    <li style="margin-right: 15px;"><a href="/projects">Projects</a></li>
-    <li style="margin-right: 15px;"><a href="/certifications">Certifications</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li style="margin-left: 10px;"></li> <!-- Added space after Contact -->
+    <li><a href="/" class="nav-button">Home</a></li>
+    <li><a href="/about" class="nav-button">About</a></li>
+    <li><a href="/projects" class="nav-button">Projects</a></li>
+    <li><a href="/certifications" class="nav-button">Certifications</a></li>
+    <li><a href="/contact" class="nav-button">Contact</a></li>
   </ul>
 </nav>
