@@ -219,4 +219,20 @@ body {
     flex-direction: column;
   }
   
+  .main-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .banner-img {
+    width: 100%;
+    max-width: 1600px; /* you can customize this max size */
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+  
 
