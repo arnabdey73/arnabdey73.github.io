@@ -7,5 +7,5 @@ permalink: /projects/
 
 | Project | Description | GitHub |
 |--------|-------------|--------|
-| DevOps Automation | Python scripts for Azure IaC | [Link](https://github.com/arnabdey73/devops-python-automation-project) |
-| Portfolio Website | My personal site built with Jekyll | [Link](https://github.com/arnabdey73/arnabdey73.github.io) |
+| **DevOps Automation** <br> <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoftazure&logoColor=white"> <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white"> | Python scripts for fully automating Azure infrastructure with Terraform. <br> Includes CI/CD setup & monitoring. | [🔗 View on GitHub](https://github.com/arnabdey73/devops-python-automation-project) |
+| **Personal Portfolio** <br> <img src="https://img.shields.io/badge/Jekyll-BB2499?style=for-the-badge&logo=jekyll&logoColor=white"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> | Built this clean and responsive personal portfolio using Jekyll and GitHub Pages. | [🔗 GitHub Repo](https://github.com/arnabdey73/arnabdey73.github.io) |
