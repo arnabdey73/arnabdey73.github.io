@@ -238,28 +238,3 @@ body {
     display: block;
     border-radius: 6px;
   }
-
-  .project-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  @media (min-width: 768px) {
-    .project-list {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .project-card {
-    background: #111;
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  .badge-icon {
-    height: 20px;
-    margin-right: 5px;
-    vertical-align: middle;
-  }
-
