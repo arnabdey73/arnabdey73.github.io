@@ -184,6 +184,10 @@ body {
     padding: 0;
   }
 
+  .top-nav .nav-links li {
+    margin-right: 15px; /* Add spacing between navigation buttons */
+  }
+
   .top-nav .nav-links li a {
     color: white; /* Updated URL color to white */
     text-decoration: none;
@@ -234,5 +238,5 @@ body {
     display: block;
     border-radius: 6px;
   }
-  
+
 
