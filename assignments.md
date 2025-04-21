@@ -6,7 +6,6 @@ permalink: /assignments/
 
 # Assignments
 
-This page will list all your assignments.
 
 ### Cloud Engineer – Stena Metall AB *(August 2024 - January 2025)*
 - Upgraded the Cloud Adoption Framework (v5.2.1 to v6.0.0), improving compliance with Azure Governance standards.

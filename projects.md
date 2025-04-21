@@ -5,4 +5,7 @@ permalink: /projects/
 
 # Projects
 
-This page will showcase your GitHub projects. Add your project details here.
+| Project | Description | GitHub |
+|--------|-------------|--------|
+| DevOps Automation | Python scripts for Azure IaC | [Link](https://github.com/arnabdey73/devops-python-automation-project) |
+| Portfolio Website | My personal site built with Jekyll | [Link](https://github.com/arnabdey73/arnabdey73.github.io) |
