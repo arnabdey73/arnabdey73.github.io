@@ -31,18 +31,34 @@ permalink: /projects/
     margin-bottom: 10px;
   }
 
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
   .badge-icon {
     height: 20px;
-    margin-right: 5px;
-    margin-top: 10px;
     vertical-align: middle;
   }
 
-  .github-link {
+  .github-button {
     display: inline-block;
-    margin-top: 10px;
-    color: #1da1f2;
+    margin-top: 15px;
+    padding: 6px 14px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
     text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .github-button:hover {
+    background-color: #0d8ddb;
   }
 </style>
 
@@ -51,13 +67,12 @@ permalink: /projects/
   <div class="project-card">
     <h3>DevOps Automation</h3>
     <p>Automated Azure infrastructure deployment using Python, Terraform, and GitHub Actions.</p>
-    <a class="github-link" href="https://github.com/arnabdey73/devops-automation" target="_blank">🔗 GitHub Repo</a><br>
-    <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
-    <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge" />
-    <img class="badge-icon" src="https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
-    <img class="badge-icon" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white" alt="GitHub Actions Badge" />
+    <a class="github-button" href="https://github.com/arnabdey73/devops-automation" target="_blank">🔗 View on GitHub</a>
+    <div class="badge-row">
+      <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/Microsoft_Azure-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white" alt="GitHub Actions Badge" />
+    </div>
   </div>
-
-  <!-- You can replicate this block for each project -->
 </div>
-
