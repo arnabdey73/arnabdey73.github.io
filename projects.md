@@ -93,4 +93,9 @@ permalink: /projects/
     height: 16px; /* Reduced height to prevent stretching */
     width: auto; /* Maintain aspect ratio */
   }
+
+  .badge-icon[src*="Azure"], .badge-icon[src*="GitHub_Actions"] {
+    height: 16px; /* Match the height of Python and Terraform badges */
+    width: auto; /* Maintain aspect ratio */
+  }
 </style>
