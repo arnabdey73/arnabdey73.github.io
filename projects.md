@@ -79,7 +79,8 @@ permalink: /projects/
   }
 
   .github-button img {
-    height: 24px;
+    height: 32px; /* Increased size for better visibility */
+    width: auto; /* Maintain aspect ratio */
     vertical-align: middle;
   }
 
