@@ -61,8 +61,8 @@ permalink: /projects/
   }
 
   .github-button {
-    display: inline-block;
-    margin-top: 15px;
+    display: block; /* Ensure the button appears below the badges */
+    margin-top: 10px; /* Add spacing between badges and button */
     padding: 6px 14px;
     background-color: #1da1f2;
     color: white;
@@ -87,5 +87,10 @@ permalink: /projects/
   .badge-icon[src*="Azure"] {
     background-color: white;
     border-radius: 3px;
+  }
+
+  .badge-icon[src*="Python"], .badge-icon[src*="Terraform"] {
+    height: 16px; /* Reduced height to prevent stretching */
+    width: auto; /* Maintain aspect ratio */
   }
 </style>
