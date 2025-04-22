@@ -20,6 +20,21 @@ permalink: /projects/
       <img class="badge-icon" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
     </a>
   </div>
+
+  <!-- Project 2 -->
+  <div class="project-card">
+    <h3>Portfolio Website</h3>
+    <p>Personal portfolio website showcasing projects, certifications, and contact information, built with Jekyll and Tailwind CSS.</p>
+    <div class="badge-row">
+      <img class="badge-icon" src="https://img.shields.io/badge/Jekyll-CC0000?style=flat&logo=jekyll&logoColor=white" alt="Jekyll Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white" alt="Tailwind CSS Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5 Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3 Badge" />
+    </div>
+    <a class="github-button" href="https://github.com/arnabdey73/portfolio-website" target="_blank">
+      <img class="badge-icon" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
+    </a>
+  </div>
 </div>
 
 <style>
