@@ -211,7 +211,7 @@ body {
     align-items: center;
     text-align: center;
     margin: 0 auto;
-    margin-top: 50px; /* Adjusted to reduce spacing */
+    margin-top: 20px; /* Reduced spacing from 50px to 20px */
   }
   .site-footer {
     text-align: center;
