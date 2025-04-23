@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Contact
+<!-- Disable heading -->
 
 <div class="contact-card">
   <h3>Contact Details</h3>
