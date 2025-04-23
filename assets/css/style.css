@@ -21,6 +21,11 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
+  /* Ensure sidebar styles do not affect the homepage */
+  body.home .sidebar {
+    display: none;
+  }
   
   .profile-pic {
     width: 200px;

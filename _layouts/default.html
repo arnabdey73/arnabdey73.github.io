@@ -33,7 +33,10 @@ layout: default
 
   <div class="container">
     <aside class="sidebar">
-      {%- include sidebar.html -%}
+      <!-- Sidebar content removed for homepage -->
+      {% if page.layout != 'home' %}
+        {%- include sidebar.html -%}
+      {% endif %}
     </aside>
 
     <main class="content">
