@@ -1,55 +1,58 @@
 ---
 layout: default
 ---
+
 <header class="main-banner">
-  <img src="assets/img/banner.png" alt="My Portfolio Banner" alt="Banner" style="width:100%; height:auto;" class="content" />
-  <!--<div class="caption">My Portfolio Cover Image</div>-->
+  <img src="assets/img/banner.png" alt="My Portfolio Banner" class="banner-img" />
 </header>
 
-<!--
-<header>
-    <h1>Arnab Dey</h1>
-    <p>Cloud & DevOps Engineer | Freelancer | Open Source Contributor</p>
-</header>
--->
-
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        An accomplished Senior Cloud DevOps Engineer with 8+ years of experience in public cloud environments (14+ years in IT). Proven expertise in optimizing CI/CD pipelines for high-quality deployments on public and hybrid cloud platforms. Strong problem solver with a focus on performance monitoring, cloud security, and promoting DevOps best practices.
-        <li>Skilled in Azure DevOps, Jenkins, Kubernetes, Docker, GitHub, GitHub Actions, Ansible, and Terraform.</li>
-        <li>Proficient in scripting with Bash, Python, and PowerShell for automated infrastructure management.</li>
-        <li>Experienced in the SAFe framework and Product Owner roles, aligning product vision with stakeholder needs.</li>
-    </p>
+<section id="capabilities" class="grid four-column">
+  <div class="capability">
+    <img src="assets/icons/automation.svg" alt="Automation">
+    <h4>Infrastructure Automation</h4>
+    <p>Python & Terraform scripts for repeatable IaC.</p>
+  </div>
+  <div class="capability">
+    <img src="assets/icons/cloud.svg" alt="Cloud">
+    <h4>Azure Cloud Architecture</h4>
+    <p>Design and deploy scalable Azure solutions.</p>
+  </div>
+  <div class="capability">
+    <img src="assets/icons/cicd.svg" alt="CI/CD">
+    <h4>CI/CD Pipelines</h4>
+    <p>GitHub Actions, Azure DevOps, Kubernetes.</p>
+  </div>
+  <div class="capability">
+    <img src="assets/icons/monitoring.svg" alt="Monitoring">
+    <h4>Observability</h4>
+    <p>Prometheus, Grafana, and alerting strategies.</p>
+  </div>
 </section>
 
-<section id="skills">
-    <h2>Skills & Expertise</h2>
-    <ul>
-        <li>Cloud Platforms: Azure, AWS, OpenStack</li>
-        <li>CI/CD Tools: Azure DevOps, Jenkins, GitLab CI, GitHub Actions</li>
-        <li>Orchestration & Containerization: Kubernetes, Docker, Rancher</li>
-        <li>Configuration Management: Ansible</li>
-        <li>Scripting Languages: Bash, Python, PowerShell</li>
-        <li>Monitoring & Logging: Prometheus, Grafana, Azure Monitor, ELK Stack (Elasticsearch, Logstash, Kibana)</li>
-    </ul>
+<section id="testimonials">
+  <blockquote>
+    “Arnab’s automation scripts saved us 10+ hours weekly—robust, reliable, and well‑documented.”  
+    <cite>— Jane Doe, CTO at TechCorp</cite>
+  </blockquote>
 </section>
 
-<!--
-<section id="projects">
-    <h2>Projects</h2>
-    <ul>
-        <li><a href="https://github.com/arnabdey73/devops-python-automation-project">Cloud Infrastructure Automation</a></li>
-        <li><a href="https://github.com/arnabdey73/personal-expense-tracker">Personal Expense Tracker(PCEP)</a></li>
-        <li><a href="https://github.com/arnabdey73/triforce-first">Triforce Implementation</a></li>
-    </ul>
+<section id="tech-stack" class="icon-cloud">
+  <img src="assets/icons/python.svg" alt="Python" />
+  <img src="assets/icons/terraform.svg" alt="Terraform" />
+  <img src="assets/icons/azure.svg" alt="Azure" />
+  <img src="assets/icons/docker.svg" alt="Docker" />
+  <img src="assets/icons/kubernetes.svg" alt="Kubernetes" />
+  <!-- add more as needed -->
 </section>
-    <h2>Projects</h2>
-    <ul>
-        <li><a href="https://github.com/arnabdey73/devops-python-automation-project">Cloud Infrastructure Automation</a></li>
-        <li><a href="https://github.com/arnabdey73/personal-expense-tracker">Personal Expense Tracker(PCEP)</a></li>
-        <li><a href="https://github.com/arnabdey73/triforce-first">Triforce Implementation</a></li>
-    </ul>
-</section> 
 
--->
+<section id="insights">
+  <h2>Insights</h2>
+  <ul>
+    <li><a href="/blog/devops-automation-guide">DevOps Automation Guide →</a></li>
+    <li><a href="/blog/azure-cost-optimization">Azure Cost Optimization Tips →</a></li>
+  </ul>
+</section>
+
+<section id="cta-footer" class="center">
+  <p>Ready to streamline your cloud operations? <a href="/#contact">Let’s chat →</a></p>
+</section>
