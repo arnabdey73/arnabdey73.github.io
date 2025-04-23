@@ -4,7 +4,7 @@ layout: default
 
 <!-- Disable heading -->
 
-<div class="contact-card">
+<div class="card">
   <h3>Contact Details</h3>
   <p>📍 Göteborg, Sweden</p>
   <p>📞 <a href="tel:+460764516092">(+46) 0764516092</a></p>
@@ -14,7 +14,7 @@ layout: default
 </div>
 
 <style>
-  .contact-card {
+  .card {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
@@ -24,21 +24,21 @@ layout: default
     margin: 20px auto;
     text-align: center;
   }
-  .contact-card h3 {
+  .card h3 {
     margin-bottom: 12px;
     font-size: 1.5rem;
     color: #333;
   }
-  .contact-card p {
+  .card p {
     margin: 8px 0;
     font-size: 1rem;
     color: #555;
   }
-  .contact-card a {
+  .card a {
     color: #007BFF;
     text-decoration: none;
   }
-  .contact-card a:hover {
+  .card a:hover {
     text-decoration: underline;
   }
 </style>
