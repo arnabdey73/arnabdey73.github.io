@@ -22,6 +22,7 @@ layout: default
   .certification-card h3 {
     margin-top: 0;
     margin-bottom: 10px;
+    color: #fff; /* Ensure the heading text is visible */
   }
 
   .certification-card img {

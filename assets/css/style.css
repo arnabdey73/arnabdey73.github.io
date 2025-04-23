@@ -268,3 +268,9 @@ body {
   .nav-button:hover {
     background-color: #005A9E;
   }
+
+  .page__title {
+    color: #000; /* Ensure the title text is visible */
+    font-size: 2rem; /* Adjust font size for better visibility */
+    margin-bottom: 20px; /* Add spacing below the title */
+  }
