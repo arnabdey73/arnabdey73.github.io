@@ -2,7 +2,8 @@
 layout: default
 ---
 
-<!-- Disable heading -->
+<!-- Reverting the heading and making it center aligned -->
+<h1 style="text-align: center;">Contact</h1>
 
 <div class="card">
   <h3>Contact Details</h3>
