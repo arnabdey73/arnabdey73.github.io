@@ -1,19 +1,12 @@
----
-layout: default
----
+# My Portfolio
 
-<header class="main-banner">
-  <img src="assets/img/banner.png" alt="My Portfolio Banner" class="banner-img" />
-</header>
+![My Portfolio Banner](assets/img/banner.png)
 
-<section id="insights">
-  <h2>Insights</h2>
-  <ul>
-    <li><a href="https://codemyinfra.hashnode.dev/devops-python-automation-azure-kubernetes">DevOps Automation Guide →</a></li>
-    <li><a href="/blog/azure-cost-optimization">Azure Cost Optimization Tips →</a></li>
-  </ul>
-</section>
+## Insights
 
-<section id="cta-footer" class="center">
-  <p>Ready to streamline your cloud operations? <a href="/contact">Let’s chat →</a></p>
-</section>
+- [DevOps Automation Guide →](https://codemyinfra.hashnode.dev/devops-python-automation-azure-kubernetes)
+- [Azure Cost Optimization Tips →](/blog/azure-cost-optimization)
+
+## Ready to streamline your cloud operations?
+
+[Let’s chat →](/contact)

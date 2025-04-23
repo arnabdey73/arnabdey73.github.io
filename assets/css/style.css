@@ -238,3 +238,21 @@ body {
     display: block;
     border-radius: 6px;
   }
+
+  /* Moved styles from inline to external CSS */
+  .nav-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: #0078D4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-button:hover {
+    background-color: #005A9E;
+  }
