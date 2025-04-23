@@ -33,14 +33,15 @@ layout: default
 
   <div class="container">
     <aside class="sidebar">
-      <!-- Sidebar content removed for homepage -->
-      {% if page.layout != 'home' %}
-        {%- include sidebar.html -%}
-      {% endif %}
+      <!-- Reverting sidebar content -->
+      {%- include sidebar.html -%}
     </aside>
 
     <main class="content">
-      {{ content }}
+      <!-- Removing content between top nav buttons and the banner -->
+      {% if page.layout != 'home' %}
+        {{ content }}
+      {% endif %}
     </main>
   </div>
 
