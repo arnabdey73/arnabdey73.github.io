@@ -71,7 +71,8 @@ permalink: /projects/
   }
 
   .badge-icon {
-    height: 20px;
+    height: 16px; /* Standardized height for all badges */
+    width: auto; /* Maintain aspect ratio */
     vertical-align: middle;
   }
 
@@ -102,15 +103,5 @@ permalink: /projects/
   .badge-icon[src*="Azure"] {
     background-color: white;
     border-radius: 3px;
-  }
-
-  .badge-icon[src*="Python"], .badge-icon[src*="Terraform"] {
-    height: 16px; /* Reduced height to prevent stretching */
-    width: auto; /* Maintain aspect ratio */
-  }
-
-  .badge-icon[src*="Azure"], .badge-icon[src*="GitHub_Actions"] {
-    height: 16px; /* Match the height of Python and Terraform badges */
-    width: auto; /* Maintain aspect ratio */
   }
 </style>
