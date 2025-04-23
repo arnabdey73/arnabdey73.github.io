@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## About Me
+# About Me
 
 An accomplished Senior Cloud DevOps Engineer with 8+ years of experience in public cloud environments (14+ years in IT). Proven expertise in optimizing CI/CD pipelines for high-quality deployments on public and hybrid cloud platforms. Strong problem solver with a focus on performance monitoring, cloud security, and promoting DevOps best practices.
 
