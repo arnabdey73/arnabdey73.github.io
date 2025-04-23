@@ -75,7 +75,7 @@ body {
     max-width: 900px;
     margin: auto;
     text-align: justify;
-    margin-top: 60px; /* Adjust for fixed top navigation */
+    margin-top: 100px; /* Increased from 60px */
   }
 
   .recent-posts ul li a {
@@ -190,7 +190,7 @@ body {
   }
 
   .top-nav .nav-links li {
-    margin-right: 15px; /* Add spacing between navigation buttons */
+    margin-right: 25px; /* Increased from 15px */
   }
 
   .top-nav .nav-links li a {
