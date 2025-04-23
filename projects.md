@@ -13,7 +13,7 @@ permalink: /projects/
     <div class="badge-row">
       <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
       <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge" />
-      <img class="badge-icon" src="https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/Azure-Cloud%20Services-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
       <img class="badge-icon" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white" alt="GitHub Actions Badge" />
     </div>
     <a class="github-button" href="https://github.com/arnabdey73/devops-python-automation-project" target="_blank">
