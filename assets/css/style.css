@@ -213,6 +213,11 @@ body {
     margin: 0 auto;
     margin-top: 20px; /* Reduced spacing from 50px to 20px */
   }
+
+  body:not(.home) .banner {
+    margin-top: 20px; /* Reduced spacing for non-home pages */
+  }
+
   .site-footer {
     text-align: center;
     margin-top: 2rem;
