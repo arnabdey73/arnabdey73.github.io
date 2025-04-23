@@ -4,6 +4,9 @@ description: "Cloud Engineer with 14+ years of IT experience, specializing in De
 remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
+# Updated paths for assets and content
+assets_dir: assets
+content_dir: content
 
 # Navigation Links
 header_pages:

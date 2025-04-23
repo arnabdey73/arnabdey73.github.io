@@ -3,3 +3,6 @@ node_modules/
 
 # Ignore package-lock.json if not needed
 package-lock.json
+
+# Ignore macOS system files
+.DS*
