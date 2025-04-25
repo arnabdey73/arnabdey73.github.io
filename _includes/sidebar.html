@@ -33,12 +33,35 @@
   .profile-pic-container:hover .profile-pic.back {
     transform: rotateY(0deg); /* Flip back side to front */
   }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+    list-style: none;
+    padding: 0;
+  }
+
+  .social-icons li {
+    display: inline-block;
+  }
+
+  .social-icons a {
+    color: #fff;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    color: #1da1f2; /* Highlight color on hover */
+  }
 </style>
 
 <div class="sidebar">
   <div class="profile-pic-container">
     <img src="/assets/img/avatar.jpg" alt="Profile Picture" class="profile-pic front">
-    <img src="/assets/img/img.png" alt="Alternate Picture" class="profile-pic back">
+    <img src="/assets/img/img.jpg" alt="Alternate Picture" class="profile-pic back">
   </div>
   <h2 class="name">Arnab Dey</h2>
   <p style="font-size: 0.9em; font-style: italic; text-align: center;">
