@@ -206,12 +206,9 @@ body {
 
   /* Center-align the banner in the body */
   .banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 20px; /* Reduced spacing from 50px to 20px */
+    width: calc(100% - 40px); /* Adjust width to match nav buttons */
+    max-width: 1200px; /* Optional: Set a max width for better responsiveness */
+    margin: 0 auto; /* Center the banner */
   }
 
   body:not(.home) .banner {
