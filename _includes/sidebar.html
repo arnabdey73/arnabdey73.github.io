@@ -1,15 +1,45 @@
 <style>
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Add spacing between icons */
-    list-style: none; /* Remove dots around icons */
-    padding: 0; /* Remove default padding */
+  .profile-pic-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    perspective: 1000px; /* Enable 3D space for the flip effect */
+  }
+
+  .profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden; /* Hide the back side when not visible */
+    transition: transform 0.6s ease; /* Smooth flip animation */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .profile-pic.front {
+    transform: rotateY(0deg); /* Front side visible by default */
+  }
+
+  .profile-pic.back {
+    transform: rotateY(180deg); /* Back side hidden by default */
+  }
+
+  .profile-pic-container:hover .profile-pic.front {
+    transform: rotateY(-180deg); /* Flip front side to back */
+  }
+
+  .profile-pic-container:hover .profile-pic.back {
+    transform: rotateY(0deg); /* Flip back side to front */
   }
 </style>
 
 <div class="sidebar">
-  <img src="/assets/img/avatar.jpg" alt="Profile Picture" class="profile-pic">
+  <div class="profile-pic-container">
+    <img src="/assets/img/avatar.jpg" alt="Profile Picture" class="profile-pic front">
+    <img src="/assets/img/img.png" alt="Alternate Picture" class="profile-pic back">
+  </div>
   <h2 class="name">Arnab Dey</h2>
   <p style="font-size: 0.9em; font-style: italic; text-align: center;">
     Cloud & DevOps Engineer<br>Open Source Contributor
