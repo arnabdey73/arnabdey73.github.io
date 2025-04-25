@@ -56,6 +56,12 @@ permalink: /projects/
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for hover effect */
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Enhanced shadow on hover */
   }
 
   .project-card h3 {
