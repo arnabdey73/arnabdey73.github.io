@@ -12,11 +12,17 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Arnab Dey | Cloud & DevOps Engineer">
 <meta property="og:title" content="Home">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:url" content="https://arnabdey73.github.io/">
 
 
   <meta property="og:description" content="Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure. Passionate about automation, infrastructure as code, and cloud-native solutions.">
 
+<!-- Added Open Graph and Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arnab Dey | Cloud & DevOps Engineer">
+<meta name="twitter:description" content="Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure.">
+<meta name="twitter:image" content="https://arnabdey73.github.io/assets/img/banner.png">
+<meta property="og:image" content="https://arnabdey73.github.io/assets/img/banner.png">
 
 
 
@@ -28,7 +34,8 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/">
+
+<link rel="canonical" href="https://arnabdey73.github.io/">
 
 
 
@@ -38,8 +45,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-    "name": null,
-    "url": "http://localhost:4000/"
+  "name": "Arnab Dey",
+  "url": "https://arnabdey73.github.io/",
+  "sameAs": [
+    "https://github.com/arnabdey73",
+    "https://linkedin.com/in/arnabdey73"
+  ]
 }
 </script>
 
@@ -121,12 +132,20 @@
       <header>
 </header>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">About</li>
+  </ol>
+</nav>
+
 <section id="about">
-    <h2>About Me</h2>
-    <p>
-        I am a Cloud &amp; DevOps Engineer with 14 years of experience, specializing in CI/CD, automation, and cloud infrastructure. 
-        I help teams streamline deployment workflows and optimize cloud resources.
-    </p>
+  <h2>About Me</h2>
+  <p>
+    I am a Cloud &amp; DevOps Engineer with 14 years of experience, specializing in CI/CD, automation, and cloud infrastructure. 
+    I help teams streamline deployment workflows and optimize cloud resources.
+  </p>
+  <p>Learn more about my <a href="/projects">Projects</a> and <a href="/certifications">Certifications</a>.</p>
 </section>
 
 <section id="skills">
@@ -147,6 +166,12 @@
         <li><a href="https://github.com/arnabdey73/project2">Project 2 - Kubernetes Deployment Pipeline</a></li>
         <li><a href="https://github.com/arnabdey73/project3">Project 3 - DevSecOps Implementation</a></li>
     </ul>
+</section>
+
+<!-- Added a placeholder for the blog section -->
+<section id="blog">
+  <h2>Blog</h2>
+  <p>Coming soon! Stay tuned for articles on DevOps, cloud engineering, and automation.</p>
 </section>
 
 <section id="contact">
@@ -190,13 +215,34 @@
     
   <script src="/assets/js/main.min.js"></script>
 
-
-
-
-
-
-
-
+<!-- Added structured data for projects -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Projects",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "url": "https://github.com/arnabdey73/project1",
+      "name": "Project 1 - Cloud Infrastructure Automation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "https://github.com/arnabdey73/project2",
+      "name": "Project 2 - Kubernetes Deployment Pipeline"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "url": "https://github.com/arnabdey73/project3",
+      "name": "Project 3 - DevSecOps Implementation"
+    }
+  ]
+}
+</script>
 
   </body>
 </html>
