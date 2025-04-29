@@ -76,7 +76,7 @@ permalink: /projects/
   }
 
   .badge-icon {
-    height: 16px; /* Standardized height for all badges */
+    height: 12px; /* Reduced height for all badges */
     width: auto; /* Maintain aspect ratio */
     vertical-align: middle;
   }
@@ -100,7 +100,7 @@ permalink: /projects/
   }
 
   .github-button img {
-    height: 32px; /* Increased size for better visibility */
+    height: 24px; /* Reduced size for better alignment */
     width: auto; /* Maintain aspect ratio */
     vertical-align: middle;
   }
