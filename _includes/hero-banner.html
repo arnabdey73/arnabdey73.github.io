@@ -15,18 +15,18 @@
   text-align: center;
   color: white;
   aspect-ratio: 4 / 1;
-  overflow: scroll;
+  overflow: hidden; /* Prevent unnecessary scrolling */
 }
 .hero-banner-img {
-  width: 100%;
-  height: auto;
+  width: 100vw; /* Stretch to full screen width */
+  height: 100vh; /* Stretch to full screen height */
   opacity: 0.8;
   object-fit: cover;
 }
 .hero-banner-content {
-  position: sticky; /* Makes the text sticky */
-  top: 50%; /* Keeps it vertically centered */
-  left: 50%; /* Keeps it horizontally centered */
+  position: absolute; /* Ensure proper positioning */
+  top: 50%; /* Vertically center */
+  left: 50%; /* Horizontally center */
   transform: translate(-50%, -50%);
   padding: 20px; /* Added padding around the text */
   box-sizing: border-box; /* Ensures padding doesn't affect positioning */
