@@ -3,7 +3,6 @@ layout: default
 title: Projects
 permalink: /projects/
 ---
-
 <div class="project-list">
   <!-- Project 1 -->
   <div class="project-card">

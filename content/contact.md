@@ -2,7 +2,6 @@
 layout: default
 title: Contact
 ---
-
 <div class="card">
   <h3>Contact Details</h3>
   <p>📍 Göteborg, Sweden</p>

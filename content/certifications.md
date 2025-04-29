@@ -2,7 +2,6 @@
 layout: default
 title: Certifications
 ---
-
 <div class="certification-card project-card">
   <h3>Microsoft Certified: Azure Fundamentals</h3>
   <p>Issued March 2023</p>

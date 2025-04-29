@@ -267,3 +267,16 @@ body {
     font-size: 2rem; /* Adjust font size for better visibility */
     margin-bottom: 20px; /* Add spacing below the title */
   }
+
+  /* Adjust spacing for hero banner and text body */
+.hero-banner {
+  margin-bottom: 0; /* Remove extra spacing below the banner */
+}
+
+.container {
+  margin-top: 0; /* Remove extra spacing above the container */
+}
+
+.main {
+  padding-top: 10px; /* Add minimal padding for better alignment */
+}
