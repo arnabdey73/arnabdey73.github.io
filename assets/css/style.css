@@ -267,10 +267,10 @@ body {
     font-size: 1.6rem; /* Further reduced from 1.8rem */
     margin-bottom: 20px; /* Add spacing below the title */
   }
-  .page-content {
+  .page-content, .main-content, main {
     max-width: 900px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
   .page-content h2 {
     padding-top: 0;
@@ -280,8 +280,13 @@ body {
   #recent-posts {
     margin-top: 0;
   }
-    
 
+  @media (max-width: 768px) {
+    .page-content, .main-content, main {
+      padding: 1rem;
+    }
+  }
+    
   /* Adjust spacing for hero banner and text body */
 .hero-banner {
   margin-bottom: 0; /* Remove extra spacing below the banner */
