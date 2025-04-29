@@ -1,9 +1,10 @@
 ---
+layout: default
 title: Projects
 permalink: /projects/
 ---
 
-# Projects
+<!--# Projects-->
 
 <div class="project-list">
   <!-- Project 1 -->

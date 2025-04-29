@@ -1,8 +1,10 @@
 ---
 layout: default
+title: Certifications
+permalink: /certifications/
 ---
 
-# Certifications
+<!--# Certifications-->
 
 <div class="certification-card project-card">
   <h3>Microsoft Certified: Azure Fundamentals</h3>
