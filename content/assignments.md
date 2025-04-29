@@ -26,8 +26,8 @@ permalink: /assignments/
   }
 
   .assignment-card .date {
-    font-size: calc(1em + 1vw);
-    color: #aaa;
+    font-size: calc(0.9em + 0.5vw);
+    color: #bbb;
   }
 
   .assignment-card ul {
