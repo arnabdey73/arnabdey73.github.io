@@ -216,7 +216,7 @@ button::-moz-focus-inner {
   padding: 0 0 18px 10px;
   color: #fff;
   font-style: normal;
-  font-size: 28px;
+  font-size: 22px; /* Further reduced from 24px */
   font-family: Georgia, Times, serif;
 }
 .mfp-close:hover, .mfp-close:focus {
@@ -245,7 +245,7 @@ button::-moz-focus-inner {
   top: 0;
   right: 0;
   color: #ccc;
-  font-size: 12px;
+  font-size: 8px; /* Further reduced from 10px */
   line-height: 18px;
 }
 
@@ -387,7 +387,7 @@ img.mfp-img {
 .mfp-figure small {
   color: #bdbdbd;
   display: block;
-  font-size: 12px;
+  font-size: 8px; /* Further reduced from 10px */
   line-height: 14px;
 }
 .mfp-figure figure {
@@ -643,7 +643,7 @@ a:active {
 sub,
 sup {
   position: relative;
-  font-size: 75%;
+  font-size: 70%; /* Further reduced from 75% */
   line-height: 0;
   vertical-align: baseline;
 }
@@ -679,7 +679,7 @@ input,
 select,
 textarea {
   margin: 0;
-  font-size: 100%;
+  font-size: 90%; /* Further reduced from 100% */
   vertical-align: middle;
 }
 
@@ -764,11 +764,11 @@ h6 {
 
 h1 {
   margin-top: 0;
-  font-size: 1.563em;
+  font-size: 1.2em; /* Further reduced from 1.4em */
 }
 
 h2 {
-  font-size: 1.25em;
+  font-size: 0.9em; /* Further reduced from 1.1em */
 }
 
 h3 {
@@ -2095,7 +2095,7 @@ blockquote.notice--danger {
   margin-bottom: 0.25em;
   padding: 0.5em 1em;
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 14px; /* Further reduced from 16px */
   font-weight: bold;
   line-height: 1.5;
   text-align: center;
@@ -2691,13 +2691,13 @@ blockquote.notice--danger {
   display: block;
   visibility: visible;
 }
-.search-content.is--visible::after {
+.search-content.is--visible```css
+::after {
   content: "";
   display: block;
 }
 .search-content .results__found {
-  margin-top: 0.5em;
-  font-size: 0.75em;
+  margin-top: 0.5em  font-size: 0.75em;
 }
 .search-content .archive__item {
   margin-bottom: 2em;
@@ -3498,7 +3498,7 @@ body:hover .visually-hidden button {
 .footnotes li,
 .footnotes p {
   margin-bottom: 0;
-  font-size: 0.75em;
+  font-size: 10px; /* Reduced from 12px */
 }
 
 a.reversefootnote {
@@ -3850,7 +3850,7 @@ body {
   padding: 2px 5px;
   color: #fff;
   font-family: Georgia, Times, serif;
-  font-size: 0.6875em;
+  font-size: 0.625em;
   background: #000;
   text-align: right;
   z-index: 5;

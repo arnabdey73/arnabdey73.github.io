@@ -38,7 +38,7 @@ body {
   
   .name {
     margin: 0.5rem 0 0;
-    font-size: 1.8rem;
+    font-size: 1.3rem; /* Further reduced from 1.5rem */
     /*font-weight: bold;*/
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -47,7 +47,7 @@ body {
   
   .caption {
     color: #aaa;
-    font-size: 0.95rem;
+    font-size: 0.75rem; /* Further reduced from 0.85rem */
     margin-bottom: 1rem;
     text-align: center;
   }
@@ -55,7 +55,7 @@ body {
   .social-icons a {
     color: white; /* Updated URL color to white */
     margin: 0 0.5rem;
-    font-size: 1.2rem;
+    font-size: 0.9rem; /* Further reduced from 1rem */
     transition: color 0.3s ease, transform 0.3s ease;
   }
   
@@ -148,7 +148,7 @@ body {
       color: #fff;
       padding: 5px 10px;
       border-radius: 5px;
-      font-size: 0.9rem;
+      font-size: 0.7rem; /* Further reduced from 0.8rem */
       text-align: center;
   }
 
@@ -196,7 +196,7 @@ body {
   .top-nav .nav-links li a {
     color: white; /* Updated URL color to white */
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.7rem; /* Further reduced from 0.8rem */
     transition: color 0.3s;
   }
 
@@ -219,7 +219,7 @@ body {
     text-align: center;
     margin-top: 2rem;
     padding: 1rem 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Further reduced from 0.9rem */
     color: #aaa;
   }
 
@@ -254,7 +254,7 @@ body {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 10px; /* Further reduced from 12px */
     transition: background-color 0.3s ease;
   }
 
@@ -264,7 +264,7 @@ body {
 
   .page__title {
     color: #000; /* Ensure the title text is visible */
-    font-size: 2rem; /* Adjust font size for better visibility */
+    font-size: 1.6rem; /* Further reduced from 1.8rem */
     margin-bottom: 20px; /* Add spacing below the title */
   }
 
