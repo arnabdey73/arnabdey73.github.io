@@ -13,9 +13,9 @@ title: About Me
 
 <style>
   .responsive-text {
-    font-size: calc(1em + 1vw);
-    text-align: justify;
-    max-width: 80%; /* Adjusts the width of the content */
+    font-size: calc(0.9em + 0.5vw); /* Reduced font size */
+    text-align: left; /* Left aligned text */
+    max-width: 100%; /* Wraps text to the width of the screen */
     margin: 0 auto; /* Centers the content */
   }
 </style>

@@ -196,7 +196,7 @@ body {
   .top-nav .nav-links li a {
     color: white; /* Updated URL color to white */
     text-decoration: none;
-    font-size: 0.7rem; /* Further reduced from 0.8rem */
+    font-size: 0.6rem; /* Reduced font size for top navigation buttons */
     transition: color 0.3s;
   }
 
