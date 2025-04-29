@@ -74,8 +74,7 @@ permalink: /assignments/
       <li>Monitored cloud platform patterns and anomalies using KQL and resolved incidents per SLA, achieving a 20% reduction in downtime.</li>
       <li>Managed Azure services including Logic Apps, IaaS, PaaS, and Entra ID (formerly Azure AD).</li>
     </ul>
-    ![Cloud Adoption Framework v6.0.0](https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-blue)
-  <img src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-blue" alt="Cloud Adoption Framework v6.0.0" style="width: 150px; height: auto;"> </div>
+  <img src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-blue" alt="Cloud Adoption Framework v6.0.0" style="width: 170px; height: auto;"> </div>
 
   <div class="assignment-card">
     <h3>Senior Software Engineer (DevOps) – Capgemini Sverige AB <span class="date">(September 2021 - July 2024)</span></h3>
