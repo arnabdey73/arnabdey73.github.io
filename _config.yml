@@ -10,10 +10,11 @@ content_dir: content
 
 # Navigation Links
 header_pages:
-  - content/about.md
-  - content/projects.md
-  - content/certifications.md
-  - content/contact.md
+  - about.md
+  - projects.md
+  - certifications.md
+  - contact.md
+  - assignments.md
 
 # Social Links
 social:
