@@ -89,7 +89,7 @@ permalink: /projects/
     color: white;
     border: none;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: calc(1em + 1vw);
     font-weight: 500;
     text-decoration: none;
     transition: background 0.3s ease;

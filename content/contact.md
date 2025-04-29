@@ -2,17 +2,17 @@
 layout: default
 title: Contact
 ---
-<div style="text-align: center;">
-<div class="card">
-  <h3>Contact Details</h3>
-  <p>📍 Stockholm, Sweden</p>
-  <p>📞 <a href="tel:+460764516092">(+46) 0764516092</a></p>
-  <p>📧 <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
-  <p>🔗 <a href="https://www.linkedin.com/in/arnabdey73/" target="_blank">LinkedIn</a></p>
-  <p>💻 <a href="https://github.com/arnabdey73" target="_blank">GitHub</a></p>
-</div>
-
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4; /* Optional: Add a subtle background color */
+  }
+
   .card {
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@ title: Contact
   }
   .card p {
     margin: 8px 0;
-    font-size: 1rem;
+    font-size: calc(1em + 1vw);
     color: #555;
   }
   .card a {
@@ -52,4 +52,11 @@ title: Contact
     text-decoration: underline;
   }
 </style>
+<div class="card">
+  <h3>Contact Details</h3>
+  <p>📍 Stockholm, Sweden</p>
+  <p>📞 <a href="tel:+460764516092">(+46) 0764516092</a></p>
+  <p>📧 <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
+  <p>🔗 <a href="https://www.linkedin.com/in/arnabdey73/" target="_blank">LinkedIn</a></p>
+  <p>💻 <a href="https://github.com/arnabdey73" target="_blank">GitHub</a></p>
 </div>
