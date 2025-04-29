@@ -18,10 +18,16 @@ permalink: /assignments/
     background-color: #333;
     color: #fff;
     text-align: left; /* Align text to the left */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .assignment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
   }
 
   .assignment-card h3 {
-    margin: 0 0 5px;
+    margin: 0 0 10px;
     font-size: 1.2em;
   }
 
