@@ -32,7 +32,7 @@ title: Contact
 }
 .card p {
     margin: 8px 0;
-    font-size: calc(1.2em + 1vw); /* Resized font */
+    font-size: calc(0.7em + 0.5vw); /* Resized font */
     color: #ddd; /* Changed font color to a lighter shade for readability */
 }
 .card a {
@@ -48,7 +48,7 @@ body {
     margin: 0;
     padding: 0;
     display: block; /* Changed from flex to block */
-    background-color: #f4f4f4; /* Optional: Add a subtle background color */
+    background-color:rgb(4, 0, 0); /* Optional: Add a subtle background color */
     min-height: 100vh;
 }
 </style>
