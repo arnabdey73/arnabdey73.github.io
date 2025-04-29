@@ -1,7 +1,5 @@
 # My Portfolio
 
-<!--![My Portfolio Banner](assets/img/banner.png)-->
-
 ## Insights
 
 - [DevOps Automation Guide →](https://codemyinfra.hashnode.dev/devops-python-automation-azure-kubernetes)

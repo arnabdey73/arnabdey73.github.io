@@ -51,7 +51,6 @@ assets/
     ... (all JavaScript files moved here)
   img/
     avatar.jpg
-    banner.png
     ... (all images moved here)
 content/
   about.md
