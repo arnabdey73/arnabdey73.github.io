@@ -4,8 +4,6 @@ title: Projects
 permalink: /projects/
 ---
 
-<!--# Projects-->
-
 <div class="project-list">
   <!-- Project 1 -->
   <div class="project-card">

@@ -1,6 +1,6 @@
 # My Portfolio
 
-![My Portfolio Banner](assets/img/banner.png)
+<!--![My Portfolio Banner](assets/img/banner.png)-->
 
 ## Insights
 
