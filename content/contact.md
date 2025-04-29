@@ -12,7 +12,7 @@ title: Contact
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
-    background-color: #f9f9f9;
+    background-color: #000; /* Changed background color to black */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 300px; /* Reduced width */
     margin: 20px auto;
@@ -27,13 +27,13 @@ title: Contact
 
 .card h3 {
     margin-bottom: 12px;
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 0.8rem; /* Resized font */
+    color: #fff; /* Changed font color to white for contrast */
 }
 .card p {
     margin: 8px 0;
-    font-size: calc(1em + 1vw);
-    color: #555;
+    font-size: calc(1.2em + 1vw); /* Resized font */
+    color: #ddd; /* Changed font color to a lighter shade for readability */
 }
 .card a {
     color: #007BFF;
