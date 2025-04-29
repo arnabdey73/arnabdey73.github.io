@@ -22,6 +22,7 @@ permalink: /assignments/
 
   .assignment-card h3 {
     margin: 0 0 10px;
+    font-size: 0.2em;
   }
 
   .assignment-card .date {
