@@ -2,6 +2,7 @@
 layout: default
 title: Certifications
 ---
+<div style="text-align: center;">
 <div class="certification-card project-card">
   <h3>Microsoft Certified: Azure Fundamentals</h3>
   <p>Issued March 2023</p>
@@ -10,11 +11,17 @@ title: Certifications
 
 <style>
   .certification-card {
-    background-color: #111;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    max-width: 600px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the card */
+  }
+
+  @media (max-width: 768px) {
+    .certification-card {
+      width: 90%; /* Adjust width for smaller screens */
+    }
   }
 
   .certification-card h3 {
@@ -30,3 +37,4 @@ title: Certifications
     margin-top: 10px;
   }
 </style>
+</div>

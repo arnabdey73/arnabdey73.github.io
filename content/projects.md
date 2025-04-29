@@ -3,6 +3,7 @@ layout: default
 title: Projects
 permalink: /projects/
 ---
+<div style="text-align: center;">
 <div class="project-list">
   <!-- Project 1 -->
   <div class="project-card">
@@ -37,16 +38,16 @@ permalink: /projects/
 
 <style>
   .project-list {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 30px;
     margin-top: 30px;
   }
 
-  @media (min-width: 768px) {
-    .project-list {
-      grid-template-columns: 1fr 1fr;
-    }
+  .project-card {
+    width: 100%;
+    max-width: 600px; /* Limit the width for better readability */
   }
 
   .project-card {
@@ -109,3 +110,4 @@ permalink: /projects/
     border-radius: 3px;
   }
 </style>
+</div>

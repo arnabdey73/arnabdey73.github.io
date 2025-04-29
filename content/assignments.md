@@ -17,6 +17,7 @@ permalink: /assignments/
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     background-color: #333;
     color: #fff;
+    text-align: left; /* Align text to the left */
   }
 
   .assignment-card h3 {
@@ -48,8 +49,15 @@ permalink: /assignments/
     flex-direction: column;
     justify-content: space-between;
   }
+
+  @media (max-width: 768px) {
+    .assignments {
+      flex-direction: column;
+    }
+  }
 </style>
 
+<div style="text-align: center;">
 <div class="assignments">
   <div class="assignment-card">
     <h3>Cloud Engineer – Stena Metall AB <span class="date">(August 2024 - January 2025)</span></h3>
@@ -83,4 +91,5 @@ permalink: /assignments/
     </ul>
     <img src="https://img.shields.io/badge/DevOps-Kubernetes-blue" alt="DevOps Kubernetes">
   </div>
+</div>
 </div>

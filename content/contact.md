@@ -2,6 +2,7 @@
 layout: default
 title: Contact
 ---
+<div style="text-align: center;">
 <div class="card">
   <h3>Contact Details</h3>
   <p>📍 Göteborg, Sweden</p>
@@ -13,6 +14,10 @@ title: Contact
 
 <style>
   .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align text */
+    justify-content: center;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
@@ -22,6 +27,13 @@ title: Contact
     margin: 20px auto;
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    .card {
+      width: 90%; /* Adjust width for smaller screens */
+    }
+  }
+
   .card h3 {
     margin-bottom: 12px;
     font-size: 1.5rem;
@@ -40,3 +52,4 @@ title: Contact
     text-decoration: underline;
   }
 </style>
+</div>
