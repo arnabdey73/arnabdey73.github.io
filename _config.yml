@@ -69,3 +69,6 @@ certifications:
     organization: "Issuing Organization"
     date: "Month Year"
     link: "Certification URL"
+
+# Ensure proper HTML generation for Markdown files
+markdown_ext: "md,markdown,mkdn,mkdown,mkd"
