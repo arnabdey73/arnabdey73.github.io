@@ -26,8 +26,8 @@ permalink: /assignments/
   }
 
   .assignment-card .date {
-    font-size: calc(0.9em + 0.5vw);
-    color: #bbb;
+    font-size: calc(0.8em + 0.4vw);
+      color: #aaa;
   }
 
   .assignment-card ul {
@@ -79,7 +79,7 @@ permalink: /assignments/
       <li>Automated Azure Databricks cluster scaling with Terraform and GitHub Actions.</li>
       <li>Acted as a Product Owner, coordinating backlog priorities and ensuring alignment with stakeholder vision by creating product roadmap and vision board.</li>
     </ul>
-    <img src="https://img.shields.io/badge/CI%2FCD-Automation-brightgreen" alt="CI/CD Automation">
+    <img src="https://img.shields.io/badge/CI%2FCD-Automation-brightgreen" alt="CI/CD Automation" style="width: 150px; height: auto;">
   </div>
 
   <div class="assignment-card">
@@ -90,7 +90,7 @@ permalink: /assignments/
       <li>Managed ELK stack for indexing product generated CSVs as well as centralized logging and monitoring.</li>
       <li>Reduced operational overhead by 20% through automated platform/infrastructure provisioning with Terraform/Ansible.</li>
     </ul>
-    <img src="https://img.shields.io/badge/DevOps-Kubernetes-blue" alt="DevOps Kubernetes">
+    <img src="https://img.shields.io/badge/DevOps-Kubernetes-blue" alt="DevOps Kubernetes" style="width: 150px; height: auto;">
   </div>
 </div>
 </div>
