@@ -5,7 +5,7 @@ title: Contact
 <div style="text-align: center;">
 <div class="card">
   <h3>Contact Details</h3>
-  <p>📍 Göteborg, Sweden</p>
+  <p>📍 Stockholm, Sweden</p>
   <p>📞 <a href="tel:+460764516092">(+46) 0764516092</a></p>
   <p>📧 <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
   <p>🔗 <a href="https://www.linkedin.com/in/arnabdey73/" target="_blank">LinkedIn</a></p>
