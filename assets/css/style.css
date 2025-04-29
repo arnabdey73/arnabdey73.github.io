@@ -184,7 +184,7 @@ body {
   .top-nav .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px; /* Adjusted spacing between navigation buttons */
     margin: 0;
     padding: 0;
   }
@@ -232,12 +232,8 @@ body {
   }
   
   .main-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin-top: 50px; /* Adjusted to reduce spacing */
-    margin-bottom: 2rem;
+    margin-top: 10px; /* Reduced spacing */
+    margin-bottom: 10px; /* Reduced spacing */
   }
   
   .banner-img {
