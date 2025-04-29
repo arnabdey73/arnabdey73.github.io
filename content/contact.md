@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Contact
-permalink: /contact/
 ---
 
 <div class="card">
