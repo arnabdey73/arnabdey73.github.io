@@ -1,9 +1,10 @@
 <div class="hero-banner">
   <div class="container">
-    <img src="/assets/img/banner2.jpeg" alt="Hero Banner Image" class="hero-banner-img">
+    <img src="/assets/img/banner3.jpeg" alt="Hero Banner Image" class="hero-banner-img">
     <div class="hero-banner-content">
       <h1>Welcome to My Portfolio</h1>
       <p>Cloud & DevOps Engineer | Open Source Contributor!</p>
+      <a href="https://github.com/arnabdey73/resume/raw/master/Arnab-Dey-Cloud-DevOps-Engineer.pdf" class="btn btn-primary" download>Download Resume</a>
     </div>
   </div>
 </div>
@@ -23,11 +24,12 @@
   object-fit: cover;
 }
 .hero-banner-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: sticky; /* Makes the text sticky */
+  top: 50%; /* Keeps it vertically centered */
+  left: 50%; /* Keeps it horizontally centered */
   transform: translate(-50%, -50%);
   padding: 20px; /* Added padding around the text */
   box-sizing: border-box; /* Ensures padding doesn't affect positioning */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow to the text */
 }
 </style>
