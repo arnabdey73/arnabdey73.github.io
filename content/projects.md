@@ -56,6 +56,7 @@ permalink: /projects/
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for hover effect */
+    color: white; /* Change font color to white for better readability */
   }
 
   .project-card:hover {
