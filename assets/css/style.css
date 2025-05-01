@@ -276,6 +276,11 @@ body {
     padding-top: 0;
     margin-top: 1.5rem;  /* Reduce from 3-4rem if it's too much */
   }
+  .page-content.no-sidebar {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
   
   #recent-posts {
     margin-top: 0;
