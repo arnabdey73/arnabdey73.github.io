@@ -2,21 +2,21 @@
   <div class="container">
     <img src="/assets/img/banner3.jpeg" alt="Hero Banner Image" class="hero-banner-img">
     <div class="hero-banner-content">
-      <div class="profile-pic-container" style="float: left; margin-right: 20px;">
+      <div class="profile-pic-container">
         <img src="/assets/img/avatar.jpg" alt="Profile Picture" class="profile-pic front">
         <img src="/assets/img/portfolio-thumbnail.jpg" alt="Alternate Picture" class="profile-pic back">
       </div>
-      <div class="text-content" style="text-align: right;"> <!-- Added text alignment -->
+      <div class="text-content">
         <h1>Arnab Dey</h1>
         <p>Cloud & DevOps Engineer | Freelancer | Open Source Contributor!</p>
         <button onclick="window.location.href='https://github.com/arnabdey73/resume/raw/master/Arnab-Dey-Cloud-DevOps-Engineer.pdf'" class="btn btn-primary">Download Resume</button>
         <div class="social-icons">
           <ul>
-            <li><a href="tel:(+46) 0764516092"><i class="fas fa-phone"></i></a></li>
-            <li><a href="https://linkedin.com/in/arnabdey73" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://github.com/arnabdey73" target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a href="mailto:arnabdey009@gmail.com"><i class="fas fa-envelope"></i></a></li>
-            <li><a href="https://bsky.app/profile/arnabdey73.bsky.social" target="_blank"><i class="fa-brands fa-bluesky"></i></a></li>
+            <li><a href="tel:(+46) 0764516092" title="Call Arnab"><i class="fas fa-phone"></i> Call</a></li>
+            <li><a href="https://linkedin.com/in/arnabdey73" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://github.com/arnabdey73" target="_blank" rel="noopener" title="GitHub Profile"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="mailto:arnabdey009@gmail.com" title="Email Arnab"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="https://bsky.app/profile/arnabdey73.bsky.social" target="_blank" rel="noopener" title="Bluesky Profile"><i class="fa-brands fa-bluesky"></i> Bluesky</a></li>
           </ul>
         </div>
       </div>
@@ -26,15 +26,20 @@
 
 <style>
   .hero-banner {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: white;
     aspect-ratio: 4 / 1;
-    overflow: hidden; /* Prevent unnecessary scrolling */
-    margin-bottom: 10px; /* Add space below the hero banner */
-    margin-top: 10px; /* Add space above the hero banner */
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Add a thin border around the banner */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
   }
+
   .hero-banner-img {
     width: 100vw; /* Stretch to full screen width */
     height: 100vh; /* Stretch to full screen height */
@@ -52,23 +57,28 @@
       transform: translateY(-100%);
     }
   }
+
   .hero-banner-content {
-    position: absolute; /* Ensure proper positioning */
-    top: 50%; /* Vertically center */
-    left: 50%; /* Horizontally center */
-    transform: translate(-50%, -50%);
-    padding: 20px; /* Added padding around the text */
-    box-sizing: border-box; /* Ensures padding doesn't affect positioning */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow to the text */
-    overflow: hidden; /* Ensure proper layout when floating elements */
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
 
   .profile-pic-container {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
     width: 150px;
     height: 150px;
     perspective: 1000px;
     margin-left: -20px; /* Move the profile pic slightly to the left */
+    float: left;
+    margin-right: 20px;
   }
 
   .profile-pic {
@@ -98,9 +108,13 @@
     transform: rotateY(0deg);
   }
 
+  .text-content {
+    text-align: right;
+  }
+
   .social-icons {
     display: flex;
-    justify-content: flex-end; /* Align icons to the right */
+    justify-content: center;
     gap: 15px;
     margin: 15px 0;
     list-style: none;
