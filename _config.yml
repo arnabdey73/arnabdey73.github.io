@@ -1,15 +1,14 @@
 title: "Portfolio"
 description: "Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure. Passionate about automation, infrastructure as code, and cloud-native solutions."
 
-# Update theme to Forty
-remote_theme: "andrewbanchich/forty-jekyll-theme"
-minimal_mistakes_skin: null # Remove skin as it's not applicable to Forty
+# Update theme to Minimal Mistakes
+remote_theme: "mmistakes/minimal-mistakes"
 
 # Updated paths for assets and content
 assets_dir: assets
 content_dir: content
 
-# Update navigation links to match the Forty theme structure
+# Update navigation links to match the Minimal Mistakes theme structure
 header_pages:
   - about.md
   - projects.md

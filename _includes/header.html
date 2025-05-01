@@ -21,13 +21,15 @@
 
 <link rel="icon" href="https://arnabdey73.github.io/assets/img/favicon.ico" type="image/x-icon">
 
-<nav>
-  <ul class="nav-list">
-    <li><a href="/" class="nav-button">Home</a></li>
-    <li><a href="/content/about.html" class="nav-button">About</a></li>
-    <li><a href="/assignments" class="nav-button">Assignments</a></li>
-    <li><a href="/projects" class="nav-button">Projects</a></li>
-    <li><a href="/content/certifications.html" class="nav-button">Certifications</a></li>
-    <li><a href="/content/contact.html" class="nav-button">Contact</a></li>
+<nav class="top-nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/certifications/">Certifications</a></li>
+    <li><a href="/contact/">Contact</a></li>
   </ul>
 </nav>
+
+<!-- Ensure the hero banner remains intact -->
+{% include hero-banner.html %}
