@@ -66,18 +66,17 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    text-align: center; /* Fix alignment */
   }
 
   .profile-pic-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Align profile pic to the left */
     align-items: center;
     margin-bottom: 20px;
     width: 150px;
     height: 150px;
     perspective: 1000px;
-    margin-left: -20px; /* Move the profile pic slightly to the left */
-    float: left;
     margin-right: 20px;
   }
 
@@ -109,7 +108,7 @@
   }
 
   .text-content {
-    text-align: right;
+    text-align: center; /* Fix alignment */
   }
 
   .social-icons {
