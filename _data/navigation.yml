@@ -1,0 +1,11 @@
+main:
+  - title: "About"
+    url: /content/about/
+  - title: "Assignments"
+    url: /content/assignments/
+  - title: "Certifications"
+    url: /content/certifications/
+  - title: "Contact"
+    url: /content/contact/
+  - title: "Projects"
+    url: /content/projects/

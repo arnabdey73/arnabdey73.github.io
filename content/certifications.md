@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Certifications
+permalink: /certifications/
 ---
 <div style="text-align: center;">
 <div class="certification-card project-card">

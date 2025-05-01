@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: single
 title: About Me
+permalink: /about/
 ---
 <div class="content-page">
 

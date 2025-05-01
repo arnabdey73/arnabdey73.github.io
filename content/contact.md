@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contact
+permalink: /contact/
 ---
 <style>
 /* Adjusted styles for the contact card */

@@ -25,6 +25,12 @@ social:
 plugins:
   - jekyll-remote-theme # Ensure this plugin is enabled
 
+# Permalinks
+permalink: /:title/ 
+
+# Base URL
+baseurl: "" # Leave empty for root URL
+
 # Remove collections and defaults specific to Minimal Mistakes
 collections: null
 defaults: null
