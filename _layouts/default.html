@@ -15,16 +15,17 @@ layout: default
 <body>
   <header>
     {% include hero-banner.html %} <!-- Hero banner at the top -->
+    <nav>
+        {% include header.html %} <!-- Navigation bar -->
+    </nav>
   </header>
 
-  <main class="page-content">
-    <div class="content">
-      {{ content }} <!-- Single-column layout for content -->
-    </div>
+  <main class="content">
+    {{ content }} <!-- Main content area -->
   </main>
 
   <footer>
-    {% include footer.html %}
+    {% include footer.html %} <!-- Footer section -->
   </footer>
 </body>
 </html>

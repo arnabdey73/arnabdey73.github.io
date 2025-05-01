@@ -1,162 +1,144 @@
+/* Adjustments for compatibility with the Forty theme */
+body {
+    background-color: #f4f4f4; /* Use a light background to match Forty theme */
+    color: #333; /* Standard text color */
+    font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+}
+
+.sidebar {
+    display: none; /* Hide sidebar as Forty theme does not use it */
+}
+
+.content {
+    max-width: 1200px; /* Align content width with Forty theme */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.cta {
+    background-color: #007BFF; /* Match Forty theme button color */
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #0056b3;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: black; /* Changed body background color to black */
-    color: #f5f5f5;
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
-  }
-  
-  .container {
+}
+
+.container {
     display: flex;
     min-height: 100vh;
-  }
-  
-  .sidebar {
-    background-color: black; /* Changed sidebar background color to black */
-    gap: 1rem;
-    padding: 2rem;
-    width: 300px;
-    box-shadow: 2px 0 5px rgba(61, 50, 50, 0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+}
 
-  /* Ensure sidebar styles do not affect the homepage */
-  body.home .sidebar {
-    display: none;
-  }
-  
-  .profile-pic {
+.profile-pic {
     width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
     margin-bottom: 1rem;
-  }
-  
-  .name {
+}
+
+.name {
     margin: 0.5rem 0 0;
     font-size: 1.3rem; /* Further reduced from 1.5rem */
-    /*font-weight: bold;*/
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-  }
-  
-  .caption {
+}
+
+.caption {
     color: #aaa;
     font-size: 0.75rem; /* Further reduced from 0.85rem */
     margin-bottom: 1rem;
     text-align: center;
-  }
-  
-  .social-icons a {
+}
+
+.social-icons a {
     color: white; /* Updated URL color to white */
     margin: 0 0.5rem;
     font-size: 0.9rem; /* Further reduced from 1rem */
     transition: color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .social-icons a:hover {
+}
+
+.social-icons a:hover {
     color: #1da1f2; /* Twitter blue for hover effect */
     transform: scale(1.1);
-  }
+}
 
-  .social-icons a .fa-bluesky {
+.social-icons a .fa-bluesky {
     color: #00acee; /* Bluesky blue */
-  }
-  
-  .content {
-    flex: 1;
-    padding: 3rem;
-    line-height: 1.6;
-    max-width: 900px;
-    margin: auto;
-    text-align: justify;
-    margin-top: 100px; /* Increased from 60px */
-  }
+}
 
-  .recent-posts ul li a {
+.recent-posts ul li a {
     color: white; /* Updated URL color to white */
     text-decoration: none;
     transition: color 0.3s ease;
-  }
+}
 
-  .recent-posts ul li a:hover {
+.recent-posts ul li a:hover {
     color: #1da1f2; /* Hover effect color */
     text-decoration: underline;
-  }
+}
 
-  .recent-posts ul li a[href*='Dummy'] {
+.recent-posts ul li a[href*='Dummy'] {
     color: white; /* Updated URL color to white */
     text-decoration: none;
     transition: color 0.3s ease;
-  }
+}
 
-  .recent-posts ul li a[href*='Dummy']:hover {
+.recent-posts ul li a[href*='Dummy']:hover {
     color: #1da1f2; /* Hover effect color for dummy post URLs */
-  }
+}
 
-  a {
+a {
     color: white; /* Updated URL color to white */
     text-decoration: none;
     transition: color 0.3s ease;
-  }
+}
 
-  a:hover {
+a:hover {
     color: #1da1f2; /* Hover effect color */
     text-decoration: underline;
-  }
+}
 
-  button.cta {
+button.cta {
     padding: 10px 20px;
-  }
+}
 
-  .cta {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
+.content img {
+    width: calc(100% - 300px); /* Adjust for sidebar width */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.content img + .caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
-    text-decoration: none;
+    padding: 5px 10px;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
+    font-size: 0.7rem; /* Further reduced from 0.8rem */
+    text-align: center;
+}
 
-  .cta:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
-
-  /* Ensure the body image takes full width excluding the sidebar */
-  .content img {
-      width: calc(100% - 300px); /* Adjust for sidebar width */
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-  }
-
-  /* Overlay caption on the image */
-  .content img + .caption {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.7rem; /* Further reduced from 0.8rem */
-      text-align: center;
-  }
-
-  .recent-posts, .projects {
+.recent-posts, .projects {
     text-align: left;
-  }
+}
 
-  .top-nav {
+.top-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -164,88 +146,86 @@ body {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-  }
+}
 
-  .top-nav .container {
+.top-nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     height: 60px;
-  }
+}
 
-  .top-nav .logo a {
+.top-nav .logo a {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
     text-decoration: none;
-  }
+}
 
-  .top-nav .nav-links {
+.top-nav .nav-links {
     list-style: none;
     display: flex;
     gap: 15px; /* Adjusted spacing between navigation buttons */
     margin: 0;
     padding: 0;
-  }
+}
 
-  .top-nav .nav-links li {
+.top-nav .nav-links li {
     margin-right: 45px; /* Increased from 25px */
-  }
+}
 
-  .top-nav .nav-links li a {
+.top-nav .nav-links li a {
     color: #fff; /* Ensure text is visible on dark backgrounds */
     text-decoration: none;
     font-size: 1rem; /* Increase font size for better readability */
     transition: color 0.3s;
-  }
+}
 
-  .top-nav .nav-links li a:hover {
+.top-nav .nav-links li a:hover {
     color: #1da1f2; /* Add hover effect */
-  }
+}
 
-  /* Center-align the banner in the body */
-  .banner {
+.banner {
     width: calc(100% - 40px); /* Adjust width to match nav buttons */
     max-width: 1200px; /* Optional: Set a max width for better responsiveness */
     margin: 0 auto; /* Center the banner */
-  }
+}
 
-  body:not(.home) .banner {
+body:not(.home) .banner {
     margin-top: 20px; /* Reduced spacing for non-home pages */
-  }
+}
 
-  .site-footer {
+.site-footer {
     text-align: center;
     margin-top: 2rem;
     padding: 1rem 0;
     font-size: 0.8rem; /* Further reduced from 0.9rem */
     color: #aaa;
-  }
+}
 
-  .site-footer {
+.site-footer {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-  }
-  
-  .main-banner {
+}
+
+.main-banner {
     margin-top: 10px; /* Reduced spacing */
     margin-bottom: 10px; /* Reduced spacing */
-  }
-  
-  .banner-img {
+}
+
+.banner-img {
     width: 100%;
     max-width: 1600px; /* you can customize this max size */
     height: auto;
     display: block;
     border-radius: 6px;
-  }
+}
 
-  /* Moved styles from inline to external CSS */
-  .nav-button {
+.nav-button {
     display: inline-block;
     padding: 10px 15px;
     margin-right: 10px;
@@ -256,58 +236,60 @@ body {
     border-radius: 5px;
     font-size: 10px; /* Further reduced from 12px */
     transition: background-color 0.3s ease;
-  }
+}
 
-  .nav-button:hover {
+.nav-button:hover {
     background-color: #005A9E;
-  }
+}
 
-  .page__title {
+.page__title {
     color: #000; /* Ensure the title text is visible */
     font-size: 1.6rem; /* Further reduced from 1.8rem */
     margin-bottom: 20px; /* Add spacing below the title */
-  }
-  .page-content, .main-content, main {
+}
+
+.page-content, .main-content, main {
     max-width: 900px;
     margin: 0 auto;
     padding: 1rem 1.5rem;
-  }
-  .page-content h2 {
+}
+
+.page-content h2 {
     padding-top: 0;
-    margin-top: 1.5rem;  /* Reduce from 3-4rem if it's too much */
-  }
-  .page-content.no-sidebar {
+    margin-top: 1.5rem; /* Reduce from 3-4rem if it's too much */
+}
+
+.page-content.no-sidebar {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-  }
-  
-  #recent-posts {
-    margin-top: 0;
-  }
+}
 
-  @media (max-width: 768px) {
+#recent-posts {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
     .page-content, .main-content, main {
-      padding: 1rem;
+        padding: 1rem;
     }
-  }
-    
-  /* Adjust spacing for hero banner and text body */
+}
+
 .hero-banner {
-  margin-bottom: 0; /* Remove extra spacing below the banner */
-  z-index: 1; /* Bring the banner to the front */
-  opacity: 1; /* Ensure full visibility */
+    margin-bottom: 0; /* Remove extra spacing below the banner */
+    z-index: 1; /* Bring the banner to the front */
+    opacity: 1; /* Ensure full visibility */
 }
 
 .hero-banner-img {
-  object-fit: cover; /* Ensure the image covers the banner area */
-  animation: none; /* Disable scrolling effect for simplicity */
+    object-fit: cover; /* Ensure the image covers the banner area */
+    animation: none; /* Disable scrolling effect for simplicity */
 }
 
 .container {
-  margin-top: 0; /* Remove extra spacing above the container */
+    margin-top: 0; /* Remove extra spacing above the container */
 }
 
 .main {
-  padding-top: 10px; /* Add minimal padding for better alignment */
+    padding-top: 10px; /* Add minimal padding for better alignment */
 }
