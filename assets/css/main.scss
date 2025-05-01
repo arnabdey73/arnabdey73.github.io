@@ -36,8 +36,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #222; // Darker heading color
 }
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
+//@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+//@import "minimal-mistakes"; // main partials
 
 a:link {
   color: #0a253c $link-color;
