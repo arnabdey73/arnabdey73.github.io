@@ -2,8 +2,7 @@
 
 ## Insights
 
-- [DevOps Automation Guide →](https://codemyinfra.hashnode.dev/devops-python-automation-azure-kubernetes)
-- [Azure Cost Optimization Tips →](/blog/azure-cost-optimization)
+- [Recent Posts →](https://codemyinfra.hashnode.dev/)
 
 ## Ready to streamline your cloud operations?
 
