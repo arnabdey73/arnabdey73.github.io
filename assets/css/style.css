@@ -28,7 +28,7 @@ body {
   }
   
   .profile-pic {
-    width: 200px
+    width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
@@ -194,14 +194,14 @@ body {
   }
 
   .top-nav .nav-links li a {
-    color: white; /* Updated URL color to white */
+    color: #fff; /* Ensure text is visible on dark backgrounds */
     text-decoration: none;
-    font-size: 0.5rem; /* Further reduced font size for top navigation buttons */
+    font-size: 1rem; /* Increase font size for better readability */
     transition: color 0.3s;
   }
 
   .top-nav .nav-links li a:hover {
-    color: #007BFF;
+    color: #1da1f2; /* Add hover effect */
   }
 
   /* Center-align the banner in the body */
@@ -295,6 +295,13 @@ body {
   /* Adjust spacing for hero banner and text body */
 .hero-banner {
   margin-bottom: 0; /* Remove extra spacing below the banner */
+  z-index: 1; /* Bring the banner to the front */
+  opacity: 1; /* Ensure full visibility */
+}
+
+.hero-banner-img {
+  object-fit: cover; /* Ensure the image covers the banner area */
+  animation: none; /* Disable scrolling effect for simplicity */
 }
 
 .container {

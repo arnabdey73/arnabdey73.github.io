@@ -1,15 +1,28 @@
 <style>
   .nav-button {
-    font-size: 0.8rem; /* Reduced font size for top navigation buttons */
-    padding: 8px 12px; /* Adjusted padding for smaller buttons */
-    background-color: inherit; /* Retain the background color of the buttons */
+    font-size: 1rem; /* Increase font size for better visibility */
+    padding: 10px 15px; /* Adjust padding for better clickability */
+    background-color: #0078D4; /* Ensure buttons are distinct */
+    color: white; /* Ensure text is visible */
+  }
+
+  .nav-button:hover {
+    background-color: #005A9E; /* Add hover effect */
+  }
+
+  ul.nav-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
   }
 </style>
 
 <link rel="icon" href="https://arnabdey73.github.io/assets/img/favicon.ico" type="image/x-icon">
 
 <nav>
-  <ul style="display: flex; list-style: none; padding: 0; margin: 0; justify-content: center;">
+  <ul class="nav-list">
     <li><a href="/" class="nav-button">Home</a></li>
     <li><a href="/content/about.html" class="nav-button">About</a></li>
     <li><a href="/assignments" class="nav-button">Assignments</a></li>
