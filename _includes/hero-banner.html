@@ -42,8 +42,8 @@
   }
 
   .hero-banner-img {
-    width: 100vw; /* Stretch to full screen width */
-    height: 100vh; /* Stretch to full screen height */
+    width: 100%; /* Ensure the image fits the banner */
+    height: 100%; /* Ensure the image fits the banner */
     opacity: 0.8;
     object-fit: cover;
     position: absolute;
@@ -123,7 +123,7 @@
   }
 
   .social-icons a {
-    text-indent: 0; /* Ensure the text is not hidden */
+    text-indent: -9999px; /* Hide the text visually */
     display: inline-block; /* Keep the icons visible */
     font-size: 1.2em; /* Maintain the reduced size */
     overflow: hidden; /* Prevent text overflow */
