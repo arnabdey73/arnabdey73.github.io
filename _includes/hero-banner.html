@@ -123,15 +123,14 @@
   }
 
   .social-icons a {
-    color: #fff;
-    font-size: 1.5em;
-    transition: color 0.3s ease;
-    text-indent: -9999px; /* Hide the name of the social icons */
-    overflow: hidden;
+    text-indent: 0; /* Ensure the text is not hidden */
+    display: inline-block; /* Keep the icons visible */
+    font-size: 1.2em; /* Maintain the reduced size */
+    overflow: hidden; /* Prevent text overflow */
   }
 
-  .social-icons a:hover {
-    color: #1da1f2;
-    text-indent: 0; /* Show the name on hover */
+  .social-icons a i {
+    text-indent: 0; /* Show only the icons */
+    display: inline-block;
   }
 </style>
