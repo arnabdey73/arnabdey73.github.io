@@ -27,13 +27,13 @@ $heading-font-family: "Merriweather", Georgia, serif;
 
 body {
   font-family: 'Poppins', sans-serif; /* Ensure consistent font */
-  background-color: #f4f4f4; /* Match Forty theme background */
-  color: #333; /* Standard text color */
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text color */
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
-  color: #222; /* Darker heading color */
+  color: #ffffff; /* White headings */
 }
 
 //@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
@@ -75,12 +75,12 @@ a {
 }
 
 .cta {
-  background-color: #007BFF; /* Match Forty theme button color */
-  color: #fff;
+  background-color: #1f1f1f; /* Dark button background */
+  color: #ffffff; /* Light button text */
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .cta:hover {
-  background-color: #0056b3;
+  background-color: #333333; /* Slightly lighter on hover */
 }
