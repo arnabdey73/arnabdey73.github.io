@@ -1,20 +1,20 @@
 title: "Portfolio"
 description: "Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure. Passionate about automation, infrastructure as code, and cloud-native solutions."
-#theme: "minimal-mistakes-jekyll"
-remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Update theme to Forty
+remote_theme: "andrewbanchich/forty-jekyll-theme"
+minimal_mistakes_skin: null # Remove skin as it's not applicable to Forty
 
 # Updated paths for assets and content
 assets_dir: assets
 content_dir: content
 
-# Navigation Links
+# Update navigation links to match the Forty theme structure
 header_pages:
   - about.md
   - projects.md
   - certifications.md
   - contact.md
-  - assignments.md
 
 # Social Links
 social:
@@ -25,39 +25,16 @@ social:
 # Plugins
 plugins:
   - jekyll-remote-theme # Ensure this plugin is enabled
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-paginate
 
-# Collections
-collections:
-  projects:
-    output: true
-    permalink: /projects/:name/
-  certifications:
-    output: true
-    permalink: /certifications/:name/
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
-  - scope:
-      path: ""
-      type: "certifications"
-    values:
-      layout: "certification"
+# Remove collections and defaults specific to Minimal Mistakes
+collections: null
+defaults: null
 
 # Google Analytics
 google_analytics: "G-XXXXXXXXXX"  # Replace with your tracking ID
 
 # Disqus Comments (Optional)
-disqus:
-  shortname: "your-disqus-shortname"
+disqus: null # Disable Disqus for now
 
 # Placeholder for Projects & Certifications (To be updated later)
 projects:
