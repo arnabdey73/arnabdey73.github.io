@@ -73,11 +73,11 @@
 
   .profile-pic-container {
     display: flex;
-    justify-content: flex-start; /* Align profile pic to the left */
+    justify-content: center; /* Center profile pic horizontally */
     align-items: center;
     margin-bottom: 20px;
-    width: 150px;
-    height: 150px;
+    width: 120px; /* Adjusted width to fit better */
+    height: 120px; /* Adjusted height to fit better */
     perspective: 1000px;
   }
 
@@ -90,6 +90,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    object-fit: cover; /* Ensures the image fits within the container */
   }
 
   .profile-pic.front {
