@@ -1,6 +1,6 @@
-[Recent Posts →](https://codemyinfra.hashnode.dev/)
+## Recent Posts
+[The Hashnode blog →](https://codemyinfra.hashnode.dev/)
 
-## Ready to streamline your cloud operations?
 
 [Let’s chat →](/contact)
 
