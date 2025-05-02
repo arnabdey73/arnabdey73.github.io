@@ -35,6 +35,7 @@
     display: flex;
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
+    border: 5px solid #cccccc; /* Add a border around the banner */
   }
 
   .hero-banner-img {
@@ -153,5 +154,15 @@
   .social-icons a i {
     text-indent: 0; /* Show only the icons */
     display: inline-block;
+  }
+
+  .btn.btn-primary {
+    height: 50px; /* Increase button height */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth hover transition */
+  }
+
+  .btn.btn-primary:hover {
+    background-color: #0056b3; /* Change background color on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
   }
 </style>

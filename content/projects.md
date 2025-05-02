@@ -73,14 +73,14 @@ permalink: /projects/
     display: flex; /* Align badges horizontally */
     justify-content: center; /* Center align badges */
     flex-wrap: wrap; /* Allow wrapping if needed */
-    gap: 8px; /* Add spacing between badges */
+    gap: 5px; /* Reduce spacing between badges */
     margin-top: 10px;
   }
 
   .badge-icon {
-    height: 20px; /* Reduced height for all badges */
-    width: 20px; /* Reduced width for all badges */
-    vertical-align: middle;
+    height: 16px; /* Further reduce height for badges */
+    width: 16px; /* Further reduce width for badges */
+    vertical-align: middle; /* Align badges properly */
   }
 
   .github-button {
@@ -102,9 +102,9 @@ permalink: /projects/
   }
 
   .github-button img {
-    height: 24px; /* Reduced size for better alignment */
-    width: auto; /* Maintain aspect ratio */
-    vertical-align: middle;
+    height: 16px; /* Match height with badge icons */
+    width: 16px; /* Match width with badge icons */
+    vertical-align: middle; /* Align properly */
   }
 
   .badge-icon[src*="Azure"] {
