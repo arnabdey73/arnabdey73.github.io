@@ -1,6 +1,4 @@
-# Insights
-
-- [Recent Posts →](https://codemyinfra.hashnode.dev/)
+[Recent Posts →](https://codemyinfra.hashnode.dev/)
 
 ## Ready to streamline your cloud operations?
 

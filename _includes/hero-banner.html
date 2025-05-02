@@ -45,6 +45,7 @@
     object-position: center;
     z-index: -1;
     opacity: 0.65;
+    animation: scrollAnimation 10s linear infinite; /* Add scrollable animation */
   }
 
 
@@ -63,7 +64,8 @@
   .hero-banner-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Center the text horizontally */
+    text-align: center; /* Center the text within the content */
     gap: 2rem;
     padding: 1.5rem 2rem;
     position: relative;
