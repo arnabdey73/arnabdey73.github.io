@@ -26,32 +26,27 @@
 
 <style>
   .hero-banner {
-    width: 100%; /* Ensure the banner stretches to the full width of the screen */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
+    width: 100%;
+    height: 320px;
     position: relative;
-    height: 320px; /* Set a fixed height for the banner */
     overflow: hidden;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    background-color: rgba(0, 0, 0, 0.5); /* Add a background overlay for better contrast */
+    margin: 0 auto 2rem;
+    border-radius: 6px;
   }
 
+
   .hero-banner-img {
-    width: 100%; /* Ensure the image fits the banner */
-    height: 100%; /* Ensure the image covers the banner height */
-    opacity: 0.6; /* Adjust opacity for better text visibility */
-    object-fit: cover; /* Ensure the image covers the banner area */
-    object-position: center; /* Center the image within the banner */
     position: absolute;
-    z-index: -1; /* Ensure the image is behind the text */
-    animation: scrollAnimation 10s linear infinite; /* Add scroll animation */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+    opacity: 0.65;
   }
+
 
   @keyframes scrollAnimation {
     0% {
@@ -67,11 +62,14 @@
 
   .hero-banner-content {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between; /* Adjust layout for left and right alignment */
-    gap: 20px;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    position: relative;
+    z-index: 1;
   }
+
 
   .profile-pic-container {
     display: flex;
@@ -111,8 +109,8 @@
   }
 
   .text-content {
-    text-align: right; /* Align text to the right */
-    flex-grow: 1;
+    flex: 1;
+    text-align: right;
   }
 
   .social-icons {
