@@ -43,20 +43,13 @@
 
   .hero-banner-img {
     width: 100%; /* Ensure the image fits the banner */
-    height: 100%; /* Ensure the image fits the banner */
+    height: auto; /* Maintain the aspect ratio */
+    max-height: 100%; /* Prevent the image from exceeding the banner's height */
     opacity: 0.8;
-    object-fit: cover;
+    object-fit: cover; /* Ensure the image covers the banner area */
     position: absolute;
     z-index: -1; /* Ensure the image is behind the text */
-    animation: scrollBanner 10s linear infinite; /* Add scrolling effect */
-  }
-  @keyframes scrollBanner {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
+    animation: none; /* Remove scrolling effect for better focus */
   }
 
   .hero-banner-content {
