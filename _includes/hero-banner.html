@@ -39,17 +39,16 @@
     margin-bottom: 10px;
     margin-top: 10px;
     border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Add a background overlay for better contrast */
   }
 
   .hero-banner-img {
     width: 100%; /* Ensure the image fits the banner */
-    height: auto; /* Maintain the aspect ratio */
-    max-height: 100%; /* Prevent the image from exceeding the banner's height */
-    opacity: 0.8;
+    height: 100%; /* Ensure the image covers the banner height */
+    opacity: 0.6; /* Adjust opacity for better text visibility */
     object-fit: cover; /* Ensure the image covers the banner area */
     position: absolute;
     z-index: -1; /* Ensure the image is behind the text */
-    animation: none; /* Remove scrolling effect for better focus */
   }
 
   .hero-banner-content {
@@ -116,9 +115,10 @@
   }
 
   .social-icons a {
+    color: white; /* Ensure icons are visible */
     text-indent: -9999px; /* Hide the text visually */
     display: inline-block; /* Keep the icons visible */
-    font-size: 1.2em; /* Maintain the reduced size */
+    font-size: 1.5em; /* Increase size for better visibility */
     overflow: hidden; /* Prevent text overflow */
   }
 
