@@ -67,6 +67,14 @@ permalink: /assignments/
 <div style="text-align: center;">
 <div class="assignments">
   <div class="assignment-card">
+    <h3>DevOps Engineer – AFRY AB <span class="date">(May 2025 - Present)</span></h3>
+    <ul>
+      <li>Coming soon...</li>
+    </ul>
+    <img src="https://img.shields.io/badge/DevOps-blue" alt="DevOps" style="width: 150px; height: auto;">
+  </div>
+
+  <div class="assignment-card">
     <h3>Cloud Engineer – Stena Metall AB <span class="date">(August 2024 - January 2025)</span></h3>
     <ul>
       <li>Upgraded the Cloud Adoption Framework (v5.2.1 to v6.0.0), improving compliance with Azure Governance standards.</li>
@@ -74,7 +82,9 @@ permalink: /assignments/
       <li>Monitored cloud platform patterns and anomalies using KQL and resolved incidents per SLA, achieving a 20% reduction in downtime.</li>
       <li>Managed Azure services including Logic Apps, IaaS, PaaS, and Entra ID (formerly Azure AD).</li>
     </ul>
-  <img src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-blue" alt="Cloud Adoption Framework v6.0.0" style="width: 170px; height: auto;"> </div>
+    <img src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-blue" alt="Cloud Adoption Framework v6.0.0" style="width: 170px; height: auto;">
+    <img src="https://img.shields.io/badge/Terraform-blue" alt="Terraform" style="width: 150px; height: auto;">
+  </div>
 
   <div class="assignment-card">
     <h3>Senior Software Engineer (DevOps) – Capgemini Sverige AB <span class="date">(September 2021 - July 2024)</span></h3>

@@ -95,8 +95,8 @@ permalink: /projects/
   }
 
   .github-button img {
-    height: 16px; /* Match height with badge icons */
-    width: 16px; /* Match width with badge icons */
+    height: 20px; /* Increased height for better visibility */
+    width: 20px; /* Match width with increased height */
     vertical-align: middle; /* Align properly */
   }
 
