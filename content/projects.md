@@ -77,7 +77,7 @@ permalink: /projects/
   }
 
   .badge-icon {
-    height: 10px; /* Reduced height for all badges */
+    height: auto; /* Reduced height for all badges */
     width: auto; /* Maintain aspect ratio */
     vertical-align: middle;
   }
@@ -107,8 +107,3 @@ permalink: /projects/
   }
 
   .badge-icon[src*="Azure"] {
-    background-color: white;
-    border-radius: 3px;
-  }
-</style>
-</div>

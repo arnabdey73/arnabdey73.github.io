@@ -47,8 +47,22 @@
     height: 100%; /* Ensure the image covers the banner height */
     opacity: 0.6; /* Adjust opacity for better text visibility */
     object-fit: cover; /* Ensure the image covers the banner area */
+    object-position: center; /* Center the image within the banner */
     position: absolute;
     z-index: -1; /* Ensure the image is behind the text */
+    animation: scrollAnimation 10s linear infinite; /* Add scroll animation */
+  }
+
+  @keyframes scrollAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10%);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 
   .hero-banner-content {
