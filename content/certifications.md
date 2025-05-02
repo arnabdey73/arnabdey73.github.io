@@ -35,4 +35,7 @@ permalink: /certifications/
     height: 16px;
     width: auto;
     vertical-align: middle;
-    margin-to
+    margin-top: 10px;
+  }
+</style>
+</div>

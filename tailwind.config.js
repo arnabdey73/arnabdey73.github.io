@@ -11,4 +11,6 @@ module.exports = {
   theme: {
     extend: {},
   },
-  darkMode: 'clas
+  darkMode: 'class', // Enable dark mode using a class
+  plugins: [],
+};

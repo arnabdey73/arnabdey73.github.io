@@ -107,3 +107,8 @@ permalink: /projects/
   }
 
   .badge-icon[src*="Azure"] {
+    background-color: white;
+    border-radius: 3px;
+  }
+</style>
+</div>
