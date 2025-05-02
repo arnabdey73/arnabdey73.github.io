@@ -77,7 +77,7 @@ permalink: /projects/
   }
 
   .badge-icon {
-    height: 12px; /* Reduced height for all badges */
+    height: 10px; /* Reduced height for all badges */
     width: auto; /* Maintain aspect ratio */
     vertical-align: middle;
   }

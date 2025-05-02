@@ -18,6 +18,12 @@ permalink: /contact/
     max-width: 300px; /* Reduced width */
     margin: 20px auto;
     text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background and shadow */
+}
+
+.card:hover {
+    background-color: #333; /* Lighten the background on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
 
 @media (max-width: 768px) {
