@@ -70,15 +70,16 @@ permalink: /projects/
   }
 
   .badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    display: flex; /* Align badges horizontally */
+    justify-content: center; /* Center align badges */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 8px; /* Add spacing between badges */
     margin-top: 10px;
   }
 
   .badge-icon {
-    height: auto; /* Reduced height for all badges */
-    width: auto; /* Maintain aspect ratio */
+    height: 20px; /* Reduced height for all badges */
+    width: 20px; /* Reduced width for all badges */
     vertical-align: middle;
   }
 
