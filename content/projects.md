@@ -39,8 +39,9 @@ permalink: /projects/
 <style>
   .project-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; /* Change to row for horizontal alignment */
+    flex-wrap: wrap; /* Allow wrapping to next line if needed */
+    justify-content: center; /* Center align the cards */
     gap: 30px;
     margin-top: 30px;
   }
