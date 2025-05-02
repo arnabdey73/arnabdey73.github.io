@@ -27,7 +27,7 @@
 <style>
   .hero-banner {
     width: 100%;
-    height: auto; /* Allow height to adjust based on content */
+    height: 60vh; /* Reduce the height to 60% of the viewport height */
     position: relative;
     overflow: hidden;
     margin: 0 auto 2rem;
@@ -137,11 +137,16 @@
   }
 
   .social-icons a {
-    color: white; /* Ensure icons are visible */
+    color: #007bff; /* Use a visible blue color */
     text-indent: -9999px; /* Hide the text visually */
     display: inline-block; /* Keep the icons visible */
     font-size: 1.5em; /* Increase size for better visibility */
     overflow: hidden; /* Prevent text overflow */
+    transition: color 0.3s ease; /* Add a smooth transition for hover effect */
+  }
+
+  .social-icons a:hover {
+    color: #0056b3; /* Darker blue on hover */
   }
 
   .social-icons a i {
