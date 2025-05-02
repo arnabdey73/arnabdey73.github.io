@@ -55,3 +55,6 @@ certifications:
 
 # Ensure proper HTML generation for Markdown files
 markdown_ext: "md,markdown,mkdn,mkdown,mkd"
+
+# Set the homepage layout to the custom static layout
+homepage_layout: home
