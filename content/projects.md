@@ -78,23 +78,15 @@ permalink: /projects/
   }
 
   .badge-icon {
-    height: 16px; /* Further reduce height for badges */
-    width: 16px; /* Further reduce width for badges */
+    height: 14px; /* Further reduce height for badges */
+    width: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align badges properly */
   }
 
   .github-button {
-    display: block; /* Ensure the button appears below the badges */
-    margin-top: 10px; /* Add spacing between badges and button */
-    padding: 6px 14px;
-    background-color: #1da1f2;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: calc(1em + 1vw);
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.3s ease;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center align items vertically */
+    gap: 5px; /* Add spacing between icon and text */
   }
 
   .github-button:hover {
@@ -110,6 +102,9 @@ permalink: /projects/
   .badge-icon[src*="Azure"] {
     background-color: white;
     border-radius: 3px;
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/cloud.png'); /* Add cloud icon */
+    background-repeat: no-repeat;
+    background-position: center;
   }
 </style>
 </div>
