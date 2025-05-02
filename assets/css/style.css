@@ -293,3 +293,34 @@ body:not(.home) .banner {
 .main {
     padding-top: 10px; /* Add minimal padding for better alignment */
 }
+
+@media (max-width: 768px) {
+  .hero-banner-content {
+    flex-direction: column; /* Stack profile picture and text vertically */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center align text */
+  }
+
+  .profile-pic-container {
+    margin: 10px 0; /* Adjust spacing for smaller screens */
+  }
+
+  .text-content {
+    text-align: center; /* Center align text for smaller screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-banner-content {
+    flex-direction: row; /* Align profile picture and text horizontally */
+    justify-content: space-between; /* Add space between elements */
+  }
+
+  .profile-pic-container {
+    margin: 20px; /* Ensure consistent spacing */
+  }
+
+  .text-content {
+    text-align: right; /* Right align text for larger screens */
+  }
+}
