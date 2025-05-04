@@ -104,7 +104,8 @@ permalink: /projects/
   }
 
   .github-button {
-    width: auto; /* Adjusted to fit content dynamically */
+    height: 40px;
+    width: 50px; /* Adjusted to fit content dynamically */
     padding: 5px 10px; /* Maintain padding for better fit */
   }
 
@@ -113,7 +114,7 @@ permalink: /projects/
   }
 
   .github-button img {
-    height: 30px; /* Increased height for better visibility */
+    height: 20px; /* Increased height for better visibility */
     width: 35px; /* Increased width for better visibility */
     vertical-align: middle;
   }
