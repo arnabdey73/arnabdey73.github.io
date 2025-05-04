@@ -47,8 +47,8 @@ permalink: /assignments/
 
   .assignment-card img {
     width: 100px; /* Adjust the size as needed */
-    display: block;
-    margin: 10px auto 0; /* Center the badge at the bottom */
+    display: inline-block; /* Display badges inline */
+    margin: 10px 5px 0; /* Add spacing between badges */
   }
 
   .assignment-card {

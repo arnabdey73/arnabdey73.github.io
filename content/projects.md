@@ -71,9 +71,8 @@ permalink: /projects/
   }
 
   .badge-row {
-    display: flex; /* Align badges horizontally */
+    display: inline-flex; /* Align badges horizontally without stacking */
     justify-content: center; /* Center align badges */
-    flex-wrap: wrap; /* Allow wrapping if needed */
     gap: 5px; /* Reduce spacing between badges */
     margin-top: 10px;
   }
