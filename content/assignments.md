@@ -46,7 +46,8 @@ permalink: /assignments/
   }
 
   .assignment-card img {
-    width: 100px; /* Adjust the size as needed */
+    height: 50px; /* Set a uniform height for all badges */
+    width: auto; /* Maintain aspect ratio */
     display: inline-block; /* Display badges inline */
     margin: 10px 5px 0; /* Add spacing between badges */
   }

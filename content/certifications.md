@@ -12,6 +12,8 @@ permalink: /certifications/
 
 <style>
   .certification-card {
+    background-color:rgb(90, 88, 88); /* Set light background color */
+    color: #333; /* Set text color for better contrast */
     display: flex;
     flex-direction: column;
     align-items: center; /* Center align text */
@@ -34,7 +36,7 @@ permalink: /certifications/
   .certification-card h3 {
     margin-top: 0;
     margin-bottom: 10px;
-    color: #fff; /* Ensure the heading text is visible */
+    color: #333; /* Ensure the heading text is visible */
   }
 
   .certification-card img {
