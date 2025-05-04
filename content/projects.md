@@ -94,6 +94,13 @@ permalink: /projects/
     height: 14px; /* Further reduce height for badges */
     width: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align badges properly */
+    background-color: transparent; /* Ensure no background color interferes */
+  }
+
+  .badge-icon[src*="Azure"] {
+    background-color: white; /* Ensure visibility */
+    border-radius: 3px;
+    background-image: none; /* Remove any conflicting background image */
   }
 
   .github-button {
@@ -112,14 +119,6 @@ permalink: /projects/
     height: 20px;
     width: 25px; /* Increased width for better visibility */
     vertical-align: middle;
-  }
-
-  .badge-icon[src*="Azure"] {
-    background-color: white;
-    border-radius: 3px;
-    background-image: url('https://img.icons8.com/ios-filled/50/000000/cloud.png'); /* Add cloud icon */
-    background-repeat: no-repeat;
-    background-position: center;
   }
 </style>
 </div>
