@@ -12,38 +12,42 @@ permalink: /certifications/
 
 <style>
   .certification-card {
-    background-color:rgb(90, 88, 88); /* Set light background color */
-    color: #333; /* Set text color for better contrast */
+    background-color: #f9f9f9; /* Lighter background for better readability */
+    color: #333; /* Text color */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center align text */
-    max-width: 600px; /* Limit the width for better readability */
-    margin: 0 auto; /* Center the card */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover transition */
+    align-items: center;
+    max-width: 600px;
+    margin: 20px auto; /* Add spacing around the card */
+    padding: 20px; /* Add padding for better spacing */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #ddd; /* Subtle border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .certification-card:hover {
-    transform: translateY(-5px); /* Slightly lift the card */
-    box-shadow: 0 4px 8px rgba(110, 91, 91, 0.2); /* Light shadow effect */
-  }
-
-  @media (max-width: 768px) {
-    .certification-card {
-      width: 90%; /* Adjust width for smaller screens */
-    }
+    transform: translateY(-10px); /* Lift the card more */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow effect */
   }
 
   .certification-card h3 {
     margin-top: 0;
     margin-bottom: 10px;
-    color: #333; /* Ensure the heading text is visible */
+    color: #0078D4; /* Azure brand color for heading */
+    font-size: 1.5em; /* Larger font size */
+  }
+
+  .certification-card p {
+    margin: 10px 0;
+    font-size: 1em; /* Standard font size */
+    color: #555; /* Subtle text color */
   }
 
   .certification-card img {
-    height: 16px;
+    height: 24px; /* Larger badge size */
     width: auto;
     vertical-align: middle;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 </style>
 </div>
