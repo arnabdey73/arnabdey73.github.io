@@ -14,7 +14,7 @@ permalink: /certifications/
   .certification-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
+    align-items: center; /* Center align text */
     max-width: 600px; /* Limit the width for better readability */
     margin: 0 auto; /* Center the card */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover transition */
@@ -22,7 +22,7 @@ permalink: /certifications/
 
   .certification-card:hover {
     transform: translateY(-5px); /* Slightly lift the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Add shadow effect */
+    box-shadow: 0 4px 8px rgba(110, 91, 91, 0.2); /* Light shadow effect */
   }
 
   @media (max-width: 768px) {

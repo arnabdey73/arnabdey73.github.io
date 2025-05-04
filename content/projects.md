@@ -5,6 +5,19 @@ permalink: /projects/
 ---
 <div style="text-align: center;">
 <div class="project-list">
+  <!-- Project 0 -->
+  <div class="project-card">
+    <h3>Infrastructure as Code with Python</h3>
+    <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>
+    <div class="badge-row">
+      <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/IaC-Infrastructure%20as%20Code-0078D4?style=flat&logo=terraform&logoColor=white" alt="IaC Badge" />
+    </div>
+    <a class="github-button" href="https://github.com/arnabdey73/iac-python" target="_blank">
+      <img class="badge-icon" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
+    </a>
+  </div>
+
   <!-- Project 1 -->
   <div class="project-card">
     <h3>DevOps Automation</h3>
