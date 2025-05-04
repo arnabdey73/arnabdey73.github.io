@@ -104,11 +104,8 @@ permalink: /projects/
   }
 
   .github-button {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center align items vertically */
-    gap: 5px; /* Add spacing between icon and text */
-    width: auto; /* Reduce button width to fit content */
-    padding: 5px 10px; /* Adjust padding for better fit */
+    width: auto; /* Adjusted to fit content dynamically */
+    padding: 5px 10px; /* Maintain padding for better fit */
   }
 
   .github-button:hover {
@@ -116,8 +113,8 @@ permalink: /projects/
   }
 
   .github-button img {
-    height: 20px;
-    width: 25px; /* Increased width for better visibility */
+    height: 30px; /* Increased height for better visibility */
+    width: 35px; /* Increased width for better visibility */
     vertical-align: middle;
   }
 </style>
