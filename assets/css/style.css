@@ -316,6 +316,21 @@ body:not(.home) .banner {
   .text-content {
     text-align: center; /* Center align text for smaller screens */
   }
+
+  .top-nav .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .top-nav .nav-links li {
+    margin-right: 0;
+  }
+
+  .top-nav .nav-links li a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
 }
 
 @media (min-width: 1024px) {

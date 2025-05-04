@@ -88,6 +88,8 @@ permalink: /projects/
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center align items vertically */
     gap: 5px; /* Add spacing between icon and text */
+    width: auto; /* Reduce button width to fit content */
+    padding: 5px 10px; /* Adjust padding for better fit */
   }
 
   .github-button:hover {
@@ -95,9 +97,9 @@ permalink: /projects/
   }
 
   .github-button img {
-    height: 20px; /* Increased height for better visibility */
-    width: 20px; /* Match width with increased height */
-    vertical-align: middle; /* Align properly */
+    height: 20px;
+    width: 25px; /* Increased width for better visibility */
+    vertical-align: middle;
   }
 
   .badge-icon[src*="Azure"] {
