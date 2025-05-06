@@ -92,10 +92,9 @@ permalink: /projects/
   }
 
   .badge-icon {
-    height: 14px; /* Further reduce height for badges */
+    height: 20px; /* Set uniform height for all badges */
     width: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align badges properly */
-    background-color: transparent; /* Ensure no background color interferes */
   }
 
   .badge-icon[src*="Azure"] {
