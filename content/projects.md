@@ -65,12 +65,12 @@ permalink: /projects/
   }
 
   .project-card {
-    background-color: #111;
+    background-color: white; /* Changed background color to white */
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for hover effect */
-    color: white; /* Change font color to white for better readability */
+    color: black; /* Adjusted font color for better readability on white background */
   }
 
   .project-card:hover {
@@ -104,19 +104,25 @@ permalink: /projects/
   }
 
   .github-button {
+    display: inline-flex; /* Ensure proper alignment */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
     height: 40px;
-    width: 50px; /* Adjusted to fit content dynamically */
     padding: 5px 10px; /* Maintain padding for better fit */
+    background-color: transparent; /* Ensure no background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add slight rounding for aesthetics */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
   }
 
   .github-button:hover {
-    background-color: #0d8ddb;
+    background-color: #f3f4f6; /* Subtle hover effect */
   }
 
   .github-button img {
-    height: 20px; /* Increased height for better visibility */
-    width: 35px; /* Increased width for better visibility */
-    vertical-align: middle;
+    height: 20px; /* Adjusted height for better visibility */
+    width: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align image properly */
   }
 </style>
 </div>
