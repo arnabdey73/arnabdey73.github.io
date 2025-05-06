@@ -12,6 +12,7 @@ permalink: /projects/
     <div class="badge-row">
       <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
       <img class="badge-icon" src="https://img.shields.io/badge/IaC-Infrastructure%20as%20Code-0078D4?style=flat&logo=terraform&logoColor=white" alt="IaC Badge" />
+      <img class="badge-icon" src="https://img.shields.io/badge/Pulumi-5C2D91?style=flat&logo=pulumi&logoColor=white" alt="Pulumi Badge" />
     </div>
     <a class="github-button" href="https://github.com/arnabdey73/iac-python" target="_blank">
       <img class="badge-icon" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
@@ -101,6 +102,11 @@ permalink: /projects/
     background-color: white; /* Ensure visibility */
     border-radius: 3px;
     background-image: none; /* Remove any conflicting background image */
+  }
+
+  .badge-icon[src*="Pulumi"] {
+    background-color: #5C2D91; /* Pulumi's primary color */
+    color: white; /* Ensure text/logo visibility */
   }
 
   .github-button {
