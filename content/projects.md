@@ -95,6 +95,8 @@ permalink: /projects/
     height: 20px; /* Set uniform height for all badges */
     width: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align badges properly */
+    background-color: white; /* Ensure visibility for all badges */
+    border-radius: 3px; /* Add slight rounding for aesthetics */
   }
 
   .badge-icon[src*="Azure"] {
