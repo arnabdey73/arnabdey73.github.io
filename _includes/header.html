@@ -1,27 +1,97 @@
 <style>  /* Mobile menu button */
   .menu-toggle {
     display: none; /* Hidden by default */
-    background: none;
-    border: none;
-    color: #0078D4; /* Match link color */
-    font-size: 1.5rem;
+    background-color: rgba(0, 120, 212, 0.4); /* More visible semi-transparent blue */
+    border: 2px solid #0078D4; /* Blue border for visibility */
+    color: #ffffff; /* White text for better visibility */
+    font-size: 1.9rem; /* Larger font size for better visibility */
     cursor: pointer;
     position: absolute;
-    top: 10px;
+    top: 8px;
     right: 15px;
     z-index: 100;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 8px 15px; /* Increased padding for larger tap target */
+    border-radius: 6px;
+    transition: all 0.25s ease-out;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1); /* Enhanced shadow for better depth */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    /* Add small indicator dots to show it's toggleable */
+    position: relative;
   }
   
-  .menu-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  /* Add visual indicator for toggle functionality */
+  .menu-toggle::after {
+    content: '•••';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+  }    .menu-toggle:hover {
+    background-color: #0078D4; /* Solid blue on hover */
     color: white;
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover with subtle glow */
   }
   
   .menu-toggle:focus {
     outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.6); /* Enhanced focus ring for accessibility */
+  }
+  
+  /* Add active state styling */
+  .menu-toggle.active {
+    background-color: #0078D4; /* Solid blue when active */
+    transform: scale(0.97); /* Slight press effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Reduced shadow when active */
+  }
+    /* Add enhanced pulsing animations to draw attention to the menu button on mobile */
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.8); }
+    70% { box-shadow: 0 0 0 12px rgba(0, 120, 212, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
+  }
+  
+  /* Add subtle glow effect */
+  @keyframes glow {
+    0% { border-color: rgba(0, 120, 212, 0.8); }
+    50% { border-color: rgba(0, 198, 255, 0.9); }
+    100% { border-color: rgba(0, 120, 212, 0.8); }
+  }
+    /* Enhanced icon transition animation */
+  .menu-toggle i {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.25s ease;
+    display: inline-block;
+  }
+  
+  .menu-toggle.active i.fa-bars {
+    transform: rotate(225deg); /* More dynamic rotation */
+    opacity: 0;
+  }
+  
+  .menu-toggle.active i.fa-times {
+    transform: rotate(0);
+    opacity: 1;
+  }
+  
+  /* Add subtle shake animation to draw attention on page load */
+  @keyframes subtleShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(3px); }
+    100% { transform: translateX(0); }
+  }
+  
+  /* Apply shake animation on page load (only once) */
+  @media screen and (max-width: 768px) {
+    .menu-toggle.initial-load {
+      animation: subtleShake 0.5s ease-in-out 1s 1, pulse 2.5s infinite 1.5s, glow 4s infinite 1.5s;
+    }
   }
   
   .nav-button {
@@ -82,14 +152,19 @@
     color: white;
     font-weight: 500; /* Slightly bolder */
   }
-    /* Responsive styles */
-  @media screen and (max-width: 768px) {
+  /* Responsive styles */  @media screen and (max-width: 768px) {
     .menu-toggle {
-      display: block; /* Show menu toggle on mobile */
+      display: flex; /* Show menu toggle on mobile with flex for better centering */
+      justify-content: center;
+      align-items: center;
+      animation: pulse 2.5s infinite, glow 4s infinite; /* Combined animations */
+      background-color: rgba(0, 120, 212, 0.4); /* More visible on mobile */
+      backdrop-filter: blur(3px); /* Add subtle blur effect behind the button */
+      -webkit-backdrop-filter: blur(3px); /* For Safari support */
     }
     
     .top-nav {
-      padding: 10px; /* Add some padding around the nav */
+      padding: 15px 10px; /* Increase top padding to accommodate the button */
     }
     
     .top-nav ul {
@@ -130,22 +205,48 @@
       border-bottom: none; /* Remove border from last item */
     }
   }
-  
   @media screen and (max-width: 480px) {
     .top-nav {
-      padding: 5px 0; /* Less padding on very small screens */
+      padding: 12px 0; /* Adjusted padding on very small screens */
+    }
+    
+    .menu-toggle {
+      top: 6px; /* Position closer to top edge */
+      right: 10px; /* Position closer to right edge */
+      font-size: 1.7rem; /* Keep it very visible even on small screens */
+      padding: 6px 12px; /* Maintain good tap target size */
+      border-width: 2.5px; /* Thicker border on small screens for visibility */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1); /* Enhanced shadow with subtle highlight */
     }
     
     .top-nav ul li a {
-      padding: 10px; /* Less padding */
+      padding: 12px; /* Slightly more padding for better touch targets */
+      font-size: 1.1rem; /* Larger font size for better readability */
     }
   }
 </style>
 
 <link rel="icon" href="https://arnabdey73.github.io/assets/img/favicon.ico" type="image/x-icon">
 
-<nav class="top-nav">
-  <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+<nav class="top-nav">  <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" title="Open site navigation">
+    <i class="fas fa-bars"></i>
+    <span class="sr-only">Menu</span> <!-- Screen reader text -->
+  </button>
+  
+  <style>
+    /* Screen reader only text */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
   <ul id="nav-menu">
     <li><a href="/">Home</a></li>
     <li><a href="/about/">About</a></li>
@@ -156,10 +257,19 @@
   </ul>
 </nav>
 
-<script>  // Mobile menu toggle and active page functionality
-  document.addEventListener('DOMContentLoaded', function() {
+<script>  // Mobile menu toggle and active page functionality  document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+    
+    // Add initial-load class to trigger the animation on page load
+    // Only on mobile devices
+    if (window.innerWidth <= 768 && menuToggle) {
+      menuToggle.classList.add('initial-load');
+      // Remove the class after animation completes to avoid conflict with other animations
+      setTimeout(() => {
+        menuToggle.classList.remove('initial-load');
+      }, 3000);
+    }
     
     // Set active page
     const currentPath = window.location.pathname;
@@ -171,11 +281,58 @@
         link.classList.add('active');
       }
     });
-    
-    // Mobile menu toggle
+      // Mobile menu toggle
     if (menuToggle && navMenu) {
       menuToggle.addEventListener('click', function(event) {
+        // Toggle menu visibility
         navMenu.classList.toggle('show');
+        
+        // Toggle active class on button
+        this.classList.toggle('active');
+          // Toggle between menu and close icon
+        const isExpanded = navMenu.classList.contains('show');
+        this.setAttribute('aria-expanded', isExpanded);
+          // Enhanced icon transition with dynamic rotation
+        const iconElement = this.querySelector('i');
+        
+        if (isExpanded) {
+          // First prep for animation with CSS transform
+          iconElement.style.transition = 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.2s ease';
+          
+          // Start rotation animation and fade out
+          iconElement.style.transform = 'rotate(180deg)';
+          iconElement.style.opacity = '0';
+          
+          // Wait for animation to progress then swap icons
+          setTimeout(() => {
+            iconElement.classList.remove('fa-bars');
+            iconElement.classList.add('fa-times'); // Change to X when menu is open
+            iconElement.style.transform = 'rotate(0)';
+            iconElement.style.opacity = '1';
+          }, 200);
+          
+          // Update tooltip
+          this.setAttribute('title', 'Close site navigation');
+        } else {
+          // First prep for animation with CSS transform
+          iconElement.style.transition = 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.2s ease';
+          
+          // Start rotation animation and fade out
+          iconElement.style.transform = 'rotate(-180deg)';
+          iconElement.style.opacity = '0';
+          
+          // Wait for animation to progress then swap icons
+          setTimeout(() => {
+            iconElement.classList.remove('fa-times');
+            iconElement.classList.add('fa-bars'); // Change back to bars when menu is closed
+            iconElement.style.transform = 'rotate(0)';
+            iconElement.style.opacity = '1';
+          }, 200);
+          
+          // Update tooltip
+          this.setAttribute('title', 'Open site navigation');
+        }
+        
         event.stopPropagation(); // Prevent document click from immediately closing it
       });
       
@@ -183,6 +340,27 @@
       document.addEventListener('click', function(event) {
         if (!event.target.closest('.top-nav') || event.target.tagName === 'A') {
           navMenu.classList.remove('show');
+          menuToggle.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');          // Reset icon with enhanced animation
+          const iconElement = menuToggle.querySelector('i');
+          
+          // First prep for animation with CSS transform
+          iconElement.style.transition = 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.2s ease';
+          
+          // Start rotation animation and fade out
+          iconElement.style.transform = 'rotate(-180deg)';
+          iconElement.style.opacity = '0';
+          
+          // Wait for animation to progress then swap icons
+          setTimeout(() => {
+            iconElement.classList.remove('fa-times');
+            iconElement.classList.add('fa-bars'); // Change back to bars when menu is closed
+            iconElement.style.transform = 'rotate(0)';
+            iconElement.style.opacity = '1';
+          }, 200);
+          
+          // Update tooltip
+          menuToggle.setAttribute('title', 'Open site navigation');
         }
       });
       
