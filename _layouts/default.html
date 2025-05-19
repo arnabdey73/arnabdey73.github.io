@@ -33,9 +33,42 @@ layout: default
   <main class="content">
     {{ content }} <!-- Main content area -->
   </main>
-
   <footer>
     {% include footer.html %} <!-- Footer section -->
   </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top-btn" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Script for back to top button functionality -->
+  <script>
+    // Get the button
+    const backToTopButton = document.getElementById("back-to-top-btn");
+    
+    // When the user scrolls down 300px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopButton.style.display = "flex";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    backToTopButton.addEventListener("click", function() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      
+      // Add smooth scrolling
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>

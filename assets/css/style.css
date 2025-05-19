@@ -347,3 +347,52 @@ body:not(.home) .banner {
     text-align: right; /* Right align text for larger screens */
   }
 }
+
+/* Back to top button styles */
+#back-to-top-btn {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #0078D4; /* Match the site's blue accent */
+  color: white;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#back-to-top-btn:hover {
+  background-color: #005A9E; /* Darker blue on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile-specific adjustments for the back to top button */
+@media (max-width: 768px) {
+  #back-to-top-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #back-to-top-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    bottom: 10px;
+    right: 10px;
+  }
+}

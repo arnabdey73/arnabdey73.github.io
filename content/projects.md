@@ -7,11 +7,9 @@ permalink: /projects/
 <div class="project-list">  <!-- Project 0 -->
   <div class="project-card">
     <h3>Infrastructure as Code with Python</h3>
-    <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>
-    <div class="badge-container">
+    <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>    <div class="badge-container">
       <div class="badge-row">
         <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/IaC-Infrastructure%20as%20Code-0078D4?style=flat&logo=terraform&logoColor=white" alt="IaC Badge" />
         <img class="badge-icon" src="https://img.shields.io/badge/Pulumi-5C2D91?style=flat&logo=pulumi&logoColor=white" alt="Pulumi Badge" />
       </div>
       <a class="github-button" href="https://github.com/arnabdey73/iac-python" target="_blank">
@@ -27,7 +25,7 @@ permalink: /projects/
       <div class="badge-row">
         <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
         <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/Azure-Cloud%20Services-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
+        <img class="badge-icon" src="https://img.shields.io/badge/Microsoft_Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
         <img class="badge-icon" src="https://img.shields.io/badge/Helm-0F1689?style=flat&logo=helm&logoColor=white" alt="Helm Badge" />
       </div>
       <a class="github-button" href="https://github.com/arnabdey73/devops-python-automation-project" target="_blank">
