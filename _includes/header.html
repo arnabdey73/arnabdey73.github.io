@@ -1,4 +1,29 @@
-<style>
+<style>  /* Mobile menu button */
+  .menu-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    color: #0078D4; /* Match link color */
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 100;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .menu-toggle:focus {
+    outline: none;
+  }
+  
   .nav-button {
     font-size: 1rem; /* Increase font size for better visibility */
     padding: 10px 15px; /* Adjust padding for better clickability */
@@ -17,10 +42,12 @@
     margin: 0;
     justify-content: center;
   }
-
   .top-nav {
     background-color: black; /* Set header background color to black */
     margin-bottom: 20px; /* Add padding between the header and the hero banner */
+    width: 100%; /* Full width */
+    padding: 10px 0; /* Add some vertical padding */
+    position: relative; /* For positioning the mobile menu button */
   }
 
   .top-nav ul {
@@ -29,33 +56,97 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
   }
-
   .top-nav ul li {
-    margin: 0 15px; /* Add spacing between buttons */
+    margin: 5px; /* Adjust spacing for responsiveness */
   }
 
   .top-nav ul li a {
     text-decoration: none;
     color: #0078D4; /* Ensure buttons are distinct */
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    height: 50px; /* Adjust height for top nav buttons */
-    line-height: 50px; /* Center align text vertically */
-  }
-
-  .top-nav ul li a:hover {
+    transition: all 0.3s ease; /* Transition all properties */
+    display: block; /* Better for mobile */
+    text-align: center; /* Center text */
+  }  .top-nav ul li a:hover {
     background-color: #005A9E; /* Add hover effect */
     color: white; /* Change text color on hover */
+  }
+  
+  /* Active page styling */
+  .top-nav ul li a.active {
+    background-color: #005A9E; /* Same as hover */
+    color: white;
+    font-weight: 500; /* Slightly bolder */
+  }
+    /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+      display: block; /* Show menu toggle on mobile */
+    }
+    
+    .top-nav {
+      padding: 10px; /* Add some padding around the nav */
+    }
+    
+    .top-nav ul {
+      flex-direction: column; /* Stack menu items vertically */
+      align-items: center; /* Center items */
+      width: 100%; /* Full width */
+      max-height: 0; /* Hide by default */
+      overflow: hidden; /* Hide overflow */
+      transition: max-height 0.5s ease, opacity 0.3s ease; /* Smooth transitions */
+      opacity: 0; /* Start transparent */
+      background-color: rgba(0, 0, 0, 0.95); /* Slightly transparent background */
+      position: absolute; /* Position the dropdown */
+      top: 100%; /* Below the header */
+      left: 0; /* Align to left edge */
+      z-index: 99; /* Above other content */
+      border-radius: 0 0 5px 5px; /* Rounded bottom corners */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    }
+    
+    .top-nav ul.show {
+      max-height: 500px; /* Show when .show class is added */
+      opacity: 1; /* Fully visible */
+    }
+    
+    .top-nav ul li {
+      width: 100%; /* Full width */
+      margin: 0; /* Remove margin */
+    }
+    
+    .top-nav ul li a {
+      padding: 12px 15px; /* Increase padding for better touch targets */
+      width: 100%; /* Full width */
+      box-sizing: border-box; /* Include padding in width calculation */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    }
+    
+    .top-nav ul li:last-child a {
+      border-bottom: none; /* Remove border from last item */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .top-nav {
+      padding: 5px 0; /* Less padding on very small screens */
+    }
+    
+    .top-nav ul li a {
+      padding: 10px; /* Less padding */
+    }
   }
 </style>
 
 <link rel="icon" href="https://arnabdey73.github.io/assets/img/favicon.ico" type="image/x-icon">
 
 <nav class="top-nav">
-  <ul>
+  <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+  <ul id="nav-menu">
     <li><a href="/">Home</a></li>
     <li><a href="/about/">About</a></li>
     <li><a href="/projects/">Projects</a></li>
@@ -64,6 +155,46 @@
     <li><a href="/contact/">Contact</a></li>
   </ul>
 </nav>
+
+<script>  // Mobile menu toggle and active page functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    // Set active page
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('#nav-menu a');
+    
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute('href');
+      if (linkPath === currentPath || (linkPath !== '/' && currentPath.startsWith(linkPath))) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Mobile menu toggle
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', function(event) {
+        navMenu.classList.toggle('show');
+        event.stopPropagation(); // Prevent document click from immediately closing it
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.top-nav') || event.target.tagName === 'A') {
+          navMenu.classList.remove('show');
+        }
+      });
+      
+      // Close menu on window resize (if switching from mobile to desktop)
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          navMenu.classList.remove('show');
+        }
+      });
+    }
+  });
+</script>
 
 <!-- Ensure the hero banner remains intact -->
 {% include hero-banner.html %}
