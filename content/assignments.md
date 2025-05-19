@@ -7,72 +7,142 @@ permalink: /assignments/
   .assignments {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
+    margin-top: 30px;
   }
 
   .assignment-card {
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    background-color: #333;
-    color: #fff;
-    text-align: left; /* Align text to the left */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 800px; /* Wider than project cards for more content */
+    margin: 0 auto; /* Center the cards */
+    background-color: #121212; /* Dark background color matching project cards */
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease; /* Smooth transition for all properties */
+    color: #e0e0e0; /* Light text color for dark background */
+    text-align: left; /* Keep text left-aligned */
   }
 
   .assignment-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px); /* Slight lift on hover */
+    background-color: white; /* Change to white on hover */
+    color: #121212; /* Change text to dark on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
   }
 
   .assignment-card h3 {
-    margin: 0 0 10px;
-    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem; /* Consistent heading size with project cards */
+    color: #0078D4; /* Bright blue color for heading */
+    transition: color 0.4s ease; /* Smooth transition for color change */
+  }
+  
+  .assignment-card:hover h3 {
+    color: #005A9E; /* Darker blue on white background when hovered */
   }
 
   .assignment-card .date {
-    font-size: calc(0.8em + 0.4vw);
-      color: #aaa;
+    font-size: calc(0.8em + 0.2vw);
+    color: #aaa;
+    transition: color 0.4s ease;
+  }
+  
+  .assignment-card:hover .date {
+    color: #666; /* Darker color on hover */
   }
 
   .assignment-card ul {
-    margin: 0;
+    margin: 10px 0;
     padding-left: 20px;
+    color: #bbb; /* Light gray text for better readability on dark background */
+    transition: color 0.4s ease; /* Smooth transition for color change */
+    line-height: 1.5;
+  }
+  
+  .assignment-card:hover ul {
+    color: #333; /* Darker text on white background when hovered */
   }
 
   .assignment-card li {
     margin-bottom: 8px;
   }
-
-  .assignment-card img {
-    height: 50px; /* Set a uniform height for all badges */
-    width: auto; /* Maintain aspect ratio */
-    display: inline-block; /* Display badges inline */
-    margin: 10px 5px 0; /* Add spacing between badges */
-  }
-
-  .assignment-card {
+  
+  /* Badge styling to match project cards */
+  .badge-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: flex-start; /* Left align for assignment cards */
+    margin: 15px 0;
+  }
+  
+  .badge-row {
+    display: flex; /* Use flex display */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    align-items: center; /* Vertically center badges */
+    gap: 8px; /* Consistent spacing between badges */
+    margin-bottom: 10px;
   }
 
+  .badge-icon {
+    height: 24px; /* Standardized height for all badges */
+    width: auto; /* Calculate width based on aspect ratio */
+    min-width: 70px; /* Minimum width to prevent tiny badges */
+    max-width: 180px; /* Slightly wider for assignment badges */
+    object-fit: contain; /* Ensure content fits within dimensions */
+    vertical-align: middle; /* Align badges properly */
+    background-color: #232323; /* Darker background for badges */
+    border-radius: 4px; /* Consistent rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    padding: 2px 4px; /* Consistent padding all around */
+    margin: 2px; /* Small margin for spacing */
+    transition: all 0.4s ease; /* Smooth transition */
+    border: 1px solid #333; /* Subtle border */
+  }
+  
+  .assignment-card:hover .badge-icon {
+    background-color: #f5f5f5; /* Lighter background on hover */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    border-color: #ddd; /* Lighter border on hover */
+  }
+
+  /* Responsive adjustments */
   @media (max-width: 768px) {
-    .assignments {
-      flex-direction: column;
+    .badge-row {
+      gap: 6px; /* Slightly smaller gap on mobile */
+    }
+    
+    .badge-icon {
+      height: 22px; /* Slightly smaller on mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .badge-row {
+      gap: 4px; /* Even smaller gap on very small screens */
+    }
+    
+    .badge-icon {
+      height: 20px; /* Reduce size on very small screens */
+      max-width: 160px; /* Narrower width limit */
     }
   }
 </style>
 
 <div style="text-align: center;">
-<div class="assignments">
-  <div class="assignment-card">
+<div class="assignments">  <div class="assignment-card">
     <h3>DevOps Engineer – AFRY AB <span class="date">(May 2025 - Present)</span></h3>
     <ul>
       <li>Coming soon...</li>
     </ul>
-    <img src="https://img.shields.io/badge/DevOps-blue" alt="DevOps" style="width: 150px; height: auto;">
+    <div class="badge-container">
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/DevOps-blue?style=flat" alt="DevOps Badge">
+        <img class="badge-icon" src="https://img.shields.io/badge/Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge">
+      </div>
+    </div>
   </div>
 
   <div class="assignment-card">
@@ -83,10 +153,14 @@ permalink: /assignments/
       <li>Monitored cloud platform patterns and anomalies using KQL and resolved incidents per SLA, achieving a 20% reduction in downtime.</li>
       <li>Managed Azure services including Logic Apps, IaaS, PaaS, and Entra ID (formerly Azure AD).</li>
     </ul>
-    <img src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-blue" alt="Cloud Adoption Framework v6.0.0" style="width: 170px; height: auto;">
-    <img src="https://img.shields.io/badge/Terraform-blue" alt="Terraform" style="width: 150px; height: auto;">
+    <div class="badge-container">
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-0089D6?style=flat" alt="Cloud Adoption Framework v6.0.0">
+        <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
+        <img class="badge-icon" src="https://img.shields.io/badge/Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge">
+      </div>
+    </div>
   </div>
-
   <div class="assignment-card">
     <h3>Senior Software Engineer (DevOps) – Capgemini Sverige AB <span class="date">(September 2021 - July 2024)</span></h3>
     <ul>
@@ -95,7 +169,17 @@ permalink: /assignments/
       <li>Automated Azure Databricks cluster scaling with Terraform and GitHub Actions.</li>
       <li>Acted as a Product Owner, coordinating backlog priorities and ensuring alignment with stakeholder vision by creating product roadmap and vision board.</li>
     </ul>
-    <img src="https://img.shields.io/badge/CI%2FCD-Automation-brightgreen" alt="CI/CD Automation" style="width: 150px; height: auto;">
+    <div class="badge-container">
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/CI%2FCD-Automation-brightgreen?style=flat" alt="CI/CD Automation">
+        <img class="badge-icon" src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=flat&logo=azure-devops&logoColor=white" alt="Azure DevOps Badge">
+        <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
+      </div>
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/Databricks-FF3621?style=flat&logo=databricks&logoColor=white" alt="Databricks Badge">
+        <img class="badge-icon" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white" alt="GitHub Actions Badge">
+      </div>
+    </div>
   </div>
 
   <div class="assignment-card">
@@ -106,7 +190,18 @@ permalink: /assignments/
       <li>Managed ELK stack for indexing product generated CSVs as well as centralized logging and monitoring.</li>
       <li>Reduced operational overhead by 20% through automated platform/infrastructure provisioning with Terraform/Ansible.</li>
     </ul>
-    <img src="https://img.shields.io/badge/DevOps-Kubernetes-blue" alt="DevOps Kubernetes" style="width: 150px; height: auto;">
+    <div class="badge-container">
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white" alt="Kubernetes Badge">
+        <img class="badge-icon" src="https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white" alt="Jenkins Badge">
+        <img class="badge-icon" src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker Badge">
+      </div>
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/ELK_Stack-005571?style=flat&logo=elastic&logoColor=white" alt="ELK Stack Badge">
+        <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
+        <img class="badge-icon" src="https://img.shields.io/badge/Ansible-EE0000?style=flat&logo=ansible&logoColor=white" alt="Ansible Badge">
+      </div>
+    </div>
   </div>
 </div>
 </div>
