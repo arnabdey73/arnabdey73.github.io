@@ -4,123 +4,127 @@ title: Contact
 permalink: /contact/
 ---
 <style>
-/* Adjusted styles for the contact card */
+/* Contact card styling to match project cards */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: clamp(16px, 4vw, 24px); /* Responsive padding */
-    background-color: #000; /* Changed background color to black */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Full width by default */
-    max-width: 400px; /* Maximum width */
-    margin: 20px auto;
-    text-align: center;
-    transition: all 0.4s ease; /* Smooth transition for all properties */
+  width: 100%;
+  max-width: 450px; /* Slightly wider for contact information */
+  background-color: #121212; /* Dark background color matching project cards */
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease; /* Smooth transition for all properties */
+  color: #e0e0e0; /* Light text color for dark background */
+  text-align: center;
+  animation: cardAppear 0.5s ease-out forwards;
+  transform-origin: center;
 }
 
 .card:hover {
-    background-color: #fff; /* Changed to white background on hover */
-    box-shadow: 0 6px 10px rgba(255, 255, 255, 0.2); /* Updated shadow on hover */
-    color: #000; /* Text color changes to black for contrast */
-}
-
-@media (max-width: 768px) {
-    .card {
-      width: 90%; /* Adjust width for smaller screens */
-      padding: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-      width: 95%; /* Even smaller screens get wider card */
-      padding: 12px;
-    }
+  transform: translateY(-5px); /* Slight lift on hover */
+  background-color: white; /* Change to white on hover */
+  color: #121212; /* Change text to dark on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .card h3 {
-    margin-bottom: clamp(10px, 3vw, 16px);
-    font-size: clamp(0.9rem, 2.5vw, 1.2rem); /* Responsive font size */
-    color: #fff; /* Changed font color to white for contrast */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem; /* Consistent heading size with project cards */
+  color: #0078D4; /* Bright blue color for heading */
+  transition: color 0.4s ease; /* Smooth transition for color change */
 }
+
+.card:hover h3 {
+  color: #005A9E; /* Darker blue on white background when hovered */
+}
+
 .card p {
-    margin: clamp(6px, 2vw, 10px) 0;
-    font-size: clamp(0.8rem, 2vw, 1rem); /* Responsive font size */
-    color: #ddd; /* Changed font color to a lighter shade for readability */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+  margin: 12px 0;
+  font-size: clamp(0.9rem, 2vw, 1rem); /* Responsive font size */
+  color: #bbb; /* Light gray text for better readability on dark background */
+  transition: color 0.4s ease; /* Smooth transition for color change */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  line-height: 1.5;
 }
-.card:hover h3,
+
 .card:hover p {
-    color: #000; /* Change text color to black when card is hovered */
+  color: #333; /* Darker text on white background when hovered */
 }
+
 .card a {
-    color: #007BFF;
-    text-decoration: none;
-    padding: 2px 4px; /* Add padding for better touch targets */
-    border-radius: 3px; /* Slight rounded corners */
-    transition: background-color 0.2s, color 0.2s; /* Smooth hover effect */
+  color: #0078D4; /* Match project card blue */
+  text-decoration: none;
+  padding: 4px 6px; /* Larger padding for better touch targets */
+  border-radius: 4px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth hover effect */
 }
+
 .card a:hover {
-    background-color: rgba(0, 123, 255, 0.1); /* Light background on hover */
-    color: #0056b3; /* Darker blue on hover for better contrast */
+  background-color: rgba(0, 120, 212, 0.1); /* Light background on hover */
+  color: #005A9E; /* Darker blue on hover for better contrast */
+  transform: translateY(-1px); /* Slight lift effect */
 }
+
 .card a:active {
-    transform: scale(0.98); /* Slight scale effect when clicked */
-}
-.card:hover a {
-    color: #0056b3; /* Darker blue for links when card is hovered for better contrast on white */
-}
-.card:hover a:hover {
-    background-color: rgba(0, 86, 179, 0.15); /* Slightly darker background when hovered */
-    color: #003d7f; /* Even darker blue for double-hover state */
+  transform: scale(0.98); /* Slight scale effect when clicked */
 }
 
-/* Ensure hero banner visibility */
-body {
-    margin: 0;
-    padding: 0;
-    display: block; /* Changed from flex to block */
-    background-color:rgb(4, 0, 0); /* Optional: Add a subtle background color */
-    min-height: 100vh;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    padding: 20px;
+    max-width: 400px;
+  }
+  
+  .card h3 {
+    font-size: 1.4rem;
+  }
 }
 
-/* Improved spacing for contact card items */
-.card p {
-    width: 100%;
-    padding: clamp(5px, 1.5vw, 10px) 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+@media (max-width: 480px) {
+  .card {
+    padding: 15px;
+    max-width: 95%;
+  }
+  
+  .card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .card p {
+    font-size: 0.9rem;
+  }
 }
 
 /* Add animation for card appear */
 @keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card {
-    animation: cardAppear 0.5s ease-out forwards;
-    transform-origin: center; /* Ensures transforms happen from the center */
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
-<div class="card">
-  <h3>Contact Details</h3>
-  <p>📍 Stockholm, Sweden</p>
-  <p>📞 <a href="tel:+460764516092">(+46) 0764516092</a></p>
-  <p>📧 <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
-  <p>🔗 <a href="https://www.linkedin.com/in/arnabdey73/" target="_blank">LinkedIn</a></p>
-  <p>💻 <a href="https://github.com/arnabdey73" target="_blank">GitHub</a></p>
+<div class="contact-container">
+  <div class="card">
+    <h3>Contact Details</h3>
+    <p>📍 Stockholm, Sweden</p>
+    <p>📞 <a href="tel:+460764516092">(+46) 0764516092</a></p>
+    <p>📧 <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
+    <p>🔗 <a href="https://www.linkedin.com/in/arnabdey73/" target="_blank">LinkedIn</a></p>
+    <p>💻 <a href="https://github.com/arnabdey73" target="_blank">GitHub</a></p>
+  </div>
 </div>

@@ -4,30 +4,129 @@ title: Certifications
 permalink: /certifications/
 ---
 <div style="text-align: center;">
-<div class="certification-card project-card">
-  <h3>Microsoft Certified: Azure Fundamentals</h3>
-  <p>Issued March 2023</p>
-  <img src="https://img.shields.io/badge/Azure%20Fundamentals-Certified-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Fundamentals Badge" class="badge-icon">
+<div class="certification-cards">
+  <div class="certification-card">
+    <h3>Microsoft Certified: Azure Fundamentals</h3>
+    <p>Issued March 2023</p>
+    <div class="badge-container">
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/Azure%20Fundamentals-Certified-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Fundamentals Badge">
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
-  .certification-card {
-    background-color: #f9f9f9; /* Lighter background for better readability */
-    color: #333; /* Text color */
+  .certification-cards {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .certification-card {
+    width: 100%;
     max-width: 600px;
-    margin: 20px auto; /* Add spacing around the card */
-    padding: 20px; /* Add padding for better spacing */
-    border-radius: 10px; /* Rounded corners */
-    border: 1px solid #ddd; /* Subtle border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #121212; /* Dark background color matching project cards */
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease; /* Smooth transition for all properties */
+    color: #e0e0e0; /* Light text color for dark background */
+    text-align: center;
   }
 
   .certification-card:hover {
-    transform: translateY(-10px); /* Lift the card more */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow effect */
+    transform: translateY(-5px); /* Slight lift on hover */
+    background-color: white; /* Change to white on hover */
+    color: #121212; /* Change text to dark on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+
+  .certification-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem; /* Consistent heading size with project cards */
+    color: #0078D4; /* Bright blue color for heading */
+    transition: color 0.4s ease; /* Smooth transition for color change */
+  }
+  
+  .certification-card:hover h3 {
+    color: #005A9E; /* Darker blue on white background when hovered */
+  }
+  
+  .certification-card p {
+    color: #bbb; /* Light gray text for better readability on dark background */
+    transition: color 0.4s ease; /* Smooth transition for color change */
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+    .certification-card:hover p {
+    color: #333; /* Darker text on white background when hovered */
+  }
+  
+  /* Badge styling to match project cards */
+  .badge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+  }
+  
+  .badge-row {
+    display: flex; /* Use flex display */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center align badges */
+    align-items: center; /* Vertically center badges */
+    gap: 8px; /* Consistent spacing between badges */
+    margin-bottom: 10px;
+  }
+  
+  .badge-icon {
+    height: 24px; /* Standardized height for all badges */
+    width: auto; /* Calculate width based on aspect ratio */
+    min-width: 70px; /* Minimum width to prevent tiny badges */
+    max-width: 120px; /* Prevent overly wide badges */
+    object-fit: contain; /* Ensure content fits within dimensions */
+    vertical-align: middle; /* Align badges properly */
+    background-color: #232323; /* Darker background for badges */
+    border-radius: 4px; /* Consistent rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    padding: 2px 4px; /* Consistent padding all around */
+    margin: 2px; /* Small margin for spacing */
+    transition: all 0.4s ease; /* Smooth transition */
+    border: 1px solid #333; /* Subtle border */
+  }
+  
+  .certification-card:hover .badge-icon {
+    background-color: #f5f5f5; /* Lighter background on hover */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    border-color: #ddd; /* Lighter border on hover */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .badge-row {
+      gap: 6px; /* Slightly smaller gap on mobile */
+    }
+    
+    .badge-icon {
+      height: 22px; /* Slightly smaller on mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .badge-row {
+      gap: 4px; /* Even smaller gap on very small screens */
+    }
+    
+    .badge-icon {
+      height: 20px; /* Reduce size on very small screens */
+      max-width: 100px; /* Narrower width limit */
+    }
   }
 
   .certification-card h3 {
