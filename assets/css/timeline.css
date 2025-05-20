@@ -1,0 +1,95 @@
+/* Timeline styling for the About page */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Timeline vertical line */
+.timeline:before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: var(--border-color, #333);
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  margin-left: -2px;
+  border-radius: 2px;
+}
+
+.timeline-entry {
+  position: relative;
+  padding: 10px 40px;
+  margin-bottom: 30px;
+}
+
+/* Timeline diamond */
+.timeline-entry:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 10px;
+  background-color: var(--link-hover-color, #1da1f2);
+  transform: rotate(45deg);
+  border: 4px solid var(--bg-color, #121212);
+  top: 22px;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+/* Timeline entry styles */
+.timeline-entry h3 {
+  margin-top: 0;
+  color: var(--link-hover-color, #1da1f2);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.timeline-entry p {
+  margin-top: 5px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color, #e0e0e0);
+}
+
+/* Add a subtle shadow effect to each entry */
+.timeline-entry {
+  position: relative;
+  background: var(--card-bg, #1f1f1f);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-entry:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .timeline:before {
+    left: 15px;
+  }
+  
+  .timeline-entry {
+    padding-left: 35px;
+  }
+  
+  .timeline-entry:before {
+    left: 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .timeline-entry h3 {
+    font-size: 1.1rem;
+  }
+  
+  .timeline-entry p {
+    font-size: 0.9rem;
+  }
+}
