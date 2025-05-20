@@ -3,7 +3,7 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px 20px 0;
 }
 
 /* Timeline vertical line */
@@ -46,6 +46,15 @@
   color: var(--link-hover-color, #1da1f2);
   font-size: 1.3rem;
   font-weight: 600;
+}
+
+/* First timeline entry gets special treatment */
+.timeline-entry:first-child {
+  border-left: 4px solid var(--link-hover-color, #1da1f2);
+}
+
+.timeline-entry:first-child h3 {
+  font-size: 1.4rem;
 }
 
 .timeline-entry p {

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: About Me
+title: My Professional Journey
 permalink: /about/
 ---
 <div class="content-page">
@@ -40,6 +40,28 @@ permalink: /about/
   .content-page {
     margin: 5px auto; /* Reduced vertical and horizontal margins */
     padding: 5px; /* Reduced padding */
+  }
+  
+  /* Career heading styling */
+  .career-heading {
+    color: var(--link-hover-color, #1da1f2);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .career-heading::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--link-hover-color, #1da1f2);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   /* Additional timeline styles that are page-specific */
