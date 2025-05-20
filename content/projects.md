@@ -113,8 +113,7 @@ permalink: /projects/
       width: 100px !important; /* Slightly narrower on mobile */
     }
   }
-  
-  @media (max-width: 480px) {
+    @media (max-width: 480px) {
     .badge-row {
       gap: 5px; /* Slightly smaller gap on very small screens */
     }
@@ -123,6 +122,19 @@ permalink: /projects/
       height: 22px !important; /* Slightly smaller on very small screens */
       width: 95px !important; /* Consistent width on small screens */
       margin: 2px; /* Smaller margin on small screens */
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .badge-row {
+      gap: 3px; /* Minimal gap on very small screens */
+    }
+    
+    .badge-icon, .github-button img, .azure-badge {
+      height: 18px !important; /* Even smaller on very small screens */
+      width: 75px !important; /* Narrower on very small screens */
+      margin: 1px; /* Minimal margin on very small screens */
+      font-size: 10px !important; /* Smaller font size */
     }
   }.badge-container {
     display: flex;
@@ -151,13 +163,14 @@ permalink: /projects/
     background-color: #232323 !important; /* Consistent dark background */
     border-radius: 4px; /* Consistent rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-    padding: 2px 4px; /* Consistent padding all around */
-    margin: 3px; /* Even margin spacing */
+    padding: 1px 2px; /* Reduced padding for more compact appearance */
+    margin: 2px; /* Reduced margin spacing */
     transition: all 0.3s ease; /* Smooth transition */
     border: 1px solid #333; /* Subtle border */
     display: inline-block; /* Ensure consistent display behavior */
     max-height: 25px !important; /* Prevent any height overflow */
     line-height: normal !important; /* Reset line height */
+    overflow: hidden; /* Hide any overflow */
   }
   
   .project-card:hover .badge-icon {

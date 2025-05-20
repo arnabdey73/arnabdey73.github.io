@@ -69,21 +69,23 @@ permalink: /assignments/
   .assignment-card li {
     margin-bottom: 8px;
   }
-  
-  /* Badge styling to match project cards */
+    /* Badge styling to match project cards */
   .badge-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Left align for assignment cards */
-    margin: 15px 0;
+    align-items: center; /* Center align for assignment cards */
+    margin: 10px 0; /* Reduced vertical margin */
+    width: 100%; /* Ensure full width */
   }
   
   .badge-row {
     display: flex; /* Use flex display */
     flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center badges horizontally */
     align-items: center; /* Vertically center badges */
-    gap: 8px; /* Consistent spacing between badges */
-    margin-bottom: 10px;
+    gap: 6px; /* Slightly reduced spacing between badges */
+    margin-bottom: 8px; /* Slightly reduced bottom margin */
+    width: 100%; /* Full width to ensure proper centering */
   }  .badge-icon {
     height: 25px !important; /* Strict standardized height for all badges */
     width: 110px !important; /* Fixed consistent width for all badges */
@@ -92,13 +94,14 @@ permalink: /assignments/
     background-color: #232323 !important; /* Consistent dark background */
     border-radius: 4px; /* Consistent rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-    padding: 2px 4px; /* Consistent padding all around */
-    margin: 3px; /* Even margin spacing */
+    padding: 1px 2px; /* Reduced padding for more compact appearance */
+    margin: 2px; /* Reduced margin spacing */
     transition: all 0.3s ease; /* Smooth transition */
     border: 1px solid #333; /* Subtle border */
     display: inline-block; /* Ensure consistent display behavior */
     max-height: 25px !important; /* Prevent any height overflow */
     line-height: normal !important; /* Reset line height */
+    overflow: hidden; /* Hide any overflow */
   }
   
   .assignment-card:hover .badge-icon {
@@ -111,29 +114,46 @@ permalink: /assignments/
     background-color: #232323 !important; /* Match other badges */
     /* Force consistent styling - important to override shield.io styles */
     transform: scale(1) !important; /* Prevent scaling */
-  }
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
+  }  /* Responsive adjustments */  @media (max-width: 768px) {
     .badge-row {
-      gap: 8px; /* Maintain decent spacing on mobile */
-      justify-content: flex-start; /* Align at start for assignment cards */
+      gap: 5px; /* Reduced spacing on mobile */
+      justify-content: center; /* Maintain center alignment on mobile */
+      flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+      width: 100%; /* Full width to center properly */
     }
     
     .badge-icon {
       height: 24px !important; /* Consistent height on mobile */
-      width: 100px !important; /* Slightly narrower on mobile */
+      width: 90px !important; /* Narrower on mobile to fit more icons */
+      padding: 1px 1px; /* Minimal padding */
+      transform: scale(0.95); /* Slightly reduce the size */
     }
   }
-  
-  @media (max-width: 480px) {
+    @media (max-width: 480px) {
     .badge-row {
-      gap: 5px; /* Slightly smaller gap on very small screens */
+      gap: 3px; /* Minimal gap on very small screens */
+      margin-bottom: 5px; /* Reduced margin between rows */
     }
     
     .badge-icon {
-      height: 22px !important; /* Slightly smaller on very small screens */
-      width: 95px !important; /* Consistent width on small screens */
-      margin: 2px; /* Smaller margin on small screens */
+      height: 20px !important; /* Smaller on very small screens */
+      width: 80px !important; /* Much narrower on small screens */
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .badge-row {
+      gap: 2px; /* Minimal gap on tiny screens */
+      margin-bottom: 3px; /* Reduced margin between rows */
+    }
+    
+    .badge-icon {
+      height: 18px !important; /* Even smaller on tiny screens */
+      width: 70px !important; /* Narrower on tiny screens */
+      margin: 1px; /* Minimal margin */
+      padding: 0; /* No padding */
+      transform: scale(0.9); /* Further reduce the size */
+      font-size: 90%; /* Reduce font size for badge text */
     }
   }
 </style>
@@ -144,7 +164,8 @@ permalink: /assignments/
     <ul>
       <li>Coming soon...</li>
     </ul>
-    <div class="badge-container">      <div class="badge-row">
+    <div class="badge-container">
+      <div class="badge-row">
         <img class="badge-icon" src="https://img.shields.io/badge/DevOps-blue?style=flat" alt="DevOps Badge">
         <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge">
       </div>
@@ -160,7 +181,8 @@ permalink: /assignments/
       <li>Managed Azure services including Logic Apps, IaaS, PaaS, and Entra ID (formerly Azure AD).</li>
     </ul>
     <div class="badge-container">
-      <div class="badge-row">        <img class="badge-icon" src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-0089D6?style=flat" alt="Cloud Adoption Framework v6.0.0">
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-0089D6?style=flat" alt="Cloud Adoption Framework v6.0.0">
         <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
         <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge">
       </div>
@@ -175,7 +197,8 @@ permalink: /assignments/
       <li>Acted as a Product Owner, coordinating backlog priorities and ensuring alignment with stakeholder vision by creating product roadmap and vision board.</li>
     </ul>
     <div class="badge-container">
-      <div class="badge-row">        <img class="badge-icon" src="https://img.shields.io/badge/CI%2FCD-Automation-brightgreen?style=flat" alt="CI/CD Automation">
+      <div class="badge-row">
+        <img class="badge-icon" src="https://img.shields.io/badge/CI%2FCD-Automation-brightgreen?style=flat" alt="CI/CD Automation">
         <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=flat&logo=azure-devops&logoColor=white" alt="Azure DevOps Badge">
         <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
       </div>
@@ -204,7 +227,8 @@ permalink: /assignments/
         <img class="badge-icon" src="https://img.shields.io/badge/ELK_Stack-005571?style=flat&logo=elastic&logoColor=white" alt="ELK Stack Badge">
         <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
         <img class="badge-icon" src="https://img.shields.io/badge/Ansible-EE0000?style=flat&logo=ansible&logoColor=white" alt="Ansible Badge">
-      </div>    </div>
+      </div>
+    </div>
   </div>
 </div>
 </div>

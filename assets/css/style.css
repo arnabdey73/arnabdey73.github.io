@@ -3,6 +3,10 @@ body {
     background-color: #121212; /* Dark background */
     color: #e0e0e0; /* Light text color */
     font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    max-width: 100vw; /* Ensure content doesn't exceed viewport width */
+    -webkit-text-size-adjust: 100%; /* Prevent iOS text size adjustment */
 }
 
 .sidebar {
@@ -13,6 +17,21 @@ body {
     max-width: 1200px; /* Align content width with Forty theme */
     margin: 0 auto;
     padding: 2rem;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 1.5rem; /* Reduced padding on mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding: 1rem; /* Further reduced padding on small mobile */
+    }
 }
 
 .cta {
@@ -395,4 +414,158 @@ body:not(.home) .banner {
     bottom: 10px;
     right: 10px;
   }
+}
+
+/* Mobile-specific adjustments for better usability */
+@media screen and (max-width: 768px) {
+    /* Ensure buttons have large enough touch targets */
+    button, .btn, a.btn, input[type="button"], input[type="submit"] {
+        min-height: 44px; /* Apple's recommended minimum touch target size */
+        min-width: 44px;
+        padding: 10px 16px;
+        font-size: 16px; /* Prevent auto-zoom on input fields in iOS */
+    }
+    
+    /* Ensure form elements are properly sized */
+    input, select, textarea {
+        font-size: 16px; /* Prevent auto-zoom on input fields in iOS */
+        max-width: 100%; /* Ensure form elements don't overflow containers */
+    }
+    
+    /* Adjust images and media to be responsive */
+    img, video, iframe {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Fix for pinch-to-zoom issue */
+    html, body {
+        touch-action: pan-x pan-y; /* Allow panning but prevent unnecessary zooming */
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+}
+
+/* Content wrapper to prevent overflow */
+.content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Enhanced mobile optimizations */
+@media screen and (max-width: 768px) {
+    html {
+        touch-action: manipulation; /* Optimize for touch-based interactions */
+    }
+    
+    /* Improve touch targets for better mobile usability */
+    a, button, .btn, input[type="button"], input[type="submit"] {
+        min-height: 44px; /* Apple's recommended minimum touch target size */
+        min-width: 44px;
+        padding: 10px 16px;
+        font-size: 16px; /* Prevent auto-zoom on input fields in iOS */
+    }
+    
+    /* Prevent pull-to-refresh behavior that might interfere with scrolling */
+    body {
+        overscroll-behavior-y: none;
+    }
+    
+    /* Fix iOS momentum scrolling */
+    .content {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Improve text readability on mobile */
+    p, li {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    /* Prevent fixed elements from disappearing when keyboard is shown */
+    .menu-toggle, #back-to-top-btn {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Additional small screen optimizations */
+@media screen and (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.3rem; }
+    
+    /* Further spacing adjustments */
+    .content {
+        padding: 0.75rem;
+    }
+}
+
+/* Specific optimizations for tiny screens */
+@media screen and (max-width: 360px) {
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.2rem; }
+    
+    /* Minimum padding for content */
+    .content {
+        padding: 0.5rem;
+    }
+}
+
+/* Table responsiveness */
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    display: block;
+}
+
+/* Fix for pre and code blocks to prevent overflow */
+pre, code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Ensure images don't cause horizontal scrolling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fix for assignment cards */
+.assignment-card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;  /* Reduced padding on mobile */
+}
+
+/* Fix for project cards */
+.project-card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;  /* Reduced padding on mobile */
+}
+
+@media screen and (max-width: 480px) {
+    .assignment-card, .project-card {
+        padding: 12px;  /* Further reduced padding on smaller screens */
+    }
+    
+    h3 {
+        font-size: 1.3rem;  /* Smaller headings on mobile */
+    }
 }

@@ -4,17 +4,19 @@
     background-color: rgba(0, 120, 212, 0.4); /* More visible semi-transparent blue */
     border: 2px solid #0078D4; /* Blue border for visibility */
     color: #ffffff; /* White text for better visibility */
-    font-size: 1.9rem; /* Larger font size for better visibility */
+    font-size: 1.8rem; /* Slightly reduced font size to prevent overflow */
     cursor: pointer;
     /* Position relative to nav-container which is already positioned */
     position: relative; 
     z-index: 100;
-    padding: 10px 18px; /* Further increased padding for larger tap target */
+    padding: 8px 15px; /* Reduced padding to make button more compact */
     border-radius: 8px; /* Slightly more rounded corners */
     transition: all 0.25s ease-out;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1); /* Enhanced shadow for better depth */
     -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-    margin: 5px; /* Add a small margin around the button */
+    margin: 8px; /* Increased margin around the button to ensure it doesn't touch edges */
+    min-height: 44px; /* Ensure minimum touch target size */
+    min-width: 44px; /* Ensure minimum touch target width */
   }
   
   /* Add visual indicator for toggle functionality */
@@ -94,17 +96,28 @@
     .menu-toggle.initial-load {
       animation: subtleShake 0.5s ease-in-out 1s 1, pulse 2.5s infinite 1.5s, glow 4s infinite 1.5s;
     }
+    
+    /* Adjust menu button position for mobile */
+    .menu-toggle {
+      margin-top: 5px; /* Move button slightly up */
+      margin-right: 15px; /* Move button more to the left to avoid border overlap */
+    }
+    
+    /* Ensure nav container doesn't touch the edge */
+    .nav-container {
+      right: 5px; /* Move from right edge slightly */
+    }
   }
   
   /* Fix for certain devices with notches or unusual screen shapes */
   @supports (padding: env(safe-area-inset-right)) {
     .nav-container {
-      padding-right: calc(15px + env(safe-area-inset-right));
+      padding-right: calc(20px + env(safe-area-inset-right)); /* Increased padding */
     }
     
     @media screen and (max-width: 480px) {
       .nav-container {
-        padding-right: calc(5px + env(safe-area-inset-right));
+        padding-right: calc(15px + env(safe-area-inset-right)); /* Increased padding on smaller screens */
       }
     }
   }
@@ -149,6 +162,7 @@
     padding-top: 10px; /* Add some top padding */
     z-index: 1000; /* Ensure it's above other elements */
     margin-top: 15px; /* Add margin from the top edge */
+    margin-right: 10px; /* Add margin from the right edge */
     margin-right: 10px; /* Add margin from the right edge */
   }
 
@@ -465,9 +479,18 @@
 <style>
   /* Add spacing between navigation and hero banner */
   .hero-banner-spacing {
-    margin-top: 15px; /* Adds spacing between header and hero banner */
+    margin-top: 25px; /* Increased spacing between header and hero banner */
     width: 100%;
     clear: both;
+    height: 5px; /* Explicit height to ensure consistent spacing */
+    display: block;
+  }
+
+  /* Additional mobile-specific adjustments */
+  @media screen and (max-width: 768px) {
+    .hero-banner-spacing {
+      margin-top: 30px; /* Even more spacing on mobile */
+    }
   }
 </style>
 
