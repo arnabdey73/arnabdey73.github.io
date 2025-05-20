@@ -1,0 +1,93 @@
+/* Theme variables and styling for dark/light mode toggle */
+:root {
+  /* Dark theme (default) */
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --header-bg: #1a1a1a;
+  --card-bg: #1f1f1f;
+  --border-color: #333;
+  --link-color: #fff;
+  --link-hover-color: #1da1f2;
+  --shadow-color: rgba(0, 0, 0, 0.7);
+  --button-bg: #1f1f1f;
+  --button-hover-bg: #333333;
+
+  /* Transition properties for smooth theme switching */
+  --transition-time: 0.3s;
+}
+
+/* Light theme variables */
+[data-theme="light"] {
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --header-bg: #fff;
+  --card-bg: #fff;
+  --border-color: #ddd;
+  --link-color: #0078D4;
+  --link-hover-color: #005ea2;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --button-bg: #e9e9e9;
+  --button-hover-bg: #d5d5d5;
+}
+
+/* Apply theme variables to elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-time) ease, 
+              color var(--transition-time) ease;
+}
+
+.top-nav {
+  background-color: var(--header-bg);
+  transition: background-color var(--transition-time) ease;
+}
+
+a {
+  color: var(--link-color);
+  transition: color var(--transition-time) ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+.cta {
+  background-color: var(--button-bg);
+  transition: background-color var(--transition-time) ease;
+}
+
+.cta:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Additional theme-dependent styles */
+[data-theme="light"] .top-nav ul li a {
+  color: var(--text-color);
+}
+
+[data-theme="light"] .social-icons a {
+  color: var(--link-color);
+}
+
+[data-theme="light"] .social-icons a:hover {
+  color: var(--link-hover-color);
+}
+
+[data-theme="light"] #back-to-top-btn {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+}
+
+[data-theme="light"] #back-to-top-btn:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Remove theme toggle styling from the themes.css since we're defining it in the header for better scoping */
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .theme-toggle {
+    margin-right: 5px;
+  }
+}

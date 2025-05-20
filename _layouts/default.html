@@ -3,11 +3,12 @@ layout: default
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>{{ page.title }}</title>    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <title>{{ page.title }}</title>    <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/site-footer.css' | relative_url }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -41,8 +42,11 @@ layout: default
   <button id="back-to-top-btn" title="Go to top" aria-label="Scroll back to top of page">
     <i class="fas fa-arrow-up" aria-hidden="true"></i>
     <span class="sr-only">Back to top</span>
-  </button>
-  <!-- Script for back to top button functionality -->  <script>
+  </button>  <!-- Theme switcher script -->
+  <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
+    
+  <!-- Script for back to top button functionality -->  
+  <script>
     // Get the button with defensive coding
     let backToTopButton = document.getElementById("back-to-top-btn");
     

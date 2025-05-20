@@ -295,6 +295,65 @@
       font-size: 1.1rem; /* Larger font size for better readability */
     }
   }
+  
+  /* Screen reader only text */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* Theme toggle button specific styles for the header */
+  .theme-toggle {
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color, #e0e0e0);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .theme-toggle .light-icon,
+  .theme-toggle .dark-icon {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.5s ease;
+  }
+  
+  html:not([data-theme="light"]) .theme-toggle .light-icon,
+  html[data-theme="light"] .theme-toggle .dark-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+  
+  html:not([data-theme="light"]) .theme-toggle .dark-icon,
+  html[data-theme="light"] .theme-toggle .light-icon {
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .theme-toggle {
+      margin-right: 8px;
+      width: 34px;
+      height: 34px;
+    }
+  }
 </style>
 
 <link rel="icon" href="https://arnabdey73.github.io/assets/img/favicon.ico" type="image/x-icon">
@@ -302,26 +361,16 @@
 <nav class="top-nav">
   <!-- Menu toggle button in its own container for proper positioning -->
   <div class="nav-container">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+      <i class="fas fa-sun light-icon" aria-hidden="true"></i>
+      <i class="fas fa-moon dark-icon" aria-hidden="true"></i>
+      <span class="sr-only">Toggle theme</span>
+    </button>
     <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" title="Open site navigation">
       <i class="fas fa-bars"></i>
       <span class="sr-only">Menu</span> <!-- Screen reader text -->
     </button>
   </div>
-  
-  <style>
-    /* Screen reader only text */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-  </style>
   
   <!-- Navigation menu -->
   <ul id="nav-menu" class="nav-list">
