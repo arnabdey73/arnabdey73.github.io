@@ -4,14 +4,13 @@ title: Certifications
 permalink: /certifications/
 ---
 <div style="text-align: center;">
-<div class="certification-cards">
-  <div class="certification-card">
+<div class="certification-cards">  <div class="certification-card">
     <h3>Microsoft Certified: Azure Fundamentals</h3>
     <p>Issued March 2023</p>
-    <div class="badge-container">
-      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/Azure%20Fundamentals-Certified-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Fundamentals Badge">
-      </div>
+    <div class="cert-button-container">
+      <a href="https://learn.microsoft.com/api/credentials/share/en-us/ArnabDey-3507/801D970BAA49297?sharingId=7AA14B7D39956A51" target="_blank" rel="noopener" class="cert-verify-button">
+        <i class="fas fa-certificate"></i> View Certificate
+      </a>
     </div>
   </div>
 </div>
@@ -141,12 +140,53 @@ permalink: /certifications/
     font-size: 1em; /* Standard font size */
     color: #555; /* Subtle text color */
   }
-
   .certification-card img {
     height: 24px; /* Larger badge size */
     width: auto;
     vertical-align: middle;
     margin-top: 15px;
+  }
+  
+  /* Certificate verification button styling */
+  .cert-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 10px;
+  }
+  
+  .cert-verify-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0078D4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+  }
+  
+  .cert-verify-button i {
+    margin-right: 8px;
+  }
+  
+  .cert-verify-button:hover {
+    background-color: #005A9E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cert-verify-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .certification-card:hover .cert-verify-button {
+    background-color: #005A9E;
+    border-color: #0078D4;
   }
 </style>
 </div>
