@@ -6,11 +6,10 @@ permalink: /projects/
 <div style="text-align: center;">
 <div class="project-list">  <!-- Project 0 -->  <div class="project-card">
     <h3>Infrastructure as Code with Python</h3>
-    <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>    <div class="badge-container">
-      <div class="badge-row">
+    <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>    <div class="badge-container">      <div class="badge-row">
         <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
         <img class="badge-icon" src="https://img.shields.io/badge/Pulumi-5C2D91?style=flat&logo=pulumi&logoColor=white" alt="Pulumi Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/Microsoft_Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
+        <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
       </div>
       <a class="github-button" href="https://github.com/arnabdey73/iac-python" target="_blank">
         <img class="badge-icon" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
@@ -25,7 +24,7 @@ permalink: /projects/
       <div class="badge-row">
         <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
         <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/Microsoft_Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
+        <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
         <img class="badge-icon" src="https://img.shields.io/badge/Helm-0F1689?style=flat&logo=helm&logoColor=white" alt="Helm Badge" />
       </div>
       <a class="github-button" href="https://github.com/arnabdey73/devops-python-automation-project" target="_blank">
@@ -104,32 +103,36 @@ permalink: /projects/
   .project-card:hover p {
     color: #333; /* Darker text on white background when hovered */
   }
-
   /* Add responsive adjustments for badges */
   @media (max-width: 768px) {
     .badge-row {
-      gap: 6px; /* Slightly smaller gap on mobile */
+      gap: 8px; /* Maintain decent spacing on mobile */
+      justify-content: center; /* Ensure centering on mobile */
     }
     
     .badge-icon {
-      height: 22px; /* Slightly smaller on mobile */
+      height: 24px; /* Consistent height on mobile */
+      width: 100px; /* Slightly narrower on mobile */
     }
   }
   
   @media (max-width: 480px) {
     .badge-row {
-      gap: 4px; /* Even smaller gap on very small screens */
+      gap: 6px; /* Slightly smaller gap on very small screens */
     }
     
     .badge-icon {
-      height: 20px; /* Reduce size on very small screens */
-      max-width: 100px; /* Narrower width limit */
+      height: 22px; /* Slightly smaller on very small screens */
+      width: 90px; /* Narrower width on small screens */
     }
-  }  .badge-container {
+  }.badge-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Better center alignment */
     margin: 15px 0;
+    width: 100%; /* Ensure full width */
+    text-align: center; /* Center text alignment */
   }
   
   .badge-row {
@@ -137,13 +140,12 @@ permalink: /projects/
     flex-wrap: wrap; /* Allow wrapping for smaller screens */
     justify-content: center; /* Center align badges */
     align-items: center; /* Vertically center badges */
-    gap: 8px; /* Consistent spacing between badges */
-    margin-bottom: 10px;
-  }  .badge-icon {
-    height: 24px; /* Standardized height for all badges */
-    width: auto; /* Calculate width based on aspect ratio */
-    min-width: 70px; /* Minimum width to prevent tiny badges */
-    max-width: 120px; /* Prevent overly wide badges */
+    gap: 10px; /* Slightly increased spacing between badges */
+    margin-bottom: 15px; /* Increased bottom margin */
+    width: 100%; /* Full width to ensure proper centering */
+  }.badge-icon {
+    height: 26px; /* Increased standardized height for all badges */
+    width: 110px; /* Fixed width for consistent sizing */
     object-fit: contain; /* Ensure content fits within dimensions */
     vertical-align: middle; /* Align badges properly */
     background-color: #232323; /* Darker background for badges */
@@ -159,15 +161,15 @@ permalink: /projects/
     background-color: #f5f5f5; /* Lighter background on hover */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
     border-color: #ddd; /* Lighter border on hover */
-  }
-
-  .badge-icon[src*="Azure"] {
+  }  .badge-icon[src*="Azure"], .azure-badge {
     background-color: #232323; /* Match other badges */
     border-radius: 4px;
-    background-image: none; /* Remove any conflicting background image */
+    height: 26px !important; /* Force consistent height */
+    width: 110px !important; /* Force consistent width */
   }
   
-  .project-card:hover .badge-icon[src*="Azure"] {
+  .project-card:hover .badge-icon[src*="Azure"], 
+  .project-card:hover .azure-badge {
     background-color: #f5f5f5; /* Match other badges on hover */
   }
 
@@ -175,16 +177,17 @@ permalink: /projects/
     background-color: #5C2D91; /* Pulumi's primary color */
     color: white; /* Ensure text/logo visibility */
   }.github-button {
-    display: inline-flex; /* Ensure proper alignment */
+    display: flex; /* Ensure proper alignment */
     align-items: center; /* Vertically center content */
     justify-content: center; /* Horizontally center content */
-    margin-top: 8px; /* Increased spacing */
+    margin: 8px auto; /* Center horizontally with auto margins */
     padding: 0; /* Remove padding to match other badges */
     background-color: transparent; /* Ensure no background color */
     border: none; /* Remove border */
     border-radius: 4px; /* Match other badges */
     transition: all 0.3s ease; /* Smooth transition for all properties */
     position: relative; /* For pseudo-element positioning */
+    width: fit-content; /* Size to content */
   }
 
   .github-button:hover {
@@ -208,9 +211,9 @@ permalink: /projects/
   }
 
   .github-button img {
-    height: 24px; /* Match height of other badges */
-    width: auto; /* Maintain aspect ratio */
-    max-width: 120px; /* Consistent with other badges */
+    height: 26px; /* Match height of other badges */
+    width: 110px; /* Fixed width to match other badges */
+    object-fit: contain; /* Ensure content fits within dimensions */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     transition: all 0.3s ease;
   }

@@ -146,12 +146,12 @@ permalink: /certifications/
     vertical-align: middle;
     margin-top: 15px;
   }
-  
-  /* Certificate verification button styling */
+    /* Certificate verification button styling */
   .cert-button-container {
     display: flex;
     justify-content: center;
     margin: 20px 0 10px;
+    width: 100%;
   }
   
   .cert-verify-button {
@@ -160,13 +160,15 @@ permalink: /certifications/
     justify-content: center;
     background-color: #0078D4;
     color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
+    padding: 8px 20px;
+    border-radius: 4px;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border: 2px solid transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+    width: 160px; /* Fixed width */
+    height: 32px; /* Fixed height similar to badges */
   }
   
   .cert-verify-button i {
