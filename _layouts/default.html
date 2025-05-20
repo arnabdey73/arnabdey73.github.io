@@ -7,10 +7,10 @@ layout: default
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <title>{{ page.title }}</title>    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/site-footer.css' | relative_url }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPGTPYDW80" onerror="console.error('Google Tag Manager script failed to load.')"></script>
@@ -37,16 +37,24 @@ layout: default
   <footer>
     {% include footer.html %} <!-- Footer section -->
   </footer>
-
-  <!-- Back to top button -->
-  <button id="back-to-top-btn" title="Go to top">
-    <i class="fas fa-arrow-up"></i>
+  <!-- Back to top button with improved accessibility -->
+  <button id="back-to-top-btn" title="Go to top" aria-label="Scroll back to top of page">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    <span class="sr-only">Back to top</span>
   </button>
-
-  <!-- Script for back to top button functionality -->
-  <script>
-    // Get the button
-    const backToTopButton = document.getElementById("back-to-top-btn");
+  <!-- Script for back to top button functionality -->  <script>
+    // Get the button with defensive coding
+    let backToTopButton = document.getElementById("back-to-top-btn");
+    
+    // If the button doesn't exist for some reason (rare case), create it dynamically
+    if (!backToTopButton) {
+      backToTopButton = document.createElement('button');
+      backToTopButton.id = 'back-to-top-btn';
+      backToTopButton.title = 'Go to top';
+      backToTopButton.setAttribute('aria-label', 'Scroll back to top of page');
+      backToTopButton.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i><span class="sr-only">Back to top</span>';
+      document.body.appendChild(backToTopButton);
+    }
     
     // When the user scrolls down 300px from the top of the document, show the button
     window.onscroll = function() {scrollFunction()};
@@ -54,21 +62,57 @@ layout: default
     function scrollFunction() {
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         backToTopButton.style.display = "flex";
+        backToTopButton.classList.add("show");
+        
+        // Add a slight animation effect for better visibility
+        setTimeout(() => {
+          backToTopButton.style.transform = "scale(1)";
+          backToTopButton.style.opacity = "1";
+        }, 10);
       } else {
-        backToTopButton.style.display = "none";
+        // Fade out with animation
+        backToTopButton.style.transform = "scale(0.9)";
+        backToTopButton.style.opacity = "0";
+        
+        setTimeout(() => {
+          backToTopButton.style.display = "none";
+          backToTopButton.classList.remove("show");
+        }, 300);
       }
     }
     
     // When the user clicks on the button, scroll to the top of the document
     backToTopButton.addEventListener("click", function() {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      // Smooth scroll behavior
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
       
       // Add smooth scrolling
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
+      });    });
+    
+    // Ensure button appears on iOS and mobile devices
+    document.addEventListener('DOMContentLoaded', function() {
+      // Force check on page load after a slight delay
+      setTimeout(function() {
+        scrollFunction();
+      }, 500);
+      
+      // Also check when page is fully loaded (including images)
+      window.addEventListener('load', function() {
+        scrollFunction();
       });
+      
+      // Additional check for touchscreen devices
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        // Ensure button has proper touch area
+        backToTopButton.style.minHeight = '44px';
+        backToTopButton.style.minWidth = '44px';
+      }
     });
   </script>
 </body>

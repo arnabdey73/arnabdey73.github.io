@@ -1,3 +1,29 @@
-<footer style="text-align: center;">
-  <p>&copy; 2025 Arnab Dey. Tech Portfolio. All rights reserved.</p>
+<footer class="site-footer">
+  <p class="footer-text">&copy; <span id="current-year">2025</span> Arnab Dey. Tech Portfolio. All rights reserved.</p>  <div class="footer-links">
+    <a href="/about/" class="footer-link">About</a>
+    <span class="footer-separator">|</span>
+    <a href="/projects/" class="footer-link">Projects</a>
+    <span class="footer-separator">|</span>
+    <a href="/certifications/" class="footer-link">Certifications</a>
+    <span class="footer-separator">|</span>
+    <a href="/contact/" class="footer-link">Contact</a>
+    <span class="footer-separator">|</span>
+    <a href="https://github.com/arnabdey73" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+    <span class="footer-separator">|</span>
+    <a href="#" class="footer-link back-to-top-link" title="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i> Top</a>
+  </div>
 </footer>
+
+<script>
+  // Set current year automatically
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  
+  // Smooth scroll for back to top link
+  document.querySelector('.back-to-top-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>

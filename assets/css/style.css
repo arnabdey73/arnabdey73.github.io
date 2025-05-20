@@ -218,17 +218,32 @@ body:not(.home) .banner {
 .site-footer {
     text-align: center;
     margin-top: 2rem;
-    padding: 1rem 0;
-    font-size: 0.8rem; /* Further reduced from 0.9rem */
+    padding: 1.5rem 0;
     color: #aaa;
-}
-
-.site-footer {
+    background-color: #0a0a0a; /* Slightly darker than the main background */
+    border-top: 1px solid #222; /* Subtle border */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
+}
+
+.footer-text {
+    font-family: 'Raleway', sans-serif; /* Different font for footer */
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px; /* Add slight letter spacing */
+    color: #c5c5c5; /* Lighter color for better visibility */
+    margin: 0;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.footer-text:hover {
+    color: #f0f0f0; /* Brighter color on hover */
+}
 }
 
 .main-banner {
@@ -373,10 +388,10 @@ body:not(.home) .banner {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 99;
+  z-index: 9999; /* Ensure it's above everything */
   border: none;
   outline: none;
-  background-color: #0078D4; /* Match the site's blue accent */
+  background-color: rgba(0, 120, 212, 0.85); /* Semi-transparent blue */
   color: white;
   cursor: pointer;
   width: 50px;
@@ -385,14 +400,31 @@ body:not(.home) .banner {
   font-size: 18px;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1); /* Enhanced shadow with subtle border */
   transition: all 0.3s ease;
+  opacity: 1;
+  transform: scale(1);
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
 }
 
-#back-to-top-btn:hover {
-  background-color: #005A9E; /* Darker blue on hover */
+#back-to-top-btn:hover, #back-to-top-btn:active {
+  background-color: #0078D4; /* Solid blue on hover/active */
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Animation for back to top button */
+@keyframes pulse-light {
+  0% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 120, 212, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
+}
+
+/* Apply animation on mobile only */
+@media (max-width: 768px) {
+  #back-to-top-btn.show {
+    animation: pulse-light 2s infinite;
+  }
 }
 
 /* Mobile-specific adjustments for the back to top button */
@@ -403,6 +435,15 @@ body:not(.home) .banner {
     font-size: 16px;
     bottom: 15px;
     right: 15px;
+    display: none; /* Hidden by default, shown via JS */
+    z-index: 9999; /* Ensure it's above everything else */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); /* Enhanced shadow for visibility */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  }
+  
+  /* Ensure the button is visible when displayed */
+  #back-to-top-btn.show {
+    display: flex !important;
   }
 }
 
@@ -411,8 +452,20 @@ body:not(.home) .banner {
     width: 40px;
     height: 40px;
     font-size: 14px;
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px; /* Moved slightly higher */
+    right: 15px;
+    opacity: 0.9; /* Slightly transparent */
+  }
+}
+
+@media (max-width: 360px) {
+  #back-to-top-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+    bottom: 12px;
+    right: 12px;
+    opacity: 0.85;
   }
 }
 

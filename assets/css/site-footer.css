@@ -1,0 +1,181 @@
+/* Custom footer styles with different font */
+.site-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+    color: #aaa;
+    background: linear-gradient(to bottom, #0a0a0a, #121212); /* Subtle gradient */
+    border-top: 1px solid #222; /* Subtle border */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #0078D4, transparent);
+}
+
+.footer-text {
+    font-family: 'Raleway', sans-serif; /* Different font for footer */
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px; /* Add slight letter spacing */
+    color: #b5b5b5; /* Lighter color for better visibility */
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
+}
+
+.footer-text::first-letter {
+    font-size: 1.1em;
+    color: #0078D4;
+    font-weight: 500;
+}
+
+.footer-text:hover {
+    color: #f0f0f0; /* Brighter color on hover */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Enhanced text shadow on hover */
+}
+
+.footer-links {
+    margin-top: 0.75rem;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-link {
+    color: #0078D4; /* Blue color for links */
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;  /* For the underline animation */
+    padding: 2px 0;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #00a2ff;
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #00a2ff; /* Brighter blue on hover */
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.footer-link:hover::after {
+    width: 100%;  /* Animate the underline on hover */
+}
+
+.footer-separator {
+    color: #444;
+    margin: 0 0.25rem;
+    font-size: 0.85rem;
+}
+
+/* Back to top link in footer */
+.back-to-top-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+}
+
+.back-to-top-link i {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top-link:hover i {
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments for footer */
+@media screen and (max-width: 768px) {
+    .site-footer {
+        padding: 1.2rem 0;
+    }
+    
+    .footer-text {
+        font-size: 0.85rem;
+    }
+    
+    .footer-links {
+        margin-top: 0.6rem;
+    }
+    
+    .footer-link {
+        font-size: 0.8rem;
+        margin: 0 0.4rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .site-footer {
+        padding: 1rem 0;
+    }
+    
+    .footer-text {
+        font-size: 0.8rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .footer-links {
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+        line-height: 2;
+    }
+    
+    .footer-link {
+        font-size: 0.75rem;
+        margin: 0 0.3rem;
+    }
+    
+    .footer-separator {
+        font-size: 0.7rem;
+        color: #333;
+    }
+    
+    .back-to-top-link {
+        margin-top: 5px;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 360px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .footer-separator {
+        display: none; /* Hide separators on very small screens */
+    }
+    
+    .footer-link {
+        margin: 2px 0;
+    }
+}
