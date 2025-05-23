@@ -3,11 +3,11 @@
 .intro-card {
   background-color: #121212;
   background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #121212 70%);
-  border-radius: 12px;
-  padding: 2.5rem;
-  margin: 2rem auto 3rem;
+  border-radius: 12px;  padding: 2.5rem;
+  margin: 2rem auto;
   width: 90%;
-  max-width: 1000px;  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), 
+  max-width: 1200px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35),
               0 8px 20px rgba(0, 0, 0, 0.25),
               0 0 0 1px rgba(255, 255, 255, 0.08),
               0 0 25px rgba(42, 157, 244, 0.08);

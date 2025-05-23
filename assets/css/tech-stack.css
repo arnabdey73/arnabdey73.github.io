@@ -32,13 +32,13 @@
 }
 
 /* Desktop optimizations for the section container */
-@media (min-width: 1400px) {
-  .tech-stack-section {
-    max-width: 1320px;
+@media (min-width: 1400px) {  .tech-stack-section {
+    width: 90%;
+    max-width: 1200px;
   }
   
   .tech-categories {
-    max-width: 1240px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     grid-template-columns: repeat(4, minmax(250px, 280px));
