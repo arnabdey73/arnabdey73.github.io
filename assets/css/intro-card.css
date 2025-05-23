@@ -5,16 +5,25 @@
   background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #121212 70%);
   border-radius: 12px;
   padding: 2.5rem;
-  margin: -3rem auto 3rem;
+  margin: 2rem auto 3rem;
   width: 90%;
-  max-width: 1000px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
-              0 1px 8px rgba(0, 0, 0, 0.1),
-              0 0 0 1px rgba(255, 255, 255, 0.07);
+  max-width: 1000px;  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), 
+              0 8px 20px rgba(0, 0, 0, 0.25),
+              0 0 0 1px rgba(255, 255, 255, 0.08),
+              0 0 25px rgba(42, 157, 244, 0.08);
   position: relative;
   z-index: 2;
   color: #e0e0e0;
   text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.intro-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 
+              0 15px 25px rgba(0, 0, 0, 0.25),
+              0 0 0 1px rgba(255, 255, 255, 0.12),
+              0 0 30px rgba(42, 157, 244, 0.15);
 }
 
 .intro-content {
