@@ -53,10 +53,9 @@ permalink: /assignments/
       <li>Automated Azure Databricks cluster scaling with Terraform and GitHub Actions.</li>
       <li>Acted as a Product Owner, coordinating backlog priorities and ensuring alignment with stakeholder vision by creating product roadmap and vision board.</li>
     </ul>
-    <div class="tech-icons-mini">
-      <div class="tech-item-mini">
-        <i class="fas fa-infinity" aria-hidden="true"></i>
-        <span>CI/CD</span>
+    <div class="tech-icons-mini">      <div class="tech-item-mini">
+        <i class="fab fa-github" aria-hidden="true"></i>
+        <span>GitHub Actions</span>
       </div>
       <div class="tech-item-mini">
         <i class="fab fa-microsoft" aria-hidden="true"></i>
@@ -66,8 +65,7 @@ permalink: /assignments/
         <i class="fab fa-github" aria-hidden="true"></i>
         <span>GitHub</span>
       </div>
-      <div class="tech-item-mini">
-        <i class="fas fa-database" aria-hidden="true"></i>
+      <div class="tech-item-mini">        <i class="fas fa-database fa-spark" aria-hidden="true"></i>
         <span>Databricks</span>
       </div>
     </div>
@@ -94,9 +92,8 @@ permalink: /assignments/
         <i class="fas fa-dharmachakra" aria-hidden="true"></i>
         <span>K8s</span>
       </div>
-      <div class="tech-item-mini">
-        <i class="fas fa-chart-line" aria-hidden="true"></i>
-        <span>ELK</span>
+      <div class="tech-item-mini">        <i class="fas fa-search" aria-hidden="true"></i>
+        <span>ELK Stack</span>
       </div>
       <div class="tech-item-mini">
         <div class="terraform-logo-mini"></div>
