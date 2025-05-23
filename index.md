@@ -1,3 +1,8 @@
+---
+layout: home
+title: Home
+---
+
 ## Recent Posts
 [The Hashnode blog →](https://codemyinfra.hashnode.dev/)
 

@@ -1,0 +1,77 @@
+/* Tech logos and icons */
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.tech-logo {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 0.5rem;
+  filter: var(--tech-icon-filter, brightness(1)); /* Default filter */
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Dark mode adjustments for logos */
+[data-theme="dark"] .tech-logo {
+  filter: brightness(0) invert(1); /* Makes icons white in dark mode */
+  opacity: 0.9;
+}
+
+.tech-item:hover .tech-logo {
+  filter: var(--tech-logo-hover-filter, brightness(1.2));
+  transform: scale(1.15);
+}
+
+/* Enhanced animation for tech items */
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem;
+  width: 80px;
+  transition: transform 0.3s ease;
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger the animations */
+.tech-item:nth-child(1) { animation-delay: 0.1s; }
+.tech-item:nth-child(2) { animation-delay: 0.2s; }
+.tech-item:nth-child(3) { animation-delay: 0.3s; }
+.tech-item:nth-child(4) { animation-delay: 0.4s; }
+.tech-item:nth-child(5) { animation-delay: 0.5s; }
+.tech-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Skill level indicators */
+.skill-level {
+  display: flex;
+  margin-top: 0.5rem;
+  gap: 2px;
+}
+
+.skill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary-color, #0078D4);
+  opacity: 0.3;
+}
+
+.skill-dot.filled {
+  opacity: 1;
+}

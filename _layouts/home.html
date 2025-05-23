@@ -4,11 +4,53 @@ layout: default
 
 <!-- Custom static homepage layout -->
 <main class="content">
-  <h1>Welcome to My Portfolio</h1>
-  <p>Explore my projects, certifications, and more.</p>
+  <!-- Tech Stack Section -->
+  {% include tech-stack.html %}
 
-  <!-- Include recent posts manually if needed -->
-  <section>
-    <h2><a href="https://codemyinfra.hashnode.dev/">My Hashnode blog</a></h2>
+  <!-- Blog section -->
+  <section class="blog-section">
+    <div class="container">
+      <h2 class="section-title">Recent Articles</h2>
+      <div class="blog-link">
+        <a href="https://codemyinfra.hashnode.dev/" class="blog-btn">
+          <i class="fas fa-rss"></i>
+          Visit My Hashnode Blog
+        </a>
+      </div>
+    </div>
   </section>
 </main>
+
+<style>
+  .blog-section {
+    padding: 2rem 0;
+    margin: 2rem auto;
+    max-width: 96%;
+    text-align: center;
+  }
+
+  .blog-link {
+    margin-top: 2rem;
+  }
+
+  .blog-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--primary-color, #0078D4);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .blog-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-color-dark, #005a9e);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  }
+</style>
