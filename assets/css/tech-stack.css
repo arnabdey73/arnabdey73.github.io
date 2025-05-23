@@ -337,7 +337,7 @@
   }
 }
 
-.tech-item i, .tech-item .terraform-logo {
+.tech-item i {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   color: #2a9df4;
