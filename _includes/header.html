@@ -524,21 +524,21 @@
   });
 </script>
 
-<!-- Add spacing between header and hero banner -->
+<!-- Minimal spacing between header and hero banner -->
 <style>
-  /* Add spacing between navigation and hero banner */
+  /* Add minimal spacing between navigation and hero banner */
   .hero-banner-spacing {
-    margin-top: 25px; /* Increased spacing between header and hero banner */
+    margin-top: 0; /* Remove margin between header and hero banner */
     width: 100%;
     clear: both;
-    height: 5px; /* Explicit height to ensure consistent spacing */
+    height: 0; /* No explicit height */
     display: block;
   }
 
-  /* Additional mobile-specific adjustments */
+  /* No additional spacing on mobile */
   @media screen and (max-width: 768px) {
     .hero-banner-spacing {
-      margin-top: 30px; /* Even more spacing on mobile */
+      margin-top: 0; /* No spacing on mobile */
     }
   }
 </style>
