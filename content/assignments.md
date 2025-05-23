@@ -10,10 +10,14 @@ permalink: /assignments/
     <ul>
       <li>Coming soon...</li>
     </ul>
-    <div class="badge-container">
-      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/DevOps-blue?style=flat" alt="DevOps Badge">
-        <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge">
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fas fa-cogs" aria-hidden="true"></i>
+        <span>DevOps</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
       </div>
     </div>
   </div>
@@ -26,11 +30,18 @@ permalink: /assignments/
       <li>Monitored cloud platform patterns and anomalies using KQL and resolved incidents per SLA, achieving a 20% reduction in downtime.</li>
       <li>Managed Azure services including Logic Apps, IaaS, PaaS, and Entra ID (formerly Azure AD).</li>
     </ul>
-    <div class="badge-container">
-      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/Cloud%20Adoption%20Framework-v6.0.0-0089D6?style=flat" alt="Cloud Adoption Framework v6.0.0">
-        <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
-        <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge">
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fas fa-book" aria-hidden="true"></i>
+        <span>CAF</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
+      </div>
+      <div class="tech-item-mini">
+        <div class="terraform-logo-mini"></div>
+        <span>Terraform</span>
       </div>
     </div>
   </div>
@@ -42,15 +53,22 @@ permalink: /assignments/
       <li>Automated Azure Databricks cluster scaling with Terraform and GitHub Actions.</li>
       <li>Acted as a Product Owner, coordinating backlog priorities and ensuring alignment with stakeholder vision by creating product roadmap and vision board.</li>
     </ul>
-    <div class="badge-container">
-      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/CI%2FCD-Automation-brightgreen?style=flat" alt="CI/CD Automation">
-        <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=flat&logo=azure-devops&logoColor=white" alt="Azure DevOps Badge">
-        <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fas fa-infinity" aria-hidden="true"></i>
+        <span>CI/CD</span>
       </div>
-      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/Databricks-FF3621?style=flat&logo=databricks&logoColor=white" alt="Databricks Badge">
-        <img class="badge-icon" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white" alt="GitHub Actions Badge">
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-github" aria-hidden="true"></i>
+        <span>GitHub</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-database" aria-hidden="true"></i>
+        <span>Databricks</span>
       </div>
     </div>
   </div>
@@ -63,16 +81,30 @@ permalink: /assignments/
       <li>Managed ELK stack for indexing product generated CSVs as well as centralized logging and monitoring.</li>
       <li>Reduced operational overhead by 20% through automated platform/infrastructure provisioning with Terraform/Ansible.</li>
     </ul>
-    <div class="badge-container">
-      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white" alt="Kubernetes Badge">
-        <img class="badge-icon" src="https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white" alt="Jenkins Badge">
-        <img class="badge-icon" src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker Badge">
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fab fa-jenkins" aria-hidden="true"></i>
+        <span>Jenkins</span>
       </div>
-      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/ELK_Stack-005571?style=flat&logo=elastic&logoColor=white" alt="ELK Stack Badge">
-        <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge">
-        <img class="badge-icon" src="https://img.shields.io/badge/Ansible-EE0000?style=flat&logo=ansible&logoColor=white" alt="Ansible Badge">
+      <div class="tech-item-mini">
+        <i class="fab fa-docker" aria-hidden="true"></i>
+        <span>Docker</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-dharmachakra" aria-hidden="true"></i>
+        <span>K8s</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-chart-line" aria-hidden="true"></i>
+        <span>ELK</span>
+      </div>
+      <div class="tech-item-mini">
+        <div class="terraform-logo-mini"></div>
+        <span>Terraform</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-redhat" aria-hidden="true"></i>
+        <span>Ansible</span>
       </div>
     </div>
   </div>

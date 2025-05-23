@@ -6,28 +6,52 @@ permalink: /projects/
 <div style="text-align: center;">
 <div class="project-list">  <!-- Project 0 -->  <div class="project-card">
     <h3>Infrastructure as Code with Python</h3>
-    <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>    <div class="badge-container">      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/Pulumi-5C2D91?style=flat&logo=pulumi&logoColor=white" alt="Pulumi Badge" />
-        <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Microsoft_Azure-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
+    <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fab fa-python" aria-hidden="true"></i>
+        <span>Python</span>
       </div>
-      <a class="github-button" href="https://github.com/arnabdey73/iac-python" target="_blank">
-        <img class="badge-icon" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
+      <div class="tech-item-mini">
+        <i class="fas fa-cube" aria-hidden="true"></i>
+        <span>Pulumi</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
+      </div>
+    </div>
+    <div class="github-link">
+      <a href="https://github.com/arnabdey73/iac-python" target="_blank" rel="noopener noreferrer" class="github-button">
+        <i class="fab fa-github"></i>
+        <span>View Code</span>
       </a>
     </div>
   </div>
   <!-- Project 1 -->
   <div class="project-card">
     <h3>DevOps Automation</h3>
-    <p>This project automates the deployment of a Kubernetes cluster on Azure using Terraform, Helm, and Python scripts. It includes monitoring with Prometheus and Grafana and automates CI/CD with Azure DevOps.</p>
-    <div class="badge-container">      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=white" alt="Python Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white" alt="Terraform Badge" />
-        <img class="badge-icon azure-badge" src="https://img.shields.io/badge/Microsoft_Azure-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/Helm-0F1689?style=flat&logo=helm&logoColor=white" alt="Helm Badge" />
+    <p>This project automates the deployment of a Kubernetes cluster on Azure using Terraform, Helm, and Python scripts. It includes monitoring with Prometheus and Grafana and automates CI/CD with Azure DevOps.</p>    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fab fa-python" aria-hidden="true"></i>
+        <span>Python</span>
       </div>
-      <a class="github-button" href="https://github.com/arnabdey73/devops-python-automation-project" target="_blank">
-        <img class="badge-icon" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
+      <div class="tech-item-mini">
+        <div class="terraform-logo-mini"></div>
+        <span>Terraform</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-ship" aria-hidden="true"></i>
+        <span>Helm</span>
+      </div>
+    </div>
+    <div class="github-link">
+      <a href="https://github.com/arnabdey73/devops-python-automation-project" target="_blank" rel="noopener noreferrer" class="github-button">
+        <i class="fab fa-github"></i>
+        <span>View Code</span>
       </a>
     </div>
   </div>
@@ -35,16 +59,28 @@ permalink: /projects/
   <!-- Project 2 -->
   <div class="project-card">
     <h3>Portfolio Website</h3>
-    <p>Personal portfolio website showcasing projects, certifications, and contact information, built with Jekyll and Tailwind CSS.</p>
-    <div class="badge-container">
-      <div class="badge-row">
-        <img class="badge-icon" src="https://img.shields.io/badge/Jekyll-CC0000?style=flat&logo=jekyll&logoColor=white" alt="Jekyll Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white" alt="Tailwind CSS Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5 Badge" />
-        <img class="badge-icon" src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3 Badge" />
+    <p>Personal portfolio website showcasing projects, certifications, and contact information, built with Jekyll and Tailwind CSS.</p>    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fas fa-vial" aria-hidden="true"></i>
+        <span>Jekyll</span>
       </div>
-      <a class="github-button" href="https://github.com/arnabdey73/arnabdey73.github.io" target="_blank">
-        <img class="badge-icon" src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge" />
+      <div class="tech-item-mini">
+        <i class="fab fa-css3-alt" aria-hidden="true"></i>
+        <span>Tailwind</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-html5" aria-hidden="true"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-css3" aria-hidden="true"></i>
+        <span>CSS3</span>
+      </div>
+    </div>
+    <div class="github-link">
+      <a href="https://github.com/arnabdey73/arnabdey73.github.io" target="_blank" rel="noopener noreferrer" class="github-button">
+        <i class="fab fa-github"></i>
+        <span>View Code</span>
       </a>
     </div>
   </div>
@@ -53,12 +89,13 @@ permalink: /projects/
 <style>
   .project-list {
     display: flex;
-    flex-direction: row; /* Change to row for horizontal alignment */
-    flex-wrap: wrap; /* Allow wrapping to next line if needed */
-    justify-content: center; /* Center align the cards */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
     margin-top: 30px;
-  }  .project-card {
+  }
+
+  .project-card {
     width: 100%;
     max-width: 600px;
     background-color: var(--card-bg, #1a1a1a);
@@ -68,24 +105,24 @@ permalink: /projects/
     transition: all 0.4s ease;
     color: #e0e0e0;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
-  
+
   .project-card:hover {
     transform: translateY(-5px);
     background-color: white;
     color: #121212;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-color: #0078D4;
-  /* Enhanced shadow on hover is handled in card-shadows.css */
-  }  .project-card h3 {
+  }
+
+  .project-card h3 {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.5rem;
     color: #0078D4;
     transition: color 0.4s ease;
   }
-  
+
   .project-card:hover h3 {
     color: #005A9E;
   }
@@ -95,46 +132,51 @@ permalink: /projects/
     transition: color 0.4s ease;
     line-height: 1.5;
     margin: 15px 0;
-    padding-left: 20px;
     text-align: left;
   }
 
   .project-card:hover p {
     color: #333;
-  }/* Add responsive adjustments for badges */  @media (max-width: 768px) {
-    .badge-row {
-      gap: 6px;
-    }
-    
-    .badge-icon {
-      height: 22px;
-    }
   }
 
-  @media (max-width: 480px) {
-    .badge-row {
-      gap: 4px;
-    }
-    
-    .badge-icon {
-      height: 20px;
-      max-width: 100px;
-    }
+  .github-link {
+    margin-top: 1rem;
   }
-  
-  @media (max-width: 360px) {
-    .badge-row {
-      gap: 2px;
+
+  .github-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .github-button i {
+    font-size: 1.1rem;
+  }
+
+  .project-card:hover .github-button {
+    background-color: #0078D4;
+    transform: translateY(-2px);
+  }
+
+  .github-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .project-card {
+      margin: 0 15px 30px;
     }
-    
-    .badge-icon {
-      height: 18px;
-      min-width: 60px;
-      max-width: 90px;
-      margin: 1px;
-      padding: 0;
-    }
-  }.badge-container {
+  }  .badge-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -179,36 +221,6 @@ permalink: /projects/
   .badge-icon[src*="Pulumi"] {
     background-color: #5C2D91; /* Pulumi's primary color */
     color: white; /* Ensure text/logo visibility */
-  }.github-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 8px auto;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .github-button:hover {
-    transform: translateY(-2px);
-  }
-
-  .github-button img {
-    height: 24px;
-    width: auto;
-    min-width: 70px;
-    max-width: 120px;
-    object-fit: contain;
-    vertical-align: middle;
-    background-color: #232323;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 2px 4px;
-    margin: 2px;
-    transition: all 0.4s ease;
-    border: 1px solid #333;
   }
 </style>
-</div>
+<link rel="stylesheet" href="{{ '/assets/css/tech-stack-mini.css' | relative_url }}">

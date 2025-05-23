@@ -4,7 +4,6 @@ title: My Professional Journey
 permalink: /about/
 ---
 <div class="content-page">
-  <h1 class="page-title">My Professional Journey</h1>
   <div class="timeline">
     <div class="timeline-entry">
       <h3> 2009–2015: Linux System Administrator</h3>
