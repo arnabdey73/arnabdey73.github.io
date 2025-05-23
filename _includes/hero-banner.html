@@ -1,43 +1,50 @@
 <div class="hero-banner">
   <div class="container">
     <img src="/assets/img/banner3.jpeg" alt="Hero Banner Image" class="hero-banner-img">
-    <div class="hero-banner-content">
-      <div class="profile-pic-container">
-        <img src="/assets/img/avatar.jpg" alt="Profile Picture" class="profile-pic front">
-        <img src="/assets/img/portfolio-thumbnail.jpg" alt="Alternate Picture" class="profile-pic back">
-      </div>
-      <div class="text-content">
-        <h1>Arnab Dey</h1>
-        <p>Cloud & DevOps Engineer</p>
-        <button onclick="window.location.href='https://github.com/arnabdey73/resume/raw/master/Arnab-Dey-Cloud-DevOps-Engineer.pdf'" class="btn btn-primary">Download Resume</button>
-        <div class="social-icons">
-          <ul>
-            <li><a href="tel:(+46) 0764516092" title="Call Arnab"><i class="fas fa-phone"></i></a></li>
-            <li><a href="https://linkedin.com/in/arnabdey73" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://github.com/arnabdey73" target="_blank" rel="noopener" title="GitHub Profile"><i class="fab fa-github"></i></a></li>
-            <li><a href="mailto:arnabdey009@gmail.com" title="Email Arnab"><i class="fas fa-envelope"></i></a></li>
-            <li><a href="https://bsky.app/profile/arnabdey73.bsky.social" target="_blank" rel="noopener" title="Bluesky Profile"><i class="fa-brands fa-bluesky"></i></a></li>
-          </ul>
+    
+    <div class="intro-card">
+      <div class="hero-banner-content">
+        <div class="profile-pic-container">
+          <img src="/assets/img/avatar.jpg" alt="Profile Picture" class="profile-pic front">
+          <img src="/assets/img/portfolio-thumbnail.jpg" alt="Alternate Picture" class="profile-pic back">
+        </div>
+        
+        <div class="text-content">
+          <span class="greeting">Hi there, I'm</span>
+          <h1>Arnab Dey</h1>
+          <p class="tagline">Cloud & DevOps Engineer</p>
+          <p class="intro-text">I help organizations build scalable, resilient cloud infrastructure and streamline their development workflows with modern DevOps practices.</p>
+          
+          <div class="intro-buttons">
+            <button onclick="window.location.href='https://github.com/arnabdey73/resume/raw/master/Arnab-Dey-Cloud-DevOps-Engineer.pdf'" class="btn btn-primary">Download Resume</button>
+            <a href="/projects/" class="btn btn-outline">View My Work</a>
+          </div>
+          
+          <div class="social-icons">
+            <ul>
+              <li><a href="tel:(+46) 0764516092" title="Call Arnab"><i class="fas fa-phone"></i></a></li>
+              <li><a href="https://linkedin.com/in/arnabdey73" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a></li>
+              <li><a href="https://github.com/arnabdey73" target="_blank" rel="noopener" title="GitHub Profile"><i class="fab fa-github"></i></a></li>
+              <li><a href="mailto:arnabdey009@gmail.com" title="Email Arnab"><i class="fas fa-envelope"></i></a></li>
+              <li><a href="https://bsky.app/profile/arnabdey73.bsky.social" target="_blank" rel="noopener" title="Bluesky Profile"><i class="fa-brands fa-bluesky"></i></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<script src="https://kit.fontawesome.com/19a52b3bff.js" crossorigin="anonymous"></script>
-
-<style>  .hero-banner {
     width: 100%;
     height: 60vh; /* Reduce the height to 60% of the viewport height */
     min-height: 450px; /* Ensure minimum height on all devices */
     position: relative;
     overflow: hidden;
     margin: 30px auto 2rem; /* Further increased top margin for more space */
-    border-radius: 6px;
+    border-radius: 12px; /* Increased border radius for modern look */
     display: flex;
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
-    border: 5px solid #cccccc; /* Add a border around the banner */
+    border: none; /* Remove the border - we'll use card shadows instead */
     padding-top: 10px; /* Add padding at the top */
     max-width: 96%; /* Prevent horizontal overflow */
     box-sizing: border-box; /* Include borders in width calculation */
@@ -72,23 +79,28 @@
   .hero-banner-content {
     display: flex;
     flex-direction: row; /* Align items in a row */
-    align-items: right; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    text-align: right; /* Align text to the right */
+    align-items: center; /* Center content vertically */
+    justify-content: space-between; /* Space between profile pic and text */
     gap: 2rem;
-    padding: 1.5rem 2rem;
+    padding: 0;
     position: relative;
     z-index: 1;
+    width: 100%;
   }
 
   .profile-pic-container {
     display: flex;
-    justify-content: left; /* Align profile picture to the left */
-    align-items: left;
-    margin: 20px; /* Equal spacing on all sides */
-    width: 120px;
-    height: 120px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 160px; /* Larger profile picture */
+    height: 160px;
     perspective: 1000px;
+    flex-shrink: 0; /* Prevent container from shrinking */
+    position: relative;
+    z-index: 3;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .profile-pic {
@@ -119,14 +131,54 @@
     transform: rotateY(0deg);
   }
 
+  .intro-card {
+    background-color: rgba(var(--card-bg-rgb, 255, 255, 255), 0.95);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 0;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
+                0 1px 8px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
   .text-content {
     flex: 1;
-    text-align: right; /* Align text to the right */
+    text-align: left; /* Changed to left alignment */
+  }
+
+  .greeting {
+    color: var(--primary-color, #0078D4);
+    font-weight: 500;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.2rem;
   }
 
   .text-content h1 {
-    font-size: 2.5rem; /* Adjust font size as needed */
-    margin: 0.5rem 0; /* Add margin for spacing */
+    font-size: 3rem; /* Larger font size */
+    font-weight: 700; /* Bolder font weight */
+    margin: 0.2rem 0 0.5rem; /* Adjusted margin for spacing */
+    color: var(--heading-color, #333);
+  }
+
+  .text-content .tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0.2rem 0 1rem;
+    color: var(--secondary-text-color, #555);
+  }
+
+  .text-content .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
   }
   .social-icons {
     display: flex;
@@ -176,29 +228,79 @@
     content: '\f5d2'; /* Unicode for Bluesky icon */
   }
 
+  .intro-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 1.5rem 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px; /* Increased height for better touch targets */
+    padding: 0 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
   .btn.btn-primary {
-    height: 30px; /* Increase button height */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth hover transition */
-    border-radius: 10px; /* Make the button round-edged */
+    background-color: var(--primary-color, #0078D4);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.15);
+  }
+
+  .btn.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color, #0078D4);
+    box-shadow: inset 0 0 0 2px var(--primary-color, #0078D4);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
   }
 
   .btn.btn-primary:hover {
     background-color: #0056b3; /* Change background color on hover */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
+    box-shadow: 0 6px 15px rgba(0, 86, 179, 0.25);
+  }
+
+  .btn.btn-outline:hover {
+    background-color: rgba(0, 120, 212, 0.1);
   }
 
   /* Mobile responsive adjustments */  @media (max-width: 768px) {    .hero-banner {
       height: auto; /* Auto height for smaller screens */
       min-height: 400px; /* Minimum height to ensure content fits */
       margin: 20px auto 1.5rem; /* More top margin for mobile view */
-      border-width: 4px; /* Slightly thinner border on mobile */
       max-width: 92%; /* Narrower to avoid horizontal scroll */
+    }
+    
+    .intro-card {
+      padding: 1.5rem;
+      width: 95%;
     }
     
     .hero-banner-content {
       flex-direction: column; /* Stack content vertically on mobile */
-      padding: 1rem;
       align-items: center;
+      text-align: center;
+    }
+    
+    .text-content {
+      text-align: center;
+    }
+    
+    .intro-buttons {
+      justify-content: center;
+    }
       text-align: center;
     }
       .profile-pic-container {

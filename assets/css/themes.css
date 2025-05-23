@@ -5,12 +5,18 @@
   --text-color: #e0e0e0;
   --header-bg: #23272f; /* Lighter dark for header */
   --card-bg: #1f1f1f;
+  --card-bg-rgb: 31, 31, 31; /* RGB values for card background */
+  --heading-color: #e6e6e6;
+  --secondary-text-color: #b3b3b3; 
   --border-color: #333;
   --link-color: #fff;
   --link-hover-color: #1da1f2;
   --shadow-color: rgba(40, 60, 90, 0.18); /* Lighter shadow for header */
   --button-bg: #1f1f1f;
   --button-hover-bg: #333333;
+  --primary-color: #0078D4; /* Primary accent color */
+  --tag-bg: #333;
+  --tag-color: #ddd;
 
   /* Transition properties for smooth theme switching */
   --transition-time: 0.3s;
@@ -22,12 +28,18 @@
   --text-color: #333;
   --header-bg: #ffffff; /* Pure white */
   --card-bg: #fff;
+  --card-bg-rgb: 255, 255, 255; /* RGB values for card background */
+  --heading-color: #222;
+  --secondary-text-color: #555;
   --border-color: #ddd;
   --link-color: #0078D4;
   --link-hover-color: #005ea2;
   --shadow-color: rgba(0, 0, 0, 0.08); /* Lighter shadow for header */
   --button-bg: #e9e9e9;
   --button-hover-bg: #d5d5d5;
+  --primary-color: #0078D4; /* Primary accent color */
+  --tag-bg: #e9eef2;
+  --tag-color: #0078D4;
 }
 
 /* Apply theme variables to elements */
