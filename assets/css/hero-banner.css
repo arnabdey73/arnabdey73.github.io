@@ -254,6 +254,102 @@
   background-color: rgba(0, 120, 212, 0.6);
 }
 
+/* Simple banner style to match the about page */
+.simple-banner {
+  height: auto;
+  min-height: 220px;
+  padding: 2rem 0;
+  margin: 1rem auto 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.simple-banner .hero-banner-img {
+  opacity: 0.8;
+}
+
+.simple-banner::before {
+  background: linear-gradient(to right, 
+    rgba(0, 0, 0, 0.85) 0%, 
+    rgba(0, 0, 0, 0.75) 40%, 
+    rgba(0, 0, 0, 0.65) 100%);
+}
+
+.simple-banner .hero-banner-content {
+  padding: 1.5rem 2rem;
+  flex-direction: column;
+  text-align: center;
+}
+
+.simple-banner .centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.simple-banner .text-content h1.page-title {
+  font-size: 2.5rem;
+  margin: 0.2rem 0 0.5rem;
+  text-align: center;
+  color: var(--link-hover-color, #1da1f2);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.simple-banner .text-content h1.page-title:after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--link-hover-color, #1da1f2);
+  margin: 15px auto 20px;
+}
+
+.simple-banner .tagline {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.simple-banner .intro-buttons {
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.simple-banner .intro-buttons .btn {
+  background-color: var(--link-hover-color, #1da1f2);
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.simple-banner .intro-buttons .btn:hover {
+  background-color: #1a91d9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+.simple-banner .social-icons ul {
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.simple-banner .social-icons a {
+  background-color: rgba(255, 255, 255, 0.15);
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+}
+
+.simple-banner .social-icons a:hover {
+  background-color: var(--link-hover-color, #1da1f2);
+}
+
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
   .hero-banner {
@@ -311,11 +407,33 @@
   }
 }
 
+/* Mobile adjustments for simple banner */
+@media (max-width: 768px) {
+  .simple-banner {
+    min-height: 180px;
+    padding: 1.5rem 0;
+  }
+  
+  .simple-banner .text-content h1.page-title {
+    font-size: 2rem;
+  }
+  
+  .simple-banner .tagline {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
 /* Additional adjustments for very small screens */
 @media (max-width: 480px) {
   .hero-banner {
     min-height: 450px;
     max-width: 94%;
+  }
+  
+  .simple-banner {
+    min-height: 160px;
+    padding: 1.2rem 0;
   }
   
   .profile-pic-container {
