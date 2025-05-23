@@ -363,3 +363,15 @@ body:not(.home) .banner {
     text-align: right; /* Right align text for larger screens */
   }
 }
+
+@media (min-width: 769px) {
+  .banner,
+  .main-banner {
+    margin-top: 10px !important; /* Reduce gap to minimal on desktop */
+  }
+  .content,
+  .content-wrapper,
+  main.content {
+    padding-top: 0.5rem !important; /* Reduce top padding if present */
+  }
+}

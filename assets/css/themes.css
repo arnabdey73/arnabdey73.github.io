@@ -1,14 +1,14 @@
-/* Theme variables and styling for dark/light mode toggle */
+/* Theme variables and styling for dark/light mode */
 :root {
   /* Dark theme (default) */
   --bg-color: #121212;
   --text-color: #e0e0e0;
-  --header-bg: #1a1a1a;
+  --header-bg: #23272f; /* Lighter dark for header */
   --card-bg: #1f1f1f;
   --border-color: #333;
   --link-color: #fff;
   --link-hover-color: #1da1f2;
-  --shadow-color: rgba(0, 0, 0, 0.7);
+  --shadow-color: rgba(40, 60, 90, 0.18); /* Lighter shadow for header */
   --button-bg: #1f1f1f;
   --button-hover-bg: #333333;
 
