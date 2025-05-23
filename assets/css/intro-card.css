@@ -173,15 +173,27 @@
 
 /* Bluesky specific styling */
 .social-icons a.bluesky-link {
-  background-color: white;
-  color: #0078D4;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Bluesky icon specific styling */
+.social-icons a.bluesky-link .bluesky-icon {
+  font-size: 1.3rem;
+  -webkit-text-stroke: 0.5px white;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8));
 }
 
 .social-icons a.bluesky-link:hover {
-  background-color: #f0f0f0;
-  color: #0056b3;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #00acee;
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 120, 212, 0.25);
+}
+
+.social-icons a.bluesky-link:hover .bluesky-icon {
+  -webkit-text-stroke: 0.5px #00acee;
+  filter: drop-shadow(0 0 2px rgba(0, 172, 238, 0.5));
 }
 
 /* Enhanced hover effects for all social icons */
