@@ -257,14 +257,16 @@
 /* Simple banner style to match the about page */
 .simple-banner {
   height: auto;
-  min-height: 220px;
-  padding: 2rem 0;
-  margin: 1rem auto 2rem;
+  min-height: 300px;
+  padding: 3rem 0;
+  margin: 1.5rem auto 2.5rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  max-width: 92%;
 }
 
 .simple-banner .hero-banner-img {
   opacity: 0.8;
+  object-position: center 30%;
 }
 
 .simple-banner::before {
@@ -275,9 +277,10 @@
 }
 
 .simple-banner .hero-banner-content {
-  padding: 1.5rem 2rem;
+  padding: 2.5rem;
   flex-direction: column;
   text-align: center;
+  max-width: 90%;
 }
 
 .simple-banner .centered-content {
@@ -286,11 +289,13 @@
   align-items: center;
   text-align: center;
   margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
 }
 
 .simple-banner .text-content h1.page-title {
-  font-size: 2.5rem;
-  margin: 0.2rem 0 0.5rem;
+  font-size: 3rem;
+  margin: 0 0 1rem;
   text-align: center;
   color: var(--link-hover-color, #1da1f2);
   font-family: 'Poppins', sans-serif;
@@ -301,31 +306,36 @@
 .simple-banner .text-content h1.page-title:after {
   content: '';
   display: block;
-  width: 60px;
-  height: 3px;
+  width: 80px;
+  height: 4px;
   background-color: var(--link-hover-color, #1da1f2);
-  margin: 15px auto 20px;
+  margin: 20px auto 25px;
+  border-radius: 2px;
 }
 
 .simple-banner .tagline {
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
   color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
 }
 
 .simple-banner .intro-buttons {
   justify-content: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.8rem;
+  gap: 1.5rem;
 }
 
 .simple-banner .intro-buttons .btn {
   background-color: var(--link-hover-color, #1da1f2);
   border-radius: 6px;
-  padding: 0.6rem 1.2rem;
+  padding: 0.8rem 1.6rem;
   font-weight: 500;
+  font-size: 1.1rem;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  min-width: 160px;
 }
 
 .simple-banner .intro-buttons .btn:hover {
@@ -337,17 +347,31 @@
 .simple-banner .social-icons ul {
   justify-content: center;
   margin-top: 0.5rem;
+  gap: 1.2rem;
 }
 
 .simple-banner .social-icons a {
   background-color: rgba(255, 255, 255, 0.15);
-  width: 36px;
-  height: 36px;
-  font-size: 1.1rem;
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .simple-banner .social-icons a:hover {
   background-color: var(--link-hover-color, #1da1f2);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.simple-banner .social-icons .bluesky-link {
+  background-color: rgba(29, 161, 242, 0.2);
+}
+
+.simple-banner .social-icons .bluesky-icon {
+  color: white;
+  -webkit-text-stroke: 1.2px white;
+  font-weight: 900;
+  font-size: 1.3rem;
 }
 
 /* Mobile responsive adjustments */
@@ -410,17 +434,29 @@
 /* Mobile adjustments for simple banner */
 @media (max-width: 768px) {
   .simple-banner {
-    min-height: 180px;
-    padding: 1.5rem 0;
+    min-height: 260px;
+    padding: 2rem 0;
+    max-width: 90%;
+    margin: 1rem auto 2rem;
+  }
+  
+  .simple-banner .hero-banner-content {
+    padding: 1.5rem;
   }
   
   .simple-banner .text-content h1.page-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
   }
   
   .simple-banner .tagline {
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .simple-banner .intro-buttons {
+    gap: 1rem;
+    flex-direction: row;
   }
 }
 
@@ -432,8 +468,22 @@
   }
   
   .simple-banner {
-    min-height: 160px;
-    padding: 1.2rem 0;
+    min-height: 220px;
+    padding: 1.5rem 0;
+    max-width: 92%;
+  }
+  
+  .simple-banner .text-content h1.page-title {
+    font-size: 2rem;
+  }
+  
+  .simple-banner .tagline {
+    font-size: 1.1rem;
+  }
+  
+  .simple-banner .intro-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
   }
   
   .profile-pic-container {
