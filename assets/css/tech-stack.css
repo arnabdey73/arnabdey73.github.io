@@ -1,7 +1,7 @@
 /* Tech Stack Section Styles */
 
 .tech-stack-section {
-  padding: 3.5rem 0 4rem;
+  padding: 3rem;
   background-color: #121212;
   background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #121212 70%);
   border-radius: 12px;
@@ -16,7 +16,7 @@
 /* Add custom container style for tech stack */
 .tech-stack-section .container {
   display: block;
-  padding: 1rem 2rem;
+  padding: 2rem;
 }
 
 .tech-stack-section::before {
@@ -65,7 +65,7 @@
 }
 
 .section-title {
-  text-align: left;
+  text-align: center;
   margin-bottom: 0.5rem;
   font-size: 2.4rem;
   color: #e6e6e6;
@@ -79,7 +79,8 @@
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 60px;
   height: 3px;
   background-color: var(--primary-color-light, #2a9df4);
@@ -90,17 +91,19 @@
 /* Add tech-stack-header style */
 .tech-stack-header {
   margin-bottom: 1.5rem;
-  padding-left: 0.5rem;
+  padding: 0;
+  text-align: center;
 }
 
 .section-subtitle {
-  text-align: left;
+  text-align: center;
   font-size: 1.1rem;
   color: #b3b3b3;
   margin-top: 0.25rem;
   margin-bottom: 1rem;
   max-width: 700px;
-  margin-left: 0;
+  margin-left: auto;
+  margin-right: auto;
   opacity: 0.9;
   transition: color 0.3s ease;
 }
@@ -138,7 +141,7 @@
   }
   
   .tech-stack-section {
-    padding: 4rem 0;
+    padding: 4rem;
   }
 }
 
@@ -375,7 +378,7 @@
 
 @media (max-width: 768px) {
   .tech-stack-section {
-    padding: 2rem 1rem;
+    padding: 2rem;
     margin: 1.5rem auto;
     max-width: 94%;
   }
@@ -397,12 +400,12 @@
 
 @media (max-width: 480px) {
   .tech-stack-section {
-    padding: 1.5rem 0.8rem;
+    padding: 1.8rem;
     margin: 1.5rem auto;
   }
 
   .tech-category {
-    padding: 1.2rem 1rem;
+    padding: 1.2rem;
     margin-bottom: 0.5rem;
   }
   
@@ -437,7 +440,7 @@
 /* Extra small device adjustments */
 @media (max-width: 360px) {
   .tech-stack-section {
-    padding: 1.2rem 0.5rem;
+    padding: 1.5rem;
     margin: 1rem auto;
     max-width: 98%;
   }
@@ -455,7 +458,7 @@
   }
   
   .tech-category {
-    padding: 1.2rem 0.7rem;
+    padding: 1.2rem;
   }
   
   .tech-item {
