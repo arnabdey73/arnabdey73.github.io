@@ -41,6 +41,7 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover states for tech items */
 .tech-item-mini:hover {
   transform: translateY(-3px);
 }
@@ -54,12 +55,27 @@
   color: white;
 }
 
-.project-card:hover .tech-item-mini span {
-  color: #333;
+/* Card hover states for tech items */
+.project-card:hover .tech-item-mini i,
+.assignment-card:hover .tech-item-mini i {
+  color: #0078D4;
 }
 
-.project-card:hover .tech-item-mini i {
+.project-card:hover .tech-item-mini span,
+.assignment-card:hover .tech-item-mini span {
+  color: #333;
+  text-shadow: none;
+}
+
+.project-card:hover .tech-item-mini:hover span,
+.assignment-card:hover .tech-item-mini:hover span {
   color: #0078D4;
+}
+
+.project-card:hover .tech-item-mini:hover i,
+.assignment-card:hover .tech-item-mini:hover i {
+  filter: brightness(1.2);
+  text-shadow: 0 0 12px rgba(0, 120, 212, 0.5);
 }
 
 /* Terraform Logo Mini */
@@ -68,6 +84,10 @@
   width: 25px;
   height: 25px;
   margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: brightness(1);
   transition: filter 0.3s ease, transform 0.3s ease;
   display: flex;
   align-items: center;
@@ -90,12 +110,9 @@
   -webkit-mask-position: center;
 }
 
-.project-card:hover .terraform-logo-mini::before {
-  filter: brightness(1.2);
-}
-
-.tech-item-mini:hover .terraform-logo-mini {
-  transform: translateY(-3px);
+.project-card:hover .terraform-logo-mini::before,
+.assignment-card:hover .terraform-logo-mini::before {
+  background-color: #0078D4;
 }
 
 /* Media Queries */
