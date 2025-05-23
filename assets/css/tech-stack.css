@@ -6,7 +6,7 @@
   background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #121212 70%);
   border-radius: 12px;
   margin: 3rem auto;
-  max-width: 96%;
+  max-width: 90%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;

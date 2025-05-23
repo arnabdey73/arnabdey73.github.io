@@ -13,7 +13,7 @@
   justify-content: center;
   border: none;
   padding-top: 10px;
-  max-width: 96%;
+  max-width: 90%;
   box-sizing: border-box;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0.2); /* Slight overlay to ensure text readability */
