@@ -7,7 +7,7 @@
       <!-- Cloud Platforms -->
       <div class="tech-category">
         <h3>Cloud Platforms</h3>
-        <div class="tech-icons">
+        <div class="tech-icons" aria-label="Cloud platform technologies">
           <div class="tech-item">
             <i class="fab fa-aws fa-3x" aria-hidden="true"></i>
             <span>AWS</span>
@@ -276,16 +276,19 @@
       observer.observe(item);
     });
     
-    // Apply theme-specific styles to tech elements
+  // Apply theme-specific styles to tech elements
     function updateTechStackForTheme(theme) {
       const techSection = document.querySelector('.tech-stack-section');
       const techIcons = document.querySelectorAll('.tech-item i');
       const techCategories = document.querySelectorAll('.tech-category');
       
+      // Always use dark theme for tech stack
+      const techTheme = 'dark';
+      
       // Update icon classes
       techIcons.forEach(icon => {
         icon.classList.remove('theme-light', 'theme-dark');
-        icon.classList.add(`theme-${theme}`);
+        icon.classList.add(`theme-${techTheme}`);
       });
       
       // Add animation to indicate theme change

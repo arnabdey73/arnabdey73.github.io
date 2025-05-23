@@ -21,6 +21,10 @@
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}
 
+<!-- Custom scripts -->
+<script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/tech-stack.js' | relative_url }}"></script>
+
 {% if site.after_footer_scripts %}
   {% for script in site.after_footer_scripts %}
     <script src="{{ script | relative_url }}"></script>

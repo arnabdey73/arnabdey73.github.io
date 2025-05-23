@@ -4,7 +4,9 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  align-items: flex-start;
   margin-top: 1rem;
+  width: 100%;
 }
 
 .tech-logo {
@@ -51,7 +53,9 @@ html {
   flex-direction: column;
   align-items: center;
   margin: 0.5rem;
-  width: 80px;
+  width: calc(33% - 1rem);
+  min-width: 65px;
+  max-width: 90px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0;
   animation: fadeInUp 0.5s ease-out forwards;
@@ -120,7 +124,7 @@ html {
 
 @keyframes glow-dark {
   from { text-shadow: 0 0 0 rgba(42, 157, 244, 0); }
-  to { text-shadow: 0 0 10px rgba(42, 157, 244, 0.7); }
+  to { text-shadow: 0 0 12px rgba(42, 157, 244, 0.8); }
 }
 
 @keyframes glow-light {
@@ -133,15 +137,29 @@ html {
   display: flex;
   margin-top: 0.5rem;
   gap: 2px;
+  justify-content: center;
 }
 
 .skill-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--primary-color, #0078D4);
+  background-color: #2a9df4;
   opacity: 0.3;
   transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Adjust skill dots for desktop */
+@media (min-width: 992px) {
+  .skill-level {
+    margin-top: 0.6rem;
+    gap: 3px;
+  }
+  
+  .skill-dot {
+    width: 7px;
+    height: 7px;
+  }
 }
 
 .skill-dot.filled {
@@ -149,9 +167,9 @@ html {
 }
 
 [data-theme="dark"] .skill-dot {
-  background-color: var(--primary-color-light, #2a9df4);
+  background-color: #2a9df4;
 }
 
 [data-theme="dark"] .skill-dot.filled {
-  box-shadow: 0 0 3px rgba(42, 157, 244, 0.5);
+  box-shadow: 0 0 3px rgba(42, 157, 244, 0.7);
 }
