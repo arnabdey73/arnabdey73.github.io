@@ -29,9 +29,8 @@ layout: default
     <nav>
         {% include header.html %} <!-- Navigation bar -->
     </nav>
-  </header>  <main class="content">
-    <div class="content-wrapper">
-      {% if page.title and page.layout == 'single' %}
+  </header>  <main class="content">    <div class="content-wrapper">
+      {% if page.title and page.layout == 'single' and page.permalink != '/about/' %}
       <h1 class="page-title">{{ page.title }}</h1>
       {% endif %}
       {{ content }} <!-- Main content area -->

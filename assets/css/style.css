@@ -293,6 +293,7 @@ body:not(.home) .banner {
 
 .hero-banner {
     margin-bottom: 0; /* Remove extra spacing below the banner */
+    margin-top: 0; /* Remove spacing between header and banner */
     z-index: 1; /* Bring the banner to the front */
     opacity: 1; /* Ensure full visibility */
 }
@@ -364,14 +365,14 @@ body:not(.home) .banner {
   }
 }
 
+/* Improved media query for desktop view to reduce gap between header and hero banner */
 @media (min-width: 769px) {
-  .banner,
-  .main-banner {
-    margin-top: 10px !important; /* Reduce gap to minimal on desktop */
+  .hero-banner {
+    margin-top: -10px; /* Reduce the gap between header and hero banner */
   }
-  .content,
-  .content-wrapper,
-  main.content {
-    padding-top: 0.5rem !important; /* Reduce top padding if present */
+
+  /* Ensure content remains properly aligned */
+  .hero-banner .container {
+    padding-top: 20px; /* Add some padding inside the banner container */
   }
 }
