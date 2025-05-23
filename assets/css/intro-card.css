@@ -3,7 +3,8 @@
 .intro-card {
   background-color: #121212;
   background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #121212 70%);
-  border-radius: 12px;  padding: 2.5rem;
+  border-radius: 12px;
+  padding: 2.5rem;
   margin: 2rem auto;
   width: 90%;
   max-width: 1200px;
@@ -110,6 +111,65 @@
   background-color: rgba(0, 120, 212, 0.1);
 }
 
+.social-icons {
+  margin-top: 1.5rem;
+}
+
+.social-icons ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-icons li {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0 0.5rem;
+}
+
+.social-icons a {
+  color: white;
+  text-indent: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons a:hover {
+  color: white;
+  background-color: var(--primary-color, #0078D4);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons .bluesky-link {
+  background-color: rgba(0, 120, 212, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons .bluesky-link:hover {
+  background-color: rgba(0, 120, 212, 0.6);
+}
+
+.social-icons .bluesky-icon {
+  color: white;
+  -webkit-text-stroke: 1.2px white;
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
   .intro-card {
@@ -135,6 +195,20 @@
     font-size: 1rem;
     line-height: 1.5;
   }
+  
+  .social-icons {
+    margin-top: 1rem;
+  }
+  
+  .social-icons ul {
+    gap: 0.8rem;
+  }
+  
+  .social-icons a {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
 }
 
 /* Additional adjustments for very small screens */
@@ -150,6 +224,16 @@
   .btn {
     padding: 0 18px;
     font-size: 0.9rem;
+  }
+  
+  .social-icons ul {
+    gap: 0.6rem;
+  }
+  
+  .social-icons a {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
   }
 }
 
