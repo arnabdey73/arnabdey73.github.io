@@ -1,4 +1,4 @@
-<div class="tech-stack-section">
+<div class="tech-stack-section" id="tech-stack" aria-label="Technical skills and technologies">
   <div class="container">
     <h2 class="section-title">My Tech Stack</h2>
     <p class="section-subtitle">Technologies I work with to deliver cloud solutions</p>
@@ -11,7 +11,7 @@
           <div class="tech-item">
             <i class="fab fa-aws fa-3x" aria-hidden="true"></i>
             <span>AWS</span>
-            <div class="skill-level">
+            <div class="skill-level" role="img" aria-label="Skill level: 4 out of 5">
               <span class="skill-dot filled"></span>
               <span class="skill-dot filled"></span>
               <span class="skill-dot filled"></span>
@@ -22,7 +22,7 @@
           <div class="tech-item">
             <i class="fab fa-microsoft fa-3x" aria-hidden="true"></i>
             <span>Azure</span>
-            <div class="skill-level">
+            <div class="skill-level" role="img" aria-label="Skill level: 5 out of 5">
               <span class="skill-dot filled"></span>
               <span class="skill-dot filled"></span>
               <span class="skill-dot filled"></span>
@@ -236,12 +236,102 @@
   </div>
 </div>
 
-<!-- Add tooltip explanation for skill dots -->
+<!-- Add tooltip explanation for skill dots and intersection observer for animations -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Add tooltips to skill levels
     const skillLevels = document.querySelectorAll('.skill-level');
     skillLevels.forEach(level => {
       level.setAttribute('title', 'Proficiency level');
+    });
+    
+    // Initialize all tech items as hidden for animation
+    const techItems = document.querySelectorAll('.tech-item');
+    techItems.forEach(item => {
+      item.classList.add('hidden');
+    });
+    
+    // Set up the Intersection Observer to animate tech items when they come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Add animation with staggered delay
+          setTimeout(() => {
+            entry.target.classList.remove('hidden');
+            entry.target.classList.add('visible');
+          }, index * 100);
+          
+          // Once animation is applied, we don't need to observe it anymore
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    });
+    
+    // Observe all tech items
+    techItems.forEach(item => {
+      observer.observe(item);
+    });
+    
+    // Apply theme-specific styles to tech elements
+    function updateTechStackForTheme(theme) {
+      const techSection = document.querySelector('.tech-stack-section');
+      const techIcons = document.querySelectorAll('.tech-item i');
+      const techCategories = document.querySelectorAll('.tech-category');
+      
+      // Update icon classes
+      techIcons.forEach(icon => {
+        icon.classList.remove('theme-light', 'theme-dark');
+        icon.classList.add(`theme-${theme}`);
+      });
+      
+      // Add animation to indicate theme change
+      techCategories.forEach((category, index) => {
+        // Subtle animation when theme changes
+        setTimeout(() => {
+          category.classList.add('theme-transition-pulse');
+          setTimeout(() => {
+            category.classList.remove('theme-transition-pulse');
+          }, 500);
+        }, index * 50);
+      });
+    }
+    
+    // Initial theme setup
+    const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateTechStackForTheme(initialTheme);
+    
+    // Listen for theme changes through attribute mutation
+    const attributeObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+          const newTheme = document.documentElement.getAttribute('data-theme');
+          updateTechStackForTheme(newTheme);
+        }
+      });
+    });
+    
+    attributeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+    
+    // Also listen for custom theme change event
+    document.addEventListener('themeChanged', function(e) {
+      updateTechStackForTheme(e.detail.theme);
+    });
+    
+    // Handle any errors gracefully
+    window.addEventListener('error', function(e) {
+      console.log('Tech stack animation error handled:', e.message);
+      // Ensure all items are visible in case of animation errors
+      techItems.forEach(item => {
+        item.classList.remove('hidden');
+        item.classList.add('visible');
+      });
     });
   });
 </script>

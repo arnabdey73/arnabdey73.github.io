@@ -19,11 +19,30 @@
 [data-theme="dark"] .tech-logo {
   filter: brightness(0) invert(1); /* Makes icons white in dark mode */
   opacity: 0.9;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="light"] .tech-logo {
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .tech-item:hover .tech-logo {
   filter: var(--tech-logo-hover-filter, brightness(1.2));
   transform: scale(1.15);
+}
+
+/* Theme transition animations */
+html {
+  --transition-speed: 0.3s;
+}
+
+.tech-category,
+.tech-item i,
+.tech-logo,
+.section-title,
+.section-subtitle,
+.skill-dot {
+  transition-duration: var(--transition-speed);
 }
 
 /* Enhanced animation for tech items */
@@ -33,9 +52,9 @@
   align-items: center;
   margin: 0.5rem;
   width: 80px;
-  transition: transform 0.3s ease;
-  animation: fadeInUp 0.5s ease-out forwards;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
 @keyframes fadeInUp {
@@ -49,6 +68,24 @@
   }
 }
 
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tech-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .tech-category:hover {
+    transform: none !important;
+  }
+  
+  .tech-item:hover {
+    transform: none !important;
+  }
+}
+
 /* Stagger the animations */
 .tech-item:nth-child(1) { animation-delay: 0.1s; }
 .tech-item:nth-child(2) { animation-delay: 0.2s; }
@@ -56,6 +93,40 @@
 .tech-item:nth-child(4) { animation-delay: 0.4s; }
 .tech-item:nth-child(5) { animation-delay: 0.5s; }
 .tech-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Intersection Observer for animations */
+.tech-item.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: none;
+}
+
+.tech-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
+
+/* Theme-specific animations */
+@media (prefers-reduced-motion: no-preference) {
+  [data-theme="dark"] .tech-item.visible i {
+    animation: glow-dark 2s ease-in-out infinite alternate;
+  }
+  
+  [data-theme="light"] .tech-item.visible i {
+    animation: glow-light 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes glow-dark {
+  from { text-shadow: 0 0 0 rgba(42, 157, 244, 0); }
+  to { text-shadow: 0 0 10px rgba(42, 157, 244, 0.7); }
+}
+
+@keyframes glow-light {
+  from { text-shadow: 0 0 0 rgba(0, 120, 212, 0); }
+  to { text-shadow: 0 0 10px rgba(0, 120, 212, 0.4); }
+}
 
 /* Skill level indicators */
 .skill-level {
@@ -70,8 +141,17 @@
   border-radius: 50%;
   background-color: var(--primary-color, #0078D4);
   opacity: 0.3;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
 .skill-dot.filled {
   opacity: 1;
+}
+
+[data-theme="dark"] .skill-dot {
+  background-color: var(--primary-color-light, #2a9df4);
+}
+
+[data-theme="dark"] .skill-dot.filled {
+  box-shadow: 0 0 3px rgba(42, 157, 244, 0.5);
 }

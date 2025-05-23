@@ -1,0 +1,13 @@
+/* Theme transition effects */
+.theme-transition,
+.theme-transition *,
+.theme-transition *:before,
+.theme-transition *:after {
+  transition: all 0.3s ease !important;
+  transition-delay: 0 !important;
+}
+
+/* This class helps prevent FOUC (Flash of Unstyled Content) when the page first loads */
+.theme-initializing {
+  visibility: hidden;
+}

@@ -5,7 +5,8 @@ layout: default
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    <title>{{ page.title }}</title>    <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/typography.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/site-footer.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/page-title.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/card-shadows.css' | relative_url }}">
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    <title>{{ page.title }}</title>    <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/theme-transitions.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/typography.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/site-footer.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/page-title.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/card-shadows.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/hero-banner.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/tech-stack.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/tech-logos.css' | relative_url }}">
@@ -25,11 +26,11 @@ layout: default
     </script>
     <!-- End Google Tag Manager -->
 </head>
-<body>
+<body class="theme-initializing">
   <header>
     <nav>
         {% include header.html %} <!-- Navigation bar -->
-    </nav>  </header>  <main class="content">    <div class="content-wrapper">
+    </nav></header>  <main class="content">    <div class="content-wrapper">
       {% unless page.url contains '/about/' %}
         {% if page.title and page.layout != 'home' %}
           <h1 class="page-title">{{ page.title }}</h1>
