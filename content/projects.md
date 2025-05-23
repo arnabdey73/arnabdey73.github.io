@@ -58,118 +58,109 @@ permalink: /projects/
     justify-content: center; /* Center align the cards */
     gap: 30px;
     margin-top: 30px;
-  }
-  .project-card {
+  }  .project-card {
     width: 100%;
-    max-width: 600px; /* Limit the width for better readability */
-  }
-  .project-card {
-    background-color: var(--card-bg, #1a1a1a); /* Use theme variable */
+    max-width: 600px;
+    background-color: var(--card-bg, #1a1a1a);
     padding: 20px;
     border-radius: 12px;
     border: 1px solid var(--border-color, #333);
-    /* White/lighter shadows will be applied from card-shadows.css */
-    transition: all 0.4s ease; /* Smooth transition for all properties */
-    color: var(--text-color, #e0e0e0); /* Theme variable for text color */
+    transition: all 0.4s ease;
+    color: #e0e0e0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
   
   .project-card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    background-color: var(--button-hover-bg, #333333); /* Use theme variable */
-    color: var(--text-color, #e0e0e0); /* Maintain text color from theme */
-    /* Enhanced shadow on hover is handled in card-shadows.css */
-  }
-  .project-card h3 {
+    transform: translateY(-5px);
+    background-color: white;
+    color: #121212;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: #0078D4;
+  /* Enhanced shadow on hover is handled in card-shadows.css */
+  }  .project-card h3 {
     margin-top: 0;
     margin-bottom: 10px;
-    font-size: 1.5rem; /* Consistent heading size */
-    color: #0078D4; /* Bright blue color for heading */
-    transition: color 0.4s ease; /* Smooth transition for color change */
+    font-size: 1.5rem;
+    color: #0078D4;
+    transition: color 0.4s ease;
   }
   
   .project-card:hover h3 {
-    color: #005A9E; /* Darker blue on white background when hovered */
+    color: #005A9E;
   }
-    /* Project card paragraph styles */
+
   .project-card p {
-    color: #bbb; /* Light gray text for better readability on dark background */
-    transition: color 0.4s ease; /* Smooth transition for color change */
+    color: #bbb;
+    transition: color 0.4s ease;
     line-height: 1.5;
-    margin-bottom: 15px;
+    margin: 15px 0;
+    padding-left: 20px;
+    text-align: left;
   }
-  
+
   .project-card:hover p {
-    color: #333; /* Darker text on white background when hovered */
-  }  /* Add responsive adjustments for badges */
-  @media (max-width: 768px) {
+    color: #333;
+  }/* Add responsive adjustments for badges */  @media (max-width: 768px) {
     .badge-row {
-      gap: 8px; /* Maintain decent spacing on mobile */
-      justify-content: center; /* Ensure centering on mobile */
+      gap: 6px;
     }
     
-    .badge-icon, .github-button img, .azure-badge {
-      height: 24px !important; /* Consistent height on mobile */
-      width: 100px !important; /* Slightly narrower on mobile */
+    .badge-icon {
+      height: 22px;
     }
   }
-    @media (max-width: 480px) {
+
+  @media (max-width: 480px) {
     .badge-row {
-      gap: 5px; /* Slightly smaller gap on very small screens */
+      gap: 4px;
     }
     
-    .badge-icon, .github-button img, .azure-badge {
-      height: 22px !important; /* Slightly smaller on very small screens */
-      width: 95px !important; /* Consistent width on small screens */
-      margin: 2px; /* Smaller margin on small screens */
+    .badge-icon {
+      height: 20px;
+      max-width: 100px;
     }
   }
   
   @media (max-width: 360px) {
     .badge-row {
-      gap: 3px; /* Minimal gap on very small screens */
+      gap: 2px;
     }
     
-    .badge-icon, .github-button img, .azure-badge {
-      height: 18px !important; /* Even smaller on very small screens */
-      width: 75px !important; /* Narrower on very small screens */
-      margin: 1px; /* Minimal margin on very small screens */
-      font-size: 10px !important; /* Smaller font size */
+    .badge-icon {
+      height: 18px;
+      min-width: 60px;
+      max-width: 90px;
+      margin: 1px;
+      padding: 0;
     }
   }.badge-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Better center alignment */
     margin: 15px 0;
-    width: 100%; /* Ensure full width */
-    text-align: center; /* Center text alignment */
   }
-    .badge-row {
-    display: flex; /* Use flex display */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    justify-content: center; /* Center align badges */
-    align-items: center; /* Vertically center badges */
-    gap: 8px; /* Consistent spacing between badges */
-    margin-bottom: 15px; /* Increased bottom margin */
-    width: 100%; /* Full width to ensure proper centering */
-    line-height: 1; /* Prevent line height issues affecting badge size */
-    min-height: 25px; /* Minimum height to accommodate badges */
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
   }.badge-icon {
-    height: 25px !important; /* Strict standardized height for all badges */
-    width: 110px !important; /* Fixed consistent width for all badges */
-    object-fit: contain !important; /* Ensure content fits within dimensions */
-    vertical-align: middle; /* Align badges properly */
-    background-color: #232323 !important; /* Consistent dark background */
-    border-radius: 4px; /* Consistent rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-    padding: 1px 2px; /* Reduced padding for more compact appearance */
-    margin: 2px; /* Reduced margin spacing */
-    transition: all 0.3s ease; /* Smooth transition */
-    border: 1px solid #333; /* Subtle border */
-    display: inline-block; /* Ensure consistent display behavior */
-    max-height: 25px !important; /* Prevent any height overflow */
-    line-height: normal !important; /* Reset line height */
-    overflow: hidden; /* Hide any overflow */
+    height: 24px;
+    width: auto;
+    min-width: 70px;
+    max-width: 120px;
+    object-fit: contain;
+    vertical-align: middle;
+    background-color: #232323;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 2px 4px;
+    margin: 2px;
+    transition: all 0.4s ease;
+    border: 1px solid #333;
   }
   
   .project-card:hover .badge-icon {
@@ -189,47 +180,35 @@ permalink: /projects/
     background-color: #5C2D91; /* Pulumi's primary color */
     color: white; /* Ensure text/logo visibility */
   }.github-button {
-    display: flex; /* Ensure proper alignment */
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content */
-    margin: 8px auto; /* Center horizontally with auto margins */
-    padding: 0; /* Remove padding to match other badges */
-    background-color: transparent; /* Ensure no background color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Match other badges */
-    transition: all 0.3s ease; /* Smooth transition for all properties */
-    position: relative; /* For pseudo-element positioning */
-    width: fit-content; /* Size to content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px auto;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
 
   .github-button:hover {
-    transform: translateY(-2px); /* Slight lift on hover */
+    transform: translateY(-2px);
   }
-  
-  .github-button::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #0078D4;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
-  }
-  
-  .github-button:hover::after {
-    width: 80%;
-  }
+
   .github-button img {
-    /* GitHub button badges should match all other badges exactly */
-    height: 25px !important; /* Same as other badges */
-    width: 110px !important; /* Same fixed width */
-    object-fit: contain !important; /* Content fitting */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Match main badge shadow */
-    transition: all 0.3s ease;
-    margin: 0; /* Remove margin as the button itself has margin */
-    border: 1px solid #333; /* Match main badge border */
+    height: 24px;
+    width: auto;
+    min-width: 70px;
+    max-width: 120px;
+    object-fit: contain;
+    vertical-align: middle;
+    background-color: #232323;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 2px 4px;
+    margin: 2px;
+    transition: all 0.4s ease;
+    border: 1px solid #333;
   }
 </style>
 </div>
