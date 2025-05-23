@@ -24,15 +24,13 @@ permalink: /certifications/
     gap: 30px;
     margin-top: 30px;
   }
-  
-  .certification-card {
+    .certification-card {
     width: 100%;
     max-width: 600px;
-    background-color: #121212; /* Dark background color matching project cards */
+    background-color: var(--card-bg, #1a1a1a);
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid #333;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color, #333);
     transition: all 0.4s ease; /* Smooth transition for all properties */
     color: #e0e0e0; /* Light text color for dark background */
     text-align: center;

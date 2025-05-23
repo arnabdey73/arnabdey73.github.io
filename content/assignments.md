@@ -10,25 +10,24 @@ permalink: /assignments/
     gap: 30px;
     margin-top: 30px;
   }
-
   .assignment-card {
     width: 100%;
     max-width: 800px; /* Wider than project cards for more content */
     margin: 0 auto; /* Center the cards */
-    background-color: #121212; /* Dark background color matching project cards */
+    background-color: var(--card-bg, #1a1a1a); /* Use theme variable */
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid #333;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color, #333);
+    /* White/lighter shadows will be applied from card-shadows.css */
     transition: all 0.4s ease; /* Smooth transition for all properties */
-    color: #e0e0e0; /* Light text color for dark background */
+    color: var(--text-color, #e0e0e0); /* Theme variable for text color */
     text-align: left; /* Keep text left-aligned */
   }
 
   .assignment-card:hover {
     transform: translateY(-5px); /* Slight lift on hover */
-    background-color: white; /* Change to white on hover */
-    color: #121212; /* Change text to dark on hover */
+    background-color: var(--button-hover-bg, #333333); /* Use theme variable */
+    color: var(--text-color, #e0e0e0); /* Maintain text color from theme */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
   }
 

@@ -63,22 +63,21 @@ permalink: /projects/
     width: 100%;
     max-width: 600px; /* Limit the width for better readability */
   }
-
   .project-card {
-    background-color: #121212; /* Dark background color */
+    background-color: var(--card-bg, #1a1a1a); /* Use theme variable */
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid #333;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color, #333);
+    /* White/lighter shadows will be applied from card-shadows.css */
     transition: all 0.4s ease; /* Smooth transition for all properties */
-    color: #e0e0e0; /* Light text color for dark background */
+    color: var(--text-color, #e0e0e0); /* Theme variable for text color */
   }
   
   .project-card:hover {
     transform: translateY(-5px); /* Slight lift on hover */
-    background-color: white; /* Change to white on hover */
-    color: #121212; /* Change text to dark on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    background-color: var(--button-hover-bg, #333333); /* Use theme variable */
+    color: var(--text-color, #e0e0e0); /* Maintain text color from theme */
+    /* Enhanced shadow on hover is handled in card-shadows.css */
   }
   .project-card h3 {
     margin-top: 0;
