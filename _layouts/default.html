@@ -30,12 +30,11 @@ layout: default
   <header>
     <nav>
         {% include header.html %} <!-- Navigation bar -->
-    </nav></header>  <main class="content">    <div class="content-wrapper">
-      {% unless page.url contains '/about/' %}
-        {% if page.title and page.layout != 'home' %}
-          <h1 class="page-title">{{ page.title }}</h1>
-        {% endif %}
-      {% endunless %}
+    </nav></header>  <main class="content">
+    <div class="content-wrapper">
+      {% if page.url contains '/about/' and page.title %}
+        <h1 class="page-title">{{ page.title }}</h1>
+      {% endif %}
       {{ content }} <!-- Main content area -->
     </div>
   </main>
