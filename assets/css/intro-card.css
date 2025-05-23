@@ -13,10 +13,26 @@
               0 0 0 1px rgba(255, 255, 255, 0.08),
               0 0 25px rgba(42, 157, 244, 0.08);
   position: relative;
+  overflow: hidden;
   z-index: 2;
   color: #e0e0e0;
   text-align: center;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.intro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/img/banner3.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
+  transition: opacity 0.5s ease;
 }
 
 .intro-card:hover {
@@ -27,7 +43,13 @@
               0 0 30px rgba(42, 157, 244, 0.15);
 }
 
+.intro-card:hover::before {
+  opacity: 0.2;
+}
+
 .intro-content {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -151,12 +173,13 @@
 
 /* Bluesky specific styling */
 .social-icons a.bluesky-link {
-  background-color: rgba(0, 120, 212, 0.1);
+  background-color: white;
+  color: #0078D4;
 }
 
 .social-icons a.bluesky-link:hover {
-  background-color: #0078D4;
-  color: white;
+  background-color: #f0f0f0;
+  color: #0056b3;
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 120, 212, 0.25);
 }
