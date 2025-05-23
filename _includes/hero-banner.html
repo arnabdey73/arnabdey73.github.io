@@ -187,11 +187,10 @@
     transform: scale(1.05); /* Slightly enlarge button on hover */
   }
 
-  /* Mobile responsive adjustments */  @media (max-width: 768px) {
-    .hero-banner {
+  /* Mobile responsive adjustments */  @media (max-width: 768px) {    .hero-banner {
       height: auto; /* Auto height for smaller screens */
       min-height: 400px; /* Minimum height to ensure content fits */
-      margin: 25px auto 1.5rem; /* Adjusted margins */
+      margin: 20px auto 1.5rem; /* More top margin for mobile view */
       border-width: 4px; /* Slightly thinner border on mobile */
       max-width: 92%; /* Narrower to avoid horizontal scroll */
     }
@@ -304,11 +303,10 @@
     }
   }
   @media (max-width: 360px) {
-    .hero-banner {
-      min-height: 350px; /* Further reduced minimum height on very small screens */
+    .hero-banner {      min-height: 350px; /* Further reduced minimum height on very small screens */
       border-width: 2px;
       max-width: 96%;
-      margin-top: 15px; /* Less top margin */
+      margin-top: 20px; /* Consistent top margin for smallest devices */
     }
     
     .text-content h1 {

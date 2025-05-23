@@ -293,10 +293,17 @@ body:not(.home) .banner {
 
 .hero-banner {
     margin-bottom: 0; /* Remove extra spacing below the banner */
-    margin-top: -10px; /* Create negative margin to pull up closer to header */
+    margin-top: -20px; /* More negative margin for desktop to pull closer to header */
     z-index: 1; /* Bring the banner to the front */
     opacity: 1; /* Ensure full visibility */
     position: relative; /* Enable positioning context */
+}
+
+/* Add specific styles for mobile devices */
+@media screen and (max-width: 768px) {
+    .hero-banner {
+        margin-top: 0; /* Reset negative margin for mobile */
+    }
 }
 
 .hero-banner-img {
