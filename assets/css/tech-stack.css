@@ -226,11 +226,40 @@
     align-items: center;
     width: 100%;
     box-sizing: border-box;
+    aspect-ratio: auto;
+    height: auto;
   }
   
   .tech-category h3 {
     margin-bottom: 1.5rem;
     margin-top: 0;
+  }
+
+  .tech-category .tech-icons {
+    flex: 1;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    overflow-y: visible;
+    min-height: 200px;
+  }
+}
+
+/* Fixed grid layout for different screen sizes */
+@media (min-width: 1400px) {
+  .tech-categories {
+    grid-template-columns: repeat(4, minmax(250px, 280px));
+    gap: 2rem;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+  .tech-categories {
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-content: center;
   }
 }
 
@@ -309,23 +338,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   flex: 1;
   padding: 0.5rem;
   margin-top: 0.5rem;
-  max-height: 100%;
 }
 
 .tech-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.5rem;
-  width: calc(33% - 1rem);
-  min-width: 65px;
-  max-width: 90px;
+  margin: 0.25rem;
+  width: calc(33% - 0.5rem);
+  min-width: 60px;
+  max-width: 75px;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
               filter 0.3s ease;
   padding: 0.25rem;
@@ -333,258 +361,44 @@
   position: relative;
 }
 
-.tech-item:hover {
-  transform: translateY(-5px);
-}
-
-.tech-item:hover i {
-  filter: brightness(1.3);
-  text-shadow: 0 0 15px rgba(42, 157, 244, 0.7);
-}
-
-.tech-item:hover span {
-  color: white;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-.tech-item:hover .skill-level .skill-dot.filled {
-  transform: scale(1.2);
-  box-shadow: 0 0 8px rgba(42, 157, 244, 0.8);
-}
-
-.tech-item i {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #2a9df4;
-  transition: color 0.3s ease, filter 0.3s ease, text-shadow 0.3s ease;
-}
-
-[data-theme="dark"] .tech-item i {
-  color: #2a9df4;
-}
-
-/* Optimize icon sizing for desktop */
+/* Desktop optimizations for the tech items */
 @media (min-width: 992px) {
+  .tech-icons {
+    gap: 0.75rem;
+    padding: 0.5rem;
+    justify-content: flex-start;
+    overflow-y: visible;
+  }
+
+  .tech-item {
+    width: calc(25% - 0.75rem);
+    min-width: 55px;
+    max-width: 70px;
+    margin: 0.25rem;
+  }
+
   .tech-item i {
-    font-size: 2.25rem;
-    margin-bottom: 0.75rem;
-  }
-}
-
-.tech-item i.theme-light {
-  filter: saturate(1.1);
-}
-
-.tech-item i.theme-dark {
-  filter: brightness(1.2);
-}
-
-[data-theme="dark"] .tech-item span {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.tech-item span {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #e0e0e0;
-  text-align: center;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* Enhanced item text for desktop */
-@media (min-width: 992px) {
-  .tech-item span {
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-}
-
-/* Dark mode adjustments */
-/* Dark theme is now the default for tech stack regardless of site theme */
-:root {
-  --tech-card-bg: #1a1a1a;
-  --tech-card-border: rgba(255, 255, 255, 0.07);
-  --tech-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  --tech-icon-filter: brightness(1.2) contrast(1.05);
-  --tech-logo-hover-filter: brightness(1.3) contrast(1.1);
-}
-
-/* Keep these variables for potential future theme switching */
-[data-theme="light"] {
-  /* Override to keep dark theme even in light mode */
-  --tech-icon-filter: brightness(1.2) contrast(1.05);
-  --tech-logo-hover-filter: brightness(1.3);
-}
-
-/* All tech categories now have dark background regardless of site theme */
-.tech-category {
-  background-color: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-/* Section subtitle is light colored for dark background */
-.section-subtitle {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Tech item text is light colored for dark background */
-.tech-item span {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-[data-theme="dark"] .skill-dot {
-  background-color: var(--primary-color, #2a9df4);
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 992px) {
-  .tech-categories {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .tech-stack-section {
-    padding: 2rem;
-    margin: 1.5rem auto;
-    max-width: 94%;
-  }
-  
-  .tech-categories {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .section-title {
-    font-size: 1.9rem;
-  }
-
-  .section-subtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .tech-stack-section {
-    padding: 1.8rem;
-    margin: 1.5rem auto;
-  }
-
-  .tech-category {
-    padding: 1.2rem;
+    font-size: 1.75rem;
     margin-bottom: 0.5rem;
   }
-  
-  .tech-category h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
-  }
-  
-  .tech-item {
-    width: 65px;
-    margin: 0.3rem;
-  }
-  
-  .tech-item i {
-    font-size: 2rem !important;
-  }
-  
+
   .tech-item span {
     font-size: 0.8rem;
   }
-  
-  .skill-level {
-    margin-top: 0.3rem;
-  }
-  
-  .skill-dot {
-    width: 5px;
-    height: 5px;
-  }
 }
 
-/* Extra small device adjustments */
-@media (max-width: 360px) {
-  .tech-stack-section {
-    padding: 1.5rem;
-    margin: 1rem auto;
-    max-width: 98%;
-  }
-  
-  .section-title {
-    font-size: 1.7rem;
-  }
-  
-  .section-subtitle {
-    font-size: 0.9rem;
-  }
-  
-  .tech-categories {
+/* Ultra-wide screen optimizations */
+@media (min-width: 1800px) {
+  .tech-icons {
     gap: 1rem;
   }
-  
-  .tech-category {
-    padding: 1.2rem;
-  }
-  
+
   .tech-item {
-    width: 55px;
-    margin: 0.2rem;
+    width: calc(20% - 1rem);
+    max-width: 75px;
   }
-  
-  .tech-item i {
-    font-size: 1.6rem !important;
-    margin-bottom: 0.3rem;
-  }
-  
-  .tech-item span {
-    font-size: 0.75rem;
-  }
-}
 
-/* Print styles */
-@media print {
-  .tech-stack-section {
-    page-break-inside: avoid;
-    background-color: white !important;
-    color: black !important;
-    box-shadow: none !important;
-    padding: 1rem 0;
-  }
-  
-  .tech-categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  
-  .tech-category {
-    background-color: white !important;
-    box-shadow: none !important;
-    border: 1px solid #eee !important;
-    padding: 1rem;
-    page-break-inside: avoid;
-  }
-  
-  .tech-category::before {
-    display: none;
-  }
-  
   .tech-item i {
-    color: #333 !important;
-    font-size: 1.5rem !important;
-  }
-  
-  .section-title::after {
-    background-color: #333 !important;
-  }
-  
-  .skill-level {
-    display: none;
+    font-size: 2rem;
   }
 }
