@@ -44,7 +44,7 @@ permalink: /assignments/
     </div>
   </div>
   <div class="assignment-card">
-    <h3>Senior Software Engineer (DevOps) – Capgemini Sverige AB <span class="date">(September 2021 - July 2024)</span></h3>
+    <h3>Senior Software Engineer – Capgemini AB <span class="date">(September 2021 - July 2024)</span></h3>
     <ul>
       <li>Implemented CI/CD pipeline automation using Azure DevOps, cutting deployment time by 30%.</li>
       <li>Upgraded on-prem hardware to prepare for Kubeflow platform using Ubuntu, xCAT, and Rancher RKE.</li>
@@ -70,7 +70,7 @@ permalink: /assignments/
   </div>
 
   <div class="assignment-card">
-    <h3>Senior Business Consultant (DevOps) – Tech Mahindra <span class="date">(February 2017 - September 2021)</span></h3>
+    <h3>Senior DevOps Consultant – Tech Mahindra <span class="date">(February 2017 - September 2021)</span></h3>
     <ul>
       <li>Deployed CI/CD pipelines using Jenkins and Azure DevOps for business applications hosted on public/hybrid cloud platforms.</li>
       <li>Automated microservice orchestration with Docker and Kubernetes, enhancing resource utilization by 25%.</li>
@@ -197,6 +197,63 @@ permalink: /assignments/
       <div class="tech-item-mini">
         <i class="fas fa-hdd" aria-hidden="true"></i>
         <span>iDRAC/iLO</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assignment-card volunteer-card">
+    <h3>💮 Volunteer Computer Teacher – Career Break 💮 <span class="date">(July 2010 - March 2011)</span></h3>
+    <ul>
+      <li>Imparted foundational computer education as part of a vocational training program in rural West Bengal, India.</li>
+      <li>Designed and delivered engaging lessons that supported students with practical hands-on learning.</li>
+      <li>Contributed to promoting digital literacy in a rural educational setting.</li>
+      <li>Enhanced teaching abilities while deepening commitment to community-focused education initiatives.</li>
+    </ul>
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+        <span>Teaching</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-laptop" aria-hidden="true"></i>
+        <span>Computer Basics</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        <span>Community</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="assignment-card">
+    <h3>Jr. System Administrator – Poornam Info Vision Pvt. Ltd. <span class="date">(November 2009 - May 2010)</span></h3>
+    <ul>
+      <li>Worked on Building (Installation & Configuration) and managing Linux VPS remotely.</li>
+      <li>Worked on implementation and administration of DNS, DHCP, SMTP servers.</li>
+      <li>Performed troubleshooting RAID/LVM issues.</li>
+      <li>Worked on communications of system and network events and RCA, log analysis after resolution.</li>
+      <li>Accountable for dealing with issues like server down, service failure and resource shortages.</li>
+    </ul>
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fab fa-linux" aria-hidden="true"></i>
+        <span>Linux</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-network-wired" aria-hidden="true"></i>
+        <span>Networking</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-server" aria-hidden="true"></i>
+        <span>Systems</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-hdd" aria-hidden="true"></i>
+        <span>RAID/LVM</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-terminal" aria-hidden="true"></i>
+        <span>Shell</span>
       </div>
     </div>
   </div>
