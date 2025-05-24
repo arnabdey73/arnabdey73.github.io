@@ -1,0 +1,34 @@
+/* Custom fonts for header and footer */
+
+/* Header styles */
+header {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header .site-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+nav ul li a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Footer styles */
+.site-footer {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.footer-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+/* Menu toggle button */
+.menu-toggle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
