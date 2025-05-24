@@ -1,13 +1,18 @@
-/* Custom fonts for header and footer */
+/* Enhanced Custom fonts for header and footer using Montserrat */
 
 /* Header styles */
-header {
-  font-family: 'Montserrat', sans-serif;
+header,
+header *,
+.site-header,
+.site-title,
+.site-description,
+.site-nav {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 header .site-title {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 nav ul li a {
@@ -17,18 +22,33 @@ nav ul li a {
 }
 
 /* Footer styles */
+.site-footer,
+.site-footer *,
+footer,
+footer * {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 .site-footer {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 }
 
 .footer-link {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 }
 
 /* Menu toggle button */
 .menu-toggle {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+}
+
+/* Ensure good readability with proper font weights across all screen sizes */
+@media (max-width: 768px) {
+  header .site-title {
+    font-weight: 600;
+  }
+  
+  nav ul li a {
+    font-weight: 500;
+  }
 }

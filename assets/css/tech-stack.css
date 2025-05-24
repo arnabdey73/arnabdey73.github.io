@@ -94,9 +94,9 @@
   width: 60px;
   height: 3px;
   background-color: var(--primary-color-light, #2a9df4);
-  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              background-color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   border-radius: 3px;
   transition: background-color 0.3s ease;
 }
@@ -290,13 +290,24 @@
     height: 3px;
     background-color: #2a9df4;
     border-radius: 3px;
-    transition: background-color 0.3s ease;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     box-shadow: 0 0 8px rgba(42, 157, 244, 0.4);
   }
   
   .tech-category:hover h3 {
     color: #41b0ff;
     text-shadow: 0 0 10px rgba(42, 157, 244, 0.3);
+  }
+  
+  /* Glowing underline effect for category headings on hover */
+  .tech-category:hover h3:after {
+    width: 100%;
+    background-color: #0078D4;
+    box-shadow: 
+      0 0 5px rgba(0, 120, 212, 0.6),
+      0 0 10px rgba(0, 120, 212, 0.4),
+      0 0 20px rgba(0, 120, 212, 0.2);
+    animation: categoryGlow 2s ease-in-out infinite alternate;
   }
 }
 
@@ -321,16 +332,31 @@
 
 /* Glowing underline effect for tech stack section title on hover */
 .tech-stack-section:hover .section-title:after {
-  width: 180px; /* Expanded underline width on hover */
+  width: 100%; /* Stretched to full title width */
   background-color: #0078D4; /* Azure blue */
   box-shadow: 
     0 0 5px rgba(0, 120, 212, 0.5),
     0 0 10px rgba(0, 120, 212, 0.3),
     0 0 20px rgba(0, 120, 212, 0.1);
-  animation: glow 1.5s ease-in-out infinite alternate;
+  animation: glow 2.5s ease-in-out infinite alternate; /* Slowed down animation */
 }
 
 @keyframes glow {
+  from {
+    box-shadow: 
+      0 0 5px rgba(0, 120, 212, 0.5),
+      0 0 10px rgba(0, 120, 212, 0.3);
+  }
+  to {
+    box-shadow: 
+      0 0 8px rgba(0, 120, 212, 0.7),
+      0 0 15px rgba(0, 120, 212, 0.5),
+      0 0 25px rgba(0, 120, 212, 0.3);
+  }
+}
+
+/* Animation for category headings */
+@keyframes categoryGlow {
   from {
     box-shadow: 
       0 0 5px rgba(0, 120, 212, 0.5),

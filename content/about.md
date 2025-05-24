@@ -20,7 +20,7 @@ permalink: /about/
       Started containerizing apps with Docker, and deployed them using Kubernetes.</p>
     </div>
     <div class="timeline-entry">
-      <h3> 2020–Present: Cloud DevOps Engineer</h3>
+      <h3> 2020–Present: Cloud/DevOps Engineer</h3>
       <p>Built and managed cloud-native systems on Azure using Terraform, Helm, and AKS.<br>
       Led end-to-end infrastructure automation pipelines.</p>
       <p>Contributing to open-source DevOps projects using Terraform, Ansible, RKE, Rancher, Prometheus stack.<br>
