@@ -4,11 +4,62 @@ title: Certifications
 permalink: /certifications/
 ---
 <div style="text-align: center;">
-<div class="certification-cards">  <div class="certification-card">
+<div class="certification-cards">
+  <div class="certification-card">
     <h3>Microsoft Certified: Azure Fundamentals</h3>
     <p>Issued March 2023</p>
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-cloud" aria-hidden="true"></i>
+        <span>Cloud</span>
+      </div>
+    </div>
     <div class="cert-button-container">
       <a href="https://learn.microsoft.com/api/credentials/share/en-us/ArnabDey-3507/801D970BAA49297?sharingId=7AA14B7D39956A51" target="_blank" rel="noopener" class="cert-verify-button">
+        <i class="fas fa-certificate"></i> View Certificate
+      </a>
+    </div>
+  </div>
+  
+  <div class="certification-card">
+    <h3>HashiCorp Certified: Terraform Associate</h3>
+    <p>Issued October 2024</p>
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <div class="terraform-logo-mini"></div>
+        <span>Terraform</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-server" aria-hidden="true"></i>
+        <span>IaC</span>
+      </div>
+    </div>
+    <div class="cert-button-container">
+      <a href="#" target="_blank" rel="noopener" class="cert-verify-button">
+        <i class="fas fa-certificate"></i> View Certificate
+      </a>
+    </div>
+  </div>
+  
+  <div class="certification-card">
+    <h3>AWS Certified Solutions Architect</h3>
+    <p>Issued January 2025</p>
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fab fa-aws" aria-hidden="true"></i>
+        <span>AWS</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-network-wired" aria-hidden="true"></i>
+        <span>Architecture</span>
+      </div>
+    </div>
+    <div class="cert-button-container">
+      <a href="#" target="_blank" rel="noopener" class="cert-verify-button">
         <i class="fas fa-certificate"></i> View Certificate
       </a>
     </div>
