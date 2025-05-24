@@ -2,12 +2,15 @@
 
 .intro-card {
   background-color: #121212;
-  background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #121212 70%);
+  background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.9)), url('/assets/img/banner.jpeg');
+  background-size: cover;
+  background-position: center;
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem auto;
   width: 90%;
-  max-width: 900px; /* Reduced from 1200px */
+  max-width: 900px;
+  min-height: 320px; /* Reduced height */
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35),
               0 8px 20px rgba(0, 0, 0, 0.25),
               0 0 0 1px rgba(255, 255, 255, 0.08),
@@ -29,7 +32,7 @@
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(29, 161, 242, 0.1) 0%,
+    rgba(29, 161, 242, 0.15) 0%,
     transparent 50%
   );
   border-radius: inherit;
@@ -39,11 +42,28 @@
   z-index: 1;
 }
 
+@keyframes backgroundScroll {
+  0% {
+    background-position: center;
+  }
+  50% {
+    background-position: center 55%;
+  }
+  100% {
+    background-position: center;
+  }
+}
+
+.intro-card {
+  animation: backgroundScroll 20s ease-in-out infinite;
+}
+
 .intro-card:hover {
   box-shadow: 0 22px 40px rgba(0, 0, 0, 0.4),
               0 12px 20px rgba(0, 0, 0, 0.2),
               0 0 0 1px rgba(255, 255, 255, 0.1),
               -5px 10px 20px rgba(29, 161, 242, 0.15);
+  filter: brightness(1.15);
 }
 
 .intro-card:hover::before {
@@ -55,6 +75,7 @@
   z-index: 2;
   max-width: 800px;
   margin: 0 auto;
+  padding: 1.5rem 0;
 }
 
 .intro-card .greeting {
