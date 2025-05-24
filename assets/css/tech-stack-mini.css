@@ -147,6 +147,34 @@
   background-color: #0078D4;
 }
 
+/* Enhanced tech logo support for assignment cards */
+.assignment-card .tech-logo-mini {
+  width: 25px;
+  height: 25px;
+  margin: 0 auto;
+  filter: var(--tech-icon-filter, brightness(1));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.assignment-card .tech-item-mini:hover .tech-logo-mini {
+  filter: var(--tech-logo-hover-filter, brightness(1.2));
+  transform: scale(1.15);
+}
+
+[data-theme="dark"] .assignment-card .tech-logo-mini {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+/* Terraform logo support for assignment cards */
+.assignment-card .terraform-logo-mini::before {
+  background-color: #844FBA;
+}
+
+.assignment-card:hover .terraform-logo-mini::before {
+  background-color: #0078D4;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .tech-item-mini {
