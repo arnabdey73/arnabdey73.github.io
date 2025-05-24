@@ -26,36 +26,20 @@ permalink: /certifications/
   </div>
   
   <div class="certification-card">
-    <h3>HashiCorp Certified: Terraform Associate</h3>
-    <p>Issued October 2024</p>
+    <h3>Microsoft Certified: Azure Administrator (Pending)</h3>
+    <p>Issued June 2025</p>
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <div class="terraform-logo-mini"></div>
-        <span>Terraform</span>
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-server" aria-hidden="true"></i>
-        <span>IaC</span>
-      </div>
-    </div>
-    <div class="cert-button-container">
-      <a href="#" target="_blank" rel="noopener" class="cert-verify-button">
-        <i class="fas fa-certificate"></i> View Certificate
-      </a>
-    </div>
-  </div>
-  
-  <div class="certification-card">
-    <h3>AWS Certified Solutions Architect</h3>
-    <p>Issued January 2025</p>
-    <div class="tech-icons-mini">
-      <div class="tech-item-mini">
-        <i class="fab fa-aws" aria-hidden="true"></i>
-        <span>AWS</span>
+        <i class="fas fa-cloud" aria-hidden="true"></i>
+        <span>Cloud</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-network-wired" aria-hidden="true"></i>
-        <span>Architecture</span>
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Bicep</span>
       </div>
     </div>
     <div class="cert-button-container">

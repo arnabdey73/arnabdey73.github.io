@@ -38,7 +38,7 @@
 }
 
 .intro-card:hover::before {
-  filter: brightness(1.5);
+  filter: brightness(1.8); /* Increased brightness from 1.5 to 1.8 */
   transform: scale(1.02);
 }
 
@@ -147,7 +147,7 @@
   background-color: rgba(0, 120, 212, 0.1);
 }
 
-/* Social Icons with rounded hover effect */
+/* Social Icons with properly rounded hover effect */
 .social-icons {
   margin-top: 1.5rem;
 }
@@ -173,7 +173,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 50%; /* Changed from 20px to 50% for perfect circles */
   background: transparent;
   transition: all 0.3s ease;
 }
