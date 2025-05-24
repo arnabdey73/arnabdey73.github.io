@@ -94,6 +94,9 @@
   width: 60px;
   height: 3px;
   background-color: var(--primary-color-light, #2a9df4);
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   border-radius: 3px;
   transition: background-color 0.3s ease;
 }
@@ -314,4 +317,29 @@
   gap: 0.75rem;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+/* Glowing underline effect for tech stack section title on hover */
+.tech-stack-section:hover .section-title:after {
+  width: 180px; /* Expanded underline width on hover */
+  background-color: #0078D4; /* Azure blue */
+  box-shadow: 
+    0 0 5px rgba(0, 120, 212, 0.5),
+    0 0 10px rgba(0, 120, 212, 0.3),
+    0 0 20px rgba(0, 120, 212, 0.1);
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 
+      0 0 5px rgba(0, 120, 212, 0.5),
+      0 0 10px rgba(0, 120, 212, 0.3);
+  }
+  to {
+    box-shadow: 
+      0 0 8px rgba(0, 120, 212, 0.7),
+      0 0 15px rgba(0, 120, 212, 0.5),
+      0 0 25px rgba(0, 120, 212, 0.3);
+  }
 }
