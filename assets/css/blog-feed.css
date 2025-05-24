@@ -78,6 +78,7 @@
   height: 180px;
   object-fit: cover;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 12px; /* Added padding to the top of blog post images */
 }
 
 .blog-post-content {
