@@ -12,7 +12,7 @@ permalink: /assignments/
     </ul>
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <i class="fas fa-cogs" aria-hidden="true"></i>
+        <i class="fas fa-infinity" aria-hidden="true"></i>
         <span>DevOps</span>
       </div>
       <div class="tech-item-mini">
