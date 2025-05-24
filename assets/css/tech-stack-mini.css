@@ -182,3 +182,18 @@
     font-size: 0.6rem;
   }
 }
+
+/* Specific styles for assignment cards */
+.assignment-card .tech-icons-mini {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.assignment-card .tech-item-mini {
+  width: 35px;
+  min-width: 35px;
+  margin: 0.25rem;
+}
