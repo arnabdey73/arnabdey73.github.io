@@ -48,9 +48,27 @@
   font-weight: 600;
 }
 
-/* All timeline entries have a blue strip */
+/* Normal timeline entries have a subtle border */
 .timeline-entry {
-  border-left: 4px solid var(--link-hover-color, #1da1f2);
+  border-left: 4px solid var(--border-color, #555);
+}
+
+/* Keyframe for pulse animation on the blue strip */
+@keyframes borderPulse {
+  0% { border-left-color: var(--link-hover-color, #1da1f2); }
+  50% { border-left-color: rgba(29, 161, 242, 0.6); }
+  100% { border-left-color: var(--link-hover-color, #1da1f2); }
+}
+
+/* Highlighted timeline entries have a vibrant blue strip */
+.timeline-entry.highlighted {
+  border-left: 6px solid var(--link-hover-color, #1da1f2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35),
+              0 8px 20px rgba(0, 0, 0, 0.25),
+              0 0 0 1px rgba(255, 255, 255, 0.08),
+              0 0 25px rgba(29, 161, 242, 0.15);
+  background: linear-gradient(to right, rgba(29, 161, 242, 0.07) 0%, var(--card-bg, #1f1f1f) 100%);
+  animation: borderPulse 3s infinite ease-in-out;
 }
 
 /* First timeline entry gets slightly larger heading */
@@ -85,6 +103,16 @@
               0 0 30px rgba(42, 157, 244, 0.15);
 }
 
+/* Enhanced hover effect for highlighted entries */
+.timeline-entry.highlighted:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 
+              0 15px 25px rgba(0, 0, 0, 0.25),
+              0 0 0 1px rgba(255, 255, 255, 0.14),
+              0 0 40px rgba(29, 161, 242, 0.25);
+  background: linear-gradient(to right, rgba(29, 161, 242, 0.1) 0%, var(--card-bg, #1f1f1f) 100%);
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .timeline:before {
@@ -108,4 +136,17 @@
   .timeline-entry p {
     font-size: 0.9rem;
   }
+}
+
+/* Screen reader only text - visually hidden but available to assistive tech */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
