@@ -7,9 +7,7 @@ permalink: /assignments/
 <div class="assignment-cards">
   <div class="assignment-card">
     <h3>DevOps Engineer – AFRY AB <span class="date">(May 2025 - Present)</span></h3>
-    <ul>
-      <li>Coming soon...</li>
-    </ul>
+    <p style="text-align: center; font-style: italic; margin: 20px 0;">Coming soon...</p>
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
         <i class="fas fa-infinity" aria-hidden="true"></i>
