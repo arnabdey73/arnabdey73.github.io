@@ -173,14 +173,15 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* Changed from 20px to 50% for perfect circles */
-  background: transparent;
+  border-radius: 50%;
+  background-color: transparent;
   transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  background: var(--primary-color, #0078D4);
+  background-color: var(--primary-color, #0078D4);
   color: #ffffff;
+  border-radius: 50%;
 }
 
 /* Bluesky specific styling */

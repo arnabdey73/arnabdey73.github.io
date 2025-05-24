@@ -205,10 +205,7 @@
   padding: 1.8rem 1.5rem;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              background-color 0.4s ease, 
-              border-color 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.07);
   position: relative;
   overflow: hidden;
@@ -219,31 +216,17 @@
 }
 
 .tech-category:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-  background-color: rgba(0, 120, 212, 0.05); /* Subtle Azure blue background */
-  border-color: rgba(0, 120, 212, 0.3); /* Azure blue tinted border */
-}
-
-/* Enhanced tech item hover effects */
-.tech-item {
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.tech-category:hover .tech-item:hover {
   transform: translateY(-5px);
-  filter: brightness(1.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Make icons more interactive */
-.tech-category:hover .tech-item i, 
-.tech-category:hover .tech-item .custom-icon {
-  color: var(--link-hover-color, #0078D4);
+/* Tech item basic hover effects */
+.tech-item {
+  transition: transform 0.3s ease;
 }
 
-/* Add a subtle glow effect to skill dots on hover */
-.tech-category:hover .skill-dot.filled {
-  box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+.tech-item:hover {
+  transform: translateY(-3px);
 }
 
 .tech-category::before {
