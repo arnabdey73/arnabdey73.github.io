@@ -33,8 +33,8 @@
 
 /* Desktop optimizations for the section container */
 @media (min-width: 1400px) {  .tech-stack-section {
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
+    max-width: 1400px;
   }
   
   .tech-categories {
@@ -49,11 +49,11 @@
 /* Ultra-wide screens */
 @media (min-width: 1800px) {
   .tech-stack-section {
-    max-width: 1600px;
+    max-width: 1800px;
   }
   
   .tech-categories {
-    max-width: 1520px;
+    max-width: 1720px;
     grid-template-columns: repeat(4, minmax(280px, 320px));
     justify-content: center;
     gap: 3rem;
@@ -195,6 +195,25 @@
   .tech-category {
     min-height: 300px;
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .tech-categories {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+    padding: 0 0.5rem;
+  }
+  
+  .tech-category {
+    min-height: 280px;
+    padding: 1.25rem;
+  }
+  
+  .tech-stack-section {
+    padding: 1.5rem 1rem 2rem;
+    margin: 2rem auto;
+    max-width: 95%;
   }
 }
 
