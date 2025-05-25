@@ -1,0 +1,26 @@
+.blog-post-image {
+  height: 180px; /* Enforce consistent height */
+  object-fit: cover;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.blog-post-card:hover .blog-post-image {
+  transform: scale(1.05);
+}
+
+.blog-post-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 180px); /* Ensure content fills the rest of the card */
+}
+
+.blog-post-excerpt {
+  flex-grow: 1; /* Make excerpt take available space */
+  overflow: hidden;
+}
+
+.blog-post-meta {
+  margin-top: auto; /* Push to bottom */
+}
