@@ -91,7 +91,7 @@ permalink: /assignments/
         <span>K8s</span>
       </div>
       <div class="tech-item-mini">        <i class="fas fa-search" aria-hidden="true"></i>
-        <span>ELK Stack</span>
+        <span>ELK</span>
       </div>
       <div class="tech-item-mini">
         <div class="terraform-logo-mini"></div>
@@ -150,11 +150,11 @@ permalink: /assignments/
         <span>Unix</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-vmware" aria-hidden="true"></i>
+        <i class="fas fa-server" aria-hidden="true"></i>
         <span>VMware</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-server" aria-hidden="true"></i>
+        <i class="fas fa-cubes" aria-hidden="true"></i>
         <span>Systems</span>
       </div>
       <div class="tech-item-mini">
@@ -183,11 +183,11 @@ permalink: /assignments/
         <span>Linux</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-vmware" aria-hidden="true"></i>
+        <i class="fas fa-server" aria-hidden="true"></i>
         <span>VMware</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-server" aria-hidden="true"></i>
+        <i class="fas fa-cubes" aria-hidden="true"></i>
         <span>Systems</span>
       </div>
       <div class="tech-item-mini">
@@ -202,7 +202,7 @@ permalink: /assignments/
   </div>
 
   <div class="assignment-card volunteer-card">
-    <h3>💮 Volunteer Computer Teacher – Career Break 💮 <span class="date">(July 2010 - March 2011)</span></h3>
+    <h3>💮 Volunteer Computer Teacher – Career Break<span class="date">(July 2010 - March 2011)</span></h3>
     <ul>
       <li>Imparted foundational computer education as part of a vocational training program in rural West Bengal, India.</li>
       <li>Designed and delivered engaging lessons that supported students with practical hands-on learning.</li>
@@ -216,7 +216,7 @@ permalink: /assignments/
       </div>
       <div class="tech-item-mini">
         <i class="fas fa-laptop" aria-hidden="true"></i>
-        <span>Computer Basics</span>
+        <span>Basics</span>
       </div>
       <div class="tech-item-mini">
         <i class="fas fa-users" aria-hidden="true"></i>
@@ -241,7 +241,7 @@ permalink: /assignments/
       </div>
       <div class="tech-item-mini">
         <i class="fas fa-network-wired" aria-hidden="true"></i>
-        <span>Networking</span>
+        <span>Network</span>
       </div>
       <div class="tech-item-mini">
         <i class="fas fa-server" aria-hidden="true"></i>

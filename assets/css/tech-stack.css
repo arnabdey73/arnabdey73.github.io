@@ -94,11 +94,10 @@
   width: 60px;
   height: 3px;
   background-color: var(--primary-color-light, #2a9df4);
-  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              box-shadow 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
-              background-color 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   border-radius: 3px;
-  transition: background-color 0.3s ease;
 }
 
 /* Add tech-stack-header style */
@@ -338,7 +337,7 @@
     0 0 5px rgba(0, 120, 212, 0.5),
     0 0 10px rgba(0, 120, 212, 0.3),
     0 0 20px rgba(0, 120, 212, 0.1);
-  animation: glow 2.5s ease-in-out infinite alternate; /* Slowed down animation */
+  animation: glow 3.5s ease-in-out infinite alternate; /* Slowed down animation to match blog feed */
 }
 
 @keyframes glow {
