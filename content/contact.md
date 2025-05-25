@@ -53,7 +53,7 @@ permalink: /contact/
   height: 2px;
   background: linear-gradient(90deg, transparent, #0078D4, transparent);
   transform: translateX(-50%);
-  transition: width 0.4s ease;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
   box-shadow: 0 0 8px #0078D4;
   opacity: 0;
 }
@@ -65,7 +65,7 @@ permalink: /contact/
 .card:hover h3::after {
   width: 80%;
   opacity: 1;
-  animation: glow 1.5s infinite alternate;
+  animation: gentle-glow 2s infinite alternate;
 }
 
 .card p {
@@ -282,7 +282,7 @@ permalink: /contact/
   height: 2px;
   background: linear-gradient(90deg, transparent, #0078D4, transparent);
   transform: translateX(-50%);
-  transition: width 0.4s ease;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
   box-shadow: 0 0 8px #0078D4;
   opacity: 0;
 }
@@ -294,16 +294,16 @@ permalink: /contact/
 .location-link:hover::after {
   width: 80%;
   opacity: 1;
-  animation: glow 1.5s infinite alternate;
+  animation: gentle-glow 2s infinite alternate;
 }
 
-@keyframes glow {
-  from {
+@keyframes gentle-glow {
+  0% {
     box-shadow: 0 0 4px #0078D4;
     opacity: 0.7;
   }
-  to {
-    box-shadow: 0 0 10px #0078D4, 0 0 20px rgba(0, 120, 212, 0.4);
+  100% {
+    box-shadow: 0 0 8px #0078D4, 0 0 12px rgba(0, 120, 212, 0.3);
     opacity: 1;
   }
 }
