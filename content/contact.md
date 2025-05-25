@@ -121,6 +121,13 @@ permalink: /contact/
   align-items: center;
   width: 90px;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  text-decoration: none !important;
+  padding: 10px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .contact-icon i {
@@ -128,11 +135,39 @@ permalink: /contact/
   margin-bottom: 10px;
   color: #0078D4;
   transition: all 0.3s ease;
+  pointer-events: none; /* Prevent icon from capturing clicks */
 }
 
 .contact-icon:hover i {
   color: #005A9E;
   transform: translateY(-3px);
+}
+
+/* Add ripple effect */
+.contact-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  transition: transform 0.4s, opacity 0.3s;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.contact-icon:active::after {
+  transform: scale(3);
+  opacity: 1;
+  transition: 0s;
+}
+
+.contact-icon:hover {
+  background-color: rgba(0, 120, 212, 0.1);
 }
 
 .contact-icon span {

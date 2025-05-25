@@ -19,6 +19,51 @@
 {% endif %}
 
 <!-- Custom Scripts -->
+<script>
+  // Mail icon fix and debug
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add debug indicator element
+    const debugEl = document.createElement('div');
+    debugEl.className = 'mail-debug';
+    debugEl.innerHTML = 'Mail links detected: <span id="mail-link-count">0</span>';
+    document.body.appendChild(debugEl);
+    
+    // Count mail links for debugging
+    const mailLinks = document.querySelectorAll('a[href^="mailto:"]');
+    document.getElementById('mail-link-count').textContent = mailLinks.length;
+    
+    // Fix mail links by ensuring they're properly interactive
+    mailLinks.forEach(link => {
+      // Make sure link has proper z-index and cursor
+      link.style.position = 'relative';
+      link.style.zIndex = '10';
+      link.style.cursor = 'pointer';
+      
+      // Make sure icon doesn't interfere with clicks
+      const icon = link.querySelector('i');
+      if (icon) {
+        icon.style.pointerEvents = 'none';
+      }
+      
+      // Add debug indicator
+      link.addEventListener('mouseover', function() {
+        if (!document.body.classList.contains('debug-mode')) return;
+        link.style.outline = '2px solid red';
+      });
+      
+      link.addEventListener('mouseout', function() {
+        link.style.outline = '';
+      });
+    });
+    
+    // Allow enabling debug mode by pressing Alt+D
+    document.addEventListener('keydown', function(e) {
+      if (e.altKey && e.key === 'd') {
+        document.body.classList.toggle('debug-mode');
+      }
+    });
+  });
+</script>
 <script src="{{ '/assets/js/scroll-animation.js' | relative_url }}"></script>
 
 {% include analytics.html %}
