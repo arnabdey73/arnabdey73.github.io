@@ -17,10 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if we have a previously successful RSS path in localStorage
     const savedPath = localStorage.getItem('successfulRSSPath');
     
-    // Common RSS feed paths to try in order
+    // Common RSS feed paths to try in order - prioritizing WordPress paths
     let possiblePaths = [
-      '/feed',          // WordPress, many blog platforms
+      '/feed',          // WordPress primary feed
+      '/feed/',         // WordPress with trailing slash
+      '/wp-json/wp/v2/posts', // WordPress REST API
       '/rss',           // Common RSS endpoint
+      '/index.php/feed',      // WordPress with index.php
       '/feed.xml',      // Jekyll, Hugo, many static sites
       '/rss.xml',       // Common RSS file name
       '/index.xml',     // Hugo and some static site generators
@@ -28,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       '/blog/feed',     // Subdirectory feeds
       '/blog/rss',
       '/rss/index.xml',
+      '/feed?x-host=blog.arnabdey.dev', // Based on the redirect we saw
       ''                // Some platforms put it at the root
     ];
     
@@ -58,19 +62,25 @@ document.addEventListener('DOMContentLoaded', function() {
       fetch(`${RSS_PROXY}${rssUrl}`, { 
         method: 'GET',
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Cache-Control': 'no-cache'
         }
       })
         .then(response => {
+          if (DEBUG) console.log(`Response status for ${path}:`, response.status);
           if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.status}`);
           }
           return response.json();
         })
         .then(data => {
-          if (DEBUG) console.log(`RSS feed response for ${path}:`, data);
+          if (DEBUG) {
+            console.log(`RSS feed response for ${path}:`, data);
+            // Log the raw data structure to understand what we're getting
+            console.log(`Data structure: ${JSON.stringify(data).substring(0, 200)}...`);
+          }
           
-          if (data.status !== 'ok' || !data.items || data.items.length === 0) {
+          if (!data || data.status !== 'ok' || !data.items || data.items.length === 0) {
             throw new Error('Invalid or empty RSS feed');
           }
           
@@ -122,64 +132,101 @@ document.addEventListener('DOMContentLoaded', function() {
     tryNextPath();
   }
   
-  // Try an alternative CORS proxy as a last resort
+  // Try WordPress REST API directly as a last resort
   function tryAlternativeProxy() {
-    if (DEBUG) console.log('Trying alternative proxy method');
+    if (DEBUG) console.log('Trying WordPress REST API directly');
     
-    // Try a few commonly used CORS proxies
-    const ALTERNATIVE_PROXY = 'https://cors-anywhere.herokuapp.com/';
-    const ALTERNATIVE_URL = `${ALTERNATIVE_PROXY}${BLOG_BASE_URL}/feed`;
+    // Try WordPress REST API - often accessible without CORS issues
+    const WP_API_URL = `${BLOG_BASE_URL}/wp-json/wp/v2/posts?_embed&per_page=3`;
     
     blogPostsContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Trying alternative method...</p></div>';
     
-    fetch(ALTERNATIVE_URL, {
-      headers: {
-        'Origin': window.location.origin,
-      }
-    })
+    fetch(WP_API_URL)
       .then(response => {
+        if (DEBUG) console.log('WordPress API response status:', response.status);
         if (!response.ok) {
-          throw new Error('Alternative proxy failed');
+          throw new Error(`WordPress API failed: ${response.status}`);
         }
-        return response.text();
+        return response.json();
       })
-      .then(xml => {
-        if (DEBUG) console.log('Got XML response from alternative proxy');
+      .then(posts => {
+        if (DEBUG) console.log('WordPress posts response:', posts);
         
-        // Try to parse the XML
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xml, 'text/xml');
-        const items = xmlDoc.querySelectorAll('item');
-        
-        if (!items || items.length === 0) {
-          throw new Error('No items found in XML');
+        if (!posts || !Array.isArray(posts) || posts.length === 0) {
+          throw new Error('No posts found in WordPress API response');
         }
-        
-        // Create array of posts from XML
-        const posts = Array.from(items).slice(0, 3).map(item => {
-          return {
-            title: item.querySelector('title')?.textContent || 'Untitled Post',
-            link: item.querySelector('link')?.textContent || BLOG_BASE_URL,
-            pubDate: item.querySelector('pubDate')?.textContent || new Date().toISOString(),
-            description: item.querySelector('description')?.textContent || '',
-            content: item.querySelector('content\\:encoded')?.textContent || item.querySelector('description')?.textContent || ''
-          };
-        });
         
         // Clear loading spinner
         blogPostsContainer.innerHTML = '';
         
-        // Display posts
+        // Process WordPress API format posts
         posts.forEach(post => {
-          const postElement = createPostElement(post);
+          // Convert WordPress REST API format to our expected format
+          const processedPost = {
+            title: post.title?.rendered || 'Untitled Post',
+            link: post.link || BLOG_BASE_URL,
+            pubDate: post.date || new Date().toISOString(),
+            description: post.excerpt?.rendered || '',
+            content: post.content?.rendered || '',
+            thumbnail: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://placehold.co/600x400/2a9df4/e6e6e6?text=Blog+Post'
+          };
+          
+          const postElement = createPostElement(processedPost);
           blogPostsContainer.appendChild(postElement);
         });
         
-        console.log('Successfully loaded blog content using alternative proxy');
+        console.log('Successfully loaded blog content using WordPress API');
       })
       .catch(error => {
-        console.error('Alternative proxy method failed:', error);
-        showFallbackPosts();
+        console.error('WordPress API method failed:', error);
+        
+        // Try a CORS proxy as a last resort
+        const CORS_PROXY = 'https://corsproxy.io/?';
+        const PROXY_URL = `${CORS_PROXY}${encodeURIComponent(BLOG_BASE_URL + '/feed')}`;
+        
+        if (DEBUG) console.log('Trying CORS proxy:', PROXY_URL);
+        
+        fetch(PROXY_URL)
+          .then(response => {
+            if (!response.ok) throw new Error('CORS proxy failed');
+            return response.text();
+          })
+          .then(xml => {
+            try {
+              // Try to parse the XML
+              const parser = new DOMParser();
+              const xmlDoc = parser.parseFromString(xml, 'text/xml');
+              const items = xmlDoc.querySelectorAll('item');
+              
+              if (!items || items.length === 0) throw new Error('No items in XML');
+              
+              // Clear loading spinner
+              blogPostsContainer.innerHTML = '';
+              
+              // Process and display the posts
+              Array.from(items).slice(0, 3).forEach(item => {
+                const post = {
+                  title: item.querySelector('title')?.textContent || 'Untitled Post',
+                  link: item.querySelector('link')?.textContent || BLOG_BASE_URL,
+                  pubDate: item.querySelector('pubDate')?.textContent || new Date().toISOString(),
+                  description: item.querySelector('description')?.textContent || '',
+                  content: item.querySelector('content\\:encoded')?.textContent || ''
+                };
+                
+                const postElement = createPostElement(post);
+                blogPostsContainer.appendChild(postElement);
+              });
+              
+              console.log('Successfully loaded blog content using CORS proxy');
+            } catch (xmlError) {
+              console.error('XML parsing failed:', xmlError);
+              showFallbackPosts();
+            }
+          })
+          .catch(() => {
+            // All methods failed, show message instead of fallback posts
+            showFallbackPosts();
+          });
       });
   }
 
@@ -187,46 +234,103 @@ document.addEventListener('DOMContentLoaded', function() {
   tryFetchWithVariousRSSFormats();
     // Create a post element
   function createPostElement(post) {
+    if (DEBUG) console.log('Creating post element for:', post);
+    
     const postElement = document.createElement('div');
     postElement.className = 'blog-post-card';
     
-    // Format date
-    const date = new Date(post.pubDate || post.published || post.date || new Date());
+    // Format date - handle various date formats
+    let date;
+    try {
+      // Try different date properties and formats
+      if (post.pubDate) {
+        date = new Date(post.pubDate);
+      } else if (post.published) {
+        date = new Date(post.published);
+      } else if (post.date) {
+        date = new Date(post.date);
+      } else if (post.date_gmt) {
+        date = new Date(post.date_gmt);
+      } else {
+        date = new Date();
+      }
+      
+      // Check if the date is valid
+      if (isNaN(date.getTime())) {
+        date = new Date();
+      }
+    } catch (e) {
+      date = new Date();
+    }
+    
     const formattedDate = date.toLocaleDateString('en-US', { 
       year: 'numeric', 
       month: 'short', 
       day: 'numeric' 
     });
     
-    // Extract thumbnail/featured image
+    // Extract thumbnail/featured image with more fallbacks
     let imageUrl = 'https://placehold.co/600x400/2a9df4/e6e6e6?text=Blog+Post';
     
-    // Try to extract an image from content if available
-    if (post.thumbnail) {
-      imageUrl = post.thumbnail;
-    } else if (post.content) {
-      const imgMatch = post.content.match(/<img[^>]+src="([^">]+)"/);
-      if (imgMatch && imgMatch[1]) {
-        imageUrl = imgMatch[1];
+    // Try multiple ways to get the featured image
+    try {
+      if (post.thumbnail && post.thumbnail !== '') {
+        imageUrl = post.thumbnail;
+      } else if (post.featured_media && post._embedded && post._embedded['wp:featuredmedia']) {
+        // WordPress REST API format
+        imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
+      } else if (post.jetpack_featured_media_url) {
+        // Jetpack format
+        imageUrl = post.jetpack_featured_media_url;
+      } else if (post.content) {
+        // Try to extract image from content
+        const imgMatch = post.content.match(/<img[^>]+src="([^">]+)"/);
+        if (imgMatch && imgMatch[1]) {
+          imageUrl = imgMatch[1];
+        }
       }
+    } catch (e) {
+      console.error('Error extracting image:', e);
     }
     
-    // Truncate excerpt if necessary
-    const excerpt = post.description || post.summary || post.content 
-      ? truncateText(stripHtml(post.description || post.summary || post.content), 120) 
-      : 'No excerpt available...';
+    // Get post title
+    const title = post.title?.rendered || post.title || 'Untitled Post';
+    
+    // Handle WordPress REST API format or standard RSS
+    let postTitle = title;
+    if (typeof title === 'object' && title.rendered) {
+      postTitle = title.rendered;
+    }
+    
+    // Clean title of HTML if needed
+    if (typeof postTitle === 'string' && postTitle.includes('<')) {
+      postTitle = stripHtml(postTitle);
+    }
+    
+    // Get post URL
+    const postUrl = post.link || post.url || post.guid || `https://blog.arnabdey.dev`;
+    
+    // Truncate excerpt if necessary - handle WordPress REST API format
+    let excerpt;
+    if (post.excerpt && post.excerpt.rendered) {
+      excerpt = truncateText(stripHtml(post.excerpt.rendered), 120);
+    } else {
+      excerpt = post.description || post.summary || post.content 
+        ? truncateText(stripHtml(post.description || post.summary || post.content), 120) 
+        : 'Read this post on my blog...';
+    }
     
     postElement.innerHTML = `
-      <img class="blog-post-image" src="${imageUrl}" alt="${post.title}" loading="lazy">
+      <img class="blog-post-image" src="${imageUrl}" alt="${postTitle}" loading="lazy">
       <div class="blog-post-content">
-        <h3 class="blog-post-title">${post.title}</h3>
+        <h3 class="blog-post-title">${postTitle}</h3>
         <p class="blog-post-excerpt">${excerpt}</p>
         <div class="blog-post-meta">
           <span class="blog-post-date">
             <i class="far fa-calendar-alt"></i>
             ${formattedDate}
           </span>
-          <a href="${post.link || post.url}" class="blog-post-readmore" target="_blank" rel="noopener">
+          <a href="${postUrl}" class="blog-post-readmore" target="_blank" rel="noopener">
             Read more
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -261,47 +365,28 @@ document.addEventListener('DOMContentLoaded', function() {
     return temp.textContent || temp.innerText || '';
   }
   
-  // Show fallback posts when API fails
+  // Show message when blog feed cannot be loaded
   function showFallbackPosts() {
-    if (DEBUG) console.log('Showing fallback posts');
+    if (DEBUG) console.log('Unable to load blog posts, showing message');
     
-    // Current date formatting for more realistic dates
-    const today = new Date();
-    const twoWeeksAgo = new Date(today);
-    twoWeeksAgo.setDate(today.getDate() - 14);
+    // Clear any loading indicators
+    blogPostsContainer.innerHTML = '';
     
-    const oneMonthAgo = new Date(today);
-    oneMonthAgo.setDate(today.getDate() - 30);
+    // Create message element
+    const messageElement = document.createElement('div');
+    messageElement.className = 'blog-error-message';
+    messageElement.innerHTML = `
+      <i class="fas fa-rss"></i>
+      <h3>Visit My Blog</h3>
+      <p>Please visit my blog directly to see my latest articles and posts.</p>
+      <a href="https://blog.arnabdey.dev" class="blog-post-readmore" target="_blank" rel="noopener">
+        Go to Blog <i class="fas fa-external-link-alt"></i>
+      </a>
+    `;
     
-    // Fallback posts with static content - using more specific topics
-    const fallbackPosts = [
-      {
-        title: "Securing Azure Applications with Entra ID",
-        description: "A deep dive into Microsoft Entra ID (formerly Azure AD) and how to implement robust authentication and authorization for your cloud-native applications.",
-        link: "https://blog.arnabdey.dev/securing-azure-applications-with-entra-id",
-        thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=Entra+ID",
-        pubDate: today.toISOString()
-      },
-      {
-        title: "Infrastructure as Code: Terraform vs. Bicep",
-        description: "Comparing Terraform and Azure Bicep for managing cloud infrastructure, with practical examples and performance benchmarks for enterprise deployments.",
-        link: "https://blog.arnabdey.dev/terraform-vs-bicep-comparison",
-        thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=IaC",
-        pubDate: twoWeeksAgo.toISOString()
-      },
-      {
-        title: "Monitoring Containerized Applications with Prometheus",
-        description: "Learn how to implement comprehensive monitoring for your Docker and Kubernetes environments using Prometheus, Grafana, and Azure Monitor.",
-        link: "https://blog.arnabdey.dev/monitoring-containers-prometheus",
-        thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=Monitoring",
-        pubDate: oneMonthAgo.toISOString()
-      }
-    ];
+    blogPostsContainer.appendChild(messageElement);
     
-    // Render fallback posts
-    fallbackPosts.forEach(post => {
-      const postElement = createPostElement(post);
-      blogPostsContainer.appendChild(postElement);
-    });
+    // Make the error message span all columns
+    blogPostsContainer.style.display = 'block';
   }
 });
