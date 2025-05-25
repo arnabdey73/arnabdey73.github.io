@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const blogPostsContainer = document.getElementById('blog-posts-container');
   
   // Blog URL and RSS proxy service to avoid CORS issues
-  const BLOG_URL = 'arnabdey.dev/blog';
-  const BLOG_BASE_URL = 'https://arnabdey.dev/blog';
+  const BLOG_URL = 'blog.arnabdey.dev';
+  const BLOG_BASE_URL = 'https://blog.arnabdey.dev';
   const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
   
   // Try to fetch blog posts using RSS feed with a proxy to avoid CORS issues
@@ -134,21 +134,21 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         title: "Implementing Infrastructure as Code with Terraform",
         description: "Learn how to manage your cloud infrastructure using Terraform, a powerful IaC tool that enables consistent, version-controlled deployment across multiple providers.",
-        link: "https://arnabdey.dev/blog/terraform-iac",
+        link: "https://blog.arnabdey.dev/terraform-iac",
         thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=Terraform",
         pubDate: new Date().toISOString()
       },
       {
         title: "Containerization Best Practices with Docker",
         description: "Explore advanced Docker techniques to build efficient, secure, and scalable containerized applications for modern cloud environments.",
-        link: "https://arnabdey.dev/blog/docker-best-practices",
+        link: "https://blog.arnabdey.dev/docker-best-practices",
         thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=Docker",
         pubDate: new Date().toISOString()
       },
       {
         title: "CI/CD Pipelines for Cloud-Native Applications",
         description: "A comprehensive guide to building robust CI/CD pipelines using GitHub Actions, enabling automated testing and deployment for your applications.",
-        link: "https://arnabdey.dev/blog/cicd-pipelines",
+        link: "https://blog.arnabdey.dev/cicd-pipelines",
         thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=CI/CD",
         pubDate: new Date().toISOString()
       }

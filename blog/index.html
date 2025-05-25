@@ -112,13 +112,14 @@
       
       <div class="countdown" id="countdown">Redirecting in <span id="timer">3</span> seconds</div>
       
-      <a href="https://codemyinfra.hashnode.dev/" class="redirect-link" id="redirect-link">Go to Blog Now</a>
+      <a href="https://blog.arnabdey.dev" class="redirect-link" id="redirect-link">Go to Blog Now</a>
     </div>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Set redirect URL
-        const redirectUrl = 'https://codemyinfra.hashnode.dev/';
+        // Set redirect URL to your actual external blog - important to avoid infinite loops!
+        // This URL should be your actual blog platform, not your GitHub Pages /blog path
+        const redirectUrl = 'https://blog.arnabdey.dev';
         
         // Initialize countdown
         let timeLeft = 3;
