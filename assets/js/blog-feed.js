@@ -7,232 +7,212 @@ document.addEventListener('DOMContentLoaded', function() {
   // Enable for debugging info in console
   const DEBUG = true;
   
-  // Blog URL and RSS proxy service to avoid CORS issues
+  // Blog URL - Set to your Hashnode blog URL
   const BLOG_URL = 'blog.arnabdey.dev';
+  // For linking back to blog site
   const BLOG_BASE_URL = 'https://blog.arnabdey.dev';
-  const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
   
-  // Try multiple common RSS feed paths to increase chances of success
-  function tryFetchWithVariousRSSFormats() {
-    // Check if we have a previously successful RSS path in localStorage
-    const savedPath = localStorage.getItem('successfulRSSPath');
+  // Function to fetch blog posts from Hashnode
+  function fetchHashnodeBlogPosts() {
+    if (DEBUG) console.log('Fetching blog posts from Hashnode API');
     
-    // Common RSS feed paths to try in order - prioritizing WordPress paths
-    let possiblePaths = [
-      '/feed',          // WordPress primary feed
-      '/feed/',         // WordPress with trailing slash
-      '/wp-json/wp/v2/posts', // WordPress REST API
-      '/rss',           // Common RSS endpoint
-      '/index.php/feed',      // WordPress with index.php
-      '/feed.xml',      // Jekyll, Hugo, many static sites
-      '/rss.xml',       // Common RSS file name
-      '/index.xml',     // Hugo and some static site generators
-      '/atom.xml',      // Atom feeds
-      '/blog/feed',     // Subdirectory feeds
-      '/blog/rss',
-      '/rss/index.xml',
-      '/feed?x-host=blog.arnabdey.dev', // Based on the redirect we saw
-      ''                // Some platforms put it at the root
-    ];
+    // Show loading spinner with Hashnode-specific styling
+    blogPostsContainer.innerHTML = '<div class="loading-spinner loading-hashnode"><div class="spinner"></div><p>Loading latest posts...</p></div>';
     
-    // If we have a saved path that worked before, try it first
-    if (savedPath) {
-      if (DEBUG) console.log('Found previously successful RSS path:', savedPath);
-      // Put the saved path at the beginning of the array
-      possiblePaths = [savedPath, ...possiblePaths.filter(path => path !== savedPath)];
-    }
+    // The GraphQL query to get blog posts from Hashnode
+    const graphqlQuery = {
+      query: `
+        query GetUserArticles {
+          user(username: "arnabdey73") {
+            publication {
+              posts(page: 0) {
+                title
+                brief
+                slug
+                dateAdded
+                coverImage
+              }
+            }
+          }
+        }
+      `
+    };
     
-    // Try each path until one works
-    let attemptIndex = 0;
+    // Hashnode's GraphQL API endpoint
+    const HASHNODE_API_URL = 'https://api.hashnode.com';
     
-    function tryNextPath() {
-      if (attemptIndex >= possiblePaths.length) {
-        console.error('All RSS feed paths failed');
-        
-        // Try a different proxy service as a last resort
-        tryAlternativeProxy();
-        return;
+    // Make request to Hashnode GraphQL API
+    fetch(HASHNODE_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(graphqlQuery)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Hashnode API response was not ok: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (DEBUG) {
+        console.log('Hashnode API response:', data);
       }
       
-      const path = possiblePaths[attemptIndex];
-      const rssUrl = encodeURIComponent(`${BLOG_BASE_URL}${path}`);
+      // Check if we got valid data
+      if (!data || !data.data || !data.data.user || !data.data.user.publication || !data.data.user.publication.posts) {
+        throw new Error('Invalid response from Hashnode API');
+      }
       
-      if (DEBUG) console.log(`Attempting RSS feed at: ${BLOG_BASE_URL}${path}`);
+      const posts = data.data.user.publication.posts;
       
-      fetch(`${RSS_PROXY}${rssUrl}`, { 
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Cache-Control': 'no-cache'
-        }
-      })
-        .then(response => {
-          if (DEBUG) console.log(`Response status for ${path}:`, response.status);
-          if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (DEBUG) {
-            console.log(`RSS feed response for ${path}:`, data);
-            // Log the raw data structure to understand what we're getting
-            console.log(`Data structure: ${JSON.stringify(data).substring(0, 200)}...`);
-          }
-          
-          if (!data || data.status !== 'ok' || !data.items || data.items.length === 0) {
-            throw new Error('Invalid or empty RSS feed');
-          }
-          
-          // Clear loading spinner
-          blogPostsContainer.innerHTML = '';
-          
-          // Success! Display the posts
-          data.items.slice(0, 3).forEach(post => {
-            if (DEBUG) console.log('Processing post:', post.title);
-            const postElement = createPostElement(post);
-            blogPostsContainer.appendChild(postElement);
-          });
-          
-          console.log(`Successfully loaded RSS feed from: ${BLOG_BASE_URL}${path}`);
-          
-          // Save this successful path to localStorage for future use
-          localStorage.setItem('successfulRSSPath', path);
-        })
-        .catch(error => {
-          console.error(`Error with path ${path}:`, error);
-          
-          // If this is the last attempt, show a more informative message
-          if (attemptIndex === possiblePaths.length - 1) {
-            if (DEBUG) console.log('All feed paths failed, showing last error before fallback');
-            
-            // Show a brief error message before showing fallback posts
-            const tempErrorMessage = document.createElement('div');
-            tempErrorMessage.className = 'feed-temp-error';
-            tempErrorMessage.innerHTML = '<p>Could not connect to blog feed. Showing recent articles...</p>';
-            
-            blogPostsContainer.innerHTML = '';
-            blogPostsContainer.appendChild(tempErrorMessage);
-            
-            // After a short delay, show the fallback posts
-            setTimeout(() => {
-              showFallbackPosts();
-            }, 1500);
-            
-            return;
-          }
-          
-          // Try the next path
-          attemptIndex++;
-          tryNextPath();
-        });
-    }
-    
-    // Start trying paths
-    tryNextPath();
+      // Check if there are any posts
+      if (!posts || posts.length === 0) {
+        throw new Error('No posts found in Hashnode API response');
+      }
+      
+      // Clear loading spinner
+      blogPostsContainer.innerHTML = '';
+      
+      // Display the posts (limit to 3)
+      posts.slice(0, 3).forEach(post => {
+        if (DEBUG) console.log('Processing Hashnode post:', post.title);
+        
+        // Convert Hashnode post format to our expected format
+        const processedPost = {
+          title: post.title || 'Untitled Post',
+          link: `${BLOG_BASE_URL}/${post.slug}`,
+          pubDate: post.dateAdded || new Date().toISOString(),
+          description: post.brief || '',
+          content: post.brief || '',
+          thumbnail: post.coverImage || '',
+          isHashnode: true // Mark this as a Hashnode post
+        };
+        
+        const postElement = createPostElement(processedPost);
+        postElement.classList.add('hashnode-post'); // Add Hashnode-specific class
+        blogPostsContainer.appendChild(postElement);
+      });
+      
+      console.log('Successfully loaded blog content from Hashnode');
+    })
+    .catch(error => {
+      console.error('Error fetching from Hashnode API:', error);
+      
+      // Show a brief error message before trying RSS feed
+      const tempErrorMessage = document.createElement('div');
+      tempErrorMessage.className = 'feed-temp-error hashnode-error';
+      tempErrorMessage.innerHTML = '<p>Could not connect to Hashnode blog. Trying alternative methods...</p>';
+      
+      blogPostsContainer.innerHTML = '';
+      blogPostsContainer.appendChild(tempErrorMessage);
+      
+      // Try RSS feed as a fallback after a short delay
+      setTimeout(() => {
+        tryRSSFeed();
+      }, 1000);
+    });
   }
   
-  // Try WordPress REST API directly as a last resort
-  function tryAlternativeProxy() {
-    if (DEBUG) console.log('Trying WordPress REST API directly');
+  // Try RSS feed as a fallback
+  function tryRSSFeed() {
+    if (DEBUG) console.log('Trying RSS feed as fallback');
     
-    // Try WordPress REST API - often accessible without CORS issues
-    const WP_API_URL = `${BLOG_BASE_URL}/wp-json/wp/v2/posts?_embed&per_page=3`;
+    // RSS proxy service to avoid CORS issues
+    const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
+    const rssUrl = encodeURIComponent(`${BLOG_BASE_URL}/rss.xml`);
+    
+    blogPostsContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Trying RSS feed...</p></div>';
+    
+    fetch(`${RSS_PROXY}${rssUrl}`, { 
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Cache-Control': 'no-cache'
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`RSS feed response was not ok: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (!data || data.status !== 'ok' || !data.items || data.items.length === 0) {
+        throw new Error('Invalid or empty RSS feed');
+      }
+      
+      // Clear loading spinner
+      blogPostsContainer.innerHTML = '';
+      
+      // Success! Display the posts
+      data.items.slice(0, 3).forEach(post => {
+        if (DEBUG) console.log('Processing RSS post:', post.title);
+        const postElement = createPostElement(post);
+        blogPostsContainer.appendChild(postElement);
+      });
+      
+      console.log('Successfully loaded RSS feed');
+    })
+    .catch(error => {
+      console.error('RSS feed method failed:', error);
+      
+      // Last resort: try direct API proxy
+      tryDirectAPIProxy();
+    });
+  }
+  
+  // Try direct API proxy as a last resort
+  function tryDirectAPIProxy() {
+    if (DEBUG) console.log('Trying direct API proxy');
+    
+    // Using a CORS proxy to fetch the Hashnode blog directly
+    const CORS_PROXY = 'https://corsproxy.io/?';
+    const PROXY_URL = `${CORS_PROXY}${encodeURIComponent(`${BLOG_BASE_URL}/api/posts`)}`;
     
     blogPostsContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Trying alternative method...</p></div>';
     
-    fetch(WP_API_URL)
+    fetch(PROXY_URL)
       .then(response => {
-        if (DEBUG) console.log('WordPress API response status:', response.status);
-        if (!response.ok) {
-          throw new Error(`WordPress API failed: ${response.status}`);
-        }
+        if (!response.ok) throw new Error('API proxy failed');
         return response.json();
       })
       .then(posts => {
-        if (DEBUG) console.log('WordPress posts response:', posts);
-        
         if (!posts || !Array.isArray(posts) || posts.length === 0) {
-          throw new Error('No posts found in WordPress API response');
+          throw new Error('No posts found in API proxy response');
         }
         
         // Clear loading spinner
         blogPostsContainer.innerHTML = '';
         
-        // Process WordPress API format posts
-        posts.forEach(post => {
-          // Convert WordPress REST API format to our expected format
+        // Process and display the posts
+        posts.slice(0, 3).forEach(post => {
           const processedPost = {
-            title: post.title?.rendered || 'Untitled Post',
-            link: post.link || BLOG_BASE_URL,
-            pubDate: post.date || new Date().toISOString(),
-            description: post.excerpt?.rendered || '',
-            content: post.content?.rendered || '',
-            thumbnail: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://placehold.co/600x400/2a9df4/e6e6e6?text=Blog+Post'
+            title: post.title || 'Untitled Post',
+            link: post.url || `${BLOG_BASE_URL}/${post.slug || ''}`,
+            pubDate: post.date_added || post.date || new Date().toISOString(),
+            description: post.brief || post.content_text || '',
+            thumbnail: post.cover_image || post.feature_image || ''
           };
           
           const postElement = createPostElement(processedPost);
           blogPostsContainer.appendChild(postElement);
         });
         
-        console.log('Successfully loaded blog content using WordPress API');
+        console.log('Successfully loaded blog content via direct API proxy');
       })
       .catch(error => {
-        console.error('WordPress API method failed:', error);
-        
-        // Try a CORS proxy as a last resort
-        const CORS_PROXY = 'https://corsproxy.io/?';
-        const PROXY_URL = `${CORS_PROXY}${encodeURIComponent(BLOG_BASE_URL + '/feed')}`;
-        
-        if (DEBUG) console.log('Trying CORS proxy:', PROXY_URL);
-        
-        fetch(PROXY_URL)
-          .then(response => {
-            if (!response.ok) throw new Error('CORS proxy failed');
-            return response.text();
-          })
-          .then(xml => {
-            try {
-              // Try to parse the XML
-              const parser = new DOMParser();
-              const xmlDoc = parser.parseFromString(xml, 'text/xml');
-              const items = xmlDoc.querySelectorAll('item');
-              
-              if (!items || items.length === 0) throw new Error('No items in XML');
-              
-              // Clear loading spinner
-              blogPostsContainer.innerHTML = '';
-              
-              // Process and display the posts
-              Array.from(items).slice(0, 3).forEach(item => {
-                const post = {
-                  title: item.querySelector('title')?.textContent || 'Untitled Post',
-                  link: item.querySelector('link')?.textContent || BLOG_BASE_URL,
-                  pubDate: item.querySelector('pubDate')?.textContent || new Date().toISOString(),
-                  description: item.querySelector('description')?.textContent || '',
-                  content: item.querySelector('content\\:encoded')?.textContent || ''
-                };
-                
-                const postElement = createPostElement(post);
-                blogPostsContainer.appendChild(postElement);
-              });
-              
-              console.log('Successfully loaded blog content using CORS proxy');
-            } catch (xmlError) {
-              console.error('XML parsing failed:', xmlError);
-              showFallbackPosts();
-            }
-          })
-          .catch(() => {
-            // All methods failed, show actual static blog posts
-            showFallbackPosts();
-          });
+        console.error('Direct API proxy method failed:', error);
+        // If all methods fail, show our fallback posts
+        showFallbackPosts();
       });
   }
 
-  // Start the process
-  tryFetchWithVariousRSSFormats();
-    // Create a post element
+  // Start the process - First try Hashnode API
+  fetchHashnodeBlogPosts();
+  
+  // Create a post element
   function createPostElement(post) {
     if (DEBUG) console.log('Creating post element for:', post);
     
@@ -245,6 +225,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Try different date properties and formats
       if (post.pubDate) {
         date = new Date(post.pubDate);
+      } else if (post.dateAdded) {
+        date = new Date(post.dateAdded);
       } else if (post.published) {
         date = new Date(post.published);
       } else if (post.date) {
@@ -282,6 +264,9 @@ document.addEventListener('DOMContentLoaded', function() {
         imageUrl = ''; 
       } else if (post.thumbnail && post.thumbnail !== '') {
         imageUrl = post.thumbnail;
+      } else if (post.coverImage && post.coverImage !== '') {
+        // Hashnode format
+        imageUrl = post.coverImage;
       } else if (post.featured_media && post._embedded && post._embedded['wp:featuredmedia']) {
         // WordPress REST API format
         imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
@@ -316,10 +301,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get post URL
     const postUrl = post.link || post.url || post.guid || `https://blog.arnabdey.dev`;
     
-    // Truncate excerpt if necessary - handle WordPress REST API format
+    // Truncate excerpt if necessary - handle various formats
     let excerpt;
     if (post.excerpt && post.excerpt.rendered) {
       excerpt = truncateText(stripHtml(post.excerpt.rendered), 120);
+    } else if (post.brief) {
+      // Hashnode format
+      excerpt = truncateText(stripHtml(post.brief), 120);
     } else {
       excerpt = post.description || post.summary || post.content 
         ? truncateText(stripHtml(post.description || post.summary || post.content), 120) 
@@ -336,6 +324,10 @@ document.addEventListener('DOMContentLoaded', function() {
       imageHtml = `<img class="blog-post-image" src="${imageUrl}" alt="${postTitle}" loading="lazy">`;
     }
     
+    // Add Hashnode badge for Hashnode posts
+    const hashnodeBadge = post.isHashnode ? 
+      `<span class="hashnode-badge"><i class="fas fa-hexagon"></i>Hashnode</span>` : '';
+    
     postElement.innerHTML = `
       ${imageHtml}
       <div class="blog-post-content">
@@ -346,6 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <i class="far fa-calendar-alt"></i>
             ${formattedDate}
           </span>
+          ${hashnodeBadge}
           <a href="${postUrl}" class="blog-post-readmore" target="_blank" rel="noopener">
             Read more
             <i class="fas fa-arrow-right"></i>
@@ -356,7 +349,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     return postElement;
   }
-    // Show error message - improved with retry button
+  
+  // Show error message - improved with retry button
   function showError(message) {
     blogPostsContainer.innerHTML = `
       <div class="blog-error-message">
@@ -368,20 +362,23 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     `;
   }
-    // Truncate text to a certain length
+  
+  // Truncate text to a certain length
   function truncateText(text, maxLength) {
+    if (!text) return '';
     if (text.length <= maxLength) return text;
     return text.substr(0, maxLength) + '...';
   }
   
   // Helper function to strip HTML tags
   function stripHtml(html) {
+    if (!html) return '';
     const temp = document.createElement('div');
     temp.innerHTML = html;
     return temp.textContent || temp.innerText || '';
   }
   
-  // Show actual blog posts when feed cannot be loaded
+  // Show fallback posts when feed cannot be loaded
   function showFallbackPosts() {
     if (DEBUG) console.log('Unable to load blog posts dynamically, showing static recent posts');
     
@@ -417,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
       blogPostsContainer.appendChild(postElement);
     });
     
-    // Add a note that these are recent blog posts
+    // Add a note that these are fallback posts
     const noteElement = document.createElement('div');
     noteElement.className = 'blog-note';
     noteElement.innerHTML = '<p><small><i class="fas fa-bookmark"></i> Featured technical articles from my blog</small></p>';

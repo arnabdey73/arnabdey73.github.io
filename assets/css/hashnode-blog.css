@@ -1,0 +1,79 @@
+/* 
+ * Hashnode Blog Integration Styles
+ * Specific styles for Hashnode blog posts
+ */
+
+/* Hashnode article card styling */
+.blog-post-card.hashnode-post {
+  border-left: 3px solid #2962ff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-post-card.hashnode-post:hover {
+  border-color: #2962ff;
+  box-shadow: 0 10px 25px rgba(41, 98, 255, 0.15),
+              0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style Hashnode post images */
+.blog-post-card.hashnode-post .blog-post-image {
+  position: relative;
+}
+
+/* Add a subtle Hashnode logo overlay to blog images */
+.blog-post-card.hashnode-post .blog-post-image::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 337 337' fill='%23fff'%3E%3Cpath d='M168.5,0C75.5,0,0,75.5,0,168.5S75.5,337,168.5,337S337,261.5,337,168.5S261.5,0,168.5,0z M243.4,243.4L168.5,293.3l-74.9-49.9l-25-74.9l25-74.9l74.9-49.9l74.9,49.9l25,74.9L243.4,243.4z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  z-index: 2;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Add Hashnode badge to post metadata */
+.blog-post-card.hashnode-post .blog-post-meta {
+  position: relative;
+}
+
+.blog-post-card.hashnode-post .hashnode-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #a3a3a3;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.blog-post-card.hashnode-post .hashnode-badge i {
+  margin-right: 3px;
+  color: #2962ff;
+  font-size: 0.8rem;
+}
+
+/* Loading state for Hashnode API */
+.loading-hashnode {
+  position: relative;
+}
+
+.loading-hashnode::after {
+  content: 'Fetching from Hashnode...';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #2962ff;
+  white-space: nowrap;
+}
+
+/* Error state specific to Hashnode */
+.hashnode-error {
+  border-left: 3px solid #2962ff;
+  background-color: rgba(41, 98, 255, 0.05);
+}
