@@ -111,8 +111,8 @@ permalink: /contact/
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  margin: 25px 0;
+  gap: 25px 30px;
+  margin: 30px 0;
 }
 
 .contact-icon {
@@ -120,14 +120,18 @@ permalink: /contact/
   flex-direction: column;
   align-items: center;
   width: 90px;
-  transition: all 0.3s ease;
+  height: 90px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   z-index: 10;
   cursor: pointer;
   text-decoration: none !important;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 50%;
   overflow: hidden;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .contact-icon i {
@@ -140,7 +144,20 @@ permalink: /contact/
 
 .contact-icon:hover i {
   color: #005A9E;
-  transform: translateY(-3px);
+  transform: scale(1.1);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Add ripple effect */
@@ -149,7 +166,7 @@ permalink: /contact/
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, rgba(0,120,212,0.4) 0%, rgba(0,120,212,0) 70%);
   transform: scale(0);
   opacity: 0;
   pointer-events: none;
@@ -166,8 +183,33 @@ permalink: /contact/
   transition: 0s;
 }
 
+/* Add hover glow effect */
+.contact-icon::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,120,212,0.2) 0%, rgba(0,120,212,0) 70%);
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: -1;
+  border-radius: 50%;
+  transform: scale(0.8);
+}
+
+.contact-icon:hover::before {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
 .contact-icon:hover {
   background-color: rgba(0, 120, 212, 0.1);
+  transform: scale(1.08);
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(0, 120, 212, 0.2);
 }
 
 .contact-icon span {
@@ -214,6 +256,7 @@ permalink: /contact/
   
   .contact-icon {
     width: 80px;
+    height: 80px;
   }
   
   .contact-icon i {
@@ -228,10 +271,13 @@ permalink: /contact/
   
   .contact-icon {
     width: 70px;
+    height: 70px;
+    padding: 8px;
   }
   
   .contact-icon i {
     font-size: 1.8rem;
+    margin-bottom: 5px;
   }
   
   .contact-icon span {
