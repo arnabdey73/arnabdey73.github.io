@@ -60,10 +60,19 @@ permalink: /assignments/
         <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-github" aria-hidden="true"></i>
-        <span>GitHub</span>
+        <i class="fab fa-ubuntu" aria-hidden="true"></i>
+        <span>Ubuntu</span>
       </div>
-      <div class="tech-item-mini">        <i class="fas fa-database fa-spark" aria-hidden="true"></i>
+      <div class="tech-item-mini">
+        <div class="terraform-logo-mini"></div>
+        <span>Terraform</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-dharmachakra" aria-hidden="true"></i>
+        <span>K8s</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-database fa-spark" aria-hidden="true"></i>
         <span>Databricks</span>
       </div>
     </div>
@@ -99,7 +108,7 @@ permalink: /assignments/
       </div>
       <div class="tech-item-mini">
         <i class="fab fa-redhat" aria-hidden="true"></i>
-        <span>Ansible</span>
+        <span>RedHat</span>
       </div>
     </div>
   </div>
