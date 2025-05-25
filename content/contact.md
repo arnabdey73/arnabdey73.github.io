@@ -39,10 +39,33 @@ permalink: /contact/
   font-size: 1.5rem; /* Consistent heading size with project cards */
   color: #0078D4; /* Bright blue color for heading */
   transition: color 0.4s ease; /* Smooth transition for color change */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0078D4, transparent);
+  transform: translateX(-50%);
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px #0078D4;
+  opacity: 0;
 }
 
 .card:hover h3 {
   color: #005A9E; /* Darker blue on white background when hovered */
+}
+
+.card:hover h3::after {
+  width: 80%;
+  opacity: 1;
+  animation: glow 1.5s infinite alternate;
 }
 
 .card p {
@@ -244,11 +267,10 @@ permalink: /contact/
   align-items: center;
   justify-content: center;
   gap: 8px;
-  transition: all 0.3s ease;
   padding: 6px 10px;
-  border-radius: 6px;
   position: relative;
   overflow: hidden;
+  transition: color 0.3s ease;
 }
 
 .location-link::after {
@@ -292,12 +314,13 @@ permalink: /contact/
 
 .card:hover .location-link:hover {
   color: #0078D4 !important;
+  background-color: transparent;
 }
 
 .location-link i {
   color: #0078D4;
   font-size: 1.2rem;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 /* Add animation for card appear */
