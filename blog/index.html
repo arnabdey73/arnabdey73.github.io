@@ -1,10 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="refresh" content="0; url=https://codemyinfra.hashnode.dev/" />
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to My Blog...</title>
+    <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #121212;
+        color: #e6e6e6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
+        overflow: hidden;
+      }
+      
+      .container {
+        padding: 2rem;
+        border-radius: 12px;
+        background-color: rgba(26, 26, 26, 0.8);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        max-width: 90%;
+        width: 500px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #2a9df4;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+      
+      .loader {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+      
+      .dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 6px;
+        border-radius: 50%;
+        background-color: #2a9df4;
+        animation: pulse 1.5s infinite ease-in-out;
+      }
+      
+      .dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      
+      .dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(0.8);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+      }
+      
+      .redirect-link {
+        color: #2a9df4;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 2px solid #2a9df4;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin-top: 1rem;
+      }
+      
+      .redirect-link:hover {
+        background-color: #2a9df4;
+        color: #121212;
+        box-shadow: 0 0 15px rgba(42, 157, 244, 0.5);
+      }
+      
+      .countdown {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+      }
+    </style>
   </head>
   <body>
-    <p>If you are not redirected, <a href="https://codemyinfra.hashnode.dev/">click here</a>.</p>
+    <div class="container">
+      <h1>Redirecting to My Blog</h1>
+      <p>You're being redirected to my technical blog. Please wait a moment...</p>
+      
+      <div class="loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      
+      <div class="countdown" id="countdown">Redirecting in <span id="timer">3</span> seconds</div>
+      
+      <a href="https://arnabdey.dev/blog" class="redirect-link" id="redirect-link">Go to Blog Now</a>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Set redirect URL
+        const redirectUrl = 'https://arnabdey.dev/blog';
+        
+        // Initialize countdown
+        let timeLeft = 3;
+        const timerElement = document.getElementById('timer');
+        
+        // Update countdown every second
+        const countdownInterval = setInterval(function() {
+          timeLeft--;
+          timerElement.textContent = timeLeft;
+          
+          if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            window.location.href = redirectUrl;
+          }
+        }, 1000);
+        
+        // Set up immediate redirect button
+        document.getElementById('redirect-link').addEventListener('click', function(e) {
+          e.preventDefault();
+          clearInterval(countdownInterval);
+          window.location.href = redirectUrl;
+        });
+      });
+    </script>
   </body>
 </html>

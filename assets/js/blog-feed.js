@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Hashnode GraphQL API endpoint - updated to use v1 API
   const HASHNODE_API = 'https://gql.hashnode.com/';
-  const BLOG_URL = 'codemyinfra.hashnode.dev'; // Your Hashnode blog URL
+  const BLOG_URL = 'arnabdey.dev/blog'; // Your blog URL
   
   // Updated GraphQL query to match Hashnode's current API structure
   const query = `
