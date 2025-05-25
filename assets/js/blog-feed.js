@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Enable for debugging info in console
   const DEBUG = true;
   
-  // Blog URL - Set to your Hashnode blog URL (username.hashnode.dev or custom domain)
-  const BLOG_URL = 'arnabdey73.hashnode.dev';
+  // Blog URL - Set to your Hashnode blog URL (custom domain)
+  const BLOG_URL = 'blog.arnabdey.dev';
   // For linking back to blog site
-  const BLOG_BASE_URL = 'https://arnabdey73.hashnode.dev';
+  const BLOG_BASE_URL = 'https://blog.arnabdey.dev';
   
   // Function to fetch blog posts from Hashnode
   function fetchHashnodeBlogPosts() {
@@ -24,21 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const graphqlQuery = {
       query: `
         query GetUserArticles {
-          user(username: "arnabdey73") {
-            publication {
-              posts(first: 6) {
-                edges {
-                  node {
-                    title
-                    brief
-                    slug
-                    dateAdded
-                    coverImage {
-                      url
-                    }
-                    publishedAt
-                    contentMarkdown
+          publication(host: "blog.arnabdey.dev") {
+            posts(first: 6) {
+              edges {
+                node {
+                  title
+                  brief
+                  slug
+                  dateAdded
+                  coverImage {
+                    url
                   }
+                  publishedAt
+                  contentMarkdown
                 }
               }
             }
@@ -90,19 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
         throw new Error(`GraphQL errors: ${JSON.stringify(data.errors)}`);
       }
       
-      if (!data.data || !data.data.user) {
-        throw new Error('User data not found in Hashnode API response');
+      if (!data.data || !data.data.publication) {
+        throw new Error('Publication not found in Hashnode API response');
       }
       
-      if (!data.data.user.publication) {
-        throw new Error('Publication not found for this user');
-      }
-      
-      if (!data.data.user.publication.posts || !data.data.user.publication.posts.edges) {
+      if (!data.data.publication.posts || !data.data.publication.posts.edges) {
         throw new Error('Posts not found in publication data');
       }
       
-      const postEdges = data.data.user.publication.posts.edges;
+      const postEdges = data.data.publication.posts.edges;
       
       // Check if there are any posts
       if (!postEdges || postEdges.length === 0) {
@@ -189,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // RSS proxy service to avoid CORS issues
     const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
     // Hashnode's RSS feed URL pattern - make sure we're using the correct URL
-    const rssUrl = encodeURIComponent(`https://arnabdey73.hashnode.dev/rss.xml`);
+    const rssUrl = encodeURIComponent(`https://blog.arnabdey.dev/rss.xml`);
     
     blogPostsContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Trying RSS feed...</p></div>';
     
@@ -251,6 +245,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Try to use the Hashnode API directly with the proxy
     // This URL should work with the newer Hashnode blogs
     const PROXY_URL = `${CORS_PROXY}${encodeURIComponent(`${BLOG_BASE_URL}/api/stories`)}`;
+    
+    if (DEBUG) console.log(`Using blog base URL: ${BLOG_BASE_URL}`);
     
     if (DEBUG) console.log(`Fetching via CORS proxy: ${PROXY_URL}`);
     
@@ -438,7 +434,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Get post URL
-    const postUrl = post.link || post.url || post.guid || `https://blog.arnabdey.dev`;
+    const postUrl = post.link || post.url || post.guid || BLOG_BASE_URL;
     
     // Truncate excerpt if necessary - handle various formats
     let excerpt;
@@ -568,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "Infrastructure as Code: Using Pulumi with Python for Azure Deployments",
         description: "In this post, I share my experience using Pulumi with Python to automate Azure infrastructure deployments. I compare it with traditional tools like Terraform and demonstrate how Python's flexibility can streamline complex cloud resource management and improve developer experience.",
         link: `${BLOG_BASE_URL}/iac-pulumi-python-azure`,
-        thumbnail: "pulumi-python", // Special CSS class instead of image URL
+        thumbnail: "", // Special CSS class instead of image URL
         cssClass: "pulumi-python",
         pubDate: "2023-10-15T10:15:00Z"
       },
@@ -576,7 +572,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "Kubernetes Monitoring: Setting Up Prometheus and Grafana on AKS",
         description: "A detailed walkthrough of implementing a robust monitoring solution for Azure Kubernetes Service using Prometheus and Grafana. I cover deployment via Helm charts, custom metric configurations, and creating insightful dashboards for real-time cluster visibility.",
         link: `${BLOG_BASE_URL}/kubernetes-monitoring-prometheus-grafana`,
-        thumbnail: "prometheus-grafana", // Special CSS class instead of image URL
+        thumbnail: "", // Special CSS class instead of image URL
         cssClass: "prometheus-grafana",
         pubDate: "2023-09-22T08:45:00Z"
       },
