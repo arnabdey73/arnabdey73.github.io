@@ -247,12 +247,43 @@ permalink: /contact/
   transition: all 0.3s ease;
   padding: 6px 10px;
   border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.location-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0078D4, transparent);
+  transform: translateX(-50%);
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px #0078D4;
+  opacity: 0;
 }
 
 .location-link:hover {
   color: #0078D4 !important;
-  background-color: rgba(0, 120, 212, 0.1) !important;
-  transform: translateY(-2px);
+}
+
+.location-link:hover::after {
+  width: 80%;
+  opacity: 1;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 4px #0078D4;
+    opacity: 0.7;
+  }
+  to {
+    box-shadow: 0 0 10px #0078D4, 0 0 20px rgba(0, 120, 212, 0.4);
+    opacity: 1;
+  }
 }
 
 .card:hover .location-link {
