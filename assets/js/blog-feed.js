@@ -1,97 +1,86 @@
 /**
- * Blog Feed - Fetches and displays latest posts from Hashnode blog
+ * Blog Feed - Fetches and displays latest posts from the blog
  */
 document.addEventListener('DOMContentLoaded', function() {
   const blogPostsContainer = document.getElementById('blog-posts-container');
   
-  // Hashnode GraphQL API endpoint - updated to use v1 API
-  const HASHNODE_API = 'https://gql.hashnode.com/';
-  const BLOG_URL = 'arnabdey.dev/blog'; // Your blog URL
+  // Blog URL and RSS proxy service to avoid CORS issues
+  const BLOG_URL = 'arnabdey.dev/blog';
+  const BLOG_BASE_URL = 'https://arnabdey.dev/blog';
+  const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
   
-  // Updated GraphQL query to match Hashnode's current API structure
-  const query = `
-    query GetUserArticles {
-      publication(host: "${BLOG_URL}") {
-        title
-        posts(first: 3) {
-          edges {
-            node {
-              title
-              brief
-              slug
-              coverImage {
-                url
-              }
-              publishedAt
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  // Fetch the blog posts with updated headers
-  fetch(HASHNODE_API, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Origin': window.location.origin
-    },
-    body: JSON.stringify({ query }),
-  })    .then(response => response.json())
+  // Try to fetch blog posts using RSS feed with a proxy to avoid CORS issues
+  // You may need to replace BLOG_RSS_URL with your actual RSS feed URL
+  const BLOG_RSS_URL = encodeURIComponent(`${BLOG_BASE_URL}/rss.xml`); 
+  
+  fetch(`${RSS_PROXY}${BLOG_RSS_URL}`)
+    .then(response => response.json())
     .then(data => {
       // Clear loading spinner
       blogPostsContainer.innerHTML = '';
       
-      if (data.errors) {
-        console.error('GraphQL errors:', data.errors);
+      if (data.status !== 'ok') {
+        console.error('RSS feed error:', data);
         showFallbackPosts();
         return;
       }
       
-      // Check if data has the expected structure
-      if (!data.data || !data.data.publication || !data.data.publication.posts || !data.data.publication.posts.edges) {
-        console.error('Unexpected API response structure:', data);
+      const posts = data.items;
+      
+      if (!posts || posts.length === 0) {
         showFallbackPosts();
         return;
       }
       
-      const posts = data.data.publication.posts.edges;
-      
-      if (posts.length === 0) {
-        showFallbackPosts();
-        return;
-      }
-      
-      // Render each post
-      posts.forEach(({ node }) => {
-        const postElement = createPostElement(node);
+      // Only show the first 3 posts
+      posts.slice(0, 3).forEach(post => {
+        const postElement = createPostElement(post);
         blogPostsContainer.appendChild(postElement);
       });
     })
     .catch(error => {
       console.error('Fetch error:', error);
-      showFallbackPosts();
+      
+      // Alternative approach: try to fetch using a JSONP approach
+      fetchBlogPostsAlternative();
     });
+    
+  // Alternative approach to fetch blog posts if the RSS method fails
+  function fetchBlogPostsAlternative() {
+    console.log("Trying alternative method to fetch blog posts...");
+    // Simply show fallback posts for now
+    showFallbackPosts();
+  }
     // Create a post element
   function createPostElement(post) {
     const postElement = document.createElement('div');
     postElement.className = 'blog-post-card';
     
-    // Format date - updated to use publishedAt instead of dateAdded
-    const date = new Date(post.publishedAt);
+    // Format date
+    const date = new Date(post.pubDate || post.published || post.date || new Date());
     const formattedDate = date.toLocaleDateString('en-US', { 
       year: 'numeric', 
       month: 'short', 
       day: 'numeric' 
     });
     
-    // Default image if none is provided
-    const imageUrl = post.coverImage?.url || 'https://placehold.co/600x400/2a9df4/e6e6e6?text=Blog+Post';
+    // Extract thumbnail/featured image
+    let imageUrl = 'https://placehold.co/600x400/2a9df4/e6e6e6?text=Blog+Post';
+    
+    // Try to extract an image from content if available
+    if (post.thumbnail) {
+      imageUrl = post.thumbnail;
+    } else if (post.content) {
+      const imgMatch = post.content.match(/<img[^>]+src="([^">]+)"/);
+      if (imgMatch && imgMatch[1]) {
+        imageUrl = imgMatch[1];
+      }
+    }
     
     // Truncate excerpt if necessary
-    const excerpt = post.brief ? truncateText(post.brief, 120) : 'No excerpt available...';
+    const excerpt = post.description || post.summary || post.content 
+      ? truncateText(stripHtml(post.description || post.summary || post.content), 120) 
+      : 'No excerpt available...';
     
     postElement.innerHTML = `
       <img class="blog-post-image" src="${imageUrl}" alt="${post.title}" loading="lazy">
@@ -103,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <i class="far fa-calendar-alt"></i>
             ${formattedDate}
           </span>
-          <a href="https://${BLOG_URL}/${post.slug}" class="blog-post-readmore" target="_blank" rel="noopener">
+          <a href="${post.link || post.url}" class="blog-post-readmore" target="_blank" rel="noopener">
             Read more
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -131,30 +120,37 @@ document.addEventListener('DOMContentLoaded', function() {
     return text.substr(0, maxLength) + '...';
   }
   
+  // Helper function to strip HTML tags
+  function stripHtml(html) {
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    return temp.textContent || temp.innerText || '';
+  }
+  
   // Show fallback posts when API fails
   function showFallbackPosts() {
     // Fallback posts with static content
     const fallbackPosts = [
       {
         title: "Implementing Infrastructure as Code with Terraform",
-        brief: "Learn how to manage your cloud infrastructure using Terraform, a powerful IaC tool that enables consistent, version-controlled deployment across multiple providers.",
-        slug: "",
-        coverImage: { url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1/blog/placeholder-terraform.png" },
-        publishedAt: new Date().toISOString()
+        description: "Learn how to manage your cloud infrastructure using Terraform, a powerful IaC tool that enables consistent, version-controlled deployment across multiple providers.",
+        link: "https://arnabdey.dev/blog/terraform-iac",
+        thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=Terraform",
+        pubDate: new Date().toISOString()
       },
       {
         title: "Containerization Best Practices with Docker",
-        brief: "Explore advanced Docker techniques to build efficient, secure, and scalable containerized applications for modern cloud environments.",
-        slug: "",
-        coverImage: { url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1/blog/placeholder-docker.png" },
-        publishedAt: new Date().toISOString()
+        description: "Explore advanced Docker techniques to build efficient, secure, and scalable containerized applications for modern cloud environments.",
+        link: "https://arnabdey.dev/blog/docker-best-practices",
+        thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=Docker",
+        pubDate: new Date().toISOString()
       },
       {
         title: "CI/CD Pipelines for Cloud-Native Applications",
-        brief: "A comprehensive guide to building robust CI/CD pipelines using GitHub Actions, enabling automated testing and deployment for your applications.",
-        slug: "",
-        coverImage: { url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1/blog/placeholder-cicd.png" },
-        publishedAt: new Date().toISOString()
+        description: "A comprehensive guide to building robust CI/CD pipelines using GitHub Actions, enabling automated testing and deployment for your applications.",
+        link: "https://arnabdey.dev/blog/cicd-pipelines",
+        thumbnail: "https://placehold.co/600x400/2a9df4/e6e6e6?text=CI/CD",
+        pubDate: new Date().toISOString()
       }
     ];
     
