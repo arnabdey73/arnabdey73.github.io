@@ -106,6 +106,59 @@ permalink: /contact/
   }
 }
 
+/* Contact icons styling */
+.contact-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.contact-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+  transition: all 0.3s ease;
+}
+
+.contact-icon i {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #0078D4;
+  transition: all 0.3s ease;
+}
+
+.contact-icon:hover i {
+  color: #005A9E;
+  transform: translateY(-3px);
+}
+
+.contact-icon span {
+  font-size: 0.85rem;
+  color: #bbb;
+  transition: color 0.3s ease;
+}
+
+.card:hover .contact-icon span {
+  color: #333;
+}
+
+.location-info {
+  margin: 25px 0 15px;
+  font-size: 1rem;
+  color: #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card:hover .location-info {
+  color: #333;
+}
+
 /* Add animation for card appear */
 @keyframes cardAppear {
   from {
@@ -117,14 +170,68 @@ permalink: /contact/
     transform: translateY(0);
   }
 }
+
+/* Responsive adjustments for icons */
+@media (max-width: 768px) {
+  .contact-icons {
+    gap: 15px;
+  }
+  
+  .contact-icon {
+    width: 80px;
+  }
+  
+  .contact-icon i {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-icons {
+    gap: 12px;
+  }
+  
+  .contact-icon {
+    width: 70px;
+  }
+  
+  .contact-icon i {
+    font-size: 1.8rem;
+  }
+  
+  .contact-icon span {
+    font-size: 0.8rem;
+  }
+}
 </style>
 <div class="contact-container">
   <div class="card">
     <h3>Contact Details</h3>
-    <p>📍 Stockholm, Sweden</p>
-    <p>📞 <a href="tel:+460764516092">(+46) 0764516092</a></p>
-    <p>📧 <a href="mailto:arnabdey009@gmail.com">arnabdey009@gmail.com</a></p>
-    <p>🔗 <a href="https://www.linkedin.com/in/arnabdey73/" target="_blank">LinkedIn</a></p>
-    <p>💻 <a href="https://github.com/arnabdey73" target="_blank">GitHub</a></p>
+    <div class="location-info">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Stockholm, Sweden</span>
+    </div>
+    
+    <div class="contact-icons">
+      <a href="tel:+460764516092" class="contact-icon" aria-label="Phone number">
+        <i class="fas fa-phone"></i>
+        <span>Call</span>
+      </a>
+      
+      <a href="mailto:mail@arnabdey.dev" class="contact-icon" aria-label="Email address">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/arnabdey73/" target="_blank" class="contact-icon" aria-label="LinkedIn profile">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      
+      <a href="https://github.com/arnabdey73" target="_blank" class="contact-icon" aria-label="GitHub profile">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
   </div>
 </div>
