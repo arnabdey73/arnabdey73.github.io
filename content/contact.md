@@ -236,6 +236,39 @@ permalink: /contact/
   color: #333;
 }
 
+/* Location link styling */
+.location-link {
+  color: #bbb;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.location-link:hover {
+  color: #0078D4 !important;
+  background-color: rgba(0, 120, 212, 0.1) !important;
+  transform: translateY(-2px);
+}
+
+.card:hover .location-link {
+  color: #333;
+}
+
+.card:hover .location-link:hover {
+  color: #0078D4 !important;
+}
+
+.location-link i {
+  color: #0078D4;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
 /* Add animation for card appear */
 @keyframes cardAppear {
   from {
@@ -289,8 +322,10 @@ permalink: /contact/
   <div class="card">
     <h3>Contact Details</h3>
     <div class="location-info">
-      <i class="fas fa-map-marker-alt"></i>
-      <span>Stockholm, Sweden</span>
+      <a href="https://maps.app.goo.gl/LJxobVcKQedHN7t38" target="_blank" class="location-link" aria-label="View Stockholm, Sweden on Google Maps">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Stockholm, Sweden</span>
+      </a>
     </div>
     
     <div class="contact-icons">
