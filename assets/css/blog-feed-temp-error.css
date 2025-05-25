@@ -1,0 +1,23 @@
+/* Feed temporary error styles */
+.feed-temp-error {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  color: #e6e6e6;
+  background-color: rgba(26, 26, 26, 0.6);
+  border-radius: 8px;
+  border-left: 3px solid #2a9df4;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.feed-temp-error p {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
