@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Enable for debugging info in console
   const DEBUG = true;
   
-  // Blog URL - Set to your Hashnode blog URL
-  const BLOG_URL = 'blog.arnabdey.dev';
+  // Blog URL - Set to your Hashnode blog URL (username.hashnode.dev or custom domain)
+  const BLOG_URL = 'arnabdey73.hashnode.dev';
   // For linking back to blog site
-  const BLOG_BASE_URL = 'https://blog.arnabdey.dev';
+  const BLOG_BASE_URL = 'https://arnabdey73.hashnode.dev';
   
   // Function to fetch blog posts from Hashnode
   function fetchHashnodeBlogPosts() {
@@ -19,18 +19,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show loading spinner with Hashnode-specific styling
     blogPostsContainer.innerHTML = '<div class="loading-spinner loading-hashnode"><div class="spinner"></div><p>Loading latest posts...</p></div>';
     
-    // The GraphQL query to get blog posts from Hashnode
+    // The GraphQL query to get blog posts from Hashnode using the updated API structure
+    // This query should work with the current Hashnode API as of 2023
     const graphqlQuery = {
       query: `
         query GetUserArticles {
           user(username: "arnabdey73") {
             publication {
-              posts(page: 0) {
-                title
-                brief
-                slug
-                dateAdded
-                coverImage
+              posts(first: 6) {
+                edges {
+                  node {
+                    title
+                    brief
+                    slug
+                    dateAdded
+                    coverImage {
+                      url
+                    }
+                    publishedAt
+                    contentMarkdown
+                  }
+                }
               }
             }
           }
@@ -38,18 +47,30 @@ document.addEventListener('DOMContentLoaded', function() {
       `
     };
     
-    // Hashnode's GraphQL API endpoint
-    const HASHNODE_API_URL = 'https://api.hashnode.com';
+    // Hashnode's GraphQL API endpoint (updated to the newer version)
+    const HASHNODE_API_URL = 'https://gql.hashnode.com';
     
-    // Make request to Hashnode GraphQL API
+    // Make request to Hashnode GraphQL API with proper headers
+    if (DEBUG) {
+      console.log('Sending request to Hashnode API:', HASHNODE_API_URL);
+      console.log('Query:', JSON.stringify(graphqlQuery, null, 2));
+    }
+    
     fetch(HASHNODE_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'User-Agent': 'Portfolio Website/1.0',
+        'Accept': 'application/json',
+        'Origin': window.location.origin,
+        'Referer': window.location.href
       },
-      body: JSON.stringify(graphqlQuery)
+      body: JSON.stringify(graphqlQuery),
+      credentials: 'omit' // Don't send cookies for cross-origin requests
     })
     .then(response => {
+      if (DEBUG) console.log('Hashnode API response status:', response.status);
+      
       if (!response.ok) {
         throw new Error(`Hashnode API response was not ok: ${response.status}`);
       }
@@ -60,40 +81,76 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Hashnode API response:', data);
       }
       
-      // Check if we got valid data
-      if (!data || !data.data || !data.data.user || !data.data.user.publication || !data.data.user.publication.posts) {
-        throw new Error('Invalid response from Hashnode API');
+      // Check if we got valid data with thorough validation
+      if (!data) {
+        throw new Error('Empty response from Hashnode API');
       }
       
-      const posts = data.data.user.publication.posts;
+      if (data.errors) {
+        throw new Error(`GraphQL errors: ${JSON.stringify(data.errors)}`);
+      }
+      
+      if (!data.data || !data.data.user) {
+        throw new Error('User data not found in Hashnode API response');
+      }
+      
+      if (!data.data.user.publication) {
+        throw new Error('Publication not found for this user');
+      }
+      
+      if (!data.data.user.publication.posts || !data.data.user.publication.posts.edges) {
+        throw new Error('Posts not found in publication data');
+      }
+      
+      const postEdges = data.data.user.publication.posts.edges;
       
       // Check if there are any posts
-      if (!posts || posts.length === 0) {
+      if (!postEdges || postEdges.length === 0) {
         throw new Error('No posts found in Hashnode API response');
       }
+      
+      if (DEBUG) console.log(`Found ${postEdges.length} posts in Hashnode API response`);
       
       // Clear loading spinner
       blogPostsContainer.innerHTML = '';
       
-      // Display the posts (limit to 3)
-      posts.slice(0, 3).forEach(post => {
+      // Display the posts (up to 3)
+      postEdges.slice(0, 3).forEach(edge => {
+        const post = edge.node;
+        if (!post) return;
+        
         if (DEBUG) console.log('Processing Hashnode post:', post.title);
+        
+        // Extract the publication date - use publishedAt if available, fall back to dateAdded
+        const pubDate = post.publishedAt || post.dateAdded || new Date().toISOString();
         
         // Convert Hashnode post format to our expected format
         const processedPost = {
           title: post.title || 'Untitled Post',
           link: `${BLOG_BASE_URL}/${post.slug}`,
-          pubDate: post.dateAdded || new Date().toISOString(),
+          pubDate: pubDate,
           description: post.brief || '',
-          content: post.brief || '',
-          thumbnail: post.coverImage || '',
+          content: post.contentMarkdown || post.brief || '',
+          thumbnail: post.coverImage?.url || '',
           isHashnode: true // Mark this as a Hashnode post
         };
+        
+        if (DEBUG) console.log('Processed post data:', processedPost);
         
         const postElement = createPostElement(processedPost);
         postElement.classList.add('hashnode-post'); // Add Hashnode-specific class
         blogPostsContainer.appendChild(postElement);
       });
+      
+      // Add a success indicator
+      const successElement = document.createElement('div');
+      successElement.className = 'hashnode-success-indicator';
+      successElement.innerHTML = '<p><small><i class="fas fa-check-circle"></i> Latest posts from Hashnode</small></p>';
+      successElement.style.gridColumn = '1 / -1';
+      successElement.style.textAlign = 'center';
+      successElement.style.fontSize = '0.8rem';
+      successElement.style.opacity = '0.7';
+      blogPostsContainer.appendChild(successElement);
       
       console.log('Successfully loaded blog content from Hashnode');
     })
@@ -103,15 +160,25 @@ document.addEventListener('DOMContentLoaded', function() {
       // Show a brief error message before trying RSS feed
       const tempErrorMessage = document.createElement('div');
       tempErrorMessage.className = 'feed-temp-error hashnode-error';
-      tempErrorMessage.innerHTML = '<p>Could not connect to Hashnode blog. Trying alternative methods...</p>';
+      tempErrorMessage.innerHTML = `
+        <p>
+          <i class="fas fa-exclamation-circle"></i>
+          Could not connect to Hashnode blog. Trying alternative methods...
+        </p>
+        <p class="error-details">${error.message}</p>
+      `;
       
       blogPostsContainer.innerHTML = '';
       blogPostsContainer.appendChild(tempErrorMessage);
       
+      if (DEBUG) {
+        console.log('Hashnode API failed, details:', error.message);
+      }
+      
       // Try RSS feed as a fallback after a short delay
       setTimeout(() => {
         tryRSSFeed();
-      }, 1000);
+      }, 1500);
     });
   }
   
@@ -121,24 +188,31 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // RSS proxy service to avoid CORS issues
     const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
-    const rssUrl = encodeURIComponent(`${BLOG_BASE_URL}/rss.xml`);
+    // Hashnode's RSS feed URL pattern - make sure we're using the correct URL
+    const rssUrl = encodeURIComponent(`https://arnabdey73.hashnode.dev/rss.xml`);
     
     blogPostsContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Trying RSS feed...</p></div>';
+    
+    if (DEBUG) console.log(`Fetching RSS feed from: ${RSS_PROXY}${rssUrl}`);
     
     fetch(`${RSS_PROXY}${rssUrl}`, { 
       method: 'GET',
       headers: {
         'Accept': 'application/json',
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache',
+        'User-Agent': 'Portfolio Website/1.0'
       }
     })
     .then(response => {
+      if (DEBUG) console.log('RSS feed response status:', response.status);
       if (!response.ok) {
         throw new Error(`RSS feed response was not ok: ${response.status}`);
       }
       return response.json();
     })
     .then(data => {
+      if (DEBUG) console.log('RSS feed data received:', data);
+      
       if (!data || data.status !== 'ok' || !data.items || data.items.length === 0) {
         throw new Error('Invalid or empty RSS feed');
       }
@@ -150,6 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
       data.items.slice(0, 3).forEach(post => {
         if (DEBUG) console.log('Processing RSS post:', post.title);
         const postElement = createPostElement(post);
+        postElement.classList.add('rss-post'); // Add RSS-specific class
         blogPostsContainer.appendChild(postElement);
       });
       
@@ -157,6 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => {
       console.error('RSS feed method failed:', error);
+      
+      // Show detailed error in console for debugging
+      if (DEBUG) console.log('RSS feed error details:', error.message);
       
       // Last resort: try direct API proxy
       tryDirectAPIProxy();
@@ -169,17 +247,42 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Using a CORS proxy to fetch the Hashnode blog directly
     const CORS_PROXY = 'https://corsproxy.io/?';
-    const PROXY_URL = `${CORS_PROXY}${encodeURIComponent(`${BLOG_BASE_URL}/api/posts`)}`;
+    
+    // Try to use the Hashnode API directly with the proxy
+    // This URL should work with the newer Hashnode blogs
+    const PROXY_URL = `${CORS_PROXY}${encodeURIComponent(`${BLOG_BASE_URL}/api/stories`)}`;
+    
+    if (DEBUG) console.log(`Fetching via CORS proxy: ${PROXY_URL}`);
     
     blogPostsContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Trying alternative method...</p></div>';
     
-    fetch(PROXY_URL)
+    fetch(PROXY_URL, {
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': 'Portfolio Website/1.0'
+      }
+    })
       .then(response => {
-        if (!response.ok) throw new Error('API proxy failed');
+        if (DEBUG) console.log('Direct API proxy response status:', response.status);
+        if (!response.ok) throw new Error(`API proxy failed with status: ${response.status}`);
         return response.json();
       })
-      .then(posts => {
-        if (!posts || !Array.isArray(posts) || posts.length === 0) {
+      .then(data => {
+        if (DEBUG) console.log('Direct API proxy response data:', data);
+        
+        let posts = [];
+        // Handle different response formats that Hashnode might return
+        if (data && data.data && Array.isArray(data.data)) {
+          posts = data.data;
+        } else if (data && Array.isArray(data)) {
+          posts = data;
+        } else if (data && data.stories && Array.isArray(data.stories)) {
+          posts = data.stories;
+        } else {
+          throw new Error('Unexpected API response format');
+        }
+        
+        if (!posts || posts.length === 0) {
           throw new Error('No posts found in API proxy response');
         }
         
@@ -188,24 +291,38 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Process and display the posts
         posts.slice(0, 3).forEach(post => {
+          if (DEBUG) console.log('Processing API proxy post:', post.title);
+          
           const processedPost = {
             title: post.title || 'Untitled Post',
-            link: post.url || `${BLOG_BASE_URL}/${post.slug || ''}`,
-            pubDate: post.date_added || post.date || new Date().toISOString(),
-            description: post.brief || post.content_text || '',
-            thumbnail: post.cover_image || post.feature_image || ''
+            link: post.url || post.canonical_url || `${BLOG_BASE_URL}/${post.slug || ''}`,
+            pubDate: post.date_added || post.dateAdded || post.date || new Date().toISOString(),
+            description: post.brief || post.content_text || post.excerpt || '',
+            thumbnail: post.cover_image || post.coverImage || post.feature_image || '',
+            isProxy: true // Mark this as coming from the proxy
           };
           
           const postElement = createPostElement(processedPost);
+          postElement.classList.add('proxy-post'); // Add proxy-specific class
           blogPostsContainer.appendChild(postElement);
         });
         
         console.log('Successfully loaded blog content via direct API proxy');
+        
+        // Add a note that these came from the API proxy
+        const noteElement = document.createElement('div');
+        noteElement.className = 'blog-note proxy-note';
+        noteElement.innerHTML = '<p><small><i class="fas fa-sync"></i> Posts loaded via alternative method</small></p>';
+        noteElement.style.gridColumn = '1 / -1';
+        noteElement.style.textAlign = 'center';
+        blogPostsContainer.appendChild(noteElement);
       })
       .catch(error => {
         console.error('Direct API proxy method failed:', error);
-        // If all methods fail, show our fallback posts
-        showFallbackPosts();
+        if (DEBUG) console.log('API proxy error details:', error.message);
+        
+        // Try one last method or show error with fallback option
+        showErrorWithFallbackOption();
       });
   }
 
@@ -264,9 +381,27 @@ document.addEventListener('DOMContentLoaded', function() {
         imageUrl = ''; 
       } else if (post.thumbnail && post.thumbnail !== '') {
         imageUrl = post.thumbnail;
-      } else if (post.coverImage && post.coverImage !== '') {
-        // Hashnode format
-        imageUrl = post.coverImage;
+        
+        // Handle Hashnode-specific CDN URLs
+        if (imageUrl.includes('cdn.hashnode.com') && !imageUrl.includes('?')) {
+          // Add auto-optimization parameters for Hashnode CDN
+          imageUrl += '?auto=compress,format&w=800&h=420';
+        }
+      } else if (post.coverImage) {
+        // Handle different coverImage formats
+        if (typeof post.coverImage === 'object' && post.coverImage.url) {
+          // New Hashnode format with coverImage.url
+          imageUrl = post.coverImage.url;
+        } else if (typeof post.coverImage === 'string') {
+          // Old format with direct string
+          imageUrl = post.coverImage;
+        }
+        
+        // Handle Hashnode-specific CDN URLs
+        if (imageUrl.includes('cdn.hashnode.com') && !imageUrl.includes('?')) {
+          // Add auto-optimization parameters for Hashnode CDN
+          imageUrl += '?auto=compress,format&w=800&h=420';
+        }
       } else if (post.featured_media && post._embedded && post._embedded['wp:featuredmedia']) {
         // WordPress REST API format
         imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
@@ -280,8 +415,12 @@ document.addEventListener('DOMContentLoaded', function() {
           imageUrl = imgMatch[1];
         }
       }
+      
+      // Log the extracted image URL for debugging
+      if (DEBUG) console.log('Extracted image URL:', imageUrl);
     } catch (e) {
       console.error('Error extracting image:', e);
+      if (DEBUG) console.log('Image extraction error details:', e.message);
     }
     
     // Get post title
@@ -378,52 +517,104 @@ document.addEventListener('DOMContentLoaded', function() {
     return temp.textContent || temp.innerText || '';
   }
   
-  // Show fallback posts when feed cannot be loaded
-  function showFallbackPosts() {
-    if (DEBUG) console.log('Unable to load blog posts dynamically, showing static recent posts');
+  // Show an error with a fallback option
+  function showErrorWithFallbackOption() {
+    if (DEBUG) console.log('All API methods failed, showing error with fallback option');
     
     // Clear any loading indicators
+    blogPostsContainer.innerHTML = '';
+    
+    // Create an error message with options
+    const errorElement = document.createElement('div');
+    errorElement.className = 'blog-error-message';
+    errorElement.innerHTML = `
+      <i class="fas fa-exclamation-triangle"></i>
+      <p>Unable to load blog posts at this moment.</p>
+      <div class="error-options">
+        <button class="retry-button" onclick="location.reload()">
+          <i class="fas fa-sync"></i> Retry
+        </button>
+        <button class="fallback-button" id="show-fallback-posts">
+          <i class="fas fa-newspaper"></i> Show Featured Posts
+        </button>
+        <a href="${BLOG_BASE_URL}" target="_blank" rel="noopener" class="visit-blog-button">
+          <i class="fas fa-external-link-alt"></i> Visit Blog
+        </a>
+      </div>
+    `;
+    
+    blogPostsContainer.appendChild(errorElement);
+    
+    // Add event listener for fallback button
+    document.getElementById('show-fallback-posts').addEventListener('click', function() {
+      showFallbackPosts();
+    });
+  }
+
+  // Show fallback posts when feed cannot be loaded
+  function showFallbackPosts() {
+    if (DEBUG) console.log('Showing static featured posts as fallback');
+    
+    // Clear any previous content
     blogPostsContainer.innerHTML = '';
     
     // Reset display to grid (in case it was changed)
     blogPostsContainer.style.display = 'grid';
     
-    // My actual recent blog posts with thumbnails based on my tech expertise and projects
+    // Featured blog posts with thumbnails - create these based on actual blog content
+    // but serve them as static content when API fails
     const recentPosts = [
       {
         title: "Infrastructure as Code: Using Pulumi with Python for Azure Deployments",
         description: "In this post, I share my experience using Pulumi with Python to automate Azure infrastructure deployments. I compare it with traditional tools like Terraform and demonstrate how Python's flexibility can streamline complex cloud resource management and improve developer experience.",
-        link: "https://blog.arnabdey.dev/iac-pulumi-python-azure",
+        link: `${BLOG_BASE_URL}/iac-pulumi-python-azure`,
         thumbnail: "pulumi-python", // Special CSS class instead of image URL
         cssClass: "pulumi-python",
-        pubDate: "2025-04-15T10:15:00Z"
+        pubDate: "2023-10-15T10:15:00Z"
       },
       {
         title: "Kubernetes Monitoring: Setting Up Prometheus and Grafana on AKS",
         description: "A detailed walkthrough of implementing a robust monitoring solution for Azure Kubernetes Service using Prometheus and Grafana. I cover deployment via Helm charts, custom metric configurations, and creating insightful dashboards for real-time cluster visibility.",
-        link: "https://blog.arnabdey.dev/kubernetes-monitoring-prometheus-grafana",
+        link: `${BLOG_BASE_URL}/kubernetes-monitoring-prometheus-grafana`,
         thumbnail: "prometheus-grafana", // Special CSS class instead of image URL
         cssClass: "prometheus-grafana",
-        pubDate: "2025-03-22T08:45:00Z"
+        pubDate: "2023-09-22T08:45:00Z"
+      },
+      {
+        title: "Building Resilient Node.js Applications with Circuit Breakers",
+        description: "Exploring how to implement the circuit breaker pattern in Node.js applications to improve resilience, prevent cascading failures, and ensure graceful degradation when external services fail.",
+        link: `${BLOG_BASE_URL}/resilient-nodejs-circuit-breakers`,
+        thumbnail: "",
+        cssClass: "nodejs-circuit-breaker",
+        pubDate: "2023-08-10T14:30:00Z"
       }
     ];
     
     // Create and append blog post elements
     recentPosts.forEach(post => {
       const postElement = createPostElement(post);
+      postElement.classList.add('fallback-post'); // Add fallback-specific class
       blogPostsContainer.appendChild(postElement);
     });
     
-    // Add a note that these are fallback posts
+    // Add a clear note that these are static fallback posts with refresh option
     const noteElement = document.createElement('div');
-    noteElement.className = 'blog-note';
-    noteElement.innerHTML = '<p><small><i class="fas fa-bookmark"></i> Featured technical articles from my blog</small></p>';
+    noteElement.className = 'blog-note fallback-note';
+    noteElement.innerHTML = `
+      <p>
+        <i class="fas fa-info-circle"></i> 
+        <span>Showing featured posts as fallback.</span>
+        <button class="tiny-retry-button" onclick="location.reload()">
+          <i class="fas fa-sync"></i> Try loading latest posts
+        </button>
+        <a href="${BLOG_BASE_URL}" target="_blank" rel="noopener" class="tiny-blog-link">
+          <i class="fas fa-external-link-alt"></i> Visit blog site
+        </a>
+      </p>
+    `;
     noteElement.style.gridColumn = '1 / -1';
     noteElement.style.textAlign = 'center';
-    noteElement.style.display = 'block';
-    noteElement.style.width = 'fit-content';
-    noteElement.style.marginLeft = 'auto';
-    noteElement.style.marginRight = 'auto';
+    noteElement.style.marginTop = '20px';
     
     blogPostsContainer.appendChild(noteElement);
   }
