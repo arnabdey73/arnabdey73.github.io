@@ -39,33 +39,10 @@ permalink: /contact/
   font-size: 1.5rem; /* Consistent heading size with project cards */
   color: #0078D4; /* Bright blue color for heading */
   transition: color 0.4s ease; /* Smooth transition for color change */
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-
-.card h3::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #0078D4, transparent);
-  transform: translateX(-50%);
-  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
-  box-shadow: 0 0 8px #0078D4;
-  opacity: 0;
 }
 
 .card:hover h3 {
   color: #005A9E; /* Darker blue on white background when hovered */
-}
-
-.card:hover h3::after {
-  width: 80%;
-  opacity: 1;
-  animation: gentle-glow 2s infinite alternate;
 }
 
 .card p {
