@@ -23,20 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // This query should work with the current Hashnode API as of 2023
     const graphqlQuery = {
       query: `
-        query GetUserArticles {
+        query {
           publication(host: "blog.arnabdey.dev") {
-            posts(first: 6) {
+            posts(first: 10) {
               edges {
                 node {
                   title
                   brief
-                  slug
-                  dateAdded
-                  coverImage {
-                    url
-                  }
-                  publishedAt
-                  contentMarkdown
+                slug
                 }
               }
             }
