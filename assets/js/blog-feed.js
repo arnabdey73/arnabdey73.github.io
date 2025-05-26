@@ -30,7 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 node {
                   title
                   brief
-                slug
+                  slug
+                  canonical_url
+                  publishedAt
+                  coverImage {
+                    url
+                  }
                 }
               }
             }
@@ -285,10 +290,10 @@ document.addEventListener('DOMContentLoaded', function() {
           
           const processedPost = {
             title: post.title || 'Untitled Post',
-            link: post.url || post.canonical_url || `${BLOG_BASE_URL}/${post.slug || ''}`,
-            pubDate: post.date_added || post.dateAdded || post.date || new Date().toISOString(),
+            link: post.canonical_url || post.url || (post.slug ? `${BLOG_BASE_URL}/${post.slug}` : BLOG_BASE_URL),
+            pubDate: post.publishedAt || post.dateAdded || post.date_added || post.date || new Date().toISOString(),
             description: post.brief || post.content_text || post.excerpt || '',
-            thumbnail: post.cover_image || post.coverImage || post.feature_image || '',
+            thumbnail: post.coverImage?.url || post.cover_image || post.feature_image || '',
             isProxy: true // Mark this as coming from the proxy
           };
           
@@ -426,10 +431,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof postTitle === 'string' && postTitle.includes('<')) {
       postTitle = stripHtml(postTitle);
     }
-    
-    // Get post URL
-    const postUrl = post.link || post.url || post.guid || BLOG_BASE_URL;
-    
+     // Get post URL - prioritize canonical URL for Hashnode posts
+    const postUrl = post.canonical_url || post.link || post.url || (post.slug ? `${BLOG_BASE_URL}/${post.slug}` : BLOG_BASE_URL);
+
     // Truncate excerpt if necessary - handle various formats
     let excerpt;
     if (post.excerpt && post.excerpt.rendered) {
