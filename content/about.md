@@ -2,6 +2,10 @@
 layout: single
 title: My Professional Journey
 permalink: /about/
+description: "Follow my career journey from Linux System Administrator to Cloud Engineer, with experience in DevOps practices, CI/CD, and cloud technologies."
+image: /assets/img/portfolio-thumbnail.jpg
+keywords: "cloud engineer, professional journey, devops, cloud technology, career path, IT experience, infrastructure automation"
+author: "Arnab Dey"
 ---
 <div class="content-page">
   <div class="timeline">

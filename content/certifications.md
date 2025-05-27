@@ -2,6 +2,10 @@
 layout: default
 title: Certifications
 permalink: /certifications/
+description: "View my professional certifications in cloud technologies, including Microsoft Azure and other technical certifications that demonstrate my expertise."
+image: /assets/img/portfolio-thumbnail.jpg
+keywords: "cloud certifications, Microsoft Azure certifications, technical certifications, cloud engineer credentials, IT certifications"
+author: "Arnab Dey"
 ---
 <div style="text-align: center;">
 <div class="certification-cards">

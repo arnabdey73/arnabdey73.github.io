@@ -1,0 +1,10 @@
+# robots.txt for https://arnabdey73.github.io/
+
+User-agent: *
+Allow: /
+
+# Don't index duplicate pages
+Disallow: /assets/
+
+# Point to sitemap
+Sitemap: https://arnabdey73.github.io/sitemap.xml

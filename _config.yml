@@ -1,5 +1,22 @@
-title: "Portfolio"
+title: "Arnab Dey | Cloud Engineer Portfolio"
 description: "Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure. Passionate about automation, infrastructure as code, and cloud-native solutions."
+author:
+  name: "Arnab Dey"
+  bio: "Cloud Engineer and DevOps specialist with 14+ years of IT experience"
+  location: "Sweden"
+
+# SEO specific settings
+logo: "/assets/img/avatar.jpg"
+image: "/assets/img/portfolio-thumbnail.jpg"
+lang: "en_US"
+twitter:
+  username: "" # Add your Twitter username if available
+  card: summary_large_image
+social:
+  name: "Arnab Dey"
+  links:
+    - "https://www.linkedin.com/in/arnabdey73/"
+    - "https://github.com/arnabdey73"
 
 # Update theme to Minimal Mistakes
 remote_theme: "mmistakes/minimal-mistakes"
@@ -24,6 +41,7 @@ social:
 # Plugins
 plugins:
   - jekyll-remote-theme # Ensure this plugin is enabled
+  - jekyll-seo-tag # SEO optimization
 
 # Permalinks
 permalink: /:title/ 

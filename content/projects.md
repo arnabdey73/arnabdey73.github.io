@@ -2,6 +2,10 @@
 layout: default
 title: Projects
 permalink: /projects/
+description: "Explore my portfolio of cloud engineering and DevOps projects, featuring work with Terraform, Python, Azure, Kubernetes, and more."
+image: /assets/img/portfolio-thumbnail.jpg
+keywords: "cloud engineering projects, devops projects, terraform, python, azure, kubernetes, infrastructure as code, automation projects"
+author: "Arnab Dey"
 ---
 <div style="text-align: center;">
 <div class="project-list">  <!-- Project 0 -->  <div class="project-card">

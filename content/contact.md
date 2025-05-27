@@ -2,6 +2,10 @@
 layout: default
 title: Contact
 permalink: /contact/
+description: "Get in touch with me for cloud engineering and DevOps consulting, collaboration opportunities, or professional inquiries."
+image: /assets/img/portfolio-thumbnail.jpg
+keywords: "contact, cloud engineer contact, professional collaboration, IT consultation, hiring cloud engineer, devops specialist"
+author: "Arnab Dey"
 ---
 <style>
 /* Contact card styling to match project cards */

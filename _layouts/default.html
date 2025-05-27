@@ -5,7 +5,42 @@ layout: default
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    <title>{{ page.title }}</title>    <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/theme-transitions.css' | relative_url }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="title" content="{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+    <meta name="description" content="{% if page.description %}{{ page.description | strip_html | normalize_whitespace | truncate: 160 | escape }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="author" content="{% if page.author %}{{ page.author }}{% else %}{{ site.author.name }}{% endif %}">
+    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}cloud engineer, devops, azure, infrastructure as code, automation{% endif %}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | normalize_whitespace | truncate: 160 | escape }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ site.image | absolute_url }}{% endif %}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta property="twitter:title" content="{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+    <meta property="twitter:description" content="{% if page.description %}{{ page.description | strip_html | normalize_whitespace | truncate: 160 | escape }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ site.image | absolute_url }}{% endif %}">
+      <!-- Canonical -->
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/img/favicon.ico' | relative_url }}">
+    
+    <!-- Jekyll SEO tag -->
+    {% seo title=false %}
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/theme-transitions.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/typography.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/site-footer.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/page-title.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/card-shadows.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/hero-banner.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/tech-stack.css' | relative_url }}">    <link rel="stylesheet" href="{{ '/assets/css/tech-logos.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/blog-feed.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/intro-card.css' | relative_url }}">
@@ -19,9 +54,7 @@ layout: default
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Google Tag Manager -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">    <!-- Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPGTPYDW80" onerror="console.error('Google Tag Manager script failed to load.')"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -31,6 +64,9 @@ layout: default
       gtag('config', 'G-RPGTPYDW80');
     </script>
     <!-- End Google Tag Manager -->
+    
+    <!-- Structured Data for SEO -->
+    {% include structured-data.html %}
 </head>
 <body class="theme-initializing">
   <header>
