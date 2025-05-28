@@ -8,8 +8,7 @@ keywords: "cloud engineering projects, devops projects, terraform, python, azure
 author: "Arnab Dey"
 ---
 <div style="text-align: center;">
-<div class="project-list">  
-  <!-- Project 0 - IAC Azure Core Governance -->
+<div class="project-list">    <!-- Project 0 - IAC Azure Core Governance -->
   <div class="project-card">
     <h3>Azure Core Governance Infrastructure as Code</h3>
     <p>This project implements Azure governance patterns at enterprise scale, providing a foundation for Azure landing zones with comprehensive governance controls including management groups, policies, role assignments, and security baselines.</p>    
@@ -39,7 +38,65 @@ author: "Arnab Dey"
     </div>
   </div>
   
-  <!-- Project 1 - Previous Project 0 -->
+  <!-- Project 1 - Azure Cost Optimizer -->
+  <div class="project-card">
+    <h3>Azure Cost Optimizer</h3>
+    <p>A comprehensive solution to help optimize Azure costs by leveraging Azure SDKs and tools. Features include cost analysis using Azure Cost Management SDK, resource management with Azure Resource Manager, and integrated logging with Azure Log Analytics.</p>    
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fab fa-python" aria-hidden="true"></i>
+        <span>Python</span>
+      </div>
+      <div class="tech-item-mini">
+        <div class="terraform-logo-mini"></div>
+        <span>Terraform</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-money-bill-wave" aria-hidden="true"></i>
+        <span>Cost Mgmt</span>
+      </div>
+    </div>
+    <div class="github-link">
+      <a href="https://github.com/arnabdey73/azure-cost-optimizer" target="_blank" rel="noopener noreferrer" class="github-button">
+        <i class="fab fa-github"></i>
+        <span>View Code</span>
+      </a>
+    </div>  </div>
+    <!-- Project 2 - Azure IaC Module Library -->
+  <div class="project-card">
+    <h3>Azure IaC Module Library</h3>
+    <p>A comprehensive library of reusable Terraform modules for Azure cloud resources. These modules follow best practices for security, scalability, and maintainability, enabling consistent and reliable infrastructure deployments across different environments.</p>    
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <div class="terraform-logo-mini"></div>
+        <span>Terraform</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-cubes" aria-hidden="true"></i>
+        <span>Modules</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-code-branch" aria-hidden="true"></i>
+        <span>IaC</span>
+      </div>
+    </div>
+    <div class="github-link">
+      <a href="https://github.com/arnabdey73/iac-module-library-azure" target="_blank" rel="noopener noreferrer" class="github-button">
+        <i class="fab fa-github"></i>
+        <span>View Code</span>
+      </a>
+    </div>
+  </div>
+    
+  <!-- Project 3 - Previous Project 0 -->
   <div class="project-card">
     <h3>Infrastructure as Code with Python</h3>
     <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>    <div class="tech-icons-mini">
@@ -61,8 +118,8 @@ author: "Arnab Dey"
         <i class="fab fa-github"></i>
         <span>View Code</span>
       </a>
-    </div>
-  </div>  <!-- Project 2 - Previous Project 1 -->
+    </div>  </div>
+    <!-- Project 4 - Previous Project 1 -->
   <div class="project-card">
     <h3>DevOps Automation</h3>
     <p>This project automates the deployment of a Kubernetes cluster on Azure using Terraform, Helm, and Python scripts. It includes monitoring with Prometheus and Grafana and automates CI/CD with Azure DevOps.</p>    <div class="tech-icons-mini">
@@ -88,9 +145,7 @@ author: "Arnab Dey"
         <i class="fab fa-github"></i>
         <span>View Code</span>
       </a>
-    </div>
-  </div>
-  <!-- Project 3 - Previous Project 2 -->
+    </div>  </div>  <!-- Project 5 - Previous Project 2 -->
   <div class="project-card">
     <h3>Portfolio Website</h3>
     <p>Personal portfolio website showcasing projects, certifications, and contact information, built with Jekyll and Tailwind CSS.</p>    <div class="tech-icons-mini">
