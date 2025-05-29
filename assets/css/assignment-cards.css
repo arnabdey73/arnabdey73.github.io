@@ -144,6 +144,15 @@
   border-color: #0078D4;
 }
 
+/* Flower emoji styling */
+.flower {
+  display: inline-block;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+  margin: 0 0.2em;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .badge-row {
