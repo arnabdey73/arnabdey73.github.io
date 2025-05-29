@@ -96,7 +96,37 @@ author: "Arnab Dey"
     </div>
   </div>
     
-  <!-- Project 3 - Previous Project 0 -->
+  <!-- Project 3 - OpenStack DevOps Suite -->
+  <div class="project-card">
+    <h3>OpenStack DevOps Suite</h3>
+    <p>A comprehensive toolset for implementing DevOps practices in OpenStack environments. This suite includes automation scripts, infrastructure templates, and monitoring solutions to streamline OpenStack cloud operations and maintenance.</p>
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fas fa-cloud" aria-hidden="true"></i>
+        <span>OpenStack</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-python" aria-hidden="true"></i>
+        <span>Python</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-infinity" aria-hidden="true"></i>
+        <span>CI/CD</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-server" aria-hidden="true"></i>
+        <span>DevOps</span>
+      </div>
+    </div>
+    <div class="github-link">
+      <a href="https://github.com/arnabdey73/openstack-devops-suite" target="_blank" rel="noopener noreferrer" class="github-button">
+        <i class="fab fa-github"></i>
+        <span>View Code</span>
+      </a>
+    </div>
+  </div>
+    
+  <!-- Project 4 - Previous Project 0 -->
   <div class="project-card">
     <h3>Infrastructure as Code with Python</h3>
     <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>    <div class="tech-icons-mini">
