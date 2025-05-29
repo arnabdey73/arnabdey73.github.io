@@ -211,7 +211,7 @@ permalink: /assignments/
   </div>
 
   <div class="assignment-card volunteer-card">
-    <h3>💮 Volunteer Computer Teacher – Career Break<span class="date">(July 2010 - March 2011)</span></h3>
+    <h3>🌼 Volunteer Computer Teacher – Career Break 🌼<span class="date">(July 2010 - March 2011)</span></h3>
     <ul>
       <li>Imparted foundational computer education as part of a vocational training program in rural West Bengal, India.</li>
       <li>Designed and delivered engaging lessons that supported students with practical hands-on learning.</li>
