@@ -1,7 +1,7 @@
-// Import all stylesheets 
-@import "main/variables";
-@import "main/base";
-@import "main/layout";
-@import "main/components";
-@import "main/styles";
-@import "main/icons";
+// Import all stylesheets in a specific order
+@import "main/variables";  // Variables first
+@import "main/base";       // Base styles
+@import "main/layout";     // Layout components
+@import "main/components"; // UI components
+@import "main/icons";      // Icons
+@import "main/styles";     // Additional styles

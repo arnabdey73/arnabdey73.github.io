@@ -4,10 +4,8 @@
   "description": "Arnab Dey's Portfolio Website",
   "scripts": {
     "optimize-images": "node optimize-images.js",
-    "consolidate-css": "node consolidate-css.js",
-    "jekyll-css": "node jekyll-consolidate-css.js",
     "minify-js": "node minify-js.js",
-    "build": "node build.js"
+    "build": "bundle exec jekyll build"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",

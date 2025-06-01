@@ -5,10 +5,12 @@ gem "github-pages", group: :jekyll_plugins
 
 # Plugins supported by GitHub Pages
 group :jekyll_plugins do
-  gem "jekyll-seo-tag"
-  gem "jekyll-feed"
+  gem "jekyll-paginate"
   gem "jekyll-sitemap"
-  gem "jekyll-include-cache"  # Required by minimal-mistakes theme
+  gem "jekyll-gist"
+  gem "jekyll-feed"
+  gem "jekyll-include-cache"
+  gem "jekyll-seo-tag"
 end
 
 # For Ruby 3.0+ local development
