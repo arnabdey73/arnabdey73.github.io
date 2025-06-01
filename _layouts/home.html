@@ -1,21 +1,8 @@
 ---
-layout: single
-author_profile: true
-classes:
-  - landing
-  - wide
+layout: archive
 ---
 
-<div class="home-wrapper">
-  <!-- Intro Card Section -->
-  {% include intro-card.html %}
-
-  <!-- Tech Stack Section -->
-  {% include tech-stack.html %}
-
-  <!-- Blog Feed Section -->
-  {% include blog-feed.html %}
-</div>
+{{ content }}
   } else {
     mobileNav.style.display = 'none';
   }
