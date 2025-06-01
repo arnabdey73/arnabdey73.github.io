@@ -1,5 +1,5 @@
 /**
- * Blog Feed - Fetches and displays latest posts from the blog
+ * Blog Feed - Fetches and displays latest posts from the blog with performance optimizations
  */
 document.addEventListener('DOMContentLoaded', function() {
   const blogPostsContainer = document.getElementById('blog-posts-container');
@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
   function fetchHashnodeBlogPosts() {
     if (DEBUG) console.log('Fetching blog posts from Hashnode API');
     
-    // Show loading spinner with Hashnode-specific styling
-    blogPostsContainer.innerHTML = '<div class="loading-spinner loading-hashnode"><div class="spinner"></div><p>Loading latest posts...</p></div>';
+    // Show loading spinner with improved accessibility
+    blogPostsContainer.innerHTML = '<div class="loading-spinner loading-hashnode" role="status" aria-live="polite"><div class="spinner"></div><p>Loading latest posts...</p></div>';
     
     // The GraphQL query to get blog posts from Hashnode using the updated API structure
     // This query should work with the current Hashnode API as of 2023

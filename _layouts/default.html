@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
+    <!-- Performance and Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; img-src 'self' data: https:; font-src 'self' https: data:;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <!-- Primary Meta Tags -->
     <title>{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
     <meta name="title" content="{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
@@ -34,6 +38,12 @@
     <!-- Jekyll SEO tag -->
     {% seo title=false %}
     
+    <!-- Resource hints for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">
@@ -55,9 +65,9 @@
     <link rel="stylesheet" href="{{ '/assets/css/icons-unified.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/certification-tech-icons.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/mail-icon-fix.css' | relative_url }}">
+    
+    <!-- External resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">    
     
     <!-- Google tag (gtag.js) -->
@@ -100,11 +110,11 @@
   <button id="back-to-top-btn" title="Go to top" aria-label="Scroll back to top of page">
     <i class="fas fa-arrow-up" aria-hidden="true"></i>
     <span class="sr-only">Back to top</span>
-  </button>  <!-- Theme switcher script -->
+  </button>  <!-- Theme switcher script - load immediately for theme flash prevention -->
   <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
   
-  <!-- Blog feed script -->
-  <script src="{{ '/assets/js/blog-feed.js' | relative_url }}"></script>
+  <!-- Deferred scripts for better performance -->
+  <script defer src="{{ '/assets/js/blog-feed.js' | relative_url }}"></script>
       <!-- Script for back to top button functionality and mobile navigation -->  
   <script>
     // Show/hide the mobile nav container based on screen width
