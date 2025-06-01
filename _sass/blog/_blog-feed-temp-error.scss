@@ -1,0 +1,32 @@
+/* Feed temporary error styles */
+.feed-temp-error {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: rgba(245, 245, 245, 0.7);
+  border-radius: 8px;
+  border-left: 3px solid #ff9800;
+  animation: fadeIn 0.5s ease forwards;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feed-temp-error.hashnode-error {
+  border-color: #2962ff;
+  background-color: rgba(233, 240, 255, 0.7);
+}
+
+.feed-temp-error p {
+  font-size: 14px;
+  margin: 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -3,5 +3,13 @@
 @import "main/base";       // Base styles
 @import "main/layout";     // Layout components
 @import "main/components"; // UI components
+@import "main/intro-card"; // Intro card styles
 @import "main/icons";      // Icons
 @import "main/styles";     // Additional styles
+
+// Import blog-related styles
+@import "blog/blog-feed-temp-error";
+@import "blog/blog-note";
+@import "blog/blog-placeholder";
+@import "blog/blog-post-image-fix";
+@import "blog/hashnode-blog";

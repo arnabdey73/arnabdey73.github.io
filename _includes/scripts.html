@@ -3,7 +3,8 @@
     <script src="{{ script | relative_url }}"></script>
   {% endfor %}
 {% else %}
-  <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
+  <!-- Minimal-mistakes core functionality can be loaded from CDN if needed -->
+  <!-- For now, we'll rely on our custom scripts -->
 {% endif %}
 
 {% if site.search == true or page.layout == "search" %}

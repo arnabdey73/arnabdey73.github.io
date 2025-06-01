@@ -1,0 +1,63 @@
+/* Additional styling for blog note element */
+.blog-note {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(42, 157, 244, 0.05);
+  border-radius: 6px;
+  border-left: 2px solid rgba(42, 157, 244, 0.3);
+  font-size: 0.85rem;
+  color: #b3b3b3;
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-note p {
+  margin: 0;
+}
+
+.blog-note i {
+  margin-right: 6px;
+  color: rgba(42, 157, 244, 0.7);
+}
+
+/* Ensure two posts are displayed nicely at various screen sizes */
+@media (min-width: 768px) {
+  .posts-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .posts-container {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Enhanced styling for blog posts */
+.blog-post-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post-title {
+  color: #e6e6e6;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.blog-post-excerpt {
+  color: #b3b3b3;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
