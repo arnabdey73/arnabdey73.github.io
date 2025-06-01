@@ -1,29 +1,78 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 
 @charset "utf-8";
 
-/* Import all CSS files for consolidated loading */
-@import "themes";
-@import "theme-transitions";
-@import "typography";
-@import "style";
-@import "site-footer";
-@import "page-title";
-@import "card-shadows";
-@import "hero-banner";
-@import "tech-stack";
-@import "tech-logos";
-@import "blog-feed";
-@import "intro-card";
-@import "assignment-cards";
-@import "header-footer-fonts";
-@import "tech-stack-mini";
-@import "assignment-card-fix";
-@import "icons-unified";
-@import "certification-tech-icons";
-@import "mail-icon-fix";
+/* Base styles for the site */
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #0078D4;
+  --secondary-color: #1f1f1f;
+  --accent-color: #ffffff;
+  --body-font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --heading-font: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Global styles */
+body {
+  font-family: var(--body-font);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--accent-color);
+  margin-top: 0;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+}
+
+/* Basic button styles */
+.btn, .cta {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover, .cta:hover {
+  background-color: #106ebe;
+  transform: translateY(-2px);
+}
+
+/* Link styles */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #64b5f6;
+  text-decoration: underline;
+}
 $code-line-height: 1.5em;
 
 // Adding new font variables for body and headings

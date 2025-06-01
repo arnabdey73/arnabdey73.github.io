@@ -33,6 +33,9 @@ highlighter: rouge
 sass:
   style: compressed
 
+# Disable any theme to use custom layouts
+theme: 
+
 # Plugins
 plugins:
   - jekyll-seo-tag
