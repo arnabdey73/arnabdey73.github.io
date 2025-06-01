@@ -385,3 +385,30 @@ body:not(.home) .banner {
     padding-top: 15px; /* Slightly reduced padding inside the banner container */
   }
 }
+
+/* Mobile nav container below intro card */
+.mobile-nav-container {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 1.2rem 0 0.5rem 0;
+  z-index: 1001;
+}
+@media (max-width: 768px) {
+  .mobile-nav-container {
+    display: flex !important;
+    position: relative;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .mobile-nav-container .nav-container {
+    position: static;
+    margin: 0 auto;
+    width: auto;
+    box-shadow: none;
+    background: none;
+  }
+}
