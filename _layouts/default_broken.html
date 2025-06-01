@@ -1,0 +1,77 @@
+---
+---
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+    {% include_cached skip-links.html %}
+    {% include_cached masthead.html %}
+
+    <div class="initial-content">
+      {{ content }}
+    </div>
+
+    {% if site.search == true %}
+      <div class="search-content">
+        {% include_cached search/search_form.html %}
+      </div>
+    {% endif %}
+
+    <div id="footer" class="page__footer">
+      <footer>
+        {% include footer.html %}
+        {% include_cached footer/custom.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+
+  </body>
+</html>
+      <!-- Script for back to top button functionality and mobile navigation -->  
+  <script>
+    // Show/hide the mobile nav container based on screen width
+    function updateMobileNavContainer() {
+      var mobileNav = document.querySelector('.mobile-nav-container');
+      if (window.innerWidth <= 768) {
+        mobileNav.style.display = 'flex';
+      } else {
+        mobileNav.style.display = 'none';
+      }
+    }
+    
+    // Initialize mobile nav on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      updateMobileNavContainer();
+    });
+    
+    // Update mobile nav on window resize
+    window.addEventListener('resize', updateMobileNavContainer);
+    
+    // Get the back to top button with defensive coding
+    let backToTopButton = document.getElementById("back-to-top-btn");
+    
+    // If the button doesn't exist for some reason (rare case), create it dynamically
+    if (!backToTopButton) {
+      backToTopButton = document.createElement('button');
+      backToTopButton.id = 'back-to-top-btn';
+      backToTopButton.title = 'Go to top';
+      backToTopButton.setAttribute('aria-label', 'Scroll back to top of page');
+      backToTopButton.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i><span class="sr-only">Back to top</span>';
+      document.body.appendChild(backToTopButton);
+    }
+    
+    // When the user scrolls down 300px from the top of the document, show the button
+  </body>
+</html>

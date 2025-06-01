@@ -3,25 +3,3 @@ layout: archive
 ---
 
 {{ content }}
-  } else {
-    mobileNav.style.display = 'none';
-  }
-}
-
-// Initialize on page load and handle resize events
-document.addEventListener('DOMContentLoaded', function() {
-  updateMobileNavContainer();
-  
-  // Make sure mobile theme toggle and the main theme toggle stay in sync
-  const mainThemeToggle = document.getElementById('theme-toggle');
-  const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
-  
-  if (mainThemeToggle && mobileThemeToggle) {
-    // Sync the initial state
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', currentTheme);
-  }
-});
-
-window.addEventListener('resize', updateMobileNavContainer);
-</script>
