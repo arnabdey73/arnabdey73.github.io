@@ -1,9 +1,6 @@
 ---
 ---
+@charset "utf-8";
 
-@import "assets/css/main";
-
-/* 
-This file ensures that Jekyll processes our SCSS files correctly.
-GitHub Pages requires a main Sass file at the root or in a dedicated sass directory.
-*/
+// Import core styles and components
+@import "main";

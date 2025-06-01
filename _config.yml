@@ -31,7 +31,9 @@ social:
 markdown: kramdown
 highlighter: rouge
 sass:
+  sass_dir: _sass
   style: compressed
+  sourcemap: never
 
 # Use a GitHub Pages supported theme
 theme: minima

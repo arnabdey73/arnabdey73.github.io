@@ -43,27 +43,14 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     
-    <!-- Critical CSS - load immediately -->
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    
-    <!-- Consolidated CSS files for better performance -->
-    <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/icons.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
+    <!-- Critical CSS - all consolidated in one Jekyll-processed stylesheet -->
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
     
     <!-- External resources with performance optimizations -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" crossorigin>
     
-    <!-- Fallback for browsers that don't support onload -->
-    <noscript>
-      <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/icons.css' | relative_url }}">
-    </noscript>    
+    <!-- No noscript fallback needed for critical CSS -->    
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPGTPYDW80"></script>

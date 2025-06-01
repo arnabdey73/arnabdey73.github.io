@@ -29,9 +29,9 @@ async function runBuild() {
     console.log('\n🖼️  Step 1: Optimizing images...');
     await runCommand('node', ['optimize-images.js']);
     
-    // 2. Consolidate CSS
-    console.log('\n🎨 Step 2: Consolidating CSS files...');
-    await runCommand('node', ['consolidate-css.js']);
+    // 2. Consolidate CSS for Jekyll
+    console.log('\n🎨 Step 2: Consolidating CSS files for Jekyll...');
+    await runCommand('node', ['jekyll-consolidate-css.js']);
     
     // 3. Minify JavaScript
     console.log('\n🔧 Step 3: Minifying JavaScript...');

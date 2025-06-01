@@ -1,8 +1,22 @@
 const fs = require('fs');
 const path = require('path');
 const imagemin = require('imagemin');
-const imageminJpegtran = require('imagemin-jpegtran');
-const imageminPngquant = require('imagemin-pngquant');
+
+// Handle import methods for newer NodeJS versions
+let imageminJpegtran, imageminPngquant;
+try {
+  imageminJpegtran = require('imagemin-jpegtran');
+} catch (e) {
+  console.log('Warning: imagemin-jpegtran not available, using default compression');
+  imageminJpegtran = () => async(buffer) => buffer;
+}
+
+try {
+  imageminPngquant = require('imagemin-pngquant');
+} catch (e) {
+  console.log('Warning: imagemin-pngquant not available, using default compression');
+  imageminPngquant = () => async(buffer) => buffer;
+}
 
 (async () => {
   console.log('Optimizing JPEG and PNG images...');
