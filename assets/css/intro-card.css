@@ -388,3 +388,13 @@
     font-size: 0.85rem;
   }
 }
+
+/* Email link styles */
+.email-link {
+  position: relative;
+  z-index: 10;
+}
+
+.email-link .fas.fa-envelope {
+  pointer-events: none;
+}

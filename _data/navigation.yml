@@ -1,11 +1,11 @@
 main:
   - title: "Journey"
-    url: /content/about/
+    url: /about/
   - title: "Assignments"
-    url: /content/assignments/
+    url: /assignments/
   - title: "Certifications"
-    url: /content/certifications/
+    url: /certifications/
   - title: "Contact"
-    url: /content/contact/
+    url: /contact/
   - title: "Projects"
-    url: /content/projects/
+    url: /projects/

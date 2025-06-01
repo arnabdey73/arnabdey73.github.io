@@ -95,13 +95,6 @@ twitter:
 assets_dir: assets
 content_dir: content
 
-# Navigation
-header_pages:
-  - content/about.md
-  - content/projects.md
-  - content/certifications.md
-  - content/contact.md
-
 # Build Settings
 sass:
   sass_dir: _sass
