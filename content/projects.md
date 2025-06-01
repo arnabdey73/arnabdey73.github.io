@@ -95,8 +95,38 @@ author: "Arnab Dey"
       </a>
     </div>
   </div>
-    
-  <!-- Project 3 - OpenStack DevOps Suite -->
+  
+  <!-- Project 3 - Azure Core Governance SRE Agent -->
+  <div class="project-card">
+    <h3>Azure Core Governance SRE Agent</h3>
+    <p>An AI-powered SRE agent for Azure Core Governance environments. This project leverages LLMs and automation to monitor, analyze, and remediate governance and security issues in real time, integrating with Azure Policy, Defender, and cost controls for proactive cloud reliability and compliance.</p>
+    <div class="tech-icons-mini">
+      <div class="tech-item-mini">
+        <i class="fas fa-robot" aria-hidden="true"></i>
+        <span>AI Agent</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <span>Azure</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        <span>Security</span>
+      </div>
+      <div class="tech-item-mini">
+        <i class="fas fa-cogs" aria-hidden="true"></i>
+        <span>SRE</span>
+      </div>
+    </div>
+    <div class="github-link">
+      <a href="https://github.com/arnabdey73/azure-core-governance-sre-agent" target="_blank" rel="noopener noreferrer" class="github-button">
+        <i class="fab fa-github"></i>
+        <span>View Code</span>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Project 4 - OpenStack DevOps Suite -->
   <div class="project-card">
     <h3>OpenStack DevOps Suite</h3>
     <p>A comprehensive toolset for implementing DevOps practices in OpenStack environments. This suite includes automation scripts, infrastructure templates, and monitoring solutions to streamline OpenStack cloud operations and maintenance.</p>
@@ -126,7 +156,7 @@ author: "Arnab Dey"
     </div>
   </div>
     
-  <!-- Project 4 - Previous Project 0 -->
+  <!-- Project 5 - Previous Project 0 -->
   <div class="project-card">
     <h3>Infrastructure as Code with Python</h3>
     <p>This project demonstrates the use of Python to manage and deploy cloud infrastructure using Infrastructure as Code (IaC) principles. It includes examples of automating resource provisioning and configuration management.</p>    <div class="tech-icons-mini">
@@ -149,7 +179,7 @@ author: "Arnab Dey"
         <span>View Code</span>
       </a>
     </div>  </div>
-    <!-- Project 4 - Previous Project 1 -->
+    <!-- Project 6 - Previous Project 1 -->
   <div class="project-card">
     <h3>DevOps Automation</h3>
     <p>This project automates the deployment of a Kubernetes cluster on Azure using Terraform, Helm, and Python scripts. It includes monitoring with Prometheus and Grafana and automates CI/CD with Azure DevOps.</p>    <div class="tech-icons-mini">
@@ -175,7 +205,7 @@ author: "Arnab Dey"
         <i class="fab fa-github"></i>
         <span>View Code</span>
       </a>
-    </div>  </div>  <!-- Project 5 - Previous Project 2 -->
+    </div>  </div>  <!-- Project 7 - Previous Project 2 -->
   <div class="project-card">
     <h3>Portfolio Website</h3>
     <p>Personal portfolio website showcasing projects, certifications, and contact information, built with Jekyll and Tailwind CSS.</p>    <div class="tech-icons-mini">
