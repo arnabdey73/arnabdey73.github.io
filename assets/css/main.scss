@@ -2,5 +2,9 @@
 ---
 @charset "utf-8";
 
-/* Import Sass files from _sass directory */
-@import "main";
+/* Minimal Mistakes Theme */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* Custom Styles */
+@import "main"; // your custom styles

@@ -2,5 +2,8 @@
 ---
 @charset "utf-8";
 
-// Import core styles and components
+// Import minimal-mistakes defaults
+@import "minimal-mistakes";
+
+// Import your custom styles last to override theme defaults
 @import "main";

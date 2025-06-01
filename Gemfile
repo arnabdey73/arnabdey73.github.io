@@ -8,6 +8,7 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-feed"
   gem "jekyll-sitemap"
+  gem "jekyll-include-cache"  # Required by minimal-mistakes theme
 end
 
 # For Ruby 3.0+ local development

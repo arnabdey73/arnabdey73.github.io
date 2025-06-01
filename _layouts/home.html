@@ -1,5 +1,9 @@
 ---
-layout: default
+layout: single
+author_profile: true
+classes:
+  - landing
+  - wide
 ---
 
 <div class="home-wrapper">
@@ -12,13 +16,6 @@ layout: default
   <!-- Blog Feed Section -->
   {% include blog-feed.html %}
 </div>
-
-<script>
-// Show/hide the mobile nav container based on screen width
-function updateMobileNavContainer() {
-  var mobileNav = document.querySelector('.mobile-nav-container');
-  if (window.innerWidth <= 768) {
-    mobileNav.style.display = 'flex';
   } else {
     mobileNav.style.display = 'none';
   }
