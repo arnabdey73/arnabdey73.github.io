@@ -609,4 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
     noteElement.style.gridColumn = '1 / -1';
     noteElement.style.textAlign = 'center';
     noteElement.style.marginTop = '20px';
- 
+    
+    blogPostsContainer.appendChild(noteElement);
+  }
+});
