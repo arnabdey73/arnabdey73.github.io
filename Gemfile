@@ -7,6 +7,7 @@ gem "github-pages", group: :jekyll_plugins
 # Essential plugins
 group :jekyll_plugins do
   gem "jekyll-seo-tag"
+  gem "minima"
 end
 
 # For Ruby 3.0+ local development
