@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-Welcome to my personal portfolio repository! This project showcases my work, certifications, and contact information. It is built using Jekyll and Tailwind CSS.
+Welcome to my personal portfolio repository! This project showcases my work, certifications, and contact information. It is built using Jekyll and Tailwind CSS and has been optimized for performance.
 
 ## Features
 
@@ -8,6 +8,7 @@ Welcome to my personal portfolio repository! This project showcases my work, cer
 - **Certifications**: Displays my professional certifications.
 - **Contact**: Provides a way to get in touch with me.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Performance Optimized**: Achieved high performance scores through various optimizations.
 
 ## Technologies Used
 
@@ -15,6 +16,44 @@ Welcome to my personal portfolio repository! This project showcases my work, cer
 - **Tailwind CSS**: Utility-first CSS framework.
 - **HTML5 & CSS3**: Markup and styling.
 - **JavaScript**: Interactive elements.
+
+## Performance Optimizations
+
+This portfolio site has been optimized for performance in several ways:
+
+1. **Image Optimization**: 
+   - Compressed and optimized all images
+   - Reduced file sizes while maintaining quality
+
+2. **CSS Optimization**:
+   - Consolidated multiple CSS files into fewer requests
+   - Organized CSS by category (layout, components, styles, icons)
+
+3. **JavaScript Optimization**:
+   - Minified all JavaScript files
+   - Created a unified bundle for faster loading
+
+4. **Font Loading Improvements**:
+   - Added font-display: swap for better font rendering
+   - Optimized external font loading with preconnect and media strategies
+
+5. **Caching Strategy**:
+   - Added cache headers for optimal resource caching
+   - Implemented long-term caching for static assets
+
+## Build Process
+
+This project includes several build scripts to optimize the site for production:
+
+```bash
+# Run all optimizations
+npm run build
+
+# Individual optimization tasks
+npm run optimize-images   # Compress and optimize images
+npm run consolidate-css   # Consolidate CSS files
+npm run minify-js         # Minify JavaScript files
+```
 
 ## Getting Started
 

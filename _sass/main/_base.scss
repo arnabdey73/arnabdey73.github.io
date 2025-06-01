@@ -1,0 +1,39 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Font optimization with font-display: swap for better loading performance */
+
+body {
+  font-family: $body-font-family;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+  color: var(--accent-color);
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: darken($link-color, 10%);
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

@@ -1,13 +1,13 @@
-# filepath: /Users/arnabd73/Documents/arnabdey73.github.io/Gemfile
 source "https://rubygems.org"
 
-# Use GitHub Pages
+# Use GitHub Pages - this automatically includes the right version of Jekyll and supported plugins
 gem "github-pages", group: :jekyll_plugins
 
-# Essential plugins
+# Plugins supported by GitHub Pages
 group :jekyll_plugins do
   gem "jekyll-seo-tag"
-  gem "minima"
+  gem "jekyll-feed"
+  gem "jekyll-sitemap"
 end
 
 # For Ruby 3.0+ local development

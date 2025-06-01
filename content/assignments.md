@@ -263,8 +263,4 @@ permalink: /assignments/
       <div class="tech-item-mini">
         <i class="fas fa-terminal" aria-hidden="true"></i>
         <span>Shell</span>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+      </di

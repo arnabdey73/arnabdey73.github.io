@@ -45,51 +45,24 @@
     
     <!-- Critical CSS - load immediately -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     
-    <!-- Non-critical CSS - load with media strategy -->
-    <link rel="stylesheet" href="{{ '/assets/css/theme-transitions.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/typography.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/site-footer.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/page-title.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/card-shadows.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/hero-banner.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/tech-stack.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/tech-logos.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/blog-feed.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/intro-card.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/assignment-cards.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/header-footer-fonts.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/tech-stack-mini.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/assignment-card-fix.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/icons-unified.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/certification-tech-icons.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ '/assets/css/mail-icon-fix.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
+    <!-- Consolidated CSS files for better performance -->
+    <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="{{ '/assets/css/icons.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
     
-    <!-- External resources -->
+    <!-- External resources with performance optimizations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" crossorigin>
     
     <!-- Fallback for browsers that don't support onload -->
     <noscript>
-      <link rel="stylesheet" href="{{ '/assets/css/theme-transitions.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/typography.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/site-footer.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/page-title.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/card-shadows.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/hero-banner.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/tech-stack.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/tech-logos.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/blog-feed.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/intro-card.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/assignment-cards.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/header-footer-fonts.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/tech-stack-mini.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/assignment-card-fix.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/icons-unified.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/certification-tech-icons.css' | relative_url }}">
-      <link rel="stylesheet" href="{{ '/assets/css/mail-icon-fix.css' | relative_url }}">
+      <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}">
+      <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+      <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}">
+      <link rel="stylesheet" href="{{ '/assets/css/icons.css' | relative_url }}">
     </noscript>    
     
     <!-- Google tag (gtag.js) -->
@@ -132,11 +105,8 @@
   <button id="back-to-top-btn" title="Go to top" aria-label="Scroll back to top of page">
     <i class="fas fa-arrow-up" aria-hidden="true"></i>
     <span class="sr-only">Back to top</span>
-  </button>  <!-- Theme switcher script - load immediately for theme flash prevention -->
-  <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
-  
-  <!-- Deferred scripts for better performance -->
-  <script defer src="{{ '/assets/js/blog-feed.js' | relative_url }}"></script>
+  </button>  <!-- Use minified, bundled JS for better performance -->
+  <script src="{{ '/assets/js/min/bundle.min.js' | relative_url }}"></script>
       <!-- Script for back to top button functionality and mobile navigation -->  
   <script>
     // Show/hide the mobile nav container based on screen width

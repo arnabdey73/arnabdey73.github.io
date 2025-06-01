@@ -1,7 +1,20 @@
 {
+  "name": "arnabdey73-portfolio",
+  "version": "1.0.0",
+  "description": "Arnab Dey's Portfolio Website",
+  "scripts": {
+    "optimize-images": "node optimize-images.js",
+    "consolidate-css": "node consolidate-css.js",
+    "minify-js": "node minify-js.js",
+    "build": "node build.js"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "imagemin": "^9.0.1",
+    "imagemin-jpegtran": "^8.0.0",
+    "imagemin-pngquant": "^10.0.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "terser": "^5.40.0"
   }
 }

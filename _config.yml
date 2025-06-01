@@ -33,12 +33,17 @@ highlighter: rouge
 sass:
   style: compressed
 
-# Use a GitHub Pages supported theme, then override with custom layouts
+# Use a GitHub Pages supported theme
 theme: minima
 
-# Plugins
+# Plugins - GitHub Pages supported
 plugins:
   - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+
+# GitHub Pages specific settings
+github: [metadata]
 
 # Exclude files
 exclude:
