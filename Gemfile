@@ -7,9 +7,6 @@ gem "github-pages", group: :jekyll_plugins
 # Essential plugins
 group :jekyll_plugins do
   gem "jekyll-seo-tag"
-  gem "jekyll-remote-theme"
-  gem "jekyll-feed"
-  gem "jekyll-sitemap"
 end
 
 # For Ruby 3.0+ local development

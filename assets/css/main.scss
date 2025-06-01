@@ -1,24 +1,29 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
-search: false
 ---
 
 @charset "utf-8";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-$link-color: teal; // Updated link color to teal
-$paragraph-indent: 1.5em;
-$paragraph-spacing: 1.5em;
-$code-font-size: 0.9em; /* Further reduced from 1em */
-$code-font-family: "Fira Code", "Courier New", Courier, monospace; // Updated font
-$code-background: #f4f4f4; // Softer background color
-$code-border-radius: 0.5em;
-$code-border: 1px solid #e0e0e0; // Lighter border
-$code-padding: 0.5em;
-$code-color: #333;
+/* Import all CSS files for consolidated loading */
+@import "themes";
+@import "theme-transitions";
+@import "typography";
+@import "style";
+@import "site-footer";
+@import "page-title";
+@import "card-shadows";
+@import "hero-banner";
+@import "tech-stack";
+@import "tech-logos";
+@import "blog-feed";
+@import "intro-card";
+@import "assignment-cards";
+@import "header-footer-fonts";
+@import "tech-stack-mini";
+@import "assignment-card-fix";
+@import "icons-unified";
+@import "certification-tech-icons";
+@import "mail-icon-fix";
 $code-line-height: 1.5em;
 
 // Adding new font variables for body and headings

@@ -1,78 +1,58 @@
 title: "Arnab Dey | Cloud Engineer Portfolio"
 description: "Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure. Passionate about automation, infrastructure as code, and cloud-native solutions."
+
+# Site Settings
+url: "https://arnabdey73.github.io"
+baseurl: ""
+permalink: /:title/
+
+# Author Information
 author:
   name: "Arnab Dey"
   bio: "Cloud Engineer and DevOps specialist with 14+ years of IT experience"
   location: "Sweden"
+  email: "mail@arnabdey.dev"
+  linkedin: "arnabdey73"
+  github: "arnabdey73"
 
-# SEO specific settings
+# SEO Settings
 logo: "/assets/img/avatar.jpg"
 image: "/assets/img/portfolio-thumbnail.jpg"
 lang: "en_US"
-twitter:
-  username: "" # Add your Twitter username if available
-  card: summary_large_image
+
+# Social Media
 social:
   name: "Arnab Dey"
   links:
     - "https://www.linkedin.com/in/arnabdey73/"
     - "https://github.com/arnabdey73"
 
-# Use a custom theme instead of remote theme
-#remote_theme: "mmistakes/minimal-mistakes"
-
-# Updated paths for assets and content
-assets_dir: assets
-content_dir: content
-
-# Update navigation links to match the Minimal Mistakes theme structure
-header_pages:
-  - about.md
-  - projects.md
-  - certifications.md
-  - contact.md
-
-# Social Links
-social:
-  linkedin: "arnabdey73"
-  github: "arnabdey73"
-  email: "mail@arnabdey.dev"
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+sass:
+  style: compressed
 
 # Plugins
 plugins:
-  - jekyll-remote-theme # Ensure this plugin is enabled
-  - jekyll-seo-tag # SEO optimization
+  - jekyll-seo-tag
 
-# Permalinks
-permalink: /:title/ 
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - package*.json
+  - tailwind.config.js
 
-# Base URL
-baseurl: "" # Leave empty for root URL
-
-# Remove collections and defaults specific to Minimal Mistakes
-collections: null
-defaults: null
-
-# Google Analytics
-google_analytics: "G-XXXXXXXXXX"  # Replace with your tracking ID
-
-# Disqus Comments (Optional)
-disqus: null # Disable Disqus for now
-
-# Placeholder for Projects & Certifications (To be updated later)
-projects:
-  - title: "Project Title"
-    description: "Short description of the project."
-    link: "https://github.com/arnabdey73/project-repo"
-
-certifications:
-  - title: "Certification Name"
-    organization: "Issuing Organization"
-    date: "Month Year"
-    link: "Certification URL"
-
-# Ensure proper HTML generation for Markdown files
-markdown_ext: "md,markdown,mkdn,mkdown,mkd"
-
-# Set the homepage layout to the custom static layout
-homepage_layout: home
+# Navigation
+header_pages:
+  - content/about.md
+  - content/projects.md
+  - content/certifications.md
+  - content/contact.md

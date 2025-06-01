@@ -3,20 +3,14 @@ layout: default
 ---
 
 <!-- Custom static homepage layout -->
-<main class="content">
-  <!-- Mobile nav-container between header strip and intro card -->
-  <div class="mobile-nav-container">
-    {% include mobile-nav-buttons.html %}
-  </div>
+<!-- Intro Card Section -->
+{% include intro-card.html %}
 
-  <!-- Intro Card Section -->
-  {% include intro-card.html %}
+<!-- Tech Stack Section -->
+{% include tech-stack.html %}
 
-  <!-- Tech Stack Section -->
-  {% include tech-stack.html %}
-  <!-- Blog Feed Section -->
-  {% include blog-feed.html %}
-</main>
+<!-- Blog Feed Section -->
+{% include blog-feed.html %}
 
 <script>
 // Show/hide the mobile nav container based on screen width
