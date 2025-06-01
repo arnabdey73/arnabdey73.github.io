@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const DEBUG = true;
   
   // Blog URL - Set to your Hashnode blog URL (custom domain)
-  const BLOG_URL = 'blog.arnabdey.dev';
+  const BLOG_URL = 'arnabdey73.github.io/blog';
   // For linking back to blog site
-  const BLOG_BASE_URL = 'https://blog.arnabdey.dev';
+  const BLOG_BASE_URL = 'https://arnabdey73.github.io/blog';
   
   // Function to fetch blog posts from Hashnode
   function fetchHashnodeBlogPosts() {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const graphqlQuery = {
       query: `
         query {
-          publication(host: "blog.arnabdey.dev") {
+          publication(host: "arnabdey73.github.io/blog") {
             posts(first: 10) {
               edges {
                 node {
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // RSS proxy service to avoid CORS issues
     const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
     // Hashnode's RSS feed URL pattern - make sure we're using the correct URL
-    const rssUrl = encodeURIComponent(`https://blog.arnabdey.dev/rss.xml`);
+    const rssUrl = encodeURIComponent(`https://arnabdey73.github.io/blog/rss.xml`);
     
     blogPostsContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Trying RSS feed...</p></div>';
     

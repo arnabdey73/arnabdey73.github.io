@@ -24,6 +24,7 @@ author:
   avatar: "/assets/img/avatar.jpg"
   bio: "Cloud Engineer and DevOps specialist with 14+ years of IT experience"
   location: "Sweden"
+<<<<<<< HEAD
   email: "mail@arnabdey.dev"
   links:
     - label: "LinkedIn"
@@ -86,6 +87,41 @@ defaults:
     values:
       layout: single
       author_profile: true
+=======
+
+# SEO specific settings
+logo: "/assets/img/avatar.jpg"
+image: "/assets/img/portfolio-thumbnail.jpg"
+lang: "en_US"
+twitter:
+  username: "" # Add your Twitter username if available
+  card: summary_large_image
+social:
+  name: "Arnab Dey"
+  links:
+    - "https://www.linkedin.com/in/arnabdey73/"
+    - "https://github.com/arnabdey73"
+
+# Update theme to Minimal Mistakes
+remote_theme: "mmistakes/minimal-mistakes"
+
+# Updated paths for assets and content
+assets_dir: assets
+content_dir: content
+
+# Update navigation links to match the Minimal Mistakes theme structure
+header_pages:
+  - about.md
+  - projects.md
+  - certifications.md
+  - contact.md
+
+# Social Links
+social:
+  linkedin: "arnabdey73"
+  github: "arnabdey73"
+  email: "arnabdey73@gmail.com"
+>>>>>>> bf5391d (Update domain references and email in configuration files to reflect new domain)
 
 # Plugins
 plugins:
