@@ -73,7 +73,15 @@ layout: default
   <header>
     <nav>
         {% include header.html %} <!-- Navigation bar -->
-    </nav></header>  <main class="content">
+    </nav>
+  </header>
+  
+  <!-- Mobile nav-container between header strip and content -->
+  <div class="mobile-nav-container">
+    {% include mobile-nav-buttons.html %}
+  </div>
+  
+  <main class="content">
     <div class="content-wrapper">
       {% if page.url contains '/about/' and page.title %}
         <h1 class="page-title">{{ page.title }}</h1>
@@ -93,10 +101,27 @@ layout: default
   
   <!-- Blog feed script -->
   <script src="{{ '/assets/js/blog-feed.js' | relative_url }}"></script>
-    
-  <!-- Script for back to top button functionality -->  
+      <!-- Script for back to top button functionality and mobile navigation -->  
   <script>
-    // Get the button with defensive coding
+    // Show/hide the mobile nav container based on screen width
+    function updateMobileNavContainer() {
+      var mobileNav = document.querySelector('.mobile-nav-container');
+      if (window.innerWidth <= 768) {
+        mobileNav.style.display = 'flex';
+      } else {
+        mobileNav.style.display = 'none';
+      }
+    }
+    
+    // Initialize mobile nav on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      updateMobileNavContainer();
+    });
+    
+    // Update mobile nav on window resize
+    window.addEventListener('resize', updateMobileNavContainer);
+    
+    // Get the back to top button with defensive coding
     let backToTopButton = document.getElementById("back-to-top-btn");
     
     // If the button doesn't exist for some reason (rare case), create it dynamically

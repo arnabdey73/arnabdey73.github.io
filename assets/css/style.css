@@ -386,7 +386,7 @@ body:not(.home) .banner {
   }
 }
 
-/* Mobile nav container below intro card */
+/* Mobile nav container between header strip and intro card */
 .mobile-nav-container {
   display: none;
   width: 100%;
@@ -409,6 +409,7 @@ body:not(.home) .banner {
     margin: 0 auto;
     width: auto;
     box-shadow: none;
+    display: flex;
     background: none;
   }
 }

@@ -4,8 +4,8 @@ layout: default
 
 <!-- Custom static homepage layout -->
 <main class="content">
-  <!-- Mobile nav-container below header strip, above intro card -->
-  <div class="mobile-nav-container" style="display:none">
+  <!-- Mobile nav-container between header strip and intro card -->
+  <div class="mobile-nav-container">
     {% include mobile-nav-buttons.html %}
   </div>
 
@@ -28,6 +28,21 @@ function updateMobileNavContainer() {
     mobileNav.style.display = 'none';
   }
 }
-window.addEventListener('DOMContentLoaded', updateMobileNavContainer);
+
+// Initialize on page load and handle resize events
+document.addEventListener('DOMContentLoaded', function() {
+  updateMobileNavContainer();
+  
+  // Make sure mobile theme toggle and the main theme toggle stay in sync
+  const mainThemeToggle = document.getElementById('theme-toggle');
+  const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+  
+  if (mainThemeToggle && mobileThemeToggle) {
+    // Sync the initial state
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  }
+});
+
 window.addEventListener('resize', updateMobileNavContainer);
 </script>

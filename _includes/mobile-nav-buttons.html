@@ -12,21 +12,72 @@
 </div>
 <script>
 // Mobile theme toggle
-const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-if (themeToggleMobile) {
-  themeToggleMobile.addEventListener('click', function() {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  });
-}
-// Mobile menu toggle (scrolls to nav)
-const menuToggleMobile = document.getElementById('menu-toggle-mobile');
-if (menuToggleMobile) {
-  menuToggleMobile.addEventListener('click', function() {
-    const nav = document.querySelector('.top-nav');
-    if (nav) nav.scrollIntoView({behavior:'smooth'});
-  });
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  if (themeToggleMobile) {
+    themeToggleMobile.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Ensure page refreshes theme styling
+      document.body.classList.remove('theme-' + currentTheme);
+      document.body.classList.add('theme-' + newTheme);
+    });
+  }
+});
+// Mobile menu toggle - should work the same as the main menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggleMobile = document.getElementById('menu-toggle-mobile');
+  const navMenu = document.getElementById('nav-menu');
+  
+  if (menuToggleMobile && navMenu) {
+    menuToggleMobile.addEventListener('click', function() {
+      // Toggle menu visibility
+      navMenu.classList.toggle('show');
+      
+      // Toggle active class on button
+      this.classList.toggle('active');
+      
+      // Toggle between menu and close icon
+      const isExpanded = navMenu.classList.contains('show');
+      this.setAttribute('aria-expanded', isExpanded);
+      
+      // Change icon between bars and X
+      const iconElement = this.querySelector('i');
+      
+      if (isExpanded) {
+        iconElement.classList.remove('fa-bars');
+        iconElement.classList.add('fa-times');
+        this.setAttribute('title', 'Close site navigation');
+      } else {
+        iconElement.classList.remove('fa-times');
+        iconElement.classList.add('fa-bars');
+        this.setAttribute('title', 'Open site navigation');
+      }
+      
+      // Scroll to nav after toggling
+      const nav = document.querySelector('.top-nav');
+      if (nav) nav.scrollIntoView({behavior:'smooth'});
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (navMenu.classList.contains('show') && 
+          !event.target.closest('#menu-toggle-mobile') && 
+          !event.target.closest('#nav-menu')) {
+        navMenu.classList.remove('show');
+        menuToggleMobile.classList.remove('active');
+        menuToggleMobile.setAttribute('aria-expanded', 'false');
+        
+        // Reset icon
+        const iconElement = menuToggleMobile.querySelector('i');
+        iconElement.classList.remove('fa-times');
+        iconElement.classList.add('fa-bars');
+        menuToggleMobile.setAttribute('title', 'Open site navigation');
+      }
+    });
+  }
+});
 </script>

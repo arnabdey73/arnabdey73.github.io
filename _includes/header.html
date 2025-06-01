@@ -202,8 +202,7 @@
     font-weight: 500; /* Slightly bolder */
   }
   
-  /* Responsive styles */  
-  @media screen and (max-width: 768px) {
+  /* Responsive styles */    @media screen and (max-width: 768px) {
     .menu-toggle {
       display: flex; /* Show menu toggle on mobile with flex for better centering */
       justify-content: center;
@@ -215,15 +214,9 @@
       position: relative; /* Position normally within the container */
     }
     
-    .nav-container {
-      position: absolute; /* Positioned absolutely within the top-nav */
-      top: 10px; /* Increased position from the top for more padding */
-      right: 15px; /* Increased position from the right for more padding */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000; /* Ensure it stays on top */
-      margin-top: 10px; /* Additional margin from the top edge */
+    /* Hide header nav buttons on mobile since we use the mobile-nav-container instead */
+    .top-nav .nav-container {
+      display: none;
     }
     
     .top-nav {

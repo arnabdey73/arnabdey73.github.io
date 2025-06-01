@@ -24,19 +24,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // We're not using OS preference since the site's default is dark
     document.documentElement.setAttribute('data-theme', 'dark');
   }
-  
-  // Toggle theme when button is clicked
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-      // Get current theme
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      
-      // Toggle theme
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    // Set up toggling for both theme toggle buttons
+  function setupThemeToggle(toggleElement) {
+    if (toggleElement) {
+      toggleElement.addEventListener('click', function() {
+        // Get current theme
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        
+        // Toggle theme
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         // Update theme attribute with transition effect
-      document.documentElement.classList.add('theme-transition');
-      document.documentElement.setAttribute('data-theme', newTheme);
-      
+        document.documentElement.classList.add('theme-transition');
+        document.documentElement.setAttribute('data-theme', newTheme);
+        
+        // Store the theme preference
+        localStorage.setItem('theme', newTheme);
+      });
+    }
+  }
+  
+  // Set up the main header theme toggle
+  setupThemeToggle(themeToggle);
+  
+  // Set up the mobile theme toggle (if it exists - it may load after this script)
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  setupThemeToggle(themeToggleMobile);
       // Remove transition class after transition completes
       setTimeout(() => {
         document.documentElement.classList.remove('theme-transition');
