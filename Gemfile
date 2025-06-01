@@ -1,10 +1,16 @@
+# filepath: /Users/arnabd73/Documents/arnabdey73.github.io/Gemfile
 source "https://rubygems.org"
 
-#gem "jekyll", "~> 4.3.2"
-gem "jekyll-seo-tag"
-gem "faraday-retry"
-gem "bundler"
+# Use GitHub Pages
 gem "github-pages", group: :jekyll_plugins
-gem "jekyll-theme-forty"
 
-# Removed minimal-mistakes-jekyll gem as the theme has been switched back to Forty
+# Essential plugins
+group :jekyll_plugins do
+  gem "jekyll-seo-tag"
+  gem "jekyll-remote-theme"
+  gem "jekyll-feed"
+  gem "jekyll-sitemap"
+end
+
+# For Ruby 3.0+ local development
+gem "webrick", "~> 1.7"

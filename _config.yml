@@ -18,8 +18,8 @@ social:
     - "https://www.linkedin.com/in/arnabdey73/"
     - "https://github.com/arnabdey73"
 
-# Update theme to Minimal Mistakes
-remote_theme: "mmistakes/minimal-mistakes"
+# Use a custom theme instead of remote theme
+#remote_theme: "mmistakes/minimal-mistakes"
 
 # Updated paths for assets and content
 assets_dir: assets
