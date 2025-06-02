@@ -6,9 +6,6 @@ minimal_mistakes_skin: "default" # "default", "air", "aqua", "contrast", "dark",
 markdown: kramdown
 highlighter: rouge
 
-# Theme configuration
-repository: mmistakes/minimal-mistakes
-
 # Encoding settings
 encoding: utf-8
 
@@ -21,7 +18,7 @@ name: "Arnab Dey"
 description: "Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure. Passionate about automation, infrastructure as code, and cloud-native solutions."
 url: "https://arnabdey73.github.io"
 baseurl: ""
-repository: "arnabdey73/arnabdey73.github.io"
+repository: "arnabdey73/arnabdey73.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 logo: "/assets/img/avatar.jpg"
 masthead_title: "Arnab Dey"
 breadcrumbs: true
