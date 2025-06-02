@@ -6,6 +6,7 @@ Encoding.default_internal = Encoding::UTF_8
 
 # GitHub Pages gem - includes Jekyll and all supported plugins  
 gem "github-pages", group: :jekyll_plugins
+gem "jekyll-remote-theme"
 
 # Essential plugins for minimal-mistakes theme
 group :jekyll_plugins do

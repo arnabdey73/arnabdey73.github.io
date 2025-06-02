@@ -1,6 +1,14 @@
 # Theme Settings
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "default" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Theme configuration
+repository: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "default"
 
 # Encoding settings
 encoding: utf-8
