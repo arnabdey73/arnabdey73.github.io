@@ -32,7 +32,8 @@
 }
 
 /* Desktop optimizations for the section container */
-@media (min-width: 1400px) {  .tech-stack-section {
+@media (min-width: 1400px) {
+  .tech-stack-section {
     width: 95%;
     max-width: 1400px;
   }
@@ -41,7 +42,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: repeat(4, minmax(250px, 280px));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
     justify-content: center;
   }
 }
@@ -54,13 +56,9 @@
   
   .tech-categories {
     max-width: 1720px;
-    grid-template-columns: repeat(4, minmax(280px, 320px));
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     gap: 3rem;
-  }
-  
-  .tech-item {
-    max-width: 100px;
   }
   
   .tech-category {
@@ -170,7 +168,7 @@
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .tech-categories {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     justify-content: center;
   }
@@ -185,9 +183,9 @@
   }
 }
 
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .tech-categories {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
   
