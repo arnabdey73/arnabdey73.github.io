@@ -3,9 +3,7 @@
  */
 document.addEventListener('DOMContentLoaded', function() {
   const blogPostsContainer = document.getElementById('blog-posts-container');
-    // Enable for debugging info in console
-  const DEBUG = true;
-  
+  // Enable for debugging info in console  const DEBUG = true;
   // Blog URL - Set to your Hashnode blog URL (custom domain)
   const BLOG_URL = 'astro-paper-project.vercel.app';
   // For linking back to blog site
@@ -19,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     blogPostsContainer.innerHTML = '<div class="loading-spinner loading-hashnode" role="status" aria-live="polite"><div class="spinner"></div><p>Loading latest posts...</p></div>';
     
     // The GraphQL query to get blog posts from Hashnode using the updated API structure
-    // This query should work with the current Hashnode API as of 2023    const graphqlQuery = {
+    // This query should work with the current Hashnode API as of 2023
+    const graphqlQuery = {
       query: `
         query {
           publication(host: "astro-paper-project.vercel.app") {
@@ -175,8 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Try RSS feed as a fallback
   function tryRSSFeed() {
-    if (DEBUG) console.log('Trying RSS feed as fallback');
-      // RSS proxy service to avoid CORS issues
+    if (DEBUG) console.log('Trying RSS feed as fallback');    // RSS proxy service to avoid CORS issues
     const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
     // Blog's RSS feed URL pattern - make sure we're using the correct URL
     const rssUrl = encodeURIComponent(`https://astro-paper-project.vercel.app/rss.xml`);

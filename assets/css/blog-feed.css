@@ -255,8 +255,7 @@
   margin-left: 0;
 }
 
-.blog-feed-section .section-title:after {
-  content: '';
+.blog-feed-section .section-title:after {  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
