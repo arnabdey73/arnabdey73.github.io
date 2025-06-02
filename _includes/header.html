@@ -169,31 +169,38 @@
 
   .top-nav ul {
     display: flex;
-    justify-content: center; /* Center align the navigation buttons */
+    justify-content: center;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 0.75rem; /* Increased gap for better spacing */
+    flex-wrap: wrap; /* Allow wrapping on narrow screens */
   }
   
   .top-nav ul li {
-    margin: 5px; /* Adjust spacing for responsiveness */
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0; /* Prevent text compression */
   }
 
   .top-nav ul li a {
     text-decoration: none;
-    color: #ffffff; /* White text */
-    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
-    padding: 10px 15px;
+    color: #ffffff;
+    font-size: clamp(0.9rem, 2vw, 1rem); /* Responsive font size */
+    padding: 8px 16px;
     border-radius: 5px;
-    transition: all 0.3s ease; /* Transition all properties */
-    display: block; /* Better for mobile */
-    text-align: center; /* Center text */
+    transition: all 0.3s ease;
+    display: inline-flex; /* Better alignment */
+    align-items: center;
+    white-space: nowrap; /* Prevent text wrapping */
+    min-height: 44px; /* Better touch target */
   }  
    
   .top-nav ul li a:hover {
     background-color: #2a9df4; /* Azure blue on hover */
     color: white;
+    transform: translateY(-1px);
   }
   
   /* Active page styling */
@@ -210,8 +217,8 @@
       align-items: center;
       animation: pulse 2.5s infinite, glow 4s infinite; /* Combined animations */
       background-color: rgba(0, 120, 212, 0.4); /* More visible on mobile */
-      backdrop-filter: blur(3px); /* Add subtle blur effect behind the button */
-      -webkit-backdrop-filter: blur(3px); /* For Safari support */
+      -webkit-backdrop-filter: blur(3px); /* Safari support */
+      backdrop-filter: blur(3px); /* Modern browsers */
       position: relative; /* Position normally within the container */
     }
     
@@ -238,8 +245,9 @@
       top: 100%; /* Below the header */
       left: 0; /* Align to left edge */
       z-index: 99; /* Above other content */
-      border-radius: 0 0 5px 5px; /* Rounded bottom corners */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+      border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+      padding: 0.5rem 0;
     }
     
     #nav-menu.show {
@@ -254,9 +262,11 @@
     }
     
     .top-nav ul li a {
-      padding: 12px 15px; /* Increase padding for better touch targets */
+      padding: 12px 20px; /* Increase padding for better touch targets */
       width: 100%; /* Full width */
-      box-sizing: border-box; /* Include padding in width calculation */
+      justify-content: center;
+      font-size: 1.1rem;
+      border-radius: 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
     }
     
