@@ -2,9 +2,10 @@
  * Blog Feed - Fetches and displays latest posts from the blog with performance optimizations
  */
 document.addEventListener('DOMContentLoaded', function() {
-  const blogPostsContainer = document.getElementById('blog-posts-container');
-  // Enable for debugging info in console  const DEBUG = true;
-  // Blog URL - Set to your Hashnode blog URL (custom domain)
+  const blogPostsContainer = document.getElementById('blog-posts-container');  // Enable for debugging info in console
+  const DEBUG = true;
+  
+  // Blog URL - Set to your blog URL (custom domain)
   const BLOG_URL = 'astro-paper-project.vercel.app';
   // For linking back to blog site
   const BLOG_BASE_URL = 'https://astro-paper-project.vercel.app';
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const graphqlQuery = {
       query: `
         query {
-          publication(host: "astro-paper-project.vercel.app") {
+          publication(host: "${BLOG_URL}") {
             posts(first: 10) {
               edges {
                 node {
@@ -173,10 +174,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Try RSS feed as a fallback
-  function tryRSSFeed() {
-    if (DEBUG) console.log('Trying RSS feed as fallback');    // RSS proxy service to avoid CORS issues
-    const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
-    // Blog's RSS feed URL pattern - make sure we're using the correct URL
+  function tryRSSFeed() {    if (DEBUG) console.log('Trying RSS feed as fallback');    // RSS proxy service to avoid CORS issues
+    const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';    // Blog's RSS feed URL pattern - make sure we're using the correct URL
     const rssUrl = encodeURIComponent(`https://astro-paper-project.vercel.app/rss.xml`);
     
     blogPostsContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Trying RSS feed...</p></div>';
