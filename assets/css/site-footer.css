@@ -23,7 +23,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 2px;
-    background: linear-gradient(to right, transparent, #2a9df4, transparent);
+    background: linear-gradient(to right, transparent, #2a9df4, transparent); /* Azure blue accent */
 }
 
 .footer-text {
