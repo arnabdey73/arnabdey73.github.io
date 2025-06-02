@@ -1,0 +1,55 @@
+# Site Settings
+title: Arnab Dey | Cloud Engineer Portfolio
+email: arnabdey73@gmail.com
+description: >- 
+  Portfolio website showcasing my work in cloud engineering, infrastructure as code, 
+  and DevOps practices.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://arnabdey73.github.io" 
+repository: "arnabdey73/arnabdey73.github.io"
+
+# Build settings
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: "default"
+markdown: kramdown
+highlighter: rouge
+
+# Analytics
+analytics:
+  provider: false
+
+# Site Author
+author:
+  name: "Arnab Dey"
+  avatar: "/assets/img/avatar.jpg"
+  bio: "Cloud Engineer | Infrastructure as Code | DevOps"
+  location: "Sweden"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/arnabdey73"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/arnabdey73"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-include-cache
+  - jekyll-remote-theme
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
+      related: true

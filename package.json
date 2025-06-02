@@ -1,8 +1,7 @@
 {
   "name": "arnabdey73-portfolio",
   "version": "1.0.0",
-  "description": "Arnab Dey's Portfolio Website",
-  "scripts": {
+  "description": "Arnab Dey's Portfolio Website",  "scripts": {
     "optimize-images": "node optimize-images.js",
     "minify-js": "node minify-js.js",
     "build": "bundle exec jekyll build"
@@ -14,6 +13,7 @@
     "imagemin-pngquant": "^10.0.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.1",
-    "terser": "^5.40.0"
+    "terser": "^5.40.0",
+    "uuid": "^11.1.0"
   }
 }
