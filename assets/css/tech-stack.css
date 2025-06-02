@@ -129,7 +129,7 @@
 
 .tech-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 2rem;
   width: 100%;
@@ -143,8 +143,8 @@
 /* Specific desktop screen optimizations */
 @media (min-width: 1200px) {
   .tech-categories {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
     justify-content: center;
   }
   
@@ -187,7 +187,7 @@
 
 @media (max-width: 991px) {
   .tech-categories {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
   
@@ -199,7 +199,7 @@
 
 @media (max-width: 767px) {
   .tech-categories {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.25rem;
     padding: 0 0.5rem;
   }
