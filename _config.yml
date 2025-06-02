@@ -8,7 +8,6 @@ highlighter: rouge
 
 # Theme configuration
 repository: mmistakes/minimal-mistakes
-minimal_mistakes_skin: "default"
 
 # Encoding settings
 encoding: utf-8
