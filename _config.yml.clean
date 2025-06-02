@@ -1,0 +1,122 @@
+# Theme Settings
+remote_theme: mmistakes/minimal-mistakes@4.24.0
+minimal_mistakes_skin: "default"  # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Site Settings
+locale: "en-US"
+title: "Arnab Dey | Cloud Engineer Portfolio"
+title_separator: "|"
+subtitle: "Cloud Engineer & DevOps Specialist"
+name: "Arnab Dey"
+description: "Cloud Engineer with 14+ years of IT experience, specializing in DevOps, CI/CD, and Azure. Passionate about automation, infrastructure as code, and cloud-native solutions."
+url: "https://arnabdey73.github.io"
+baseurl: ""
+repository: "arnabdey73/arnabdey73.github.io"  # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+logo: "/assets/img/avatar.jpg"
+masthead_title: "Arnab Dey"
+breadcrumbs: true
+words_per_minute: 200
+
+# Site Author
+author:
+  name: "Arnab Dey"
+  avatar: "/assets/img/avatar.jpg"
+  bio: "Cloud Engineer and DevOps specialist with 14+ years of IT experience"
+  location: "Sweden"
+  email: "arnabdey73@gmail.com"
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/arnabdey73/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/arnabdey73"
+
+# Site Footer
+footer:
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/arnabdey73/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/arnabdey73"
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# Build Settings
+sass:
+  sass_dir: _sass
+  style: compressed
+  sourcemap: never
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# GitHub Pages Settings
+github: [metadata]
+
+# Exclude Files from Processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - package*.json
+  - tailwind.config.js
+  - "*.backup"
+  - "*.new"
+  - "*.temp"
