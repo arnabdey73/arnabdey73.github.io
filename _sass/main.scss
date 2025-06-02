@@ -1,11 +1,13 @@
+@charset "utf-8";
+
 // Import all stylesheets in a specific order
-@import "main/variables";  // Variables first
-@import "main/base";       // Base styles
-@import "main/layout";     // Layout components
-@import "main/components"; // UI components
-@import "main/intro-card"; // Intro card styles
-@import "main/icons";      // Icons
-@import "main/styles";     // Additional styles
+@import "main/variables";
+@import "main/base";
+@import "main/layout";
+@import "main/components"; 
+@import "main/intro-card";
+@import "main/icons";
+@import "main/styles";
 
 // Import blog-related styles
 @import "blog/blog-feed-temp-error";
