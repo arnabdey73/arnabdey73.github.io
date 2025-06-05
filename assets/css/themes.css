@@ -114,6 +114,35 @@ a:hover {
 
 /* Remove theme toggle styling from the themes.css since we're defining it in the header for better scoping */
 
+/* Footer theme-specific styling */
+[data-theme="light"] .site-footer {
+  background-color: var(--header-bg);
+  color: var(--text-color);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -2px 10px rgba(140, 160, 200, 0.08);
+}
+
+[data-theme="light"] .footer-text {
+  color: var(--text-color);
+  text-shadow: none; /* Remove dark text shadow in light mode */
+}
+
+[data-theme="light"] .footer-text:hover {
+  color: var(--heading-color);
+}
+
+[data-theme="light"] .footer-link {
+  color: var(--primary-color);
+}
+
+[data-theme="light"] .footer-link:hover {
+  color: var(--link-hover-color);
+}
+
+[data-theme="light"] .footer-separator {
+  color: var(--secondary-text-color);
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .theme-toggle {

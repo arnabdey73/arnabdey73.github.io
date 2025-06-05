@@ -140,14 +140,14 @@
     margin: 0;
     justify-content: center;
   }
-  
-  .top-nav {
-    background-color: #121212; /* Dark background */
+    .top-nav {
+    background-color: var(--header-bg, #23272f); /* Use theme variable with fallback */
     margin: 10px 0 20px 0;
     width: 100%; /* Full width */
     padding: 15px 20px; /* Increased vertical padding */
     position: relative; /* For positioning the mobile menu button */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.2));
+    transition: background-color var(--transition-time, 0.3s) ease, box-shadow var(--transition-time, 0.3s) ease;
   }
   
   /* Nav container for proper button positioning - absolute positioning ensures it's at the top right */
