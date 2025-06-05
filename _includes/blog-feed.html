@@ -11,7 +11,8 @@
           <p>Loading latest posts...</p>
         </div>
       </div>
-    </div>      <div class="blog-cta">
+    </div>
+    <div class="blog-cta">
       <a href="https://astro-paper-project.vercel.app" target="_blank" rel="noopener" class="blog-btn">
         <i class="fas fa-book-open"></i>
         Visit Blog Section
@@ -19,3 +20,107 @@
     </div>
   </div>
 </div>
+
+<!-- Blog fetch script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchAstroPaperPosts();
+  });
+
+  async function fetchAstroPaperPosts() {
+    const container = document.getElementById('blog-posts-container');
+    const baseUrl = 'https://astro-paper-project.vercel.app';
+    
+    try {
+      // Fetch the main page to parse for recent posts
+      const response = await fetch(baseUrl);
+      const html = await response.text();
+      
+      // Create a temporary DOM element to parse the HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Find post elements (adjust selectors based on Astro Paper structure)
+      const postElements = doc.querySelectorAll('article, .post-card, .post-entry');
+      
+      // Clear loading spinner
+      container.innerHTML = '';
+      
+      // Limit to 3 posts
+      const postsToShow = Math.min(postElements.length, 3);
+      
+      if (postsToShow === 0) {
+        // Fallback if no posts found
+        displayFallbackPosts(container);
+        return;
+      }
+      
+      // Process each post
+      for (let i = 0; i < postsToShow; i++) {
+        const post = postElements[i];
+        
+        // Extract post details (adjust selectors as needed)
+        const titleEl = post.querySelector('h1, h2, h3, .post-title');
+        const linkEl = post.querySelector('a');
+        const descEl = post.querySelector('p, .post-desc, .description');
+        const dateEl = post.querySelector('time, .date, .post-date');
+        const imgEl = post.querySelector('img');
+        
+        const title = titleEl ? titleEl.textContent.trim() : 'Blog Post';
+        const link = linkEl ? new URL(linkEl.href, baseUrl).href : baseUrl;
+        const description = descEl ? descEl.textContent.trim().substring(0, 120) + '...' : '';
+        const date = dateEl ? dateEl.textContent.trim() : '';
+        const imgSrc = imgEl ? new URL(imgEl.src, baseUrl).href : 'assets/img/blog-placeholder.jpg';
+        
+        // Create post card
+        createPostCard(container, {
+          title,
+          link,
+          description,
+          date,
+          imgSrc
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+      displayFallbackPosts(container);
+    }
+  }
+  
+  function displayFallbackPosts(container) {
+    container.innerHTML = `
+      <div class="blog-post-card">
+        <div class="post-content">
+          <h3>Visit Astro Paper Blog</h3>
+          <p>Check out the latest articles on my technical blog. Topics include cloud architecture, DevOps, and more.</p>
+          <div class="post-meta">
+            <a href="https://astro-paper-project.vercel.app" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  
+  function createPostCard(container, post) {
+    const postCard = document.createElement('div');
+    postCard.className = 'blog-post-card';
+    
+    postCard.innerHTML = `
+      <div class="post-image">
+        <a href="${post.link}" target="_blank" rel="noopener">
+          <img src="${post.imgSrc}" alt="${post.title}" loading="lazy" onerror="this.src='assets/img/blog-placeholder.jpg'">
+        </a>
+      </div>
+      <div class="post-content">
+        <h3><a href="${post.link}" target="_blank" rel="noopener">${post.title}</a></h3>
+        <p>${post.description}</p>
+        <div class="post-meta">
+          ${post.date ? `<span class="date">${post.date}</span>` : ''}
+          <a href="${post.link}" target="_blank" rel="noopener">Read More →</a>
+        </div>
+      </div>
+    `;
+    
+    container.appendChild(postCard);
+  }
+</script>

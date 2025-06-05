@@ -1,24 +1,59 @@
 <style>  /* Mobile menu button */  
   .menu-toggle {
     display: none; /* Hidden by default */
-    background-color: rgba(0, 120, 212, 0.4); /* More visible semi-transparent blue */
-    border: 2px solid #0078D4; /* Blue border for visibility */
-    color: #ffffff; /* White text for better visibility */
-    font-size: 1.8rem; /* Slightly reduced font size to prevent overflow */
+    font-size: 1.5rem;
+    background-color: var(--primary-color, #0078D4);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
     cursor: pointer;
-    /* Position relative to nav-container which is already positioned */
-    position: relative; 
-    z-index: 100;
-    padding: 8px 15px; /* Reduced padding to make button more compact */
-    border-radius: 8px; /* Slightly more rounded corners */
-    transition: all 0.25s ease-out;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1); /* Enhanced shadow for better depth */
-    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-    margin: 8px; /* Increased margin around the button to ensure it doesn't touch edges */
-    min-height: 44px; /* Ensure minimum touch target size */
-    min-width: 44px; /* Ensure minimum touch target width */
+    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
   
+  /* Only display the menu toggle on mobile */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+    
+    /* Hide desktop navigation on mobile */
+    .nav-list {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: var(--header-bg, #23272f);
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+      z-index: 100;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-list.show {
+      display: flex;
+    }
+    
+    .nav-list li {
+      width: 100%;
+    }
+    
+    .nav-list li a {
+      padding: 15px;
+      width: 100%;
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
   /* Add visual indicator for toggle functionality */
   .menu-toggle::after {
     content: '•••';
@@ -140,28 +175,45 @@
     margin: 0;
     justify-content: center;
   }
-    .top-nav {
+  .top-nav {
     background-color: var(--header-bg, #23272f); /* Use theme variable with fallback */
-    margin: 10px 0 20px 0;
+    margin: 0;
     width: 100%; /* Full width */
     padding: 15px 20px; /* Increased vertical padding */
-    position: relative; /* For positioning the mobile menu button */
-    box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.2));
+    position: sticky; /* Make header sticky */
+    top: 0; /* Stick to top */
+    z-index: 1000; /* Ensure it's above other content */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: background-color var(--transition-time, 0.3s) ease, box-shadow var(--transition-time, 0.3s) ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
-  /* Nav container for proper button positioning - absolute positioning ensures it's at the top right */
+  /* Site branding for better desktop header layout */
+  .site-branding {
+    display: flex;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .site-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Nav container for proper button positioning */
   .nav-container {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
     display: flex;
     align-items: center;
     gap: 15px;
     z-index: 1000;
   }
-
   .top-nav ul {
     display: flex;
     justify-content: center;
@@ -169,7 +221,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 15px;
+    gap: 10px;
   }
   
   .top-nav ul li {
@@ -179,9 +231,9 @@
 
   .top-nav ul li a {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--text-color, #ffffff);
     font-size: 1rem;
-    padding: 10px 16px;
+    padding: 8px 14px;
     border-radius: 5px;
     transition: all 0.3s ease;
     display: flex;
@@ -189,7 +241,27 @@
     white-space: nowrap; /* Prevent text wrapping */
     min-height: 40px; /* Better touch target */
     font-weight: 500;
-  }  
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Add underline animation effect for desktop navigation */
+  @media (min-width: 769px) {
+    .top-nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color, #0078D4);
+      transition: width 0.3s ease;
+    }
+    
+    .top-nav ul li a:hover::after {
+      width: 100%;
+    }
+  }
    
   .top-nav ul li a:hover {
     background-color: #2a9df4; /* Azure blue on hover */
@@ -204,29 +276,25 @@
     font-weight: 600;
   }
   
-  /* Responsive styles */    @media screen and (max-width: 768px) {
+  /* Responsive styles */  @media screen and (max-width: 768px) {
     .menu-toggle {
       display: flex; /* Show menu toggle on mobile with flex for better centering */
       justify-content: center;
       align-items: center;
-      animation: pulse 2.5s infinite, glow 4s infinite; /* Combined animations */
-      background-color: rgba(0, 120, 212, 0.4); /* More visible on mobile */
+      background-color: rgba(0, 120, 212, 0.5); /* More visible on mobile */
       -webkit-backdrop-filter: blur(3px); /* Safari support */
       backdrop-filter: blur(3px); /* Modern browsers */
       position: relative; /* Position normally within the container */
-    }
-    
-    /* Hide header nav buttons on mobile since we use the mobile-nav-container instead */
-    .top-nav .nav-container {
-      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 6px;
     }
     
     .top-nav {
-      padding: 15px 10px; /* Increase top padding to accommodate the button */
+      padding: 12px 15px; /* Optimize padding for mobile */
       position: relative;
     }
-    
-    #nav-menu {
+      #nav-menu {
       flex-direction: column; /* Stack menu items vertically */
       align-items: center; /* Center items */
       width: 100%; /* Full width */
@@ -234,14 +302,15 @@
       overflow: hidden; /* Hide overflow */
       transition: max-height 0.5s ease, opacity 0.3s ease; /* Smooth transitions */
       opacity: 0; /* Start transparent */
-      background-color: rgba(0, 0, 0, 0.95); /* Slightly transparent background */
-      position: absolute; /* Position the dropdown */
-      top: 100%; /* Below the header */
+      background-color: var(--header-bg, #23272f); /* Use theme variable with fallback */
+      position: fixed; /* Fixed position for better mobile experience */
+      top: 70px; /* Below the header */
       left: 0; /* Align to left edge */
+      right: 0; /* Stretch across screen */
       z-index: 99; /* Above other content */
-      border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+      border-bottom: 1px solid var(--border-color, #333); /* Add border for separation */
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
-      padding: 0.5rem 0;
+      padding: 0;
     }
     
     #nav-menu.show {
@@ -358,6 +427,10 @@
 <link rel="shortcut icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 
 <nav class="top-nav">
+  <div class="site-branding">
+    <a class="site-title" href="/">Arnab's Portfolio</a>
+  </div>
+  
   <!-- Menu toggle button in its own container for proper positioning -->
   <div class="nav-container">
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
@@ -370,17 +443,19 @@
       <span class="sr-only">Menu</span> <!-- Screen reader text -->
     </button>
   </div>
-  
-  <!-- Navigation menu -->
+    <!-- Navigation menu -->
   <ul id="nav-menu" class="nav-list">
     <li><a href="/">Home</a></li>
-    <li><a href="/about/">About</a></li>
+    <li><a href="/about/">Journey</a></li>
     <li><a href="/projects/">Projects</a></li>
     <li><a href="/assignments/">Assignments</a></li>
     <li><a href="/certifications/">Certifications</a></li>
     <li><a href="/blog">Blog</a></li>
   </ul>
 </nav>
+
+<!-- Load mobile navigation script -->
+<script src="{{ '/assets/js/mobile-nav.js' | relative_url }}"></script>
 
 <script>
   // Mobile menu toggle and active page functionality

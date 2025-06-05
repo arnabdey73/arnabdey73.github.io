@@ -1,4 +1,45 @@
 /* Styled placeholders for blog post images with tech-themed backgrounds */
+
+/* Generic blog placeholder for when images fail to load */
+.blog-placeholder {
+  background: linear-gradient(135deg, #0078D4 0%, #2a9df4 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 8px;
+}
+
+.blog-placeholder::before {
+  content: '📝';
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}
+
+/* Default fallback for blog post images */
+.blog-post-card .post-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.blog-post-card .post-image img:not([src]),
+.blog-post-card .post-image img[src=""],
+.blog-post-card .post-image img.error {
+  background: linear-gradient(135deg, #0078D4 0%, #2a9df4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Specific themed placeholders */
 .blog-post-image.pulumi-python {
   background: linear-gradient(135deg, #3273dc, #160f30);
   position: relative;
