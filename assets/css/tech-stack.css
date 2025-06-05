@@ -66,6 +66,25 @@
   }
 }
 
+/* Ultra-wide screen optimization for perfect 3x3 grid */
+@media (min-width: 1400px) {
+  .tech-categories {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1300px;
+    justify-content: center;
+  }
+  
+  .tech-category {
+    min-height: 340px;
+    padding: 2rem;
+  }
+  
+  .tech-stack-section {
+    padding: 3rem 4rem 5rem;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1399px) {
   .tech-stack-section {
     max-width: 1140px;
@@ -127,7 +146,7 @@
 
 .tech-categories {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
   width: 100%;
@@ -144,6 +163,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     justify-content: center;
+    max-width: 1200px;
   }
   
   .tech-icons {
@@ -171,6 +191,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     justify-content: center;
+    max-width: 1000px;
   }
   
   .tech-icons {
@@ -185,7 +206,7 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
   .tech-categories {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
   
