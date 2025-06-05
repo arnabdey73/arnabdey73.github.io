@@ -1,0 +1,51 @@
+/* Footer background fixes to ensure dark theme consistency */
+.site-footer {
+  background-color: var(--header-bg, #23272f); /* Use header background for consistency */
+  color: var(--text-color, #e0e0e0);
+  margin: 0;
+  padding: 1.5rem 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+/* Add a pseudo-element to cover any potential gap before the footer */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: -10px; /* Extend slightly above the footer */
+  left: 0;
+  right: 0;
+  height: 15px; /* Overlap to prevent any white strip */
+  background-color: var(--bg-color, #121212);
+  z-index: -1;
+}
+
+/* Apply specific styles when in light theme to ensure consistency */
+[data-theme="light"] .site-footer {
+  background-color: var(--header-bg, #f8f9fa);
+  color: var(--text-color, #333);
+}
+
+[data-theme="light"] .site-footer::before {
+  background-color: var(--bg-color, #ffffff);
+}
+
+/* Ensure page wrapper extends to the bottom */
+html, body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > .page__footer,
+body > #footer {
+  margin-top: auto;
+}
+
+/* Ensure the dark background extends to the bottom */
+.page__footer {
+  background-color: var(--header-bg, #23272f);
+  margin: 0;
+  padding: 0;
+}

@@ -1,10 +1,10 @@
 /* Blog Feed Section Styles */
 .blog-feed-section {
-  padding: 3rem 3rem 1.5rem;
-  background-color: #121212;
+  padding: 3rem 3rem 3rem;
+  background-color: var(--bg-color, #121212);
   background-image: radial-gradient(circle at 50% 100%, #1a1a1a 0%, #121212 70%);
   border-radius: 12px;
-  margin: 3rem auto 1rem; /* Reduced bottom margin */
+  margin: 3rem auto 3rem; /* Increased bottom margin */
   max-width: 96%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
