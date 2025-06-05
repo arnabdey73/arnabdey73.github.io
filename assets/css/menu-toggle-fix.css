@@ -1,0 +1,50 @@
+/* Menu toggle button fix */
+
+/* Hide the close icon by default */
+.menu-toggle .fa-times {
+  display: none;
+}
+
+/* Show the close icon when menu is expanded */
+.menu-toggle[aria-expanded="true"] .fa-times {
+  display: inline-block;
+}
+
+/* Hide the bars icon when menu is expanded */
+.menu-toggle[aria-expanded="true"] .fa-bars {
+  display: none;
+}
+
+/* Show the nav list when menu toggle is expanded */
+.menu-toggle[aria-expanded="true"] + .nav-list,
+.nav-list.show {
+  display: flex !important;
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Add active state styling to menu toggle */
+.menu-toggle.active,
+.menu-toggle[aria-expanded="true"] {
+  background-color: rgba(0, 120, 212, 0.9) !important;
+  transform: scale(0.97);
+}
+
+/* Ensure mobile navigation styling */
+@media (max-width: 768px) {
+  .nav-list {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--header-bg, #23272f);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    flex-direction: column;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+}

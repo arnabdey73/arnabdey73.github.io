@@ -13,10 +13,12 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  /* Mobile layout adjustments */
+    position: relative;
+    z-index: 100; /* Ensure it stays above other elements */
+  }  /* Mobile layout adjustments */
   @media (max-width: 768px) {
     .top-nav {
+      display: grid;
       grid-template-columns: auto 1fr auto; /* Adjust columns for mobile: left menu, center space, right theme */
       padding: 12px 15px; /* Smaller padding on mobile */
     }
@@ -45,7 +47,7 @@
       grid-row: 2; /* Place below the header row */
     }
     
-    /* Hide desktop navigation on mobile */
+    /* Mobile navigation list */
     .nav-list {
       display: none;
       position: fixed;
@@ -60,10 +62,17 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       width: 100%;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      overflow: hidden;
     }
     
     .nav-list.show {
       display: flex;
+      max-height: 500px;
+      opacity: 1;
+      overflow-y: auto;
     }
     
     .nav-list li {
@@ -125,19 +134,19 @@
     50% { border-color: rgba(0, 198, 255, 0.9); }
     100% { border-color: rgba(0, 120, 212, 0.8); }
   }
-  
-  /* Enhanced icon transition animation */
+    /* Enhanced icon transition animation */
   .menu-toggle i {
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.25s ease;
     display: inline-block;
+    pointer-events: none; /* Ensure clicks pass through to the button */
   }
   
-  .menu-toggle.active i.fa-bars {
+  .menu-toggle[aria-expanded="true"] i.fa-bars {
     transform: rotate(225deg); /* More dynamic rotation */
     opacity: 0;
   }
   
-  .menu-toggle.active i.fa-times {
+  .menu-toggle[aria-expanded="true"] i.fa-times {
     transform: rotate(0);
     opacity: 1;
   }
@@ -304,7 +313,7 @@
       display: flex; /* Show menu toggle on mobile with flex for better centering */
       justify-content: center;
       align-items: center;
-      background-color: rgba(0, 120, 212, 0.5); /* More visible on mobile */
+      background-color: rgba(0, 120, 212, 0.7); /* More visible on mobile */
       -webkit-backdrop-filter: blur(3px); /* Safari support */
       backdrop-filter: blur(3px); /* Modern browsers */
       position: relative; /* Position normally within the container */
@@ -317,14 +326,12 @@
       padding: 12px 15px; /* Optimize padding for mobile */
       position: relative;
     }
-      #nav-menu {
+      
+    /* Navigation menu styling for mobile */
+    .nav-list {
       flex-direction: column; /* Stack menu items vertically */
       align-items: center; /* Center items */
       width: 100%; /* Full width */
-      max-height: 0; /* Hide by default */
-      overflow: hidden; /* Hide overflow */
-      transition: max-height 0.5s ease, opacity 0.3s ease; /* Smooth transitions */
-      opacity: 0; /* Start transparent */
       background-color: var(--header-bg, #23272f); /* Use theme variable with fallback */
       position: fixed; /* Fixed position for better mobile experience */
       top: 70px; /* Below the header */
@@ -334,12 +341,6 @@
       border-bottom: 1px solid var(--border-color, #333); /* Add border for separation */
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
       padding: 0;
-    }
-    
-    #nav-menu.show {
-      max-height: 500px; /* Show when .show class is added */
-      opacity: 1; /* Fully visible */
-      display: flex; /* Ensure it displays as flex */
     }
     
     .top-nav ul li {
@@ -447,11 +448,10 @@
 <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="shortcut icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 
-<nav class="top-nav">
-  <!-- Mobile menu toggle button on the left -->
+<nav class="top-nav">  <!-- Mobile menu toggle button on the left -->
   <div class="mobile-menu-toggle">
-    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" title="Open site navigation">
-      <i class="fas fa-bars"></i>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" title="Open site navigation">      <i class="fas fa-bars"></i>
+      <i class="fas fa-times"></i>
       <span class="sr-only">Menu</span> <!-- Screen reader text -->
     </button>
   </div>
@@ -479,13 +479,12 @@
 </nav>
 
 <!-- Load mobile navigation script -->
-<script src="{{ '/assets/js/mobile-nav.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/mobile-nav-fixed.js' | relative_url }}"></script>
 
 <script>
-  // Mobile menu toggle and active page functionality
+  // Add initial animation for menu button
   document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
     
     // Add initial-load class to trigger the animation on page load
     // Only on mobile devices
@@ -494,130 +493,11 @@
       setTimeout(() => {
         menuToggle.classList.add('initial-load');
         
-        // Add an extra flash effect to draw more attention to the button
-        menuToggle.style.backgroundColor = 'rgba(0, 120, 212, 0.8)';
-        setTimeout(() => {
-          menuToggle.style.backgroundColor = 'rgba(0, 120, 212, 0.4)';
-        }, 300);
-        
         // Remove the class after animation completes
         setTimeout(() => {
           menuToggle.classList.remove('initial-load');
         }, 3000);
       }, 500);
-    }
-    
-    // Set active page
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('#nav-menu a');
-    
-    navLinks.forEach(link => {
-      const linkPath = link.getAttribute('href');
-      if (linkPath === currentPath || (linkPath !== '/' && currentPath.startsWith(linkPath))) {
-        link.classList.add('active');
-      }
-    });
-    
-    // Mobile menu toggle with updated selectors
-    if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', function(event) {
-        // Toggle menu visibility
-        navMenu.classList.toggle('show');
-        
-        // Toggle active class on button
-        this.classList.toggle('active');
-        
-        // Toggle between menu and close icon
-        const isExpanded = navMenu.classList.contains('show');
-        this.setAttribute('aria-expanded', isExpanded);
-        
-        // Enhanced icon transition with dynamic rotation
-        const iconElement = this.querySelector('i');
-        
-        if (isExpanded) {
-          // First prep for animation with CSS transform
-          iconElement.style.transition = 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.2s ease';
-          
-          // Start rotation animation and fade out
-          iconElement.style.transform = 'rotate(180deg)';
-          iconElement.style.opacity = '0';
-          
-          // Wait for animation to progress then swap icons
-          setTimeout(() => {
-            iconElement.classList.remove('fa-bars');
-            iconElement.classList.add('fa-times'); // Change to X when menu is open
-            iconElement.style.transform = 'rotate(0)';
-            iconElement.style.opacity = '1';
-          }, 200);
-          
-          // Update tooltip
-          this.setAttribute('title', 'Close site navigation');
-        } else {
-          // First prep for animation with CSS transform
-          iconElement.style.transition = 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.2s ease';
-          
-          // Start rotation animation and fade out
-          iconElement.style.transform = 'rotate(-180deg)';
-          iconElement.style.opacity = '0';
-          
-          // Wait for animation to progress then swap icons
-          setTimeout(() => {
-            iconElement.classList.remove('fa-times');
-            iconElement.classList.add('fa-bars'); // Change back to bars when menu is closed
-            iconElement.style.transform = 'rotate(0)';
-            iconElement.style.opacity = '1';
-          }, 200);
-          
-          // Update tooltip
-          this.setAttribute('title', 'Open site navigation');
-        }
-        
-        event.stopPropagation(); // Prevent document click from immediately closing it
-      });
-      
-      // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!event.target.closest('.top-nav') || event.target.tagName === 'A') {
-          navMenu.classList.remove('show');
-          menuToggle.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          
-          // Reset icon with enhanced animation
-          const iconElement = menuToggle.querySelector('i');
-          
-          // First prep for animation with CSS transform
-          iconElement.style.transition = 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.2s ease';
-          
-          // Start rotation animation and fade out
-          iconElement.style.transform = 'rotate(-180deg)';
-          iconElement.style.opacity = '0';
-          
-          // Wait for animation to progress then swap icons
-          setTimeout(() => {
-            iconElement.classList.remove('fa-times');
-            iconElement.classList.add('fa-bars'); // Change back to bars when menu is closed
-            iconElement.style.transform = 'rotate(0)';
-            iconElement.style.opacity = '1';
-          }, 200);
-          
-          // Update tooltip
-          menuToggle.setAttribute('title', 'Open site navigation');
-        }
-      });
-      
-      // Close menu on window resize (if switching from mobile to desktop)
-      window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-          navMenu.classList.remove('show');
-          menuToggle.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          
-          // Reset icon
-          const iconElement = menuToggle.querySelector('i');
-          iconElement.classList.remove('fa-times');
-          iconElement.classList.add('fa-bars');
-        }
-      });
     }
   });
 </script>

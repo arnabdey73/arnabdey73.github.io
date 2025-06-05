@@ -1,6 +1,6 @@
 /**
- * Mobile Navigation Handling
- * Enhanced mobile navigation menu with smooth transitions and improved UX
+ * Mobile Navigation Handling - Simplified version
+ * Enhanced mobile navigation menu with smooth transitions
  */
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.querySelector('.menu-toggle');
@@ -10,32 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error("Mobile nav elements not found");
     return;
   }
-    // Toggle mobile navigation
+  
+  // Toggle mobile navigation
   menuToggle.addEventListener('click', function(event) {
-    event.preventDefault();
-    event.stopPropagation();
+    // Toggle menu classes
     navList.classList.toggle('show');
     const isExpanded = navList.classList.contains('show');
     this.setAttribute('aria-expanded', isExpanded);
+    this.classList.toggle('active', isExpanded);
     
-    // Swap icon between bars and times
-    const icon = this.querySelector('i');
-    if (isExpanded) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-times');
-      // Add class to button for styling
-      this.classList.add('active');
-    } else {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-      // Remove class from button
-      this.classList.remove('active');
-    }
-    
-    // Log for debugging
-    console.log('Menu toggled, show:', isExpanded);
+    // Prevent default behavior and propagation
+    event.preventDefault();
+    event.stopPropagation();
   });
-    // Close mobile navigation when clicking outside
+  
+  // Close mobile navigation when clicking outside
   document.addEventListener('click', function(event) {
     if (
       navList.classList.contains('show') && 
@@ -45,15 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
       navList.classList.remove('show');
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.classList.remove('active');
-      
-      const icon = menuToggle.querySelector('i');
-      if (icon) {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-      
-      // Log for debugging
-      console.log('Menu closed by outside click');
     }
   });
   
@@ -62,10 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth > 768 && navList.classList.contains('show')) {
       navList.classList.remove('show');
       menuToggle.setAttribute('aria-expanded', 'false');
-      
-      const icon = menuToggle.querySelector('i');
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
+      menuToggle.classList.remove('active');
     }
   });
   
