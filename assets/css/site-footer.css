@@ -20,11 +20,16 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #2a9df4, transparent); /* Azure blue accent */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        rgba(42, 157, 244, 0.2) 20%, 
+        rgba(42, 157, 244, 0.6) 50%, 
+        rgba(42, 157, 244, 0.2) 80%, 
+        transparent 100%); /* Enhanced gradient for Azure blue accent */
+    box-shadow: 0 0 10px rgba(42, 157, 244, 0.5); /* Add subtle glow */
 }
 
 .footer-text {

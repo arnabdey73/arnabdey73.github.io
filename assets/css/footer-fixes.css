@@ -10,7 +10,7 @@
 }
 
 /* Add a pseudo-element to cover any potential gap before the footer */
-.site-footer::before {
+.site-footer::after {
   content: '';
   position: absolute;
   top: -10px; /* Extend slightly above the footer */
@@ -18,7 +18,7 @@
   right: 0;
   height: 15px; /* Overlap to prevent any white strip */
   background-color: var(--bg-color, #121212);
-  z-index: -1;
+  z-index: -2; /* Lower z-index than the decorative ::before element */
 }
 
 /* Apply specific styles when in light theme to ensure consistency */
@@ -27,7 +27,7 @@
   color: var(--text-color, #333);
 }
 
-[data-theme="light"] .site-footer::before {
+[data-theme="light"] .site-footer::after {
   background-color: var(--bg-color, #ffffff);
 }
 

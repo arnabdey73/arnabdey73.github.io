@@ -102,14 +102,15 @@
   margin-left: 0;
 }
 
-.section-title:after {  content: '';
+.section-title:after {  
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background-color: var(--primary-color-light, #2a9df4);
+  background-color: transparent; /* Changed from blue to transparent */
   transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), 
               box-shadow 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
               background-color 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -141,7 +142,7 @@
 }
 
 [data-theme="dark"] .section-title:after {
-  background-color: var(--primary-color-light, #2a9df4);
+  background-color: transparent; /* Changed from blue to transparent */
 }
 
 .tech-categories {
