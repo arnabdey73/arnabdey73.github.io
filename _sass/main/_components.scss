@@ -111,6 +111,7 @@
   justify-content: center;
   margin: 20px 0 10px;
   width: 100%;
+  height: 100px; /* Set height to 100px as requested */
 }
 
 .cert-verify-button {
@@ -477,8 +478,8 @@
 
 .blog-btn:hover {
   transform: translateY(-3px);
-  background-color: transparent;
-  color: #2a9df4;
+  background-color: #2285d8; /* Slightly darker blue instead of transparent */
+  color: white; /* Keep text white on hover */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
@@ -1491,6 +1492,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  visibility: visible;
+  opacity: 1;
 }
 
 .terraform-logo-mini::before {
@@ -1508,6 +1511,8 @@
   -webkit-mask-position: center;
   mask-position: center;
   transition: background-color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: block; /* Ensure the element is displayed */
+  z-index: 1; /* Ensure visibility */
 }
 
 .tech-item-mini:hover .terraform-logo-mini::before,

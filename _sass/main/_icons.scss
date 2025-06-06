@@ -531,6 +531,8 @@ html {
   -webkit-mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
+  display: block; /* Ensure the element is displayed */
+  z-index: 1; /* Ensure visibility */
 }
 
 // Adjust size for desktop 
