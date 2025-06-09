@@ -1195,29 +1195,120 @@ footer * {
   margin: 15px auto 30px;
 }
 
-// Single layout content wrapper adjustments 
-.layout-single .content-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+// Mobile navigation toggle styles
+.greedy-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
 
-// For larger screens 
-@media screen and (min-width: 1200px) {
-  .page-title {
-    font-size: 2.5rem;
+  a {
+    display: block;
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+    color: #444;
+    text-decoration: none;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &__toggle {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.hidden {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .navicon {
+    position: relative;
+    width: 24px;
+    height: 3px;
+    background: #444;
+    transition: background 0.2s ease-in-out;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 3px;
+      background: #444;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &::before {
+      top: -8px;
+      transform-origin: top left;
+    }
+    
+    &::after {
+      bottom: -8px;
+      transform-origin: bottom left;
+    }
+  }
+
+  &__toggle[aria-expanded="true"] .navicon {
+    background: transparent;
+
+    &::before {
+      transform: rotate(45deg) translate(2px, -3px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translate(2px, 3px);
+    }
   }
 }
 
-// For smaller screens 
-@media screen and (max-width: 768px) {
-  .page-title {
-    font-size: 1.8rem;
-    margin-top: 20px;
+// Mobile navigation styles
+@media (max-width: 767px) {
+  .greedy-nav {
+    .hidden-links {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      padding: 5px;
+      border: 1px solid #f2f2f2;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      &.hidden {
+        display: none;
+      }
+      
+      a {
+        margin: 0;
+        padding: 10px 20px;
+        font-size: 1rem;
+        
+        &:hover {
+          background: #f8f8f8;
+        }
+      }
+    }
   }
   
-  .page-title:after {
-    margin: 10px auto 20px;
+  .greedy-nav__toggle {
+    display: block !important;
   }
 }
 
