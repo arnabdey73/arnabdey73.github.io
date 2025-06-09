@@ -1,0 +1,562 @@
+/* Tech Stack and Blog Post Card Overlap and Content Alignment Fixes */
+
+/* =====================================================
+   1. Tech Stack Card Overlapping Fixes
+   ===================================================== */
+
+/* Fix grid layout spacing and prevent overlapping */
+.tech-categories {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 2.5rem !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 2rem auto !important;
+  padding: 0 2rem !important;
+  justify-content: center !important;
+  align-items: start !important; /* Prevent vertical stretching */
+}
+
+/* Ensure cards don't overlap by fixing their positioning */
+.tech-category {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-bottom: 0 !important; /* Remove any conflicting margins */
+  width: 100% !important;
+  max-width: 380px !important; /* Consistent max width */
+  min-height: 280px !important;
+  max-height: 380px !important; /* Prevent excessive height */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important; /* Prevent content overflow */
+}
+
+/* Desktop optimizations to prevent overlapping */
+@media (min-width: 1200px) {
+  .tech-categories {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 3rem !important;
+    max-width: 1200px !important;
+  }
+  
+  .tech-category {
+    min-height: 320px !important;
+    max-height: 400px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .tech-categories {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2.5rem !important;
+    max-width: 1000px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .tech-categories {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .tech-categories {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  .tech-category {
+    max-width: 100% !important;
+  }
+}
+
+/* =====================================================
+   2. Tech Icons 2x2 Grid Layout Fixes
+   ===================================================== */
+
+/* Fixed 2x2 grid layout for tech icons (no scrolling) */
+.tech-icons {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important; /* Always 2 columns */
+  grid-template-rows: repeat(2, 1fr) !important; /* Always 2 rows */
+  gap: 1rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+  justify-items: center !important;
+  flex-grow: 1 !important;
+  padding: 1rem 0.5rem !important;
+  height: 160px !important; /* Fixed height for consistent 2x2 grid */
+  width: 100% !important;
+  max-width: 280px !important; /* Optimal width for 2x2 layout */
+  margin: 0 auto !important; /* Center the grid */
+  overflow: hidden !important; /* No scrolling - items must fit in 2x2 */
+  box-sizing: border-box !important;
+}
+
+/* Specific layouts for different item counts */
+.tech-category[data-item-count="1"] .tech-icons {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 1fr !important;
+  justify-items: center !important;
+  align-items: center !important;
+  height: 80px !important; /* Smaller height for single item */
+}
+
+.tech-category[data-item-count="2"] .tech-icons {
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-rows: 1fr !important;
+  justify-items: center !important;
+  align-items: center !important;
+  height: 80px !important; /* Single row height */
+}
+
+.tech-category[data-item-count="3"] .tech-icons {
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-rows: repeat(2, 1fr) !important;
+  justify-items: center !important;
+  align-items: center !important;
+  height: 160px !important; /* Full 2x2 height */
+}
+
+.tech-category[data-item-count="4"] .tech-icons {
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-rows: repeat(2, 1fr) !important;
+  justify-items: center !important;
+  align-items: center !important;
+  height: 160px !important; /* Full 2x2 height for 4 items */
+}
+
+/* Individual tech icon sizing optimized for 2x2 grid */
+.tech-icon,
+.tech-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0.5rem !important;
+  height: 70px !important; /* Optimal height for 2x2 grid fit */
+  width: 100% !important;
+  max-width: 100px !important; /* Allow slightly more width for better icon display */
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Icon image/font sizing optimized for 2x2 grid */
+.tech-icon img,
+.tech-icon .icon-placeholder,
+.tech-item i {
+  width: 36px !important; /* Slightly larger icons for better visibility */
+  height: 36px !important;
+  object-fit: contain !important;
+  margin-bottom: 0.25rem !important;
+  flex-shrink: 0 !important;
+  font-size: 36px !important; /* Ensure font icons match image size */
+}
+
+/* Icon text styling optimized for 2x2 grid */
+.tech-icon .icon-text,
+.tech-item span {
+  font-size: 0.75rem !important; /* Slightly larger text for readability */
+  line-height: 1.1 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  margin-top: 0.25rem !important;
+  text-align: center !important;
+}
+
+/* Special handling for skill levels in 2x2 grid */
+.tech-item .skill-level {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  margin-top: 0.25rem !important;
+  flex-wrap: nowrap !important;
+}
+
+.tech-item .skill-level .skill-dot {
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  display: inline-block !important;
+}
+
+.tech-item .skill-level .skill-dot.filled {
+  background-color: #2a9df4 !important;
+}
+
+/* Mobile responsive fixes for 2x2 grid */
+@media (max-width: 768px) {
+  .tech-icons {
+    gap: 0.75rem !important;
+    height: 140px !important; /* Slightly smaller on mobile */
+    max-width: 250px !important;
+    padding: 0.75rem 0.25rem !important;
+  }
+  
+  /* Maintain 2x2 grid for all item counts on mobile */
+  .tech-category[data-item-count="1"] .tech-icons {
+    height: 70px !important;
+  }
+  
+  .tech-category[data-item-count="2"] .tech-icons {
+    height: 70px !important;
+  }
+  
+  .tech-category[data-item-count="3"] .tech-icons,
+  .tech-category[data-item-count="4"] .tech-icons {
+    height: 140px !important;
+  }
+  
+  .tech-icon,
+  .tech-item {
+    height: 60px !important;
+    padding: 0.25rem !important;
+    max-width: 90px !important;
+  }
+  
+  .tech-icon img,
+  .tech-icon .icon-placeholder,
+  .tech-item i {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 30px !important;
+  }
+  
+  .tech-icon .icon-text,
+  .tech-item span {
+    font-size: 0.65rem !important;
+    line-height: 1 !important;
+  }
+  
+  .tech-item .skill-level .skill-dot {
+    width: 3px !important;
+    height: 3px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icons {
+    gap: 0.5rem !important;
+    height: 120px !important; /* Even smaller on very small screens */
+    max-width: 200px !important;
+    padding: 0.5rem 0.25rem !important;
+  }
+  
+  .tech-category[data-item-count="1"] .tech-icons {
+    height: 60px !important;
+  }
+  
+  .tech-category[data-item-count="2"] .tech-icons {
+    height: 60px !important;
+  }
+  
+  .tech-category[data-item-count="3"] .tech-icons,
+  .tech-category[data-item-count="4"] .tech-icons {
+    height: 120px !important;
+  }
+  
+  .tech-icon,
+  .tech-item {
+    height: 50px !important;
+    padding: 0.2rem !important;
+    max-width: 80px !important;
+  }
+  
+  .tech-icon img,
+  .tech-icon .icon-placeholder,
+  .tech-item i {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 24px !important;
+    margin-bottom: 0.15rem !important;
+  }
+  
+  .tech-icon .icon-text,
+  .tech-item span {
+    font-size: 0.6rem !important;
+    line-height: 0.9 !important;
+  }
+  
+  .tech-item .skill-level {
+    gap: 1px !important;
+    margin-top: 0.15rem !important;
+  }
+  
+  .tech-item .skill-level .skill-dot {
+    width: 2px !important;
+    height: 2px !important;
+  }
+}
+
+/* Special handling for Terraform logo in 2x2 grid */
+.tech-item .terraform-logo {
+  width: 36px !important;
+  height: 36px !important;
+  margin-bottom: 0.25rem !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  flex-shrink: 0 !important;
+}
+
+.tech-item .terraform-logo::before {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 36px !important;
+}
+
+/* Ensure custom tech logos fit properly in 2x2 grid */
+.tech-item .tech-logo {
+  width: 36px !important;
+  height: 36px !important;
+  margin-bottom: 0.25rem !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
+/* Mobile responsive fixes for special logos */
+@media (max-width: 768px) {
+  .tech-item .terraform-logo,
+  .tech-item .tech-logo {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .tech-item .terraform-logo::before {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 30px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-item .terraform-logo,
+  .tech-item .tech-logo {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .tech-item .terraform-logo::before {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 24px !important;
+  }
+}
+
+/* Additional grid stability fixes */
+.tech-category-2x2-grid .tech-icons {
+  contain: layout style !important; /* Improve rendering performance */
+}
+
+.tech-category-2x2-grid .tech-item {
+  will-change: transform !important; /* Optimize for hover animations */
+  backface-visibility: hidden !important; /* Prevent rendering glitches */
+}
+
+/* Hover states optimized for 2x2 grid */
+.tech-category-2x2-grid .tech-item:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  z-index: 2 !important;
+  transition: transform 0.2s ease !important;
+}
+
+.tech-category-2x2-grid .tech-item:hover i,
+.tech-category-2x2-grid .tech-item:hover .terraform-logo,
+.tech-category-2x2-grid .tech-item:hover .tech-logo {
+  filter: brightness(1.1) !important;
+  transition: filter 0.2s ease !important;
+}
+
+/* =====================================================
+   3. Blog Post Content Center Alignment Fixes
+   ===================================================== */
+
+/* Fix blog post grid centering */
+.blog-posts {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 2rem auto !important;
+  padding: 0 2rem !important;
+}
+
+.posts-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 2.5rem !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  justify-content: center !important;
+  justify-items: center !important;
+  align-items: start !important; /* Prevent vertical stretching */
+  margin: 0 auto !important;
+  padding: 1rem 0 !important;
+}
+
+/* Fix blog post card content alignment */
+.blog-post-card {
+  width: 100% !important;
+  max-width: 380px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: center !important; /* Center all text */
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Content area centering */
+.blog-post-card .post-content,
+.blog-post-content {
+  padding: 1.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  justify-content: space-between !important;
+  flex-grow: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Title centering */
+.blog-post-card .post-title,
+.blog-post-title {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* Excerpt centering */
+.blog-post-card .post-excerpt,
+.blog-post-excerpt {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* Meta information centering */
+.blog-post-card .post-meta,
+.blog-post-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  gap: 0.5rem !important;
+}
+
+/* Read more button centering */
+.blog-post-card .read-more,
+.blog-post-readmore {
+  align-self: center !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+/* Image centering */
+.post-thumbnail,
+.blog-post-image {
+  width: 100% !important;
+  text-align: center !important;
+  display: block !important;
+}
+
+.post-thumbnail img,
+.blog-post-image {
+  width: 100% !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Desktop blog grid optimizations */
+@media (min-width: 1200px) {
+  .posts-container {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 3rem !important;
+    max-width: 1200px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .posts-container {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2.5rem !important;
+    max-width: 1000px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .posts-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .posts-container {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .blog-post-card {
+    max-width: 100% !important;
+  }
+  
+  .blog-posts {
+    padding: 0 1rem !important;
+  }
+}
+
+/* =====================================================
+   4. Additional Fixes for Layout Stability
+   ===================================================== */
+
+/* Prevent any floating or absolute positioning conflicts */
+.tech-category,
+.blog-post-card {
+  float: none !important;
+  position: relative !important;
+  clear: both !important;
+}
+
+/* Ensure proper box model */
+* {
+  box-sizing: border-box;
+}
+
+/* Fix any transform-related overlapping issues */
+.tech-category:hover,
+.blog-post-card:hover {
+  z-index: 10 !important; /* Ensure hovered cards appear on top */
+}
+
+/* Prevent grid items from stretching vertically */
+.tech-categories,
+.posts-container {
+  align-content: start !important;
+  align-items: start !important;
+}
+
+/* Ensure consistent card heights without overlap */
+.tech-category,
+.blog-post-card {
+  align-self: start !important;
+  justify-self: center !important;
+}

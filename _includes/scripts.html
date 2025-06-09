@@ -49,6 +49,12 @@
 
 <!-- Custom scripts -->
 <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/card-overlap-fixes.js' | relative_url }}"></script>
+
+<!-- Tech Stack 2x2 Grid Diagnostics (only in development) -->
+{% if jekyll.environment == 'development' %}
+<script src="{{ '/assets/js/tech-stack-diagnostics.js' | relative_url }}"></script>
+{% endif %}
 <script src="{{ '/assets/js/tech-stack.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/mobile-nav-fixed.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/visibility-fixes.js' | relative_url }}"></script>
