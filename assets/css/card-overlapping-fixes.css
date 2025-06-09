@@ -130,40 +130,46 @@
   height: 160px !important; /* Full 2x2 height for 4 items */
 }
 
-/* Individual tech icon sizing optimized for 2x2 grid */
+/* Individual tech icon sizing optimized for 2x2 grid - ADJUSTED FOR SPACING */
 .tech-icon,
 .tech-item {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: flex-start !important; /* Changed to flex-start for better spacing */
   text-align: center !important;
-  padding: 0.5rem !important;
-  height: 70px !important;
+  padding: 0.4rem !important; /* Reduced padding */
+  height: 65px !important; /* Reduced height */
   width: 100% !important;
-  max-width: 120px !important; /* Increased for better icon spacing */
+  max-width: 100px !important; /* Reduced max width */
   box-sizing: border-box !important;
   overflow: visible !important;
   position: relative !important;
   border-radius: 8px !important;
   background: transparent !important;
-  transition: transform 0.2s ease !important; /* Add smooth hover effect */
+  transition: transform 0.2s ease !important;
+  gap: 0.2rem !important; /* Add gap between elements */
 }
 
-/* Icon image/font sizing optimized for 2x2 grid */
+/* Icon image/font sizing optimized for 2x2 grid - REDUCED SIZES */
 .tech-icon img,
 .tech-icon .icon-placeholder,
 .tech-item i {
-  width: 40px !important; /* Increased icon size */
-  height: 40px !important;
+  width: 32px !important; /* Reduced from 40px for better visibility */
+  height: 32px !important;
   object-fit: contain !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.3rem !important; /* Reduced margin */
   flex-shrink: 0 !important;
-  font-size: 40px !important; /* Larger font icons for better visibility */
-  border-radius: 0 !important; /* Remove border radius from icons */
+  font-size: 32px !important; /* Reduced font size for better fit */
+  border-radius: 0 !important;
   display: block !important;
-  color: inherit !important; /* Ensure icons inherit proper colors */
-  line-height: 1 !important; /* Fix line height for font icons */
+  color: inherit !important;
+  line-height: 1 !important;
+  max-width: 32px !important; /* Enforce max width */
+  max-height: 32px !important; /* Enforce max height */
+  visibility: visible !important; /* Force visibility */
+  opacity: 1 !important; /* Force opacity */
+  background: transparent !important; /* Ensure no background conflicts */
 }
 
 /* Icon text styling optimized for 2x2 grid */
@@ -182,25 +188,37 @@
   color: inherit !important; /* Ensure proper text color inheritance */
 }
 
-/* Special handling for skill levels in 2x2 grid - ENHANCED */
+/* Special handling for skill levels in 2x2 grid - FIXED SPACING */
 .tech-item .skill-level {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 3px !important; /* Increased gap for better visibility */
-  margin-top: 0.2rem !important; /* Increased margin */
+  gap: 2px !important; /* Reduced gap for tighter spacing */
+  margin-top: 0.1rem !important; /* Reduced margin to prevent overlap */
   flex-wrap: nowrap !important;
-  min-height: 8px !important; /* Increased minimum height */
+  min-height: 6px !important; /* Reduced minimum height */
   width: 100% !important;
   position: relative !important;
-  z-index: 20 !important; /* Higher z-index to ensure visibility */
-  background: transparent !important; /* Ensure no background conflicts */
+  z-index: 20 !important;
+  background: transparent !important;
+  padding: 0 !important; /* Remove any padding */
+  flex-shrink: 0 !important; /* Prevent shrinking */
 }
 
 .tech-item .skill-level .skill-dot {
-  width: 6px !important; /* Larger dots for better visibility */
-  height: 6px !important;
+  width: 5px !important; /* Reduced dot size */
+  height: 5px !important;
   border-radius: 50% !important;
+  border: 1px solid currentColor !important;
+  background-color: transparent !important;
+  flex-shrink: 0 !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  margin: 0 !important; /* Remove any margin */
+  padding: 0 !important; /* Remove any padding */
+}
+
+.tech-item .skill-level .skill-dot.filled {
   background-color: rgba(255, 255, 255, 0.3) !important; /* More visible background */
   display: inline-block !important;
   flex-shrink: 0 !important;
@@ -636,6 +654,27 @@
   color: var(--primary-color, #2a9df4) !important;
 }
 
+/* Force center alignment for top navigation */
+.top-nav .nav-list {
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 100 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+/* Ensure nav center container is properly centered */
+.nav-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
 /* Fix mobile menu toggle visibility */
 .menu-toggle {
   display: none !important; /* Hidden by default on desktop */
@@ -664,39 +703,48 @@
 /* Mobile navigation styles */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: flex !important; /* Show on mobile */
+    display: flex !important; /* Force display on mobile */
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1000 !important;
+    position: relative !important;
+    background-color: #0078D4 !important;
+    color: white !important;
+    border: none !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 1.2rem !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
   }
   
+  /* Ensure mobile nav list works properly */
   .top-nav .nav-list {
-    display: none !important; /* Hide horizontal nav on mobile */
-    flex-direction: column !important;
-    position: absolute !important;
-    top: 100% !important;
+    position: fixed !important;
+    top: 60px !important;
     left: 0 !important;
     right: 0 !important;
-    background-color: var(--bg-color, #1a1a1a) !important;
-    padding: 1rem !important;
-    border-radius: 0 0 8px 8px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    width: 100% !important;
+    background-color: var(--header-bg, #23272f) !important;
+    flex-direction: column !important;
     z-index: 999 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(-100%) !important;
+    transition: transform 0.3s ease !important;
   }
   
-  .top-nav .nav-list.mobile-nav-open {
-    display: flex !important; /* Show when toggled */
-  }
-  
-  .top-nav .nav-list li {
-    width: 100% !important;
-    margin: 0.25rem 0 !important;
-  }
-  
-  .top-nav .nav-list li a {
-    padding: 0.75rem 1rem !important;
-    width: 100% !important;
-    text-align: center !important;
-    border-radius: 6px !important;
+  .top-nav .nav-list.show {
+    transform: translateY(0) !important;
+    display: flex !important;
   }
 }
 
@@ -876,4 +924,216 @@
 .tech-category {
   transform-style: flat !important;
   perspective: none !important;
+}
+
+/* =====================================================
+   Blog Post Card Fixes - Remove Descriptions & Compact Layout
+   ===================================================== */
+
+/* Compact blog post cards without descriptions */
+.blog-post-card {
+  max-height: 280px !important; /* Reduced height without descriptions */
+  min-height: 260px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--card-bg, #ffffff) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Compact post image sizing */
+.blog-post-card .post-image {
+  height: 160px !important; /* Reduced image height */
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+
+.blog-post-card .post-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.3s ease !important;
+}
+
+.blog-post-card:hover .post-image img {
+  transform: scale(1.05) !important;
+}
+
+/* Compact post content without description */
+.blog-post-card .post-content {
+  padding: 1rem !important; /* Reduced padding */
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.blog-post-card .post-content h3 {
+  margin: 0 0 0.8rem 0 !important; /* Reduced bottom margin */
+  font-size: 1rem !important; /* Slightly smaller title */
+  line-height: 1.3 !important;
+  font-weight: 600 !important;
+}
+
+.blog-post-card .post-content h3 a {
+  text-decoration: none !important;
+  color: var(--text-color, #333) !important;
+  transition: color 0.3s ease !important;
+}
+
+.blog-post-card .post-content h3 a:hover {
+  color: var(--primary-color, #0078D4) !important;
+}
+
+/* Remove any paragraph descriptions */
+.blog-post-card .post-content p {
+  display: none !important; /* Hide descriptions completely */
+}
+
+/* Compact post meta styling */
+.blog-post-card .post-meta {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-top: auto !important;
+  padding-top: 0.5rem !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-size: 0.85rem !important;
+}
+
+.blog-post-card .post-meta .date {
+  color: var(--text-muted, #666) !important;
+  font-size: 0.8rem !important;
+}
+
+.blog-post-card .post-meta .read-more {
+  color: var(--primary-color, #0078D4) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+}
+
+.blog-post-card .post-meta .read-more:hover {
+  text-decoration: underline !important;
+}
+
+/* Mobile responsive adjustments for compact cards */
+@media (max-width: 768px) {
+  .blog-post-card {
+    max-height: 260px !important;
+    min-height: 240px !important;
+  }
+  
+  .blog-post-card .post-image {
+    height: 140px !important;
+  }
+  
+  .blog-post-card .post-content {
+    padding: 0.8rem !important;
+  }
+  
+  .blog-post-card .post-content h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+}
+
+/* =====================================================
+   Enhanced Tech Icon Visibility and Color Fixes
+   ===================================================== */
+
+/* Force icon visibility with enhanced color schemes */
+.tech-item i,
+.tech-icon i,
+.tech-item .icon-placeholder,
+.tech-icon .icon-placeholder {
+  color: var(--primary-color, #0078D4) !important;
+  background: transparent !important;
+  border: none !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
+  filter: none !important;
+  transform: none !important;
+  position: relative !important;
+  z-index: 10 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Enhanced icon color schemes by technology */
+.tech-item[data-tech*="javascript"] i,
+.tech-item[data-tech*="js"] i { color: #F7DF1E !important; }
+
+.tech-item[data-tech*="python"] i { color: #3776AB !important; }
+
+.tech-item[data-tech*="docker"] i { color: #2496ED !important; }
+
+.tech-item[data-tech*="kubernetes"] i,
+.tech-item[data-tech*="k8s"] i { color: #326CE5 !important; }
+
+.tech-item[data-tech*="azure"] i { color: #0078D4 !important; }
+
+.tech-item[data-tech*="aws"] i { color: #FF9900 !important; }
+
+.tech-item[data-tech*="terraform"] i { color: #7B42BC !important; }
+
+.tech-item[data-tech*="ansible"] i { color: #EE0000 !important; }
+
+.tech-item[data-tech*="jenkins"] i { color: #D33833 !important; }
+
+.tech-item[data-tech*="git"] i { color: #F05032 !important; }
+
+.tech-item[data-tech*="linux"] i { color: #FCC624 !important; }
+
+.tech-item[data-tech*="nginx"] i { color: #009639 !important; }
+
+/* Fallback bright colors for unmatched icons */
+.tech-item i:not([class*="fab"]):not([class*="fas"]) {
+  color: #0078D4 !important;
+  background: linear-gradient(45deg, #0078D4, #40E0D0) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Icon image fixes for better visibility */
+.tech-item img,
+.tech-icon img {
+  filter: brightness(1.1) contrast(1.1) !important;
+  border: 1px solid rgba(0, 120, 212, 0.2) !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  padding: 2px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Tech item hover effects for better interactivity */
+.tech-item:hover,
+.tech-icon:hover {
+  transform: scale(1.05) !important;
+  background: rgba(0, 120, 212, 0.05) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.15) !important;
+}
+
+.tech-item:hover i,
+.tech-icon:hover i {
+  transform: scale(1.1) !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Enhanced text visibility */
+.tech-item span,
+.tech-icon .icon-text {
+  color: var(--text-color, #333) !important;
+  font-weight: 600 !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8) !important;
+  letter-spacing: 0.3px !important;
 }

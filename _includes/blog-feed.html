@@ -163,7 +163,6 @@
       imgSrc: postImage
     });
   }
-
   function displayFallbackPosts(container, errorMessage = null) {
     // Show the actual recent posts as fallback with real data from RSS
     container.innerHTML = `
@@ -176,7 +175,6 @@
         </div>
         <div class="post-content">
           <h3><a href="https://astro-paper-project.vercel.app/posts/a-complete-devops-automation-project-with-python-azure-and-kubernetes/" target="_blank" rel="noopener">🚀 A Complete DevOps Automation Project with Python, Azure, and Kubernetes</a></h3>
-          <p>A comprehensive DevOps portfolio project that demonstrates automation, infrastructure as code, CI/CD, and Kubernetes deployment using Python, Azure, and modern DevOps tools.</p>
           <div class="post-meta">
             <span class="date"><i class="far fa-calendar-alt"></i> May 26, 2025</span>
             <a href="https://astro-paper-project.vercel.app/posts/a-complete-devops-automation-project-with-python-azure-and-kubernetes/" target="_blank" rel="noopener" class="read-more">Read More →</a>
@@ -193,7 +191,6 @@
         </div>
         <div class="post-content">
           <h3><a href="https://astro-paper-project.vercel.app/posts/a-guide-to-automating-cost-savings-on-azure-with-python-terraform-and-azure-devops/" target="_blank" rel="noopener">💰 A Guide to Automating Cost Savings on Azure with Python, Terraform & Azure DevOps</a></h3>
-          <p>Learn how to build a Python-based cost optimizer for Azure that automatically identifies cost-saving opportunities using Terraform and Azure DevOps pipelines.</p>
           <div class="post-meta">
             <span class="date"><i class="far fa-calendar-alt"></i> May 26, 2025</span>
             <a href="https://astro-paper-project.vercel.app/posts/a-guide-to-automating-cost-savings-on-azure-with-python-terraform-and-azure-devops/" target="_blank" rel="noopener" class="read-more">Read More →</a>
@@ -210,27 +207,9 @@
         </div>
         <div class="post-content">
           <h3><a href="https://astro-paper-project.vercel.app/posts/iac-azure-core-governance-enterprise-scale-automation-platform/" target="_blank" rel="noopener">🏗️ IAC Azure Core Governance: Enterprise-Scale Foundation for Cloud Compliance</a></h3>
-          <p>Discover a comprehensive Infrastructure as Code solution that implements Azure governance at enterprise scale with management groups, policy assignments, RBAC, and security controls using Terraform.</p>
           <div class="post-meta">
             <span class="date"><i class="far fa-calendar-alt"></i> May 20, 2025</span>
             <a href="https://astro-paper-project.vercel.app/posts/iac-azure-core-governance-enterprise-scale-automation-platform/" target="_blank" rel="noopener" class="read-more">Read More →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="blog-post-card">
-        <div class="post-image">
-          <a href="https://astro-paper-project.vercel.app/posts/openstack-devops-suite-comprehensive-automation-platform/" target="_blank" rel="noopener">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=200&fit=crop&auto=format" alt="OpenStack DevOps" loading="lazy" 
-              onerror="this.onerror=null; this.src='/assets/img/blog-placeholder.jpg';">
-          </a>
-        </div>
-        <div class="post-content">
-          <h3><a href="https://astro-paper-project.vercel.app/posts/openstack-devops-suite-comprehensive-automation-platform/" target="_blank" rel="noopener">🔄 OpenStack DevOps Suite: A Comprehensive Automation Platform for Modern Infrastructure</a></h3>
-          <p>Discover the OpenStack DevOps Suite - a powerful, open-source automation platform that streamlines infrastructure management, deployment pipelines, and monitoring for modern cloud environments.</p>
-          <div class="post-meta">
-            <span class="date"><i class="far fa-calendar-alt"></i> May 1, 2025</span>
-            <a href="https://astro-paper-project.vercel.app/posts/openstack-devops-suite-comprehensive-automation-platform/" target="_blank" rel="noopener" class="read-more">Read More →</a>
           </div>
         </div>
       </div>
@@ -244,7 +223,6 @@
       ` : ''}
     `;
   }
-
   function createPostCard(container, post) {
     const postCard = document.createElement('div');
     postCard.className = 'blog-post-card';
@@ -258,7 +236,6 @@
       </div>
       <div class="post-content">
         <h3><a href="${post.link}" target="_blank" rel="noopener">${post.title}</a></h3>
-        <p>${post.description}</p>
         <div class="post-meta">
           ${post.date ? `<span class="date"><i class="far fa-calendar-alt"></i> ${post.date}</span>` : ''}
           <a href="${post.link}" target="_blank" rel="noopener" class="read-more">Read More →</a>
