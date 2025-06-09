@@ -1047,93 +1047,234 @@
 }
 
 /* =====================================================
-   Enhanced Tech Icon Visibility and Color Fixes
+   FINAL COMPREHENSIVE FIXES - June 2025
    ===================================================== */
 
-/* Force icon visibility with enhanced color schemes */
-.tech-item i,
-.tech-icon i,
-.tech-item .icon-placeholder,
-.tech-icon .icon-placeholder {
-  color: var(--primary-color, #0078D4) !important;
-  background: transparent !important;
-  border: none !important;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) !important;
-  filter: none !important;
-  transform: none !important;
+/* Mobile Menu Flickering Prevention */
+.menu-toggle {
+  display: none !important;
   position: relative !important;
-  z-index: 10 !important;
-  display: inline-block !important;
-  vertical-align: middle !important;
-}
-
-/* Enhanced icon color schemes by technology */
-.tech-item[data-tech*="javascript"] i,
-.tech-item[data-tech*="js"] i { color: #F7DF1E !important; }
-
-.tech-item[data-tech*="python"] i { color: #3776AB !important; }
-
-.tech-item[data-tech*="docker"] i { color: #2496ED !important; }
-
-.tech-item[data-tech*="kubernetes"] i,
-.tech-item[data-tech*="k8s"] i { color: #326CE5 !important; }
-
-.tech-item[data-tech*="azure"] i { color: #0078D4 !important; }
-
-.tech-item[data-tech*="aws"] i { color: #FF9900 !important; }
-
-.tech-item[data-tech*="terraform"] i { color: #7B42BC !important; }
-
-.tech-item[data-tech*="ansible"] i { color: #EE0000 !important; }
-
-.tech-item[data-tech*="jenkins"] i { color: #D33833 !important; }
-
-.tech-item[data-tech*="git"] i { color: #F05032 !important; }
-
-.tech-item[data-tech*="linux"] i { color: #FCC624 !important; }
-
-.tech-item[data-tech*="nginx"] i { color: #009639 !important; }
-
-/* Fallback bright colors for unmatched icons */
-.tech-item i:not([class*="fab"]):not([class*="fas"]) {
-  color: #0078D4 !important;
-  background: linear-gradient(45deg, #0078D4, #40E0D0) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-}
-
-/* Icon image fixes for better visibility */
-.tech-item img,
-.tech-icon img {
-  filter: brightness(1.1) contrast(1.1) !important;
-  border: 1px solid rgba(0, 120, 212, 0.2) !important;
-  border-radius: 4px !important;
-  background: rgba(255, 255, 255, 0.9) !important;
-  padding: 2px !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Tech item hover effects for better interactivity */
-.tech-item:hover,
-.tech-icon:hover {
-  transform: scale(1.05) !important;
-  background: rgba(0, 120, 212, 0.05) !important;
+  z-index: 1001 !important;
+  background: linear-gradient(135deg, #0078D4, #106ebe) !important;
+  color: white !important;
+  border: none !important;
   border-radius: 8px !important;
-  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.15) !important;
+  padding: 12px 15px !important;
+  font-size: 18px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3) !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: auto !important;
 }
 
-.tech-item:hover i,
-.tech-icon:hover i {
-  transform: scale(1.1) !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) !important;
+.menu-toggle:hover {
+  background: linear-gradient(135deg, #106ebe, #005a9e) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4) !important;
 }
 
-/* Enhanced text visibility */
-.tech-item span,
-.tech-icon .icon-text {
-  color: var(--text-color, #333) !important;
-  font-weight: 600 !important;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8) !important;
-  letter-spacing: 0.3px !important;
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .nav-list {
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a) !important;
+    border-radius: 0 0 12px 12px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    border-top: 2px solid #0078D4 !important;
+    z-index: 1000 !important;
+    padding: 20px 0 !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+  
+  .nav-list.mobile-nav-open {
+    display: flex !important;
+    animation: slideDownFade 0.3s ease forwards !important;
+  }
 }
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Tech Icon Styling */
+.tech-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.tech-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-5px) scale(1.05) !important;
+}
+
+.tech-item i, .tech-item [class*="logo"] {
+  font-size: 32px !important;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  margin-bottom: 8px !important;
+  transition: all 0.3s ease !important;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+  font-weight: 900 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Technology-specific colors */
+.tech-item:has([class*="ubuntu"]) i { color: #E95420 !important; text-shadow: 0 0 10px #E9542040 !important; }
+.tech-item:has([class*="redhat"]) i { color: #EE0000 !important; text-shadow: 0 0 10px #EE000040 !important; }
+.tech-item:has([class*="windows"]) i { color: #0078D6 !important; text-shadow: 0 0 10px #0078D640 !important; }
+.tech-item:has([class*="microsoft"]) i { color: #0078D4 !important; text-shadow: 0 0 10px #0078D440 !important; }
+.tech-item:has([class*="aws"]) i { color: #FF9900 !important; text-shadow: 0 0 10px #FF990040 !important; }
+.tech-item:has([class*="python"]) i { color: #3776AB !important; text-shadow: 0 0 10px #3776AB40 !important; }
+.tech-item:has([class*="docker"]) i { color: #2496ED !important; text-shadow: 0 0 10px #2496ED40 !important; }
+.tech-item:has([class*="dharmachakra"]) i { color: #326CE5 !important; text-shadow: 0 0 10px #326CE540 !important; }
+.tech-item:has([class*="jenkins"]) i { color: #D33833 !important; text-shadow: 0 0 10px #D3383340 !important; }
+.tech-item:has([class*="github"]) i { color: #24292E !important; text-shadow: 0 0 10px #24292E40 !important; }
+.tech-item:has([class*="gitlab"]) i { color: #FC6D26 !important; text-shadow: 0 0 10px #FC6D2640 !important; }
+.tech-item:has([class*="google"]) i { color: #4285F4 !important; text-shadow: 0 0 10px #4285F440 !important; }
+.tech-item:has([class*="terminal"]) i { color: #4EAA25 !important; text-shadow: 0 0 10px #4EAA2540 !important; }
+
+/* Enhanced skill level dots */
+.skill-level {
+  margin-top: 6px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 3px !important;
+}
+
+.skill-dot {
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.skill-dot.filled {
+  background: #0078D4 !important;
+  box-shadow: 0 0 8px rgba(0, 120, 212, 0.5) !important;
+}
+
+/* Navigation Center Alignment Enhancement */
+.top-nav .nav-list {
+  visibility: visible !important;
+  justify-content: center !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+@media (min-width: 769px) {
+  .top-nav .nav-list {
+    flex-direction: row !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Blog Post Card Height Optimization */
+.blog-post-card {
+  max-height: 280px !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.blog-post-card .post-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 1rem !important;
+}
+
+.blog-post-card .post-content h3 {
+  margin-bottom: 0.5rem !important;
+  line-height: 1.3 !important;
+  font-size: 1.1rem !important;
+}
+
+/* Hide descriptions to keep only title and image */
+.blog-post-card .post-content p {
+  display: none !important;
+}
+
+/* Enhanced responsive grid for Cloud Platforms first */
+@media (min-width: 1200px) {
+  .tech-categories .tech-category:first-child {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+}
+
+/* Force proper icon display for all FontAwesome icons */
+.tech-item i[class*="fa-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "Font Awesome 6 Pro" !important;
+  -webkit-font-smoothing: antialiased !important;
+  display: inline-block !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+}
+
+/* Terraform logo special handling */
+.terraform-logo {
+  width: 32px !important;
+  height: 32px !important;
+  background: linear-gradient(135deg, #623CE4, #4d2db3) !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 8px !important;
+}
+
+/* Final polish for all remaining issues */
+.tech-stack-section {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.tech-categories {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* Ensure proper stacking context */
+.tech-category {
+  isolation: isolate !important;
+}
+
+/* Force FontAwesome CDN if not loaded */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
