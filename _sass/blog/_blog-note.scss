@@ -26,14 +26,16 @@
 @media (min-width: 768px) {
   .posts-container {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 2.5rem !important;
+    gap: 2rem !important;
+    justify-content: center !important; // Ensure proper centering
   }
 }
 
 @media (max-width: 767px) {
   .posts-container {
     grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+    gap: 1.5rem !important;
+    justify-content: center !important; // Ensure proper centering
   }
 }
 

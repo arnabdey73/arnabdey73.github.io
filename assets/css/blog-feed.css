@@ -33,6 +33,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 2rem auto;
+  padding: 0 1rem; /* Add horizontal padding for consistent margins */
 }
 
 .posts-container {
@@ -40,6 +41,8 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   width: 100%;
+  justify-content: center; /* Center the grid items */
+  margin: 0 auto; /* Ensure container is centered */
 }
 
 .blog-post-card {
@@ -334,12 +337,17 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .blog-feed-section {
-    padding: 2rem;
+    padding: 2rem 1rem; /* Reduce horizontal padding on mobile */
     margin: 1.5rem auto;
+  }
+  
+  .blog-posts {
+    padding: 0 0.5rem; /* Reduce padding on mobile */
   }
   
   .posts-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem; /* Slightly reduce gap on mobile */
   }
   
   .blog-post-title {
