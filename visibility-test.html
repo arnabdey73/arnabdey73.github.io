@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visibility Fixes Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/tech-logos.css">
+    <link rel="stylesheet" href="assets/css/visibility-fixes.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: var(--bg-color, #fff);
+        }
+        .test-section {
+            margin: 40px 0;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-title {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .tech-icons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .theme-toggle {
+            padding: 10px 20px;
+            background: #0078D4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visibility Fixes Test Page</h1>
+    
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    
+    <!-- Test 1: Terraform Logo -->
+    <div class="test-section">
+        <h2 class="test-title">1. Terraform Logo Test</h2>
+        <div class="tech-icons">
+            <div class="tech-item">
+                <div class="terraform-logo" aria-hidden="true"></div>
+                <span>Terraform</span>
+                <div class="skill-level" role="img" aria-label="Skill level: 5 out of 5">
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test 2: Skill Levels -->
+    <div class="test-section">
+        <h2 class="test-title">2. Skill Level Test</h2>
+        <div class="tech-icons">
+            <div class="tech-item">
+                <i class="fab fa-aws fa-3x"></i>
+                <span>AWS</span>
+                <div class="skill-level" role="img" aria-label="Skill level: 4 out of 5">
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot"></span>
+                </div>
+            </div>
+            <div class="tech-item">
+                <i class="fab fa-python fa-3x"></i>
+                <span>Python</span>
+                <div class="skill-level" role="img" aria-label="Skill level: 3 out of 5">
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot filled"></span>
+                    <span class="skill-dot"></span>
+                    <span class="skill-dot"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test 3: Mobile Navigation (resize window to test) -->
+    <div class="test-section">
+        <h2 class="test-title">3. Mobile Navigation Test (resize window to &lt;768px)</h2>
+        <header style="background: #23272f; padding: 10px; border-radius: 4px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <button class="menu-toggle" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+                </button>
+                <span style="color: white;">Portfolio</span>
+                <div>🌙</div>
+            </div>
+            <nav>
+                <ul class="nav-list" style="list-style: none; margin: 0; padding: 0;">
+                    <li><a href="#" style="color: white; text-decoration: none;">Home</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">About</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Projects</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <script src="assets/js/visibility-fixes.js"></script>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            
+            if (newTheme === 'dark') {
+                document.body.style.backgroundColor = '#1a1a1a';
+                document.body.style.color = '#fff';
+            } else {
+                document.body.style.backgroundColor = '#fff';
+                document.body.style.color = '#333';
+            }
+        }
+        
+        // Simple mobile nav toggle for testing
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navList = document.querySelector('.nav-list');
+            
+            if (menuToggle && navList) {
+                menuToggle.addEventListener('click', function() {
+                    navList.classList.toggle('show');
+                    const isExpanded = navList.classList.contains('show');
+                    this.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

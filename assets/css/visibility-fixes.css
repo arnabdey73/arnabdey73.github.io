@@ -1,0 +1,333 @@
+---
+---
+/* Visibility Fixes for Terraform Logo, Skill Levels, and Mobile Navigation */
+
+/* 1. Terraform Logo Visibility Fix */
+.terraform-logo {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  margin: 0 auto 0.5rem;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.terraform-logo::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #844FBA !important;
+  opacity: 1 !important;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Dark mode terraform logo */
+[data-theme="dark"] .terraform-logo::before {
+  background-color: #A78BFA !important;
+  opacity: 0.9 !important;
+}
+
+[data-theme="light"] .terraform-logo::before {
+  background-color: #844FBA !important;
+  opacity: 1 !important;
+}
+
+/* 2. Skill Level Visibility Fix */
+.skill-level {
+  display: flex !important;
+  margin-top: 0.5rem;
+  gap: 2px;
+  justify-content: center;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.skill-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50%;
+  background-color: #2a9df4 !important;
+  opacity: 0.3 !important;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+.skill-dot.filled {
+  opacity: 1 !important;
+  background-color: #2a9df4 !important;
+}
+
+/* Enhanced visibility for dark mode */
+[data-theme="dark"] .skill-dot {
+  background-color: #2a9df4 !important;
+  border: 1px solid rgba(42, 157, 244, 0.3);
+}
+
+[data-theme="dark"] .skill-dot.filled {
+  background-color: #2a9df4 !important;
+  box-shadow: 0 0 4px rgba(42, 157, 244, 0.8) !important;
+  border: 1px solid #2a9df4;
+}
+
+/* Light mode enhanced visibility */
+[data-theme="light"] .skill-dot {
+  background-color: #2a9df4 !important;
+  border: 1px solid rgba(42, 157, 244, 0.2);
+}
+
+[data-theme="light"] .skill-dot.filled {
+  background-color: #2a9df4 !important;
+  box-shadow: 0 0 2px rgba(42, 157, 244, 0.5) !important;
+  border: 1px solid #2a9df4;
+}
+
+/* 3. Mobile Navigation Visibility Fix */
+@media (max-width: 768px) {
+  /* Ensure menu toggle is visible */
+  .menu-toggle {
+    display: flex !important;
+    background-color: var(--primary-color, #0078D4) !important;
+    color: white !important;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1001 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Enhanced mobile navigation list */
+  .nav-list {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background-color: var(--header-bg, #23272f) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+    z-index: 1000 !important;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+  }
+
+  /* Show navigation when toggled */
+  .nav-list.show,
+  .menu-toggle[aria-expanded="true"] + .nav-list {
+    display: flex !important;
+    max-height: 500px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow-y: auto;
+  }
+
+  /* Navigation items styling */
+  .nav-list li {
+    width: 100%;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .nav-list li a {
+    padding: 15px;
+    width: 100%;
+    display: block !important;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color, white) !important;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .nav-list li a:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Enhanced menu toggle active state */
+  .menu-toggle[aria-expanded="true"],
+  .menu-toggle.active {
+    background-color: rgba(0, 120, 212, 0.9) !important;
+    transform: scale(0.97);
+  }
+
+  /* Icon visibility fixes */
+  .menu-toggle .fa-times {
+    display: none;
+  }
+
+  .menu-toggle[aria-expanded="true"] .fa-times {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .menu-toggle[aria-expanded="true"] .fa-bars {
+    display: none !important;
+  }
+}
+
+/* Additional fixes for reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  .terraform-logo,
+  .skill-dot,
+  .nav-list {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .terraform-logo,
+  .skill-dot,
+  .skill-level {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+/* Force visibility for accessibility */
+.terraform-logo[aria-hidden="true"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure tech items are visible */
+.tech-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Override intersection observer visibility classes */
+.tech-item.hidden,
+.tech-item.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  animation: none !important;
+}
+
+/* Force all tech items to be visible regardless of observer state */
+.tech-item:not(.visible):not(.hidden) {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* Additional debugging and fallback styles */
+
+/* Debug outline for terraform logo (remove in production) */
+/*
+.terraform-logo {
+  outline: 2px solid red !important;
+}
+*/
+
+/* Fallback for webkit mask issues */
+@supports not (mask-image: url('data:image/svg+xml,<svg></svg>')) {
+  .terraform-logo::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='%23844FBA'/%3E%3C/svg%3E") !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent !important;
+  }
+}
+
+/* Alternative terraform logo for browsers without mask support */
+.terraform-logo.fallback::before {
+  content: "T" !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #844FBA !important;
+  background-color: transparent !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+/* Force minimum dimensions */
+.skill-dot {
+  min-width: 6px !important;
+  min-height: 6px !important;
+  flex-shrink: 0;
+}
+
+/* Ensure parent containers are visible */
+.tech-item,
+.tech-category {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important; /* Disable problematic animations */
+  transform: none !important; /* Reset any transforms */
+}
+
+/* Override fadeInUp animation issues */
+.tech-item {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation-fill-mode: both !important;
+}
+
+/* Force layout for flex containers */
+.tech-icons {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Mobile navigation enhanced visibility */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Prevent horizontal scroll issues */
+  }
+  
+  /* Ensure proper stacking context */
+  .nav-list {
+    position: fixed !important;
+    z-index: 9999 !important;
+  }
+  
+  .menu-toggle {
+    z-index: 10000 !important;
+  }
+}
+
+/* Print styles to ensure visibility in all contexts */
+@media print {
+  .terraform-logo,
+  .skill-level,
+  .skill-dot {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+}
