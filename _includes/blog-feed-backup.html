@@ -1,0 +1,229 @@
+<div class="blog-feed-section" id="blog-feed">  <div class="container">
+    <h2 class="section-title">Featured Blog Posts</h2>
+    <p class="section-subtitle">Selected articles from my technical blog</p>
+    
+    <div class="blog-posts">
+      <!-- Blog posts will be loaded dynamically via JavaScript -->
+      <div class="posts-container" id="blog-posts-container">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading latest posts...</p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-cta">
+      <a href="https://astro-paper-project.vercel.app" target="_blank" rel="noopener" class="blog-btn">
+        <i class="fas fa-book-open"></i>
+        Visit Blog Section
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Blog fetch script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchAstroPaperPosts();
+  });
+  async function fetchAstroPaperPosts() {
+    const container = document.getElementById('blog-posts-container');
+    const baseUrl = 'https://astro-paper-project.vercel.app';
+    const featuredPostsUrl = 'https://astro-paper-project.vercel.app/tags/featured/';
+    
+    try {
+      // Show loading state
+      container.innerHTML = `
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading featured posts...</p>
+        </div>
+      `;
+      
+      // Fetch the featured posts page
+      const response = await fetch(featuredPostsUrl, {
+        method: 'GET',
+        headers: {
+          'Accept': 'text/html',
+          'User-Agent': 'Mozilla/5.0 Portfolio Website'
+        },
+        cache: 'no-cache'
+      });
+      
+      if (!response.ok) {
+        // If featured tag page doesn't exist, fall back to main page
+        return fetchMainPagePosts(container, baseUrl);
+      }
+      
+      const html = await response.text();
+      
+      // Create a temporary DOM element to parse the HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Find post elements specifically from the featured tag page
+      const postElements = doc.querySelectorAll('.post-card, li.card, article.post');
+      
+      // Clear loading spinner
+      container.innerHTML = '';
+      
+      // Limit to 3 posts
+      const postsToShow = Math.min(postElements.length, 3);      
+      if (postsToShow === 0) {
+        // Fallback if no posts found
+        console.log('No featured posts found, trying main page');
+        return fetchMainPagePosts(container, baseUrl);
+      }
+      
+      // Process each post
+      for (let i = 0; i < postsToShow; i++) {
+        processPostElement(postElements[i], container, baseUrl);
+      }} catch (error) {
+      console.error('Error fetching blog posts:', error);
+      displayFallbackPosts(container, error.message);
+    }
+  }
+  
+  // Function to fetch posts from main page if featured posts are not available
+  async function fetchMainPagePosts(container, baseUrl) {
+    try {
+      // Fetch the main page to parse for recent posts
+      const response = await fetch(baseUrl, {
+        method: 'GET',
+        headers: {
+          'Accept': 'text/html',
+          'User-Agent': 'Mozilla/5.0 Portfolio Website'
+        },
+        cache: 'no-cache'
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch (${response.status}): ${response.statusText}`);
+      }
+      
+      const html = await response.text();
+      
+      // Create a temporary DOM element to parse the HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Find post elements - more specific selectors for Astro Paper
+      const postElements = doc.querySelectorAll('.post-card, li.card, article.post');
+      
+      // Clear loading spinner
+      container.innerHTML = '';
+      
+      // Limit to 3 posts
+      const postsToShow = Math.min(postElements.length, 3);
+      
+      if (postsToShow === 0) {
+        // Fallback if no posts found
+        console.log('No posts found in the fetched content');
+        displayFallbackPosts(container);
+        return;
+      }
+      
+      // Process each post
+      for (let i = 0; i < postsToShow; i++) {
+        processPostElement(postElements[i], container, baseUrl);
+      }
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+      displayFallbackPosts(container, error.message);
+    }
+  }
+  
+  function displayFallbackPosts(container, errorMessage = null) {
+    // Show more useful fallback content
+    container.innerHTML = `
+      <div class="blog-post-card">
+        <div class="post-content">
+          <h3>Recent Blog Posts</h3>
+          <p>Visit my technical blog for the latest articles on cloud architecture, DevOps, infrastructure automation, and more.</p>
+          ${errorMessage ? `<p class="error-message"><small>Note: Could not load latest posts automatically. ${errorMessage}</small></p>` : ''}
+          <div class="post-meta">
+            <a href="https://astro-paper-project.vercel.app" target="_blank" rel="noopener">Visit Blog →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Fallback post examples -->
+      <div class="blog-post-card">
+        <div class="post-image">
+          <a href="https://astro-paper-project.vercel.app/posts/" target="_blank" rel="noopener">
+            <img src="/assets/img/blog-placeholder.jpg" alt="Cloud Architecture" loading="lazy">
+          </a>
+        </div>
+        <div class="post-content">
+          <h3><a href="https://astro-paper-project.vercel.app/posts/" target="_blank" rel="noopener">Cloud Architecture Patterns</a></h3>
+          <p>Exploring best practices for scalable and resilient cloud infrastructure designs for modern applications.</p>
+          <div class="post-meta">
+            <a href="https://astro-paper-project.vercel.app/posts/" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="blog-post-card">
+        <div class="post-image">
+          <a href="https://astro-paper-project.vercel.app/posts/" target="_blank" rel="noopener">
+            <img src="/assets/img/blog-placeholder.jpg" alt="DevOps Automation" loading="lazy">
+          </a>
+        </div>
+        <div class="post-content">
+          <h3><a href="https://astro-paper-project.vercel.app/posts/" target="_blank" rel="noopener">DevOps Automation Best Practices</a></h3>
+          <p>Streamlining development workflows with CI/CD pipelines and infrastructure as code approaches.</p>
+          <div class="post-meta">
+            <a href="https://astro-paper-project.vercel.app/posts/" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+    function createPostCard(container, post) {
+    const postCard = document.createElement('div');
+    postCard.className = 'blog-post-card';
+    
+    postCard.innerHTML = `
+      <div class="post-image">
+        <a href="${post.link}" target="_blank" rel="noopener">
+          <img src="${post.imgSrc}" alt="${post.title}" loading="lazy" 
+            onerror="this.onerror=null; this.src='/assets/img/blog-placeholder.jpg'; this.classList.add('placeholder-img');">
+        </a>
+      </div>
+      <div class="post-content">
+        <h3><a href="${post.link}" target="_blank" rel="noopener">${post.title}</a></h3>
+        <p>${post.description}</p>
+        <div class="post-meta">
+          ${post.date ? `<span class="date"><i class="far fa-calendar-alt"></i> ${post.date}</span>` : ''}
+          <a href="${post.link}" target="_blank" rel="noopener" class="read-more">Read More →</a>
+        </div>
+      </div>
+    `;
+    
+    container.appendChild(postCard);
+  }
+  
+  // Helper function to process a post element
+  function processPostElement(post, container, baseUrl) {
+    // Extract post details with improved selectors
+    const titleEl = post.querySelector('h1, h2, h3, .post-title, .title');
+    const linkEl = post.querySelector('a[href*="/posts/"]') || post.querySelector('a');
+    const descEl = post.querySelector('p.description, .excerpt, .summary, .desc');
+    const dateEl = post.querySelector('time, .date, .post-date, .pubDate');
+    const imgEl = post.querySelector('img.cover, img.thumbnail, img.featured-image');
+    
+    const title = titleEl ? titleEl.textContent.trim() : 'Blog Post';
+    const link = linkEl ? new URL(linkEl.href, baseUrl).href : baseUrl;
+    const description = descEl ? descEl.textContent.trim().substring(0, 120) + '...' : 'Click to read this blog post on cloud engineering and DevOps practices.';
+    const date = dateEl ? dateEl.textContent.trim() : new Date().toLocaleDateString();
+    const imgSrc = imgEl && imgEl.src ? new URL(imgEl.src, baseUrl).href : '/assets/img/blog-placeholder.jpg';
+    
+    // Create post card
+    createPostCard(container, {
+      title,
+      link,
+      description,
+      date,
+      imgSrc
+    });
+  }
+</script>

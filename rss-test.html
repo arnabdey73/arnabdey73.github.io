@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Feed Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #121212; 
+            color: white; 
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .loading-spinner { text-align: center; padding: 2rem; }
+        .spinner { 
+            border: 4px solid #1a1a1a; 
+            border-top: 4px solid #2a9df4; 
+            border-radius: 50%; 
+            width: 40px; 
+            height: 40px; 
+            animation: spin 1s linear infinite; 
+            margin: 0 auto 1rem; 
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .posts-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 2rem; 
+        }
+        .blog-post-card { 
+            background-color: #1a1a1a; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+        }
+        .post-image img { width: 100%; height: 200px; object-fit: cover; }
+        .post-content { padding: 1.5rem; }
+        .post-content h3 { margin-top: 0; color: #2a9df4; }
+        .post-content a { color: #2a9df4; text-decoration: none; }
+        .post-content a:hover { text-decoration: underline; }
+        .post-meta { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-top: 1rem; 
+            font-size: 0.9rem; 
+            color: #888; 
+        }
+        .read-more { color: #2a9df4 !important; }
+        .error-message { color: #ffc107; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RSS Blog Feed Test</h1>
+        <p>Testing the RSS feed functionality for the portfolio blog section.</p>
+        
+        <div id="blog-posts-container">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading latest posts...</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 2rem; padding: 1rem; background-color: #1a1a1a; border-radius: 8px;">
+            <h3>Test Status</h3>
+            <div id="test-status">Testing RSS feed...</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            testRSSFeed();
+        });
+
+        async function testRSSFeed() {
+            const container = document.getElementById('blog-posts-container');
+            const statusDiv = document.getElementById('test-status');
+            const rssUrl = 'https://astro-paper-project.vercel.app/rss.xml';
+            const corsProxy = 'https://api.allorigins.win/raw?url=';
+            
+            try {
+                statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing direct RSS fetch...';
+                
+                // Try direct RSS fetch first
+                let response;
+                let method = 'direct';
+                try {
+                    response = await fetch(rssUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/rss+xml, application/xml, text/xml',
+                            'User-Agent': 'Mozilla/5.0 Portfolio Website'
+                        },
+                        cache: 'no-cache'
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Direct fetch failed');
+                    }
+                } catch (directError) {
+                    console.log('Direct RSS fetch failed, trying CORS proxy...');
+                    statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Direct fetch failed, trying CORS proxy...';
+                    method = 'proxy';
+                    response = await fetch(corsProxy + encodeURIComponent(rssUrl), {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/rss+xml, application/xml, text/xml'
+                        },
+                        cache: 'no-cache'
+                    });
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch RSS (${response.status}): ${response.statusText}`);
+                }
+                
+                const xmlText = await response.text();
+                statusDiv.innerHTML = `<i class="fas fa-check text-success"></i> RSS fetched successfully via ${method}! Parsing ${xmlText.length} characters...`;
+                
+                // Parse RSS XML
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+                
+                // Check for parsing errors
+                const parseError = xmlDoc.querySelector('parsererror');
+                if (parseError) {
+                    throw new Error('Failed to parse RSS XML');
+                }
+                
+                // Extract RSS items
+                const items = xmlDoc.querySelectorAll('item');
+                statusDiv.innerHTML = `<i class="fas fa-check"></i> Found ${items.length} posts in RSS feed!`;
+                
+                // Clear loading spinner
+                container.innerHTML = '';
+                
+                // Get top 4 posts
+                const postsToShow = Math.min(items.length, 4);
+                
+                if (postsToShow === 0) {
+                    statusDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> No posts found in RSS feed';
+                    return displayFallbackPosts(container);
+                }
+                
+                // Process each post
+                for (let i = 0; i < postsToShow; i++) {
+                    parseRSSItem(items[i], container);
+                }
+                
+                statusDiv.innerHTML = `<i class="fas fa-check" style="color: #28a745;"></i> Successfully loaded ${postsToShow} posts!`;
+                
+            } catch (error) {
+                console.error('Error fetching blog posts:', error);
+                statusDiv.innerHTML = `<i class="fas fa-times" style="color: #dc3545;"></i> Error: ${error.message}`;
+                displayFallbackPosts(container, error.message);
+            }
+        }
+
+        function parseRSSItem(item, container) {
+            // Extract data from RSS item
+            const title = item.querySelector('title')?.textContent?.trim() || 'Blog Post';
+            const link = item.querySelector('link')?.textContent?.trim() || item.querySelector('guid')?.textContent?.trim() || '#';
+            const description = item.querySelector('description')?.textContent?.trim() || 'Read this blog post about cloud engineering and DevOps practices.';
+            const pubDate = item.querySelector('pubDate')?.textContent?.trim();
+            
+            // Format date
+            let formattedDate = '';
+            if (pubDate) {
+                try {
+                    const date = new Date(pubDate);
+                    formattedDate = date.toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                } catch (e) {
+                    formattedDate = pubDate;
+                }
+            }
+            
+            // Clean description (remove HTML tags and limit length)
+            const cleanDescription = description
+                .replace(/<[^>]*>/g, '') // Remove HTML tags
+                .replace(/\s+/g, ' ')    // Normalize whitespace
+                .trim()
+                .substring(0, 150) + (description.length > 150 ? '...' : '');
+            
+            // Determine post image based on title keywords
+            let postImage = '/assets/img/blog-placeholder.jpg';
+            const titleLower = title.toLowerCase();
+            
+            if (titleLower.includes('devops') || titleLower.includes('automation')) {
+                postImage = 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=400&h=200&fit=crop&auto=format';
+            } else if (titleLower.includes('azure') || titleLower.includes('cloud')) {
+                postImage = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop&auto=format';
+            } else if (titleLower.includes('terraform') || titleLower.includes('iac') || titleLower.includes('infrastructure')) {
+                postImage = 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop&auto=format';
+            } else if (titleLower.includes('kubernetes') || titleLower.includes('k8s')) {
+                postImage = 'https://images.unsplash.com/photo-1667372335962-5fd503a8ae5b?w=400&h=200&fit=crop&auto=format';
+            } else if (titleLower.includes('python') || titleLower.includes('programming')) {
+                postImage = 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&h=200&fit=crop&auto=format';
+            } else if (titleLower.includes('openstack')) {
+                postImage = 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=200&fit=crop&auto=format';
+            }
+            
+            // Create post card
+            createPostCard(container, {
+                title,
+                link,
+                description: cleanDescription,
+                date: formattedDate,
+                imgSrc: postImage
+            });
+        }
+
+        function displayFallbackPosts(container, errorMessage = null) {
+            container.innerHTML = `
+                <div class="blog-post-card">
+                    <div class="post-content">
+                        <h3>Fallback Mode Active</h3>
+                        <p>Showing cached recent posts from the blog.</p>
+                        ${errorMessage ? `<p class="error-message">Error: ${errorMessage}</p>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function createPostCard(container, post) {
+            const postCard = document.createElement('div');
+            postCard.className = 'blog-post-card';
+            
+            postCard.innerHTML = `
+                <div class="post-image">
+                    <a href="${post.link}" target="_blank" rel="noopener">
+                        <img src="${post.imgSrc}" alt="${post.title}" loading="lazy" 
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200/1a1a1a/2a9df4?text=Blog+Post';">
+                    </a>
+                </div>
+                <div class="post-content">
+                    <h3><a href="${post.link}" target="_blank" rel="noopener">${post.title}</a></h3>
+                    <p>${post.description}</p>
+                    <div class="post-meta">
+                        ${post.date ? `<span class="date"><i class="far fa-calendar-alt"></i> ${post.date}</span>` : ''}
+                        <a href="${post.link}" target="_blank" rel="noopener" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(postCard);
+        }
+    </script>
+</body>
+</html>
