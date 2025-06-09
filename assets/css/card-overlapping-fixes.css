@@ -136,15 +136,17 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: center !important; /* Changed back to center for better appearance */
   text-align: center !important;
   padding: 0.5rem !important;
   height: 70px !important; /* Optimal height for 2x2 grid fit */
   width: 100% !important;
   max-width: 100px !important; /* Allow slightly more width for better icon display */
   box-sizing: border-box !important;
-  overflow: hidden !important;
+  overflow: visible !important; /* Changed from hidden to visible for skill dots */
   position: relative !important;
+  border-radius: 8px !important; /* Add subtle rounding to prevent "half moon" effect */
+  background: transparent !important; /* Ensure no conflicting background */
 }
 
 /* Icon image/font sizing optimized for 2x2 grid */
@@ -154,43 +156,58 @@
   width: 36px !important; /* Slightly larger icons for better visibility */
   height: 36px !important;
   object-fit: contain !important;
-  margin-bottom: 0.25rem !important;
+  margin-bottom: 0.3rem !important; /* Increased margin for better spacing */
   flex-shrink: 0 !important;
   font-size: 36px !important; /* Ensure font icons match image size */
+  border-radius: 4px !important; /* Prevent sharp edges causing "half moon" */
+  display: block !important; /* Ensure proper rendering */
 }
 
 /* Icon text styling optimized for 2x2 grid */
 .tech-icon .icon-text,
 .tech-item span {
-  font-size: 0.75rem !important; /* Slightly larger text for readability */
+  font-size: 0.7rem !important; /* Slightly smaller text */
   line-height: 1.1 !important;
   max-width: 100% !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
-  margin-top: 0.25rem !important;
+  margin: 0.1rem 0 !important; /* Reduced margins */
   text-align: center !important;
+  flex-shrink: 0 !important;
 }
 
-/* Special handling for skill levels in 2x2 grid */
+/* Special handling for skill levels in 2x2 grid - ENHANCED */
 .tech-item .skill-level {
   display: flex !important;
   justify-content: center !important;
-  gap: 2px !important;
-  margin-top: 0.25rem !important;
+  align-items: center !important;
+  gap: 3px !important; /* Increased gap for better visibility */
+  margin-top: 0.2rem !important; /* Increased margin */
   flex-wrap: nowrap !important;
+  min-height: 8px !important; /* Increased minimum height */
+  width: 100% !important;
+  position: relative !important;
+  z-index: 20 !important; /* Higher z-index to ensure visibility */
+  background: transparent !important; /* Ensure no background conflicts */
 }
 
 .tech-item .skill-level .skill-dot {
-  width: 4px !important;
-  height: 4px !important;
+  width: 6px !important; /* Larger dots for better visibility */
+  height: 6px !important;
   border-radius: 50% !important;
-  background-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.3) !important; /* More visible background */
   display: inline-block !important;
+  flex-shrink: 0 !important;
+  border: 1px solid rgba(42, 157, 244, 0.4) !important; /* Better border for visibility */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) !important; /* Add shadow for definition */
+  transition: all 0.3s ease !important;
 }
 
 .tech-item .skill-level .skill-dot.filled {
   background-color: #2a9df4 !important;
+  border-color: #1a7abf !important; /* Darker border for filled dots */
+  box-shadow: 0 0 4px rgba(42, 157, 244, 0.6) !important; /* Glow effect */
 }
 
 /* Mobile responsive fixes for 2x2 grid */
@@ -559,4 +576,134 @@
 .blog-post-card {
   align-self: start !important;
   justify-self: center !important;
+}
+
+/* =====================================================
+   4. Tech Category Title Fixes (Containerization etc.)
+   ===================================================== */
+
+/* Fix title overflow and ensure proper centering */
+.tech-category h3 {
+  color: var(--heading-color, #ffffff) !important;
+  font-size: 1.25rem !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+  flex-shrink: 0 !important; /* Prevent title from shrinking */
+  padding: 0 0.5rem !important; /* Add padding to prevent overflow */
+  word-wrap: break-word !important; /* Allow word wrapping if needed */
+  overflow-wrap: break-word !important;
+  -webkit-hyphens: auto !important; /* Allow hyphenation for long words - Safari */
+  hyphens: auto !important; /* Allow hyphenation for long words */
+  max-width: 100% !important;
+  line-height: 1.3 !important; /* Better line height for readability */
+  white-space: normal !important; /* Allow text wrapping */
+  box-sizing: border-box !important;
+}
+
+/* Specific fixes for longer category names */
+.tech-category h3:contains("Containerization"),
+.tech-category h3:contains("Infrastructure"),
+.tech-category h3:contains("Monitoring") {
+  font-size: 1.1rem !important; /* Slightly smaller for long titles */
+  line-height: 1.2 !important;
+}
+
+/* Responsive title adjustments */
+@media (max-width: 768px) {
+  .tech-category h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.8rem !important;
+    padding: 0 0.25rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-category h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.6rem !important;
+    padding: 0 0.1rem !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* =====================================================
+   5. Additional Layout Stability Fixes
+   ===================================================== */
+
+/* Prevent weird half-moon rendering issues */
+.tech-category {
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-transform: translateZ(0) !important;
+  transform: translateZ(0) !important;
+  will-change: auto !important;
+}
+
+/* Ensure consistent rendering across browsers */
+.tech-item,
+.tech-icon {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Force proper layout for flex containers */
+.tech-icons {
+  contain: layout style !important;
+  isolation: isolate !important;
+}
+
+/* =====================================================
+   6. Fix "Half Moon" Appearance Issues
+   ===================================================== */
+
+/* Override conflicting border-radius and clipping issues */
+.tech-item i,
+.tech-icon i,
+.tech-item .tech-logo,
+.tech-icon .tech-logo {
+  border-radius: 0 !important; /* Remove any conflicting border radius */
+  -webkit-clip-path: none !important;
+  clip-path: none !important; /* Remove any clipping paths */
+  -webkit-mask: none !important;
+  mask: none !important;
+  overflow: visible !important;
+  -webkit-background-clip: content-box !important;
+  background-clip: content-box !important;
+}
+
+/* Ensure Font Awesome icons render properly */
+.tech-item i[class*="fa-"],
+.tech-icon i[class*="fa-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  letter-spacing: normal !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Fix any potential pseudo-element conflicts */
+.tech-item::before,
+.tech-item::after,
+.tech-icon::before,
+.tech-icon::after {
+  display: none !important;
+}
+
+/* Override any problematic transitions that might cause rendering issues */
+.tech-item,
+.tech-icon {
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Ensure proper stacking context */
+.tech-category {
+  transform-style: flat !important;
+  perspective: none !important;
 }
