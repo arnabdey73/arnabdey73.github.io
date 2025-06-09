@@ -22,15 +22,14 @@
   width: 100%;
   height: 100%;
   background-color: #844FBA !important;
-  opacity: 1 !important;
+  opacity: 1 !important;  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E");
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E");
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
   display: block !important;
   visibility: visible !important;
 }
@@ -104,18 +103,64 @@
     background-color: var(--primary-color, #0078D4) !important;
     color: white !important;
     border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
+    width: 44px; /* Slightly larger for better touch target */
+    height: 44px;
+    border-radius: 8px; /* Slightly more rounded */
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1001 !important;
     opacity: 1 !important;
     visibility: visible !important;
+    overflow: hidden;
+  }
+
+  /* Enhanced hover and active states */
+  .menu-toggle:hover {
+    background-color: #005A9E !important;
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  }
+
+  .menu-toggle:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .menu-toggle.active {
+    background-color: #E74C3C !important; /* Red when menu is open */
+    transform: rotate(90deg);
+  }
+
+  /* Enhanced hamburger icon animation */
+  .menu-toggle .fa-bars,
+  .menu-toggle .fa-times {
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: absolute;
+  }
+
+  .menu-toggle .fa-bars {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  .menu-toggle .fa-times {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+
+  .menu-toggle.active .fa-bars {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+
+  .menu-toggle.active .fa-times {
+    opacity: 1;
+    transform: rotate(0deg);
   }
 
   /* Enhanced mobile navigation list */
@@ -193,6 +238,262 @@
   .menu-toggle[aria-expanded="true"] .fa-bars {
     display: none !important;
   }
+
+  /* Improved mobile navigation backdrop */
+  .nav-list.show::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Enhanced navigation list animations */
+  .nav-list {
+    transform: translateY(-20px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .nav-list.show {
+    transform: translateY(0);
+    animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Enhanced nav item animations */
+  .nav-list li {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.3s ease forwards;
+  }
+
+  .nav-list.show li {
+    animation-delay: calc(var(--item-index, 0) * 0.1s);
+  }
+
+  .nav-list li:nth-child(1) { --item-index: 1; }
+  .nav-list li:nth-child(2) { --item-index: 2; }
+  .nav-list li:nth-child(3) { --item-index: 3; }
+  .nav-list li:nth-child(4) { --item-index: 4; }
+  .nav-list li:nth-child(5) { --item-index: 5; }
+
+  @keyframes slideInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* 4. Desktop Navigation Menu Visibility Fixes */
+@media (min-width: 769px) {
+  /* Greedy navigation container */
+  .greedy-nav {
+    display: flex !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Visible links container */
+  .greedy-nav .visible-links {
+    display: flex !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* Individual navigation items */
+  .greedy-nav .visible-links li {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin: 0 0.5rem !important;
+  }
+
+  .greedy-nav .visible-links li a {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 0.5rem 1rem !important;
+    text-decoration: none !important;
+    color: var(--text-color, #333) !important;
+    transition: color 0.3s ease !important;
+  }
+
+  .greedy-nav .visible-links li a:hover {
+    color: var(--link-color, #0078D4) !important;
+  }
+
+  /* Hidden links (overflow menu) */
+  .greedy-nav .hidden-links {
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    background: var(--bg-color, white) !important;
+    border: 1px solid var(--border-color, #ddd) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    z-index: 1000 !important;
+    min-width: 200px !important;
+  }
+
+  .greedy-nav .hidden-links.hidden {
+    display: none !important;
+  }
+
+  .greedy-nav .hidden-links:not(.hidden) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .greedy-nav .hidden-links li {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .greedy-nav .hidden-links li a {
+    display: block !important;
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid var(--border-color, #eee) !important;
+    white-space: nowrap !important;
+  }
+
+  .greedy-nav .hidden-links li:last-child a {
+    border-bottom: none !important;
+  }
+
+  /* Greedy nav toggle button */
+  .greedy-nav__toggle {
+    display: none !important;
+    background: none !important;
+    border: none !important;
+    padding: 0.5rem !important;
+    cursor: pointer !important;
+    position: relative !important;
+  }
+
+  .greedy-nav__toggle.hidden {
+    display: none !important;
+  }
+
+  .greedy-nav__toggle:not(.hidden) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Navicon (hamburger) styling */
+  .greedy-nav__toggle .navicon {
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    background: var(--text-color, #333) !important;
+    position: relative !important;
+    transition: background 0.3s ease !important;
+  }
+
+  .greedy-nav__toggle .navicon::before,
+  .greedy-nav__toggle .navicon::after {
+    content: '' !important;
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    background: var(--text-color, #333) !important;
+    position: absolute !important;
+    left: 0 !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .greedy-nav__toggle .navicon::before {
+    top: -6px !important;
+  }
+
+  .greedy-nav__toggle .navicon::after {
+    top: 6px !important;
+  }
+
+  /* Masthead menu container */
+  .masthead__menu {
+    display: flex !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+  }
+
+  /* Site title visibility */
+  .greedy-nav .site-title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-right: auto !important;
+    text-decoration: none !important;
+    color: var(--text-color, #333) !important;
+    font-weight: bold !important;
+  }
+
+  /* Site logo visibility */
+  .greedy-nav .site-logo {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-right: 1rem !important;
+  }
+
+  .greedy-nav .site-logo img {
+    display: block !important;
+    max-height: 40px !important;
+    width: auto !important;
+  }
+}
+
+/* 5. Dark mode desktop navigation adjustments */
+[data-theme="dark"] .greedy-nav .visible-links li a {
+  color: var(--text-color-dark, #e0e0e0) !important;
+}
+
+[data-theme="dark"] .greedy-nav .visible-links li a:hover {
+  color: var(--link-color-dark, #64b5f6) !important;
+}
+
+[data-theme="dark"] .greedy-nav .hidden-links {
+  background: var(--bg-color-dark, #1a1a1a) !important;
+  border-color: var(--border-color-dark, #333) !important;
+}
+
+[data-theme="dark"] .greedy-nav .site-title {
+  color: var(--text-color-dark, #e0e0e0) !important;
+}
+
+[data-theme="dark"] .greedy-nav__toggle .navicon,
+[data-theme="dark"] .greedy-nav__toggle .navicon::before,
+[data-theme="dark"] .greedy-nav__toggle .navicon::after {
+  background: var(--text-color-dark, #e0e0e0) !important;
 }
 
 /* Additional fixes for reduced motion users */
@@ -266,12 +567,11 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 24px;  font-weight: bold;
   color: #844FBA !important;
   background-color: transparent !important;
-  mask-image: none !important;
   -webkit-mask-image: none !important;
+  mask-image: none !important;
 }
 
 /* Force minimum dimensions */

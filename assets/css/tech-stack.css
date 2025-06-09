@@ -237,27 +237,140 @@
 }
 
 .tech-category {
-  background-color: #1a1a1a;
+  background-color: var(--card-bg, #1a1a1a);
   border-radius: 12px;
-  padding: 1.8rem 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(42, 157, 244, 0.1);
   position: relative;
   overflow: hidden;
-  min-height: 280px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px; /* Consistent minimum height */
+  max-height: 350px; /* Prevent cards from becoming too tall */
+  height: auto;
+  box-sizing: border-box;
+}
+
+.tech-category h3 {
+  color: var(--heading-color, #ffffff);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+  flex-shrink: 0; /* Prevent title from shrinking */
+}
+
+/* Tech icons container with improved proportions */
+.tech-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1; /* Allow icons area to grow */
+  padding: 0.5rem 0;
+  min-height: 120px; /* Minimum height for icon area */
+  max-height: 200px; /* Maximum height to maintain proportions */
+  overflow: hidden;
+}
+
+/* Individual tech icon improvements */
+.tech-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
+  text-align: center;
+  padding: 0.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  height: 80px; /* Fixed height for consistency */
+  box-sizing: border-box;
 }
 
-.tech-category:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.tech-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: brightness(1.1);
 }
 
-/* Tech item basic hover effects */
+/* Tech icon images with consistent sizing */
+.tech-icon img,
+.tech-icon .icon-placeholder {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 0.25rem;
+  flex-shrink: 0;
+}
+
+.tech-icon .icon-text {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary, #b3b3b3);
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments for better proportions */
+@media (max-width: 768px) {
+  .tech-category {
+    min-height: 250px;
+    max-height: 300px;
+    padding: 1.25rem;
+  }
+  
+  .tech-icons {
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 0.75rem;
+    min-height: 100px;
+    max-height: 150px;
+  }
+  
+  .tech-icon {
+    height: 70px;
+    padding: 0.25rem;
+  }
+  
+  .tech-icon img,
+  .tech-icon .icon-placeholder {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .tech-icon .icon-text {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .tech-category {
+    min-height: 290px;
+    max-height: 340px;
+    padding: 1.4rem;
+  }
+  
+  .tech-icons {
+    grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+    gap: 0.9rem;
+    min-height: 110px;
+    max-height: 180px;
+  }
+  
+  .tech-icon {
+    height: 75px;
+  }
+  
+  .tech-icon img,
+  .tech-icon .icon-placeholder {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 .tech-item {
   transition: transform 0.3s ease;
 }

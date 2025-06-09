@@ -1,0 +1,48 @@
+---
+---
+/* Line Clamp Compatibility Fixes */
+
+/* Fix for blog post titles */
+.blog-post-card .post-title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Fix for blog post excerpts */
+.blog-post-card .post-excerpt {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .blog-post-card .post-excerpt {
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+  }
+}
+
+/* Fallback for browsers that don't support line-clamp */
+@supports not (-webkit-line-clamp: 1) {
+  .blog-post-card .post-title {
+    max-height: 2.8em; /* Approximate 2 lines */
+    overflow: hidden;
+  }
+  
+  .blog-post-card .post-excerpt {
+    max-height: 4.5em; /* Approximate 3 lines */
+    overflow: hidden;
+  }
+  
+  @media (max-width: 768px) {
+    .blog-post-card .post-excerpt {
+      max-height: 3em; /* Approximate 2 lines */
+    }
+  }
+}
