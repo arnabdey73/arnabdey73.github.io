@@ -3,22 +3,35 @@
  * Replaces existing tech icons with brand-appropriate ones from devicon.dev
  */
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('🔄 Devicon Tech Icons: Loading...');
+// Set a global flag to indicate this script has been loaded
+window.deviconIntegrationLoaded = true;
+
+// Execute immediately
+(function() {
+  console.log('🔄 Devicon Tech Icons: Loading Immediately...');
   
   // Load devicon CSS
   loadDeviconCSS();
   
-  // Apply devicon icons to tech items
-  setTimeout(() => {
-    applyDeviconIcons();
-  }, 300);
+  // Apply devicon icons right away
+  applyDeviconIcons();
   
-  // Run again after a short delay to catch any late-rendered elements
-  setTimeout(() => {
+  // Also run on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('🔄 Devicon Tech Icons: DOM Content Loaded');
     applyDeviconIcons();
-  }, 1000);
-});
+    
+    // Run again after a short delay to catch any late-rendered elements
+    setTimeout(() => {
+      applyDeviconIcons();
+    }, 500);
+    
+    // And one more time after everything has settled
+    setTimeout(() => {
+      applyDeviconIcons();
+    }, 1500);
+  });
+})();
 
 // Load devicon CSS from CDN
 function loadDeviconCSS() {
@@ -26,13 +39,30 @@ function loadDeviconCSS() {
     const deviconLink = document.createElement('link');
     deviconLink.rel = 'stylesheet';
     deviconLink.href = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css';
-    document.head.appendChild(deviconLink);
-    console.log('💉 Injected Devicon CSS');
+    
+    // Insert at the beginning of the head for earliest possible loading
+    if (document.head.firstChild) {
+      document.head.insertBefore(deviconLink, document.head.firstChild);
+    } else {
+      document.head.appendChild(deviconLink);
+    }
+    
+    console.log('💉 Injected Devicon CSS at top of head');
+    
+    // Set a flag on window to indicate devicon CSS has been loaded
+    window.deviconCSSLoaded = true;
+  } else {
+    console.log('✅ Devicon CSS already loaded');
+    window.deviconCSSLoaded = true;
   }
 }
 
 // Apply devicon icons to tech items based on their labels
+// Export to window for external use
+window.applyDeviconIcons = applyDeviconIcons;
+
 function applyDeviconIcons() {
+  console.log('🔍 Searching for tech items to apply devicon icons...');
   // Define comprehensive mapping of technologies to devicon classes
   const iconMapping = {
     // Cloud Platforms
@@ -175,11 +205,30 @@ function applyDeviconIcons() {
     'atom': 'devicon-atom-original colored'
   };
   
-  // Find all tech items
-  const techItems = document.querySelectorAll('.tech-item');
-  let replacedCount = 0;
+  // Find all tech items using multiple selectors to be more thorough
+  const techItemSelectors = [
+    '.tech-item',                  // Standard class
+    '.tech-category-2x2-grid .tech-item', // With grid parent
+    '.tech-category .tech-item',   // With category parent
+    '.tech-icons > div',           // Direct children of tech-icons
+    '[class*="tech-"] > div'       // Any tech-* class children
+  ];
   
-  techItems.forEach(item => {
+  // Combine all results from different selectors
+  const techItemSelector = techItemSelectors.join(', ');
+  const techItems = document.querySelectorAll(techItemSelector);
+  console.log(`📊 Found ${techItems.length} tech items using enhanced selectors`);
+  
+  let replacedCount = 0;
+  let skippedCount = 0;
+  
+  // Set global execution flag for diagnostic purposes
+  window.deviconIntegrationExecuted = true;
+  
+  // Log all tech items for debugging
+  console.log('Tech items found:', Array.from(techItems).map(item => item.textContent.trim()));
+  
+  techItems.forEach((item, index) => {
     // Get text content to identify the technology
     const techText = item.textContent.toLowerCase().trim();
     let iconReplaced = false;
@@ -220,9 +269,77 @@ function applyDeviconIcons() {
   
   console.log(`✅ Replaced ${replacedCount} icons with Devicon versions`);
   
+  // If no replacements were made, try a more aggressive approach
+  if (replacedCount === 0) {
+    forceApplyIcons();
+  }
+  
   // Handle special cases
   handleIaCTech(); // Special handling for Infrastructure as Code tech
   handleCloudTech(); // Special handling for Cloud platforms
+}
+
+// Force apply icons even if text content isn't recognized
+function forceApplyIcons() {
+  console.log('⚠️ No icons replaced. Trying aggressive icon replacement...');
+  
+  // Common tech mapping for quick detection
+  const quickMapping = {
+    'Azure': 'devicon-azure-plain colored',
+    'AWS': 'devicon-amazonwebservices-original colored', 
+    'Terraform': 'devicon-terraform-plain colored',
+    'Kubernetes': 'devicon-kubernetes-plain colored',
+    'Docker': 'devicon-docker-plain colored',
+    'Python': 'devicon-python-plain colored',
+    'JavaScript': 'devicon-javascript-plain colored',
+    'TypeScript': 'devicon-typescript-plain colored',
+    'React': 'devicon-react-original colored',
+    'Node': 'devicon-nodejs-plain colored'
+  };
+  
+  // Find tech-item divs
+  const techItems = document.querySelectorAll('.tech-item');
+  let forcedCount = 0;
+  
+  techItems.forEach(item => {
+    // Get any text content
+    const text = item.innerText || item.textContent;
+    
+    // Find a matching tech
+    let iconClass = null;
+    for (const [tech, className] of Object.entries(quickMapping)) {
+      if (text.includes(tech)) {
+        iconClass = className;
+        break;
+      }
+    }
+    
+    // If we found a match and item doesn't have a devicon already
+    if (iconClass && !item.querySelector('[class*="devicon-"]')) {
+      // Find existing icon
+      const existingIcon = item.querySelector('i') || item.querySelector('.terraform-logo') || 
+                          item.querySelector('.special-icon') || item.querySelector('div[class*="icon"]');
+      
+      if (existingIcon) {
+        // Create new devicon
+        const deviconElement = document.createElement('i');
+        deviconElement.className = iconClass;
+        deviconElement.setAttribute('aria-hidden', 'true');
+        
+        // Apply consistent styling
+        deviconElement.style.cssText = 'font-size: 2.5rem; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem auto;';
+        
+        // Replace old icon
+        existingIcon.parentNode.replaceChild(deviconElement, existingIcon);
+        forcedCount++;
+        
+        // Mark as replaced
+        item.setAttribute('data-icon-replaced', 'devicon-forced');
+      }
+    }
+  });
+  
+  console.log(`🛠️ Force-replaced ${forcedCount} icons with best-guess devicon versions`);
 }
 
 // Special case function to handle IaC tech (Terraform, etc.)

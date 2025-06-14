@@ -1,0 +1,141 @@
+---
+layout: default
+title: "Devicon Test"
+permalink: /devicon-test/
+---
+
+<div class="container" style="margin: 50px auto; max-width: 800px; padding: 20px; background: #1a1a1a; border-radius: 10px; color: white;">
+  <h1>Devicon Implementation Test</h1>
+  <p>This page tests if devicons are loading correctly.</p>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 20px; margin-top: 30px;">
+    <!-- Test icons with direct devicon classes -->
+    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <i class="devicon-azure-plain colored" style="font-size: 48px;"></i>
+      <span style="margin-top: 10px;">Azure</span>
+    </div>
+    
+    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <i class="devicon-amazonwebservices-original colored" style="font-size: 48px;"></i>
+      <span style="margin-top: 10px;">AWS</span>
+    </div>
+    
+    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <i class="devicon-terraform-plain colored" style="font-size: 48px;"></i>
+      <span style="margin-top: 10px;">Terraform</span>
+    </div>
+    
+    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <i class="devicon-kubernetes-plain colored" style="font-size: 48px;"></i>
+      <span style="margin-top: 10px;">Kubernetes</span>
+    </div>
+    
+    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <i class="devicon-python-plain colored" style="font-size: 48px;"></i>
+      <span style="margin-top: 10px;">Python</span>
+    </div>
+    
+    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <i class="devicon-javascript-plain colored" style="font-size: 48px;"></i>
+      <span style="margin-top: 10px;">JavaScript</span>
+    </div>
+    
+    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <i class="devicon-react-original colored" style="font-size: 48px;"></i>
+      <span style="margin-top: 10px;">React</span>
+    </div>
+    
+    <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <i class="devicon-nodejs-plain colored" style="font-size: 48px;"></i>
+      <span style="margin-top: 10px;">Node.js</span>
+    </div>
+  </div>
+  
+  <div style="margin-top: 40px;">
+    <h2>Tech Icons with JS Replacement</h2>
+    <p>These icons below should be replaced by the devicon-integration.js script:</p>
+    
+    <div class="tech-category-2x2-grid" style="margin-top: 20px;">
+      <div class="tech-icons" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 20px; background: #1a1a1a;">
+        <div class="tech-item" style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <i class="fab fa-microsoft" style="font-size: 48px;"></i>
+          <span>Azure</span>
+        </div>
+        
+        <div class="tech-item" style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <i class="fab fa-aws" style="font-size: 48px;"></i>
+          <span>AWS</span>
+        </div>
+        
+        <div class="tech-item" style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div class="terraform-logo" style="font-size: 48px; width: 48px; height: 48px;"></div>
+          <span>Terraform</span>
+        </div>
+        
+        <div class="tech-item" style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <i class="fas fa-dharmachakra" style="font-size: 48px;"></i>
+          <span>Kubernetes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div style="margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+    <h3>Devicon Debug Panel</h3>
+    <div id="devicon-debug">
+      <p>Loading debug info...</p>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          const debugElement = document.getElementById('devicon-debug');
+          let debugContent = '<ul>';
+          
+          // Check if devicon CSS is loaded
+          const deviconCssLoaded = Array.from(document.styleSheets).some(sheet => {
+            try {
+              return sheet.href && sheet.href.includes('devicon');
+            } catch (e) {
+              return false;
+            }
+          });
+          debugContent += `<li>Devicon CSS loaded: <strong>${deviconCssLoaded ? 'YES' : 'NO'}</strong></li>`;
+          
+          // Check if devicon-integration.js is executed
+          const deviconIntegrationExecuted = window.deviconIntegrationExecuted || false;
+          debugContent += `<li>devicon-integration.js executed: <strong>${deviconIntegrationExecuted ? 'YES' : 'NO'}</strong></li>`;
+          
+          // Check for any devicon replacements
+          const replacedItems = document.querySelectorAll('[data-icon-replaced]');
+          debugContent += `<li>Replaced icons count: <strong>${replacedItems.length}</strong></li>`;
+          
+          // Check if tech icons with devicon classes exist
+          const deviconElements = document.querySelectorAll('[class*="devicon-"]');
+          debugContent += `<li>Devicon elements found: <strong>${deviconElements.length}</strong></li>`;
+          
+          debugContent += '</ul>';
+          debugElement.innerHTML = debugContent;
+          
+          // Add tracking flag
+          window.deviconTestPageLoaded = true;
+        }, 1000);
+      });
+    </script>
+  </div>
+</div>
+
+<script>
+  // Flag to track if devicon-integration.js was executed
+  window.deviconIntegrationExecuted = false;
+  
+  // Override the console.log function to capture devicon logs
+  const originalConsoleLog = console.log;
+  console.log = function() {
+    const args = Array.from(arguments);
+    if (args[0] && typeof args[0] === 'string' && (args[0].includes('Devicon') || args[0].includes('Replaced'))) {
+      window.deviconIntegrationExecuted = true;
+    }
+    originalConsoleLog.apply(console, arguments);
+  };
+</script>

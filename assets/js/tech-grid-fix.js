@@ -58,11 +58,22 @@ function setupTechGridObserver() {
 }
 
 function fixTechGrid() {
+  // Call devicon integration first if available (priority June 2025)
+  if (typeof window.applyDeviconIcons === 'function') {
+    console.log('🔄 Tech Grid: Calling devicon integration from fixTechGrid...');
+    try {
+      window.applyDeviconIcons();
+    } catch (e) {
+      console.error('Error calling applyDeviconIcons:', e);
+    }
+  }
+
   // 1. Apply 2x2 grid layout to tech categories
   const techCategories = document.querySelectorAll('.tech-category');
   
-  // First check if we should use devicon instead (new in June 2025)
-  const useDevicons = typeof window.applyDeviconIcons === 'function';
+  // Check if devicons are available and being used
+  const useDevicons = typeof window.applyDeviconIcons === 'function' && 
+                      document.querySelectorAll('[class*="devicon-"]').length > 0;
   
   // Define SVG icons for special cases (as fallback if devicons aren't available)
   const svgIcons = {

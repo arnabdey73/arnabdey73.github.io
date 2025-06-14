@@ -4,8 +4,13 @@
 <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="shortcut icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 
-<!-- Devicon for tech icons - Loaded First (July 2025) -->
+<!-- Devicon Early Loader - CRITICAL (June 2025) -->
+<script src="{{ '/assets/js/devicon-early-loader.js' | relative_url }}"></script>
+<!-- Devicon CSS - Load Early (June 2025) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<!-- Preconnect to CDN for faster icon loading -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
 <!-- CRITICAL TECH ICON FIX - Loaded First (June 2025) -->
 <link rel="stylesheet" href="{{ '/assets/css/tech-icon-critical-fix.css' | relative_url }}">
