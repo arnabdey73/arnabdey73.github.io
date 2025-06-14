@@ -22,21 +22,20 @@
 /* Ensure proper grid layout specifically for 2x2 */
 .tech-category-2x2-grid .tech-icons {
   display: grid !important;
-  grid-template-columns: repeat(2, minmax(90px, 1fr)) !important;
-  grid-template-rows: repeat(2, minmax(90px, 1fr)) !important;
-  gap: 1rem !important; /* Increased gap between icons as suggested */
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important; /* New responsive column sizing */
+  grid-template-rows: auto !important; /* Auto-adjust rows */
+  gap: 0.75rem !important; /* Reduced gap as suggested */
   width: 100% !important;
-  max-width: 280px !important; /* Slightly increased max-width for more space */
+  max-width: 250px !important; /* Adjusted max-width */
   height: auto !important;
-  aspect-ratio: 1 / 1 !important; /* Maintain square aspect ratio */
-  padding: 1.5rem !important; /* Increased padding as suggested */
+  padding: 1rem !important; /* Balanced padding as suggested */
   margin: 0.5rem auto !important;
   justify-content: center !important;
   align-items: center !important;
   justify-items: center !important;
   align-content: center !important;
   box-sizing: border-box !important;
-  overflow: visible !important; /* Changed to visible as suggested to prevent cropping */
+  overflow: visible !important; /* Prevent cropping */
   background: rgba(255, 255, 255, 0.03) !important;
   border-radius: 10px !important;
 }
@@ -44,65 +43,73 @@
 /* Special layout for categories with fewer items */
 .tech-category[data-item-count="1"] .tech-icons {
   grid-template-columns: 1fr !important;
-  grid-template-rows: 1fr !important;
-  max-width: 120px !important;
-  aspect-ratio: 1 / 1 !important;
+  max-width: 110px !important;
+  padding: 0.75rem !important;
 }
 
 .tech-category[data-item-count="2"] .tech-icons {
-  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-columns: repeat(2, minmax(80px, 1fr)) !important;
   grid-template-rows: 1fr !important;
-  max-width: 240px !important;
+  max-width: 200px !important;
   max-height: 120px !important;
-  aspect-ratio: 2 / 1 !important;
 }
 
 .tech-category[data-item-count="3"] .tech-icons,
 .tech-category[data-item-count="4"] .tech-icons {
-  grid-template-columns: repeat(2, 1fr) !important;
-  grid-template-rows: repeat(2, 1fr) !important;
-  max-width: 240px !important;
-  aspect-ratio: 1 / 1 !important;
+  grid-template-columns: repeat(2, minmax(80px, 1fr)) !important;
+  grid-template-rows: auto !important;
+  max-width: 200px !important;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 480px) {
   .tech-category-2x2-grid .tech-icons {
-    max-width: 240px !important;
-    gap: 0.75rem !important;
-    padding: 1rem !important;
+    max-width: 200px !important;
+    gap: 0.5rem !important;
+    padding: 0.75rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important;
   }
   
   .tech-category-2x2-grid .tech-item {
-    min-width: 80px !important;
-    min-height: 80px !important;
-    max-width: 100px !important;
-    max-height: 100px !important;
-    padding: 0.75rem !important;
+    min-width: 70px !important;
+    min-height: 70px !important;
+    max-width: 90px !important;
+    max-height: 90px !important;
+    padding: 0.5rem !important;
   }
   
   .tech-category-2x2-grid .tech-item i,
   .tech-category-2x2-grid .tech-item .terraform-logo {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
     width: 40px !important; /* Slightly smaller on mobile */
     height: 40px !important;
   }
   
   .tech-category {
-    min-height: 280px !important; /* Adjusted height for mobile */
+    min-height: 260px !important; /* Adjusted height for mobile */
+    padding: 1rem !important;
   }
 }
 
 /* Very small screens */
 @media screen and (max-width: 320px) {
   .tech-category-2x2-grid .tech-icons {
-    max-width: 200px !important;
-    gap: 0.5rem !important;
+    max-width: 180px !important;
+    gap: 0.4rem !important;
+    padding: 0.5rem !important;
   }
   
   .tech-category-2x2-grid .tech-item {
-    min-width: 70px !important;
-    min-height: 70px !important;
+    min-width: 65px !important;
+    min-height: 65px !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item i,
+  .tech-category-2x2-grid .tech-item .terraform-logo {
+    width: 36px !important;
+    height: 36px !important;
   }
 }
 
@@ -113,13 +120,13 @@
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  padding: 1rem !important; /* Increased padding */
+  padding: 0.75rem !important; /* Balanced padding */
   width: 100% !important;
   height: 100% !important;
-  min-width: 90px !important;
-  min-height: 90px !important;
-  max-width: 120px !important;
-  max-height: 120px !important;
+  min-width: 80px !important; /* Adjusted to match grid */
+  min-height: 80px !important;
+  max-width: 110px !important;
+  max-height: 110px !important;
   background: rgba(0, 0, 0, 0.2) !important;
   border-radius: 10px !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -143,11 +150,11 @@
 
 /* Fix Font Awesome icon sizes */
 .tech-category-2x2-grid .tech-item i {
-  font-size: 2.5rem !important; /* Increased size */
-  width: 48px !important; /* Fixed width as suggested */
-  height: 48px !important; /* Fixed height as suggested */
+  font-size: 2.25rem !important; /* Adjusted for 48px icons */
+  width: 48px !important; /* Exact width as suggested */
+  height: 48px !important; /* Exact height as suggested */
   line-height: 1 !important;
-  margin: 0 auto 0.75rem auto !important; /* Slightly increased bottom margin */
+  margin: 0 auto 0.5rem auto !important;
   color: #2a9df4 !important; /* Consistent blue color */
   text-shadow: 0 0 5px rgba(42, 157, 244, 0.3) !important;
   opacity: 1 !important;
@@ -201,16 +208,16 @@
 
 /* Special fix for the Terraform logo */
 .tech-category-2x2-grid .tech-item .terraform-logo {
-  width: 48px !important; /* Fixed width as suggested */
-  height: 48px !important; /* Fixed height as suggested */
+  width: 48px !important; /* Exact width as suggested */
+  height: 48px !important; /* Exact height as suggested */
   position: relative !important;
-  margin: 0 auto 0.75rem auto !important; /* Slightly increased bottom margin */
+  margin: 0 auto 0.5rem auto !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   opacity: 1 !important;
   visibility: visible !important;
-  object-fit: contain !important; /* Ensures icon fits within bounds as suggested */
+  object-fit: contain !important; /* Ensures icon fits within bounds */
 }
 
 .tech-category-2x2-grid .tech-item .terraform-logo::before {

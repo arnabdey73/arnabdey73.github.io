@@ -44,14 +44,16 @@ function fixTechGrid() {
     const techIcons = category.querySelector('.tech-icons');
     if (techIcons) {
       techIcons.style.display = 'grid';
-      techIcons.style.gridTemplateColumns = 'repeat(2, 1fr)';
-      techIcons.style.gridTemplateRows = 'repeat(2, 1fr)';
+      techIcons.style.gridTemplateColumns = 'repeat(auto-fit, minmax(80px, 1fr))';
       
-      // Adjust height based on item count
-      if (itemCount <= 2) {
-        techIcons.style.height = '120px';
+      // Adjust layout based on item count
+      if (itemCount === 1) {
+        techIcons.style.gridTemplateColumns = '1fr';
+        techIcons.style.maxWidth = '110px';
+      } else if (itemCount === 2) {
+        techIcons.style.maxWidth = '200px';
       } else {
-        techIcons.style.height = '200px';
+        techIcons.style.maxWidth = '200px';
       }
     }
   });
@@ -82,11 +84,11 @@ function fixFontAwesomeIcons() {
   fontAwesomeIcons.forEach(icon => {
     // Apply styling inline for maximum compatibility
     icon.style.display = 'block';
-    icon.style.fontSize = '2.5rem';
+    icon.style.fontSize = '2.25rem';
     icon.style.width = '48px';
     icon.style.height = '48px';
     icon.style.lineHeight = '1';
-    icon.style.margin = '0 auto 0.75rem auto';
+    icon.style.margin = '0 auto 0.5rem auto';
     icon.style.color = '#2a9df4';
     icon.style.opacity = '1';
     icon.style.visibility = 'visible';
