@@ -168,8 +168,14 @@
   font-family: "Font Awesome 5 Brands" !important;
 }
 
-/* Make sure each tech item has proper sizing and centering */
+/* Hide span inside tech items */
 .tech-category-2x2-grid .tech-item span {
+  display: none !important; /* Hide the text labels */
+}
+
+/* Alternative method to make labels visible on hover only 
+.tech-category-2x2-grid .tech-item:hover span {
+  display: block !important;
   font-size: 0.8rem !important;
   margin-top: 0.4rem !important;
   text-align: center !important;
@@ -181,7 +187,7 @@
   font-weight: 500 !important;
   letter-spacing: 0.01em !important;
   color: rgba(255, 255, 255, 0.9) !important;
-}
+} */
 
 /* Fix for Font Awesome solid icons */
 .tech-category-2x2-grid .tech-item .fas {
@@ -321,5 +327,46 @@
     font-size: 1.5rem !important;
     width: 1.5rem !important;
     height: 1.5rem !important;
+  }
+}
+
+/* Special icons for specific technologies */
+.tech-category-2x2-grid .tech-item .special-icon {
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 0.5rem auto !important;
+}
+
+.tech-category-2x2-grid .tech-item .special-icon svg {
+  width: 42px !important;
+  height: 42px !important;
+  object-fit: contain !important;
+}
+
+.tech-category-2x2-grid .tech-item .openstack-icon svg {
+  fill: #ED1944 !important; /* OpenStack red */
+}
+
+.tech-category-2x2-grid .tech-item .vmware-icon svg {
+  fill: #607078 !important; /* VMware blue-gray */
+}
+
+/* Media query adjustments for special icons */
+@media screen and (max-width: 480px) {
+  .tech-category-2x2-grid .tech-item .special-icon,
+  .tech-category-2x2-grid .tech-item .special-icon svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .tech-category-2x2-grid .tech-item .special-icon,
+  .tech-category-2x2-grid .tech-item .special-icon svg {
+    width: 36px !important;
+    height: 36px !important;
   }
 }

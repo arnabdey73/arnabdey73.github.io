@@ -20,6 +20,16 @@ function fixTechGrid() {
   // 1. Apply 2x2 grid layout to tech categories
   const techCategories = document.querySelectorAll('.tech-category');
   
+  // Define SVG icons for special cases
+  const svgIcons = {
+    openstack: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 48px; height: 48px; fill: #ED1944;">
+      <path d="M256 32C132.8 32 32 132.8 32 256s100.8 224 224 224 224-100.8 224-224S379.2 32 256 32zm-91.8 352l-18-90 90 18-72 72zm166.2-167.4L167 217.8l1.2-2.4 90-18.2-73.6 73.6L184 273l101.4-101.6-2.5 163.2H212l50.2-50.2-46.6-9.4 120-24.2-5.2 26-37-7.4z"/>
+    </svg>`,
+    vmware: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 48px; height: 48px;">
+      <path fill="#607078" d="M256 32C132.3 32 32 132.3 32 256s100.3 224 224 224 224-100.3 224-224S379.7 32 256 32zm92.3 296.8h-36.5l-55.8-84.1v84.1h-36.3V184h36.3l56 84.1V184h36.3v144.8zm-184.6 0h-38V184h38v144.8z"/>
+    </svg>`
+  };
+  
   techCategories.forEach(category => {
     // Always add the 2x2 grid class
     category.classList.add('tech-category-2x2-grid');
@@ -63,6 +73,9 @@ function fixTechGrid() {
   
   // 3. Fix terraform logo specifically
   fixTerraformLogos();
+  
+  // 4. Fix specific icons like OpenStack and VMware
+  fixSpecialIcons();
   
   console.log(`✅ Fixed ${techCategories.length} tech categories with 2x2 grid layout`);
 }
@@ -199,6 +212,65 @@ function fixTerraformLogos() {
   });
   
   console.log(`✅ Fixed ${terraformItems.length} Terraform logos`);
+}
+
+// Function to apply special SVG icons for specific technologies
+function fixSpecialIcons() {
+  // 1. Fix OpenStack icon
+  const openStackItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
+    return item.textContent.toLowerCase().includes('openstack');
+  });
+  
+  openStackItems.forEach(item => {
+    // Replace the icon with SVG
+    const existingIcon = item.querySelector('i');
+    if (existingIcon && existingIcon.className.includes('fa-cloud')) {
+      // Create a wrapper for the SVG
+      const iconWrapper = document.createElement('div');
+      iconWrapper.className = 'special-icon openstack-icon';
+      iconWrapper.style.width = '48px';
+      iconWrapper.style.height = '48px';
+      iconWrapper.style.margin = '0 auto 0.5rem auto';
+      iconWrapper.style.display = 'flex';
+      iconWrapper.style.alignItems = 'center';
+      iconWrapper.style.justifyContent = 'center';
+      
+      // Insert SVG
+      iconWrapper.innerHTML = svgIcons.openstack;
+      
+      // Replace the existing icon
+      existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
+    }
+  });
+  
+  // 2. Fix VMware icon
+  const vmwareItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
+    return item.textContent.toLowerCase().includes('vmware');
+  });
+  
+  vmwareItems.forEach(item => {
+    // Replace the icon with SVG
+    const existingIcon = item.querySelector('i');
+    if (existingIcon && existingIcon.className.includes('fa-server')) {
+      // Create a wrapper for the SVG
+      const iconWrapper = document.createElement('div');
+      iconWrapper.className = 'special-icon vmware-icon';
+      iconWrapper.style.width = '48px';
+      iconWrapper.style.height = '48px';
+      iconWrapper.style.margin = '0 auto 0.5rem auto';
+      iconWrapper.style.display = 'flex';
+      iconWrapper.style.alignItems = 'center';
+      iconWrapper.style.justifyContent = 'center';
+      
+      // Insert SVG
+      iconWrapper.innerHTML = svgIcons.vmware;
+      
+      // Replace the existing icon
+      existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
+    }
+  });
+  
+  console.log(`✅ Fixed special icons (OpenStack: ${openStackItems.length}, VMware: ${vmwareItems.length})`);
 }
 
 // Force proper styling for tech icons grid
