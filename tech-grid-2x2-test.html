@@ -15,6 +15,50 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        
+        /* Debug styles */
+        .debug-info {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        
+        .test-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .test-controls button {
+            background-color: #2a9df4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .test-controls button:hover {
+            background-color: #1a8de4;
+        }
+        
+        /* Highlight boxes for visual testing */
+        .test-highlight .tech-category {
+            border: 2px solid yellow !important;
+        }
+        
+        .test-highlight .tech-icons {
+            border: 2px solid lime !important;
+        }
+        
+        .test-highlight .tech-item {
+            border: 2px solid cyan !important;
+        }
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -174,16 +218,97 @@
         </div>
     </div>
     
-    <button id="diagnose">Run Grid Diagnostics</button>
+    <!-- Testing controls -->
+    <div class="test-controls">
+        <button id="diagnose">Run Grid Diagnostics</button>
+        <button id="highlight-toggle">Toggle Highlight Boxes</button>
+        <button id="responsive-test">Test Responsive View</button>
+        <button id="reload-fix">Reload Grid Fix</button>
+    </div>
     
-    <div id="results" class="result-box" style="display: none;"></div>
+    <div id="results" class="debug-info" style="display: none;"></div>
     
     <script src="/assets/js/tech-grid-fix.js"></script>
     <script>
+        // Run Grid Fix automatically when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            fixTechGrid();
+            console.log('🔄 Initial tech grid fix applied');
+        });
+    
         document.getElementById('diagnose').addEventListener('click', function() {
             const results = document.getElementById('results');
             results.style.display = 'block';
-            results.innerHTML = '';
+            results.innerHTML = '<h3>🔍 Tech Grid Diagnostics</h3>';
+            
+            // Run diagnostics
+            const techItems = document.querySelectorAll('.tech-item');
+            const techIcons = document.querySelectorAll('.tech-icons');
+            const fontAwesomeIcons = document.querySelectorAll('.tech-item i');
+            const terraformLogos = document.querySelectorAll('.terraform-logo');
+            
+            results.innerHTML += `
+                <p>Found ${techItems.length} tech items</p>
+                <p>Found ${techIcons.length} tech icon containers</p>
+                <p>Found ${fontAwesomeIcons.length} Font Awesome icons</p>
+                <p>Found ${terraformLogos.length} Terraform logos</p>
+            `;
+            
+            // Check dimensions of tech items
+            let itemSizes = [];
+            techItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                itemSizes.push({
+                    width: rect.width,
+                    height: rect.height
+                });
+            });
+            
+            // Show average dimensions
+            const avgWidth = itemSizes.reduce((sum, size) => sum + size.width, 0) / itemSizes.length;
+            const avgHeight = itemSizes.reduce((sum, size) => sum + size.height, 0) / itemSizes.length;
+            
+            results.innerHTML += `
+                <p>Average tech item dimensions: ${avgWidth.toFixed(1)}px × ${avgHeight.toFixed(1)}px</p>
+            `;
+            
+            // Check if any icons are broken
+            let brokenIcons = 0;
+            fontAwesomeIcons.forEach(icon => {
+                const styles = window.getComputedStyle(icon);
+                if (styles.visibility === 'hidden' || styles.display === 'none' || styles.opacity === '0') {
+                    brokenIcons++;
+                }
+            });
+            
+            results.innerHTML += `
+                <p>${brokenIcons > 0 ? '⚠️' : '✅'} Found ${brokenIcons} potential broken icons</p>
+            `;
+        });
+        
+        // Toggle highlight boxes for visual debugging
+        document.getElementById('highlight-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('test-highlight');
+        });
+        
+        // Test responsive view by simulating narrow viewport
+        document.getElementById('responsive-test').addEventListener('click', function() {
+            const container = document.querySelector('.container');
+            if (container.style.maxWidth === '480px') {
+                container.style.maxWidth = '1200px';
+                this.textContent = 'Test Responsive View';
+            } else {
+                container.style.maxWidth = '480px';
+                this.textContent = 'Reset View';
+            }
+        });
+        
+        // Reload grid fix
+        document.getElementById('reload-fix').addEventListener('click', function() {
+            fixTechGrid();
+            alert('Tech grid fix reapplied!');
+        });
+    </script>
             
             // Check tech categories
             const categories = document.querySelectorAll('.tech-category');

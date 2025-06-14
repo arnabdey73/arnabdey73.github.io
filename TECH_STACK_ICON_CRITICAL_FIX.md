@@ -66,4 +66,4 @@ The fix has been tested and verified to work across:
   - `/assets/js/tech-icon-critical-fix.js`
 - **Files Modified**:
   - `/_includes/head/custom.html`
-  - `/_includes/scripts.html`
+  - `/_includes/scrip

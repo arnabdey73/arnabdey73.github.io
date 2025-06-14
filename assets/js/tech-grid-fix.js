@@ -80,7 +80,7 @@ function fixFontAwesomeIcons() {
   // Force proper display for Font Awesome icons
   const fontAwesomeIcons = document.querySelectorAll('.tech-item i');
   fontAwesomeIcons.forEach(icon => {
-    // Apply styling
+    // Apply styling inline for maximum compatibility
     icon.style.display = 'block';
     icon.style.fontSize = '2rem';
     icon.style.width = '2rem';
@@ -90,6 +90,11 @@ function fixFontAwesomeIcons() {
     icon.style.color = '#2a9df4';
     icon.style.opacity = '1';
     icon.style.visibility = 'visible';
+    
+    // Fix for Font Awesome brand icons
+    if (icon.classList.contains('fab')) {
+      icon.style.fontFamily = '"Font Awesome 5 Brands", "Font Awesome 6 Brands"';
+    }
     
     // Ensure Font Awesome classes are present
     if (!icon.className.includes('fa')) {
@@ -120,6 +125,33 @@ function fixTerraformLogos() {
     return item.textContent.toLowerCase().includes('terraform');
   });
   
+  // First create a style for the Terraform logo if it doesn't exist
+  if (!document.querySelector('style[data-terraform-logo-style]')) {
+    const style = document.createElement('style');
+    style.setAttribute('data-terraform-logo-style', 'true');
+    style.textContent = `
+      .terraform-logo::before {
+        content: "" !important;
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: #844FBA !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
+        -webkit-mask-size: contain !important;
+        -webkit-mask-repeat: no-repeat !important;
+        -webkit-mask-position: center !important;
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
+        mask-size: contain !important;
+        mask-repeat: no-repeat !important;
+        mask-position: center !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+  
   terraformItems.forEach(item => {
     // Check if it already has a terraform logo div
     let terraformLogo = item.querySelector('.terraform-logo');
@@ -140,7 +172,7 @@ function fixTerraformLogos() {
       item.insertBefore(terraformLogo, firstChild);
     }
     
-    // Apply terraform logo styles
+    // Apply terraform logo styles inline
     terraformLogo.style.width = '2rem';
     terraformLogo.style.height = '2rem';
     terraformLogo.style.position = 'relative';
@@ -149,12 +181,12 @@ function fixTerraformLogos() {
     terraformLogo.style.alignItems = 'center';
     terraformLogo.style.justifyContent = 'center';
     
-    // Add fallback span for older browsers
+    // Add fallback span for older browsers that don't support mask-image
     if (!terraformLogo.querySelector('.terraform-fallback')) {
       const fallback = document.createElement('span');
       fallback.className = 'terraform-fallback';
       fallback.textContent = 'T';
-      fallback.style.opacity = '0.6';
+      fallback.style.opacity = '0.3'; // Lower opacity so it's less visible when mask works
       fallback.style.fontSize = '1.5rem';
       fallback.style.fontWeight = 'bold';
       fallback.style.color = '#844FBA';

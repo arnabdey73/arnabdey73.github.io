@@ -1,6 +1,6 @@
 /* 
    Tech Grid 2x2 Layout Fix - June 2025
-   Specific fix for tech icons appearing as small boxes instead of proper icons
+   Fixed issue with icons appearing as small boxes instead of proper icons
 */
 
 /* Force proper 2x2 grid layout with suitable sizing and padding */
@@ -22,21 +22,22 @@
 /* Ensure proper grid layout specifically for 2x2 */
 .tech-category-2x2-grid .tech-icons {
   display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  grid-template-rows: repeat(2, 1fr) !important;
-  gap: 1.5rem !important;
+  grid-template-columns: repeat(2, minmax(90px, 1fr)) !important;
+  grid-template-rows: repeat(2, minmax(90px, 1fr)) !important;
+  gap: 0.75rem !important;
   width: 100% !important;
-  max-width: 280px !important;
-  height: 200px !important; /* Fixed height for 2x2 grid */
-  padding: 1rem !important;
-  margin: 1rem auto !important;
+  max-width: 240px !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important; /* Maintain square aspect ratio */
+  padding: 0.75rem !important;
+  margin: 0.5rem auto !important;
   justify-content: center !important;
   align-items: center !important;
   justify-items: center !important;
   align-content: center !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
-  background: rgba(255, 255, 255, 0.03) !important; /* Subtle background */
+  background: rgba(255, 255, 255, 0.03) !important;
   border-radius: 10px !important;
 }
 
@@ -44,20 +45,48 @@
 .tech-category[data-item-count="1"] .tech-icons {
   grid-template-columns: 1fr !important;
   grid-template-rows: 1fr !important;
-  height: 120px !important;
+  max-width: 120px !important;
+  aspect-ratio: 1 / 1 !important;
 }
 
 .tech-category[data-item-count="2"] .tech-icons {
   grid-template-columns: repeat(2, 1fr) !important;
   grid-template-rows: 1fr !important;
-  height: 120px !important;
+  max-width: 240px !important;
+  max-height: 120px !important;
+  aspect-ratio: 2 / 1 !important;
 }
 
 .tech-category[data-item-count="3"] .tech-icons,
 .tech-category[data-item-count="4"] .tech-icons {
   grid-template-columns: repeat(2, 1fr) !important;
   grid-template-rows: repeat(2, 1fr) !important;
-  height: 200px !important;
+  max-width: 240px !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .tech-category-2x2-grid .tech-icons {
+    max-width: 200px !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item {
+    min-width: 70px !important;
+    min-height: 70px !important;
+    max-width: 90px !important;
+    max-height: 90px !important;
+    padding: 0.4rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item i,
+  .tech-category-2x2-grid .tech-item .terraform-logo {
+    font-size: 1.75rem !important;
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
 }
 
 /* Proper styling for tech items with increased size and visibility */
@@ -67,9 +96,13 @@
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  padding: 0.75rem !important;
-  width: 90px !important; /* Fixed width */
-  height: 90px !important; /* Fixed height */
+  padding: 0.5rem !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 75px !important;
+  min-height: 75px !important;
+  max-width: 110px !important;
+  max-height: 110px !important;
   background: rgba(0, 0, 0, 0.2) !important;
   border-radius: 10px !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -92,11 +125,11 @@
 
 /* Fix Font Awesome icon sizes */
 .tech-category-2x2-grid .tech-item i {
-  font-size: 2rem !important; /* Use rem units for consistency */
+  font-size: 2rem !important;
   width: 2rem !important;
   height: 2rem !important;
   line-height: 1 !important;
-  margin-bottom: 0.5rem !important;
+  margin: 0 auto 0.5rem auto !important;
   color: #2a9df4 !important; /* Consistent blue color */
   text-shadow: 0 0 5px rgba(42, 157, 244, 0.3) !important;
   opacity: 1 !important;
@@ -107,6 +140,18 @@
 /* Fix for Font Awesome brand icons */
 .tech-category-2x2-grid .tech-item .fab {
   font-family: "Font Awesome 5 Brands" !important;
+}
+
+/* Make sure each tech item has proper sizing and centering */
+.tech-category-2x2-grid .tech-item span {
+  font-size: 0.75rem !important;
+  margin-top: 0.25rem !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 /* Fix for Font Awesome solid icons */
@@ -137,7 +182,7 @@
   width: 2rem !important;
   height: 2rem !important;
   position: relative !important;
-  margin: 0 0 0.5rem 0 !important;
+  margin: 0 auto 0.5rem auto !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -151,17 +196,19 @@
   width: 100% !important;
   height: 100% !important;
   background-color: #844FBA !important;
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
-  mask-size: contain !important;
-  mask-repeat: no-repeat !important;
-  mask-position: center !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  /* Vendor prefixed properties first */
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
   -webkit-mask-size: contain !important;
   -webkit-mask-repeat: no-repeat !important;
   -webkit-mask-position: center !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  /* Standard properties after */
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
+  mask-size: contain !important;
+  mask-repeat: no-repeat !important;
+  mask-position: center !important;
 }
 
 /* Skill level styling */
