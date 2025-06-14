@@ -61,7 +61,10 @@ function fixTechGrid() {
   // 1. Apply 2x2 grid layout to tech categories
   const techCategories = document.querySelectorAll('.tech-category');
   
-  // Define SVG icons for special cases
+  // First check if we should use devicon instead (new in June 2025)
+  const useDevicons = typeof window.applyDeviconIcons === 'function';
+  
+  // Define SVG icons for special cases (as fallback if devicons aren't available)
   const svgIcons = {
     openstack: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 48px; height: 48px; fill: #ED1944;">
       <path d="M256 32C132.8 32 32 132.8 32 256s100.8 224 224 224 224-100.8 224-224S379.2 32 256 32zm-91.8 352l-18-90 90 18-72 72zm166.2-167.4L167 217.8l1.2-2.4 90-18.2-73.6 73.6L184 273l101.4-101.6-2.5 163.2H212l50.2-50.2-46.6-9.4 120-24.2-5.2 26-37-7.4z"/>
