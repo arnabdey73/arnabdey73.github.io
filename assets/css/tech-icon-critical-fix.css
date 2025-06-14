@@ -130,33 +130,4 @@ body[class] .tech-item span:not(.skill-dot):not(.terraform-fallback) {
   grid-template-rows: repeat(2, 1fr) !important;
   gap: 1rem !important;
   justify-items: center !important;
-  align-items: center !important;
-  overflow: hidden !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Add hardware acceleration to improve rendering */
-.tech-item,
-.terraform-logo,
-.tech-item i {
-  -webkit-transform: translateZ(0) !important;
-  transform: translateZ(0) !important;
-  backface-visibility: hidden !important;
-  perspective: 1000px !important;
-  will-change: transform !important;
-}
-
-/* Fix dark mode specific issues */
-[data-theme="dark"] .terraform-logo::before {
-  background-color: #A78BFA !important;
-}
-
-[data-theme="dark"] .skill-dot.filled {
-  background-color: #3B82F6 !important;
-}
-
-/* Force tech icons grid visibility - highest priority fix */
-.tech-category {
-  min-height: 0 !important; /* Using 0 instead of auto for better browser support */
-}
+  
