@@ -225,39 +225,21 @@ html body .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fal
   pointer-events: none !important;
 }
 
-/* Special fix for the Terraform logo */
-.tech-category-2x2-grid .tech-item .terraform-logo {
+/* Special styling for devicon-terraform */
+.devicon-terraform-plain.colored,
+.tech-category-2x2-grid .tech-item .devicon-terraform-plain.colored,
+i.devicon-terraform-plain.colored {
+  color: #844FBA !important; /* HashiCorp Terraform purple */
+  filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
   width: 48px !important; /* Exact width as suggested */
   height: 48px !important; /* Exact height as suggested */
-  position: relative !important;
+  font-size: 2.5rem !important;
   margin: 0 auto 0.5rem auto !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   opacity: 1 !important;
   visibility: visible !important;
-  object-fit: contain !important; /* Ensures icon fits within bounds */
-}
-
-.tech-category-2x2-grid .tech-item .terraform-logo::before {
-  content: "" !important;
-  position: absolute !important;
-  width: 100% !important;
-  height: 100% !important;
-  background-color: #844FBA !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  /* Vendor prefixed properties first */
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
-  -webkit-mask-size: contain !important;
-  -webkit-mask-repeat: no-repeat !important;
-  -webkit-mask-position: center !important;
-  /* Standard properties after */
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
-  mask-size: contain !important;
-  mask-repeat: no-repeat !important;
-  mask-position: center !important;
 }
 
 /* Skill level styling */

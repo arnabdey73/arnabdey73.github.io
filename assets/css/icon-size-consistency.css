@@ -1,21 +1,17 @@
 /**
- * Icon Size Consistency - June 2025
- * Ensures all icons across the site have consistent size
+ * Devicon Size Consistency - June 2025
+ * Ensures all devicon elements across the site have consistent size
  */
 
-/* Universal icon sizing for consistency */
-[class*="fa-"],
+/* Universal devicon sizing for consistency - Standardized on devicon.dev icons */
 [class*="devicon-"],
-.tech-item i,
-.tech-icon,
-i.tech-icon,
-.tech-grid i,
-.special-icon,
-.tech-item .special-icon,
-.tech-stack i,
-.terraform-logo,
-.tech-item [class*="icon"],
-div[class*="icon"] {
+i[class*="devicon-"],
+.tech-item [class*="devicon-"],
+.tech-category [class*="devicon-"],
+.tech-stack [class*="devicon-"],
+.tech-category-2x2-grid [class*="devicon-"],
+.tech-item i[class*="devicon-"],
+html body [class*="devicon-"] {
   font-size: 2.5rem !important;
   width: 48px !important;
   height: 48px !important;

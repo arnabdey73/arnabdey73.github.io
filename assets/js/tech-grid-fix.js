@@ -82,177 +82,91 @@ function fixTechGrid() {
   const useDevicons = typeof window.applyDeviconIcons === 'function' && 
                       document.querySelectorAll('[class*="devicon-"]').length > 0;
   
-  // Define SVG icons for special cases (as fallback if devicons aren't available)
-  const svgIcons = {
-    openstack: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 48px; height: 48px; fill: #ED1944;">
-      <path d="M256 32C132.8 32 32 132.8 32 256s100.8 224 224 224 224-100.8 224-224S379.2 32 256 32zm-91.8 352l-18-90 90 18-72 72zm166.2-167.4L167 217.8l1.2-2.4 90-18.2-73.6 73.6L184 273l101.4-101.6-2.5 163.2H212l50.2-50.2-46.6-9.4 120-24.2-5.2 26-37-7.4z"/>
-    </svg>`,
-    vmware: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 48px; height: 48px;">
-      <path fill="#607078" d="M256 32C132.3 32 32 132.3 32 256s100.3 224 224 224 224-100.3 224-224S379.7 32 256 32zm92.3 296.8h-36.5l-55.8-84.1v84.1h-36.3V184h36.3l56 84.1V184h36.3v144.8zm-184.6 0h-38V184h38v144.8z"/>
-    </svg>`,
-    azure: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" style="width: 48px; height: 48px; fill: #0078D4;">
-      <path d="M88.9,66.9c0.3-0.4,0.4-0.9,0.2-1.4c-0.1-0.2-0.2-0.4-0.4-0.5l-26-15.6L84.5,27c0.4-0.3,0.6-0.9,0.4-1.4 c-0.1-0.5-0.6-0.9-1.1-0.9H44.7c-0.5,0-0.9,0.3-1.1,0.7L31.9,50.9L6.8,63.3c-0.5,0.3-0.8,0.8-0.7,1.3c0.1,0.5,0.5,1,1.1,1h25.4 l13.3,21.4c0.2,0.3,0.5,0.5,0.9,0.6c0.1,0,0.1,0,0.2,0c0.3,0,0.6-0.1,0.9-0.3l12.3-10.1l19.7,8.7c0.2,0.1,0.3,0.1,0.5,0.1 c0.3,0,0.6-0.1,0.8-0.3c0.3-0.2,0.5-0.5,0.6-0.9l7.9-17.2C89.6,67.2,89.3,67,88.9,66.9z M48.7,73.6L37.4,55.5 c-0.2-0.3-0.5-0.5-0.8-0.6c-0.4-0.1-0.7,0-1,0.2L12,66.2l21.6-36c0.2-0.3,0.2-0.6,0.2-0.9c0-0.3-0.2-0.6-0.4-0.8l-5.9-7h39.5 L45.2,43.8c-0.3,0.3-0.4,0.7-0.3,1.1c0.1,0.4,0.4,0.7,0.8,0.8l26.9,16.2l-5.7,12.4L47.8,65.5c-0.3-0.1-0.7-0.1-1,0.1 c-0.3,0.2-0.5,0.5-0.6,0.8l-3.7,16.6L48.7,73.6z"/>
-    </svg>`
-  };
+  // We're now using devicons for all tech icons, no need for SVG fallbacks
   
-  // 1. Fix OpenStack icon
-  const openStackItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
-    return item.textContent.toLowerCase().includes('openstack');
-  });
-  
-  openStackItems.forEach(item => {
-    // Replace the icon with SVG
-    const existingIcon = item.querySelector('i');
-    if (existingIcon && existingIcon.className.includes('fa-cloud')) {
-      // Create a wrapper for the SVG
-      const iconWrapper = document.createElement('div');
-      iconWrapper.className = 'special-icon openstack-icon';
-      iconWrapper.style.width = '48px';
-      iconWrapper.style.height = '48px';
-      iconWrapper.style.margin = '0 auto 0.5rem auto';
-      iconWrapper.style.display = 'flex';
-      iconWrapper.style.alignItems = 'center';
-      iconWrapper.style.justifyContent = 'center';
-      
-      // Insert SVG
-      iconWrapper.innerHTML = svgIcons.openstack;
-      
-      // Replace the existing icon
-      existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
-    }
-  });
-  
-  // 2. Fix VMware icon
-  const vmwareItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
-    return item.textContent.toLowerCase().includes('vmware');
-  });
-  
-  vmwareItems.forEach(item => {
-    // Replace the icon with SVG
-    const existingIcon = item.querySelector('i');
-    if (existingIcon && existingIcon.className.includes('fa-server')) {
-      // Create a wrapper for the SVG
-      const iconWrapper = document.createElement('div');
-      iconWrapper.className = 'special-icon vmware-icon';
-      iconWrapper.style.width = '48px';
-      iconWrapper.style.height = '48px';
-      iconWrapper.style.margin = '0 auto 0.5rem auto';
-      iconWrapper.style.display = 'flex';
-      iconWrapper.style.alignItems = 'center';
-      iconWrapper.style.justifyContent = 'center';
-      
-      // Insert SVG
-      iconWrapper.innerHTML = svgIcons.vmware;
-      
-      // Replace the existing icon
-      existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
-    }
-  });
-  
-  // 3. Fix Azure icon
-  const azureItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
-    return item.textContent.toLowerCase().includes('azure');
-  });
-  
-  azureItems.forEach(item => {
-    // Replace the icon with SVG
-    const existingIcon = item.querySelector('i');
-    if (existingIcon && existingIcon.className.includes('fa-microsoft')) {
-      // Create a wrapper for the SVG
-      const iconWrapper = document.createElement('div');
-      iconWrapper.className = 'special-icon azure-icon';
-      iconWrapper.style.width = '48px';
-      iconWrapper.style.height = '48px';
-      iconWrapper.style.margin = '0 auto 0.5rem auto';
-      iconWrapper.style.display = 'flex';
-      iconWrapper.style.alignItems = 'center';
-      iconWrapper.style.justifyContent = 'center';
-      
-      // Insert SVG
-      iconWrapper.innerHTML = svgIcons.azure;
-      
-      // Replace the existing icon
-      existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
-    }
-  });
-  
-  console.log(`✅ Fixed special icons (OpenStack: ${openStackItems.length}, VMware: ${vmwareItems.length}, Azure: ${azureItems.length})`);
+  // No need to replace icons with SVGs since we're now using devicons directly in the HTML
+  console.log('✅ Using devicons directly in HTML - no need for SVG icon replacement');
 }
 
-// New helper function to ensure all Terraform items use devicon
+// Helper function to verify all Terraform items use devicon
 function ensureTerraformDevicon() {
-  console.log('🛠️ Running specialized Terraform devicon fixer...');
+  console.log('� Verifying Terraform devicon usage...');
   
-  // Find all Terraform items that might have been missed
+  // Find all Terraform items
   const terraformItems = Array.from(document.querySelectorAll('.tech-item'))
     .filter(item => {
       const text = item.textContent.toLowerCase();
-      return text.includes('terraform') && !item.querySelector('.devicon-terraform-plain');
+      return text.includes('terraform');
     });
     
-  console.log(`🔍 Found ${terraformItems.length} additional Terraform items needing devicon fix`);
-    
-  terraformItems.forEach(item => {
-    // Create the terraform devicon
-    const iconWrapper = document.createElement('i');
-    iconWrapper.className = 'devicon-terraform-plain colored';
-    
-    // Style properly
-    iconWrapper.style.cssText = `
-      color: #844FBA !important; 
-      filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
-      font-size: 2.5rem !important; 
-      width: 48px !important; 
-      height: 48px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      margin: 0 auto 0.5rem auto !important;
-    `;
-    
-    // Find and replace ANY existing icon
-    const existingIcon = item.querySelector('i') || 
-                        item.querySelector('.terraform-logo') ||
-                        item.querySelector('svg') ||
-                        item.querySelector('[class*="icon"]');
-    
-    if (existingIcon) {
-      existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
-    } else {
-      // If no icon at all, insert as first child
-      item.insertBefore(iconWrapper, item.firstChild);
-    }
-    
-    // Mark as fixed
-    item.setAttribute('data-terraform-fixed', 'true');
-  });
+  console.log(`🔍 Found ${terraformItems.length} Terraform items to verify`);
   
-  console.log(`✅ Fixed ${terraformItems.length} additional Terraform icons with devicon versions`);
+  // Check which ones don't have devicon
+  const missingDevicons = terraformItems.filter(item => !item.querySelector('.devicon-terraform-plain'));
+    
+  if (missingDevicons.length > 0) {
+    console.warn(`⚠️ Found ${missingDevicons.length} Terraform items without devicon`);
+    
+    // Fix any missing devicons
+    missingDevicons.forEach(item => {
+      // Create the terraform devicon
+      const iconWrapper = document.createElement('i');
+      iconWrapper.className = 'devicon-terraform-plain colored';
+      
+      // Style properly
+      iconWrapper.style.cssText = `
+        color: #844FBA !important; 
+        filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
+        font-size: 2.5rem !important; 
+        width: 48px !important; 
+        height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto 0.5rem auto !important;
+      `;
+      
+      // Find and replace ANY existing icon
+      const existingIcon = item.querySelector('i') || 
+                          item.querySelector('.terraform-logo') ||
+                          item.querySelector('svg') ||
+                          item.querySelector('[class*="icon"]');
+      
+      if (existingIcon) {
+        existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
+      } else {
+        // If no icon at all, insert as first child
+        item.insertBefore(iconWrapper, item.firstChild);
+      }
+      
+      // Mark as fixed
+      item.setAttribute('data-terraform-fixed', 'true');
+    });
+    
+    console.log(`✅ Fixed ${missingDevicons.length} Terraform items with devicon`);
+  } else {
+    console.log('✅ All Terraform items correctly using devicon-terraform-plain');
+  }
 }
 
 // Helper function to normalize all icon sizes for consistency
 function normalizeIconSizes() {
-  console.log('📐 Normalizing all icon sizes for consistency...');
+  console.log('📐 Normalizing all devicon sizes for consistency...');
   
-  // Target all possible icon elements
-  const allIcons = document.querySelectorAll([
-    '.tech-item i', 
-    '.tech-item [class*="icon"]',
-    '.tech-item [class*="logo"]',
-    '.tech-item [class*="devicon"]',
-    '.tech-category i',
-    '.tech-category [class*="icon"]',
-    '.tech-category [class*="devicon"]',
-    '.tech-icon',
-    '.special-icon',
-    'i.devicon-terraform-plain',
-    '.devicon-terraform-plain'
+  // Target all devicon elements for consistent sizing
+  const allDevicons = document.querySelectorAll([
+    '[class*="devicon-"]',
+    '.tech-item [class*="devicon-"]',
+    '.tech-category [class*="devicon-"]',
+    'i[class*="devicon-"]',
+    '.devicon-terraform-plain',
+    '.devicon-terraform-plain.colored'
   ].join(', '));
   
-  console.log(`🔍 Found ${allIcons.length} icons to normalize`);
+  console.log(`🔍 Found ${allDevicons.length} devicon elements to normalize`);
   
   // Apply consistent sizing
-  allIcons.forEach(icon => {
+  allDevicons.forEach(icon => {
     // Skip skill dots and small indicators
     if (icon.className.includes('skill-dot')) return;
     
@@ -271,7 +185,7 @@ function normalizeIconSizes() {
     }
   });
   
-  console.log('✅ Icon sizes normalized for consistency');
+  console.log('✅ Devicon sizes normalized for consistency');
 }
 
 // Function to check if devicon CSS is properly loaded

@@ -10,11 +10,11 @@ permalink: /assignments/
     <p style="text-align: center; font-style: italic; margin: 20px 0;">Coming soon...</p>
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <i class="fas fa-infinity" aria-hidden="true"></i>
+        <i class="devicon-git-plain colored" aria-hidden="true"></i>
         <span>DevOps</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Azure</span>
       </div>
     </div>
@@ -30,15 +30,15 @@ permalink: /assignments/
     </ul>
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <i class="fas fa-book" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>CAF</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <div class="terraform-logo-mini"></div>
+        <i class="devicon-terraform-plain colored" aria-hidden="true"></i>
         <span>Terraform</span>
       </div>
     </div>
@@ -51,28 +51,29 @@ permalink: /assignments/
       <li>Automated Azure Databricks cluster scaling with Terraform and GitHub Actions.</li>
       <li>Acted as a Product Owner, coordinating backlog priorities and ensuring alignment with stakeholder vision by creating product roadmap and vision board.</li>
     </ul>
-    <div class="tech-icons-mini">      <div class="tech-item-mini">
-        <i class="fab fa-github" aria-hidden="true"></i>
+    <div class="tech-icons-mini">      
+      <div class="tech-item-mini">
+        <i class="devicon-github-plain colored" aria-hidden="true"></i>
         <span>GitHub Actions</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-ubuntu" aria-hidden="true"></i>
+        <i class="devicon-ubuntu-plain colored" aria-hidden="true"></i>
         <span>Ubuntu</span>
       </div>
       <div class="tech-item-mini">
-        <div class="terraform-logo-mini"></div>
+        <i class="devicon-terraform-plain colored" aria-hidden="true"></i>
         <span>Terraform</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-dharmachakra" aria-hidden="true"></i>
+        <i class="devicon-kubernetes-plain colored" aria-hidden="true"></i>
         <span>K8s</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-database fa-spark" aria-hidden="true"></i>
+        <i class="devicon-apache-plain colored" aria-hidden="true"></i>
         <span>Databricks</span>
       </div>
     </div>
@@ -88,15 +89,15 @@ permalink: /assignments/
     </ul>
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <i class="fab fa-jenkins" aria-hidden="true"></i>
+        <i class="devicon-jenkins-plain colored" aria-hidden="true"></i>
         <span>Jenkins</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-docker" aria-hidden="true"></i>
+        <i class="devicon-docker-plain colored" aria-hidden="true"></i>
         <span>Docker</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-dharmachakra" aria-hidden="true"></i>
+        <i class="devicon-kubernetes-plain colored" aria-hidden="true"></i>
         <span>K8s</span>
       </div>
       <div class="tech-item-mini">        <i class="fas fa-search" aria-hidden="true"></i>

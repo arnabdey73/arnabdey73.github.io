@@ -11,6 +11,8 @@
 <!-- Preconnect to CDN for faster icon loading -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<!-- Preconnect to CDN for faster devicon loading -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
 <!-- CRITICAL TECH ICON FIX - Loaded First (June 2025) -->
 <link rel="stylesheet" href="{{ '/assets/css/tech-icon-critical-fix.css' | relative_url }}">
@@ -59,43 +61,20 @@
 <!-- Icon Size Consistency CSS - Critical (June 2025) -->
 <link rel="stylesheet" href="{{ '/assets/css/icon-size-consistency.css' | relative_url }}">
 
-<!-- Inline Terraform Devicon Fix - Ensuring Terraform icon always uses devicon -->
+<!-- Devicon Critical CSS - Early Devicon Styling -->
 <style>
-  /* Critical Terraform Icon Fix - Must be in head for earliest loading */
-  .devicon-terraform-plain.colored,
-  .devicon-terraform-plain,
-  i.devicon-terraform-plain,
-  i.devicon-terraform-plain.colored,
-  [class*="tech-"] .devicon-terraform-plain,
-  #tech-stack .devicon-terraform-plain,
-  .tech-category .devicon-terraform-plain,
-  .tech-item .devicon-terraform-plain {
-    color: #844FBA !important; 
-    filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
-    font-size: 2.5rem !important; 
-    width: 48px !important; 
-    height: 48px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 auto 0.5rem auto !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
+  /* Preconnect to devicon CDN for faster loading */
+  /* CSS-based preconnect isn't supported, using HTML link instead */
   
-  /* Universal Icon Size Consistency - Applied Early */
-  [class*="fa-"],
+  /* Devicon Loading - Critical Path CSS */
   [class*="devicon-"],
-  .tech-item i,
-  .tech-icon,
-  i.tech-icon,
-  .tech-grid i,
-  .special-icon,
-  .tech-item .special-icon,
-  .tech-stack i,
-  .terraform-logo,
-  .tech-item [class*="icon"],
-  div[class*="icon"] {
+  i[class*="devicon-"],
+  .tech-item [class*="devicon-"],
+  .tech-category [class*="devicon-"],
+  .tech-stack [class*="devicon-"],
+  .tech-category-2x2-grid [class*="devicon-"],
+  .tech-item i[class*="devicon-"],
+  html body [class*="devicon-"] {
     font-size: 2.5rem !important;
     width: 48px !important;
     height: 48px !important;
@@ -106,6 +85,25 @@
     text-align: center !important;
     opacity: 1 !important;
     visibility: visible !important;
-    object-fit: contain !important;
+  }
+  
+  /* Special handling for Terraform devicon */
+  .devicon-terraform-plain.colored,
+  i.devicon-terraform-plain.colored,
+  [class*="tech-"] .devicon-terraform-plain.colored,
+  html body .devicon-terraform-plain.colored {
+    color: #844FBA !important; 
+    filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
+  }
+  
+  /* Remove all text labels */
+  .tech-item span:not(.skill-dot) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
   }
 </style>

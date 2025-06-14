@@ -14,19 +14,19 @@ author: "Arnab Dey"
     <p>This project implements Azure governance patterns at enterprise scale, providing a foundation for Azure landing zones with comprehensive governance controls including management groups, policies, role assignments, and security baselines.</p>    
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <div class="terraform-logo-mini"></div>
+        <i class="devicon-terraform-plain colored" aria-hidden="true"></i>
         <span>Terraform</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Security</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-project-diagram" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Governance</span>
       </div>
     </div>
@@ -44,19 +44,19 @@ author: "Arnab Dey"
     <p>A comprehensive solution to help optimize Azure costs by leveraging Azure SDKs and tools. Features include cost analysis using Azure Cost Management SDK, resource management with Azure Resource Manager, and integrated logging with Azure Log Analytics.</p>    
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <i class="fab fa-python" aria-hidden="true"></i>
+        <i class="devicon-python-plain colored" aria-hidden="true"></i>
         <span>Python</span>
       </div>
       <div class="tech-item-mini">
-        <div class="terraform-logo-mini"></div>
+        <i class="devicon-terraform-plain colored" aria-hidden="true"></i>
         <span>Terraform</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-money-bill-wave" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Cost Mgmt</span>
       </div>
     </div>
@@ -72,19 +72,19 @@ author: "Arnab Dey"
     <p>A comprehensive library of reusable Terraform modules for Azure cloud resources. These modules follow best practices for security, scalability, and maintainability, enabling consistent and reliable infrastructure deployments across different environments.</p>    
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <div class="terraform-logo-mini"></div>
+        <i class="devicon-terraform-plain colored" aria-hidden="true"></i>
         <span>Terraform</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-cubes" aria-hidden="true"></i>
+        <i class="devicon-terraform-plain colored" aria-hidden="true"></i>
         <span>Modules</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-code-branch" aria-hidden="true"></i>
+        <i class="devicon-terraform-plain colored" aria-hidden="true"></i>
         <span>IaC</span>
       </div>
     </div>
