@@ -68,198 +68,12 @@ function fixTechGrid() {
     </svg>`,
     vmware: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 48px; height: 48px;">
       <path fill="#607078" d="M256 32C132.3 32 32 132.3 32 256s100.3 224 224 224 224-100.3 224-224S379.7 32 256 32zm92.3 296.8h-36.5l-55.8-84.1v84.1h-36.3V184h36.3l56 84.1V184h36.3v144.8zm-184.6 0h-38V184h38v144.8z"/>
+    </svg>`,
+    azure: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" style="width: 48px; height: 48px; fill: #0078D4;">
+      <path d="M88.9,66.9c0.3-0.4,0.4-0.9,0.2-1.4c-0.1-0.2-0.2-0.4-0.4-0.5l-26-15.6L84.5,27c0.4-0.3,0.6-0.9,0.4-1.4 c-0.1-0.5-0.6-0.9-1.1-0.9H44.7c-0.5,0-0.9,0.3-1.1,0.7L31.9,50.9L6.8,63.3c-0.5,0.3-0.8,0.8-0.7,1.3c0.1,0.5,0.5,1,1.1,1h25.4 l13.3,21.4c0.2,0.3,0.5,0.5,0.9,0.6c0.1,0,0.1,0,0.2,0c0.3,0,0.6-0.1,0.9-0.3l12.3-10.1l19.7,8.7c0.2,0.1,0.3,0.1,0.5,0.1 c0.3,0,0.6-0.1,0.8-0.3c0.3-0.2,0.5-0.5,0.6-0.9l7.9-17.2C89.6,67.2,89.3,67,88.9,66.9z M48.7,73.6L37.4,55.5 c-0.2-0.3-0.5-0.5-0.8-0.6c-0.4-0.1-0.7,0-1,0.2L12,66.2l21.6-36c0.2-0.3,0.2-0.6,0.2-0.9c0-0.3-0.2-0.6-0.4-0.8l-5.9-7h39.5 L45.2,43.8c-0.3,0.3-0.4,0.7-0.3,1.1c0.1,0.4,0.4,0.7,0.8,0.8l26.9,16.2l-5.7,12.4L47.8,65.5c-0.3-0.1-0.7-0.1-1,0.1 c-0.3,0.2-0.5,0.5-0.6,0.8l-3.7,16.6L48.7,73.6z"/>
     </svg>`
   };
   
-  techCategories.forEach(category => {
-    // Always add the 2x2 grid class
-    category.classList.add('tech-category-2x2-grid');
-    
-    // Set grid class and count items
-    const techItems = category.querySelectorAll('.tech-item');
-    const itemCount = Math.min(techItems.length, 4); // Max 4 items in 2x2 grid
-    
-    // Set data attribute for CSS styling
-    category.setAttribute('data-item-count', itemCount);
-    
-    // Hide items beyond 4
-    techItems.forEach((item, index) => {
-      if (index < 4) {
-        item.style.display = 'flex';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-    
-    // Force proper grid area placement for each item in the grid
-    const techIcons = category.querySelector('.tech-icons');
-    if (techIcons) {
-      techIcons.style.display = 'grid';
-      techIcons.style.gridTemplateColumns = 'repeat(auto-fit, minmax(80px, 1fr))';
-      
-      // Adjust layout based on item count
-      if (itemCount === 1) {
-        techIcons.style.gridTemplateColumns = '1fr';
-        techIcons.style.maxWidth = '110px';
-      } else if (itemCount === 2) {
-        techIcons.style.maxWidth = '200px';
-      } else {
-        techIcons.style.maxWidth = '200px';
-      }
-    }
-  });
-  
-  // 2. Fix Font Awesome icons that appear as boxes
-  fixFontAwesomeIcons();
-  
-  // 3. Fix terraform logo specifically
-  fixTerraformLogos();
-  
-  // 4. Fix specific icons like OpenStack and VMware
-  fixSpecialIcons();
-  
-  // 5. Remove unnecessary text labels from tech items
-  removeTextLabels();
-  
-  console.log(`✅ Fixed ${techCategories.length} tech categories with 2x2 grid layout`);
-}
-
-function fixFontAwesomeIcons() {
-  // Create a link element for Font Awesome if it doesn't exist
-  if (!document.querySelector('link[href*="font-awesome"]')) {
-    const fontAwesomeLink = document.createElement('link');
-    fontAwesomeLink.rel = 'stylesheet';
-    fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css';
-    fontAwesomeLink.integrity = 'sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==';
-    fontAwesomeLink.crossOrigin = 'anonymous';
-    document.head.appendChild(fontAwesomeLink);
-    console.log('💉 Injected Font Awesome CSS');
-  }
-  
-  // Force proper display for Font Awesome icons
-  const fontAwesomeIcons = document.querySelectorAll('.tech-item i');
-  fontAwesomeIcons.forEach(icon => {
-    // Apply styling inline for maximum compatibility
-    icon.style.display = 'block';
-    icon.style.fontSize = '2.25rem';
-    icon.style.width = '48px';
-    icon.style.height = '48px';
-    icon.style.lineHeight = '1';
-    icon.style.margin = '0 auto 0.5rem auto';
-    icon.style.color = '#2a9df4';
-    icon.style.opacity = '1';
-    icon.style.visibility = 'visible';
-    icon.style.objectFit = 'contain';
-    
-    // Fix for Font Awesome brand icons
-    if (icon.classList.contains('fab')) {
-      icon.style.fontFamily = '"Font Awesome 5 Brands", "Font Awesome 6 Brands"';
-    }
-    
-    // Ensure Font Awesome classes are present
-    if (!icon.className.includes('fa')) {
-      // If icon has no Font Awesome class, add a default
-      if (icon.parentNode.textContent.toLowerCase().includes('terraform')) {
-        icon.className = 'fas fa-cube';
-      } else if (icon.parentNode.textContent.toLowerCase().includes('azure')) {
-        icon.className = 'fab fa-microsoft';
-      } else if (icon.parentNode.textContent.toLowerCase().includes('aws')) {
-        icon.className = 'fab fa-aws';
-      } else if (icon.parentNode.textContent.toLowerCase().includes('python')) {
-        icon.className = 'fab fa-python';
-      } else if (icon.parentNode.textContent.toLowerCase().includes('javascript')) {
-        icon.className = 'fab fa-js';
-      } else if (icon.parentNode.textContent.toLowerCase().includes('bash')) {
-        icon.className = 'fas fa-terminal';
-      } else {
-        icon.className = 'fas fa-code';
-      }
-    }
-  });
-  
-  console.log(`✅ Fixed ${fontAwesomeIcons.length} Font Awesome icons`);
-}
-
-function fixTerraformLogos() {
-  const terraformItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
-    return item.textContent.toLowerCase().includes('terraform');
-  });
-  
-  // First create a style for the Terraform logo if it doesn't exist
-  if (!document.querySelector('style[data-terraform-logo-style]')) {
-    const style = document.createElement('style');
-    style.setAttribute('data-terraform-logo-style', 'true');
-    style.textContent = `
-      .terraform-logo::before {
-        content: "" !important;
-        position: absolute !important;
-        width: 100% !important;
-        height: 100% !important;
-        background-color: #844FBA !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
-        -webkit-mask-size: contain !important;
-        -webkit-mask-repeat: no-repeat !important;
-        -webkit-mask-position: center !important;
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
-        mask-size: contain !important;
-        mask-repeat: no-repeat !important;
-        mask-position: center !important;
-      }
-    `;
-    document.head.appendChild(style);
-  }
-  
-  terraformItems.forEach(item => {
-    // Check if it already has a terraform logo div
-    let terraformLogo = item.querySelector('.terraform-logo');
-    
-    if (!terraformLogo) {
-      // Create terraform logo div
-      terraformLogo = document.createElement('div');
-      terraformLogo.className = 'terraform-logo';
-      
-      // Remove any existing icon
-      const existingIcon = item.querySelector('i');
-      if (existingIcon) {
-        existingIcon.remove();
-      }
-      
-      // Insert terraform logo at the beginning
-      const firstChild = item.firstChild;
-      item.insertBefore(terraformLogo, firstChild);
-    }
-    
-    // Apply terraform logo styles inline
-    terraformLogo.style.width = '48px';
-    terraformLogo.style.height = '48px';
-    terraformLogo.style.position = 'relative';
-    terraformLogo.style.margin = '0 auto 0.75rem auto';
-    terraformLogo.style.display = 'flex';
-    terraformLogo.style.alignItems = 'center';
-    terraformLogo.style.justifyContent = 'center';
-    terraformLogo.style.objectFit = 'contain';
-    
-    // Add fallback span for older browsers that don't support mask-image
-    if (!terraformLogo.querySelector('.terraform-fallback')) {
-      const fallback = document.createElement('span');
-      fallback.className = 'terraform-fallback';
-      fallback.textContent = 'T';
-      fallback.style.opacity = '0.3'; // Lower opacity so it's less visible when mask works
-      fallback.style.fontSize = '1.5rem';
-      fallback.style.fontWeight = 'bold';
-      fallback.style.color = '#844FBA';
-      terraformLogo.appendChild(fallback);
-    }
-  });
-  
-  console.log(`✅ Fixed ${terraformItems.length} Terraform logos`);
-}
-
-// Function to apply special SVG icons for specific technologies
-function fixSpecialIcons() {
   // 1. Fix OpenStack icon
   const openStackItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
     return item.textContent.toLowerCase().includes('openstack');
@@ -314,7 +128,34 @@ function fixSpecialIcons() {
     }
   });
   
-  console.log(`✅ Fixed special icons (OpenStack: ${openStackItems.length}, VMware: ${vmwareItems.length})`);
+  // 3. Fix Azure icon
+  const azureItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
+    return item.textContent.toLowerCase().includes('azure');
+  });
+  
+  azureItems.forEach(item => {
+    // Replace the icon with SVG
+    const existingIcon = item.querySelector('i');
+    if (existingIcon && existingIcon.className.includes('fa-microsoft')) {
+      // Create a wrapper for the SVG
+      const iconWrapper = document.createElement('div');
+      iconWrapper.className = 'special-icon azure-icon';
+      iconWrapper.style.width = '48px';
+      iconWrapper.style.height = '48px';
+      iconWrapper.style.margin = '0 auto 0.5rem auto';
+      iconWrapper.style.display = 'flex';
+      iconWrapper.style.alignItems = 'center';
+      iconWrapper.style.justifyContent = 'center';
+      
+      // Insert SVG
+      iconWrapper.innerHTML = svgIcons.azure;
+      
+      // Replace the existing icon
+      existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
+    }
+  });
+  
+  console.log(`✅ Fixed special icons (OpenStack: ${openStackItems.length}, VMware: ${vmwareItems.length}, Azure: ${azureItems.length})`);
 }
 
 // Function to physically remove span elements from tech items
