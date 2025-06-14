@@ -233,4 +233,321 @@ i.devicon-terraform-plain.colored {
   filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
   width: 48px !important; /* Exact width as suggested */
   height: 48px !important; /* Exact height as suggested */
-  font-size: 2.5rem 
+  font-size: 2.5rem !important;
+  margin: 0 auto 0.5rem auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Skill level styling */
+.tech-category-2x2-grid .tech-item .skill-level {
+  display: flex !important;
+  gap: 2px !important;
+  margin-top: 0.15rem !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.tech-category-2x2-grid .tech-item .skill-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(42, 157, 244, 0.5) !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 0.3 !important;
+}
+
+.tech-category-2x2-grid .tech-item .skill-dot.filled {
+  background-color: #2a9df4 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 3px #2a9df4 !important;
+}
+
+/* Ensure Font Awesome is properly loaded */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tech-category-2x2-grid .tech-icons {
+    gap: 0.2rem !important;
+    height: 180px !important;
+    max-width: 240px !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item {
+    width: 80px !important;
+    height: 80px !important;
+    padding: 0.5rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item i,
+  .tech-category-2x2-grid .tech-item .terraform-logo {
+    font-size: 1.75rem !important;
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item span {
+    font-size: 0.7rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item .skill-dot {
+    width: 5px !important;
+    height: 5px !important;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .tech-category-2x2-grid .tech-icons {
+    gap: 0.75rem !important;
+    height: 160px !important;
+    max-width: 200px !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item {
+    width: 70px !important;
+    height: 70px !important;
+    padding: 0.4rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item i,
+  .tech-category-2x2-grid .tech-item .terraform-logo {
+    font-size: 1.5rem !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+}
+
+/* Special icons for specific technologies */
+.tech-category-2x2-grid .tech-item .special-icon {
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 0.5rem auto !important;
+}
+
+.tech-category-2x2-grid .tech-item .special-icon svg {
+  width: 42px !important;
+  height: 42px !important;
+  object-fit: contain !important;
+}
+
+.tech-category-2x2-grid .tech-item .openstack-icon svg {
+  fill: #ED1944 !important; /* OpenStack red */
+}
+
+.tech-category-2x2-grid .tech-item .vmware-icon svg {
+  fill: #607078 !important; /* VMware blue-gray */
+}
+
+.tech-category-2x2-grid .tech-item .azure-icon svg {
+  fill: #0078D4 !important; /* Microsoft Azure blue */
+  filter: drop-shadow(0 0 3px rgba(0, 120, 212, 0.5)) !important;
+}
+
+/* DevIcon styling - Enhanced June 2025 - Universal selector */
+[class*="devicon-"],
+.tech-item [class*="devicon-"],
+.tech-category-2x2-grid .tech-item [class*="devicon-"],
+.tech-grid .tech-item [class*="devicon-"],
+.tech-stack [class*="devicon-"],
+div [class*="devicon-"] {
+  font-size: 2.5rem !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 0.5rem auto !important;
+  text-align: center !important;
+  color: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  object-fit: contain !important;
+}
+
+/* DevIcon colored versions - Brand-specific colors */
+.tech-category-2x2-grid .tech-item [class*="devicon-"][class*="colored"] {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Cloud platforms */
+.tech-category-2x2-grid .tech-item .devicon-azure-plain.colored {
+  color: #0078D4 !important; /* Microsoft Azure blue */
+  filter: drop-shadow(0 0 3px rgba(0, 120, 212, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-amazonwebservices-original.colored,
+.tech-category-2x2-grid .tech-item .devicon-amazonwebservices-plain-wordmark.colored {
+  color: #FF9900 !important; /* AWS orange */
+  filter: drop-shadow(0 0 3px rgba(255, 153, 0, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-googlecloud-plain.colored {
+  color: #4285F4 !important; /* Google Cloud blue */
+  filter: drop-shadow(0 0 3px rgba(66, 133, 244, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-openstack-plain.colored {
+  color: #ED1944 !important; /* OpenStack red */
+  filter: drop-shadow(0 0 3px rgba(237, 25, 68, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-digitalocean-plain.colored {
+  color: #0080FF !important; /* DigitalOcean blue */
+  filter: drop-shadow(0 0 3px rgba(0, 128, 255, 0.5)) !important;
+}
+
+/* Infrastructure as Code */
+/* Terraform special styling - Updated June 2025 */
+.tech-category-2x2-grid .tech-item .devicon-terraform-plain.colored,
+.devicon-terraform-plain.colored,
+i.devicon-terraform-plain.colored,
+div .devicon-terraform-plain.colored {
+  color: #844FBA !important; /* HashiCorp purple */
+  filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
+  font-size: 2.5rem !important;
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-ansible-plain.colored {
+  color: #EE0000 !important; /* Ansible red */
+  filter: drop-shadow(0 0 3px rgba(238, 0, 0, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-kubernetes-plain.colored {
+  color: #326CE5 !important; /* Kubernetes blue */
+  filter: drop-shadow(0 0 3px rgba(50, 108, 229, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-docker-plain.colored {
+  color: #2496ED !important; /* Docker blue */
+  filter: drop-shadow(0 0 3px rgba(36, 150, 237, 0.5)) !important;
+}
+
+/* Programming Languages */
+.tech-category-2x2-grid .tech-item .devicon-python-plain.colored {
+  color: #3776AB !important; /* Python blue */
+  filter: drop-shadow(0 0 3px rgba(55, 118, 171, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-javascript-plain.colored {
+  color: #F7DF1E !important; /* JavaScript yellow */
+  filter: drop-shadow(0 0 3px rgba(247, 223, 30, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-typescript-plain.colored {
+  color: #3178C6 !important; /* TypeScript blue */
+  filter: drop-shadow(0 0 3px rgba(49, 120, 198, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-csharp-plain.colored {
+  color: #239120 !important; /* C# green */
+  filter: drop-shadow(0 0 3px rgba(35, 145, 32, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-java-plain.colored {
+  color: #007396 !important; /* Java blue */
+  filter: drop-shadow(0 0 3px rgba(0, 115, 150, 0.5)) !important;
+}
+
+/* Web technologies */
+.tech-category-2x2-grid .tech-item .devicon-html5-plain.colored {
+  color: #E34F26 !important; /* HTML5 orange */
+  filter: drop-shadow(0 0 3px rgba(227, 79, 38, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-css3-plain.colored {
+  color: #1572B6 !important; /* CSS3 blue */
+  filter: drop-shadow(0 0 3px rgba(21, 114, 182, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-react-original.colored {
+  color: #61DAFB !important; /* React blue */
+  filter: drop-shadow(0 0 3px rgba(97, 218, 251, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-nodejs-plain.colored {
+  color: #339933 !important; /* Node.js green */
+  filter: drop-shadow(0 0 3px rgba(51, 153, 51, 0.5)) !important;
+}
+
+/* Databases */
+.tech-category-2x2-grid .tech-item .devicon-mongodb-plain.colored {
+  color: #47A248 !important; /* MongoDB green */
+  filter: drop-shadow(0 0 3px rgba(71, 162, 72, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-mysql-plain.colored {
+  color: #4479A1 !important; /* MySQL blue */
+  filter: drop-shadow(0 0 3px rgba(68, 121, 161, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-postgresql-plain.colored {
+  color: #336791 !important; /* PostgreSQL blue */
+  filter: drop-shadow(0 0 3px rgba(51, 103, 145, 0.5)) !important;
+}
+
+/* DevOps tools */
+.tech-category-2x2-grid .tech-item .devicon-git-plain.colored {
+  color: #F05032 !important; /* Git orange */
+  filter: drop-shadow(0 0 3px rgba(240, 80, 50, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-github-original.colored {
+  color: #FFFFFF !important; /* GitHub white */
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-jenkins-plain.colored {
+  color: #D33833 !important; /* Jenkins red */
+  filter: drop-shadow(0 0 3px rgba(211, 56, 51, 0.5)) !important;
+}
+
+.tech-category-2x2-grid .tech-item .devicon-bash-plain.colored {
+  color: #4EAA25 !important; /* Bash green */
+  filter: drop-shadow(0 0 3px rgba(78, 170, 37, 0.5)) !important;
+}
+
+/* Media query adjustments for devicon icons */
+@media screen and (max-width: 480px) {
+  .tech-category-2x2-grid .tech-item [class*="devicon-"] {
+    font-size: 2rem !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .tech-category-2x2-grid .tech-item [class*="devicon-"] {
+    font-size: 1.75rem !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+/* Custom tech category hover effects */
+.tech-category:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(42, 157, 244, 0.2) !important;
+}
+
+/* Ensure the tech grid has 2x2 layout */
+.tech-category-2x2-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
