@@ -24,11 +24,11 @@
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important; /* New responsive column sizing */
   grid-template-rows: auto !important; /* Auto-adjust rows */
-  gap: 0.4rem !important; /* Further reduced gap for tighter layout */
+  gap: 0.2rem !important; /* Minimal gap for ultra-tight layout */
   width: 100% !important;
   max-width: 250px !important; /* Adjusted max-width */
   height: auto !important;
-  padding: 1rem !important; /* Balanced padding as suggested */
+  padding: 0.5rem !important; /* Reduced padding for tighter icons */
   margin: 0.5rem auto !important;
   justify-content: center !important;
   align-items: center !important;
@@ -65,7 +65,7 @@
 @media screen and (max-width: 480px) {
   .tech-category-2x2-grid .tech-icons {
     max-width: 200px !important;
-    gap: 0.3rem !important; /* Reduced gap for mobile */
+    gap: 0.15rem !important; /* Minimal gap for mobile */
     padding: 0.75rem !important;
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important;
   }
@@ -95,7 +95,7 @@
 @media screen and (max-width: 320px) {
   .tech-category-2x2-grid .tech-icons {
     max-width: 180px !important;
-    gap: 0.25rem !important; /* Minimal gap for very small screens */
+    gap: 0.1rem !important; /* Ultra-minimal gap for very small screens */
     padding: 0.5rem !important;
   }
   
@@ -120,7 +120,7 @@
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  padding: 0.75rem !important; /* Balanced padding */
+  padding: 0.5rem !important; /* Reduced padding for tighter layout */
   width: 100% !important;
   height: 100% !important;
   min-width: 80px !important; /* Adjusted to match grid */
@@ -290,7 +290,7 @@ html body .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fal
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .tech-category-2x2-grid .tech-icons {
-    gap: 1rem !important;
+    gap: 0.2rem !important;
     height: 180px !important;
     max-width: 240px !important;
   }

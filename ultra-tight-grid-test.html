@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra-Tight Tech Grid Test</title>
+    <link rel="stylesheet" href="/assets/css/tech-icon-critical-fix.css">
+    <link rel="stylesheet" href="/assets/css/tech-grid-fix.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #0d1117;
+            color: white;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2, h3 {
+            color: #2a9df4;
+        }
+        .status-box {
+            background-color: #2a9df41a;
+            border-left: 4px solid #2a9df4;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .success {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left-color: #2ecc71;
+        }
+        .info-box {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .info-col {
+            flex: 1;
+            padding: 10px;
+            background: rgba(42, 157, 244, 0.05);
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        .info-col h3 {
+            margin-top: 0;
+        }
+        .info-col ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Ultra-Tight Tech Grid Test</h1>
+        
+        <div class="status-box success" id="status-box">
+            Updated: June 14, 2025
+            <ul>
+                <li>Implemented ultra-tight spacing with minimal gaps</li>
+                <li>Reduced padding inside containers for maximum space efficiency</li>
+                <li>Standardized tight grid across all screen sizes</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <div class="info-col">
+                <h3>Gap Values</h3>
+                <ul>
+                    <li>Desktop: 0.2rem (3.2px)</li>
+                    <li>Tablets: 0.2rem (3.2px)</li>
+                    <li>Mobile: 0.15rem (2.4px)</li>
+                    <li>Small Mobile: 0.1rem (1.6px)</li>
+                </ul>
+            </div>
+            <div class="info-col">
+                <h3>Padding Values</h3>
+                <ul>
+                    <li>Tech Icons Container: 0.5rem (8px)</li>
+                    <li>Tech Item Inner: 0.5rem (8px)</li>
+                    <li>Icon Space: 48px × 48px</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Test Grid With Ultra-Tight Spacing</h2>
+        <div id="tech-stack">
+            <div class="tech-category tech-category-2x2-grid">
+                <h3>Cloud Platforms</h3>
+                <div class="tech-icons">
+                    <div class="tech-item">
+                        <i class="fab fa-microsoft fa-3x"></i>
+                        <span>Azure</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-aws fa-3x"></i>
+                        <span>AWS</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-cloud fa-3x"></i>
+                        <span>OpenStack</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-google fa-3x"></i>
+                        <span>Google Cloud</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-category tech-category-2x2-grid">
+                <h3>Infrastructure as Code</h3>
+                <div class="tech-icons">
+                    <div class="tech-item">
+                        <div class="terraform-logo"></div>
+                        <span>Terraform</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-ansible fa-3x"></i>
+                        <span>Ansible</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-file-code fa-3x"></i>
+                        <span>CloudFormation</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-cogs fa-3x"></i>
+                        <span>Bicep</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/tech-icon-critical-fix.js"></script>
+    <script src="/assets/js/tech-grid-fix.js"></script>
+</body>
+</html>

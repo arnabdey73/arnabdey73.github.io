@@ -320,7 +320,7 @@ function removeTextLabels() {
       display: grid !important;
       grid-template-columns: repeat(2, 1fr) !important;
       grid-template-rows: repeat(2, 1fr) !important;
-      gap: 1.5rem !important;
+      gap: 0.2rem !important;
       width: 100% !important;
       max-width: 280px !important;
       height: 200px !important;
