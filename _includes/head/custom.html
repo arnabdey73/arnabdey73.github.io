@@ -4,6 +4,41 @@
 <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="shortcut icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 
+<!-- CRITICAL TECH ICON FIX - Loaded First (June 2025) -->
+<link rel="stylesheet" href="{{ '/assets/css/tech-icon-critical-fix.css' | relative_url }}">
+<script>
+  // Inline Critical Tech Icon Fix - Ensures NO text labels ever appear
+  (function() {
+    // Create style for ultimate label removal
+    var style = document.createElement('style');
+    style.textContent = '.tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-category .tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-category-2x2-grid .tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-icons .tech-item span:not(.skill-dot):not(.terraform-fallback),#tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fallback),html body .tech-item span:not(.skill-dot):not(.terraform-fallback),html body #tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback),html body .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-item > span:not(.skill-dot):not(.terraform-fallback),body[class] .tech-item span:not(.skill-dot):not(.terraform-fallback),[class*="tech-"] .tech-item span:not(.skill-dot):not(.terraform-fallback){display:none!important;visibility:hidden!important;opacity:0!important;height:0!important;width:0!important;max-height:0!important;max-width:0!important;font-size:0!important;line-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;position:absolute!important;pointer-events:none!important;clip:rect(0,0,0,0)!important;color:transparent!important;border:0!important;z-index:-9999!important;}';
+    document.head.appendChild(style);
+    
+    // Ultra-early DOM observer
+    if (typeof MutationObserver !== 'undefined') {
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.nodeType === 1 && node.querySelectorAll) {
+                var spans = node.querySelectorAll('.tech-item span:not(.skill-dot):not(.terraform-fallback)');
+                spans.forEach(function(span) {
+                  span.style.display = 'none';
+                  span.style.visibility = 'hidden';
+                  span.textContent = '';
+                });
+              }
+            });
+          }
+        });
+      });
+      
+      // Start observing
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+    }
+  })();
+</script>
+
 <!-- Custom CSS for additional fixes -->
 <link rel="stylesheet" href="{{ '/assets/css/footer-fixes.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/menu-toggle-fix.css' | relative_url }}">
@@ -11,8 +46,6 @@
 <link rel="stylesheet" href="{{ '/assets/css/line-clamp-fix.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/master-layout-fixes.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/card-overlapping-fixes.css' | relative_url }}">
-<!-- Critical Tech Icon Fix - Added June 2025 -->
-<link rel="stylesheet" href="{{ '/assets/css/tech-icon-critical-fix.css' | relative_url }}">
 <!-- Tech Grid 2x2 Fix - Added June 2025 (Latest) -->
 <link rel="stylesheet" href="{{ '/assets/css/tech-grid-fix.css' | relative_url }}">
 

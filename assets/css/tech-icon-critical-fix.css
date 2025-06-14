@@ -93,11 +93,26 @@
   margin-bottom: 0.5rem !important;
 }
 
-/* Ensure labels are visible */
-.tech-item span {
-  font-size: 0.8rem !important;
-  line-height: 1.2 !important;
-  max-width: 100% !important;
+/* HIDE ALL TEXT LABELS - Ultra High Priority */
+.tech-item span:not(.skill-dot):not(.terraform-fallback),
+html body .tech-item span:not(.skill-dot):not(.terraform-fallback),
+#tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback),
+.tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fallback),
+.tech-category-2x2-grid .tech-item span:not(.skill-dot):not(.terraform-fallback),
+.tech-icons .tech-item span:not(.skill-dot):not(.terraform-fallback),
+.tech-item > span:not(.skill-dot):not(.terraform-fallback),
+[class*="tech-"] .tech-item span:not(.skill-dot):not(.terraform-fallback),
+.removed-label,
+body[class] .tech-item span:not(.skill-dot):not(.terraform-fallback) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;

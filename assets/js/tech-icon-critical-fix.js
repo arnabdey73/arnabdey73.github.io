@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function applyEmergencyFixes() {
+  removeAllTextLabels(); // First, remove all text labels
   fixTerraformLogo();
   forceTechItemVisibility();
   fixTechIconAlignment();
@@ -198,6 +199,167 @@ function repairSkillDots() {
   });
   
   console.log(`🛠️ Repaired ${skillDots.length} skill level dots`);
+}
+
+function removeAllTextLabels() {
+  console.log('🚫 Aggressively removing ALL text labels from tech items...');
+  
+  // First, inject a critical style tag for immediate hiding
+  if (!document.getElementById('critical-label-removal-style')) {
+    const criticalStyle = document.createElement('style');
+    criticalStyle.id = 'critical-label-removal-style';
+    criticalStyle.innerHTML = `
+      /* HIDE ALL TEXT LABELS - CRITICAL PRIORITY */
+      .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      .tech-category .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      .tech-category-2x2-grid .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      .tech-icons .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      #tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      html body .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      html body #tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      html body .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      .tech-item > span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      body[class] .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup),
+      [class*="tech-"] .tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup) {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        max-height: 0 !important;
+        max-width: 0 !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        pointer-events: none !important;
+        clip: rect(0, 0, 0, 0) !important;
+        color: transparent !important;
+        border: 0 !important;
+        z-index: -9999 !important;
+      }
+    `;
+    document.head.appendChild(criticalStyle);
+  }
+  
+  // Define a thorough list of selectors to catch all possible label spans
+  const selectors = [
+    '.tech-item > span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup)',
+    '.tech-item span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup)',
+    '.tech-icons span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup)',
+    '#tech-stack .tech-item > span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup)',
+    '.tech-category .tech-item > span:not(.skill-dot):not(.terraform-fallback):not(.terraform-backup)'
+  ];
+  
+  // Combine all selectors for maximum coverage
+  const combinedSelector = selectors.join(', ');
+  const spans = document.querySelectorAll(combinedSelector);
+  
+  let removedCount = 0;
+  
+  // Process each span
+  spans.forEach(span => {
+    try {
+      // First empty the content
+      span.textContent = '';
+      span.innerHTML = '';
+      
+      // Apply strongest possible hiding styles
+      const hideStyles = {
+        'display': 'none',
+        'visibility': 'hidden',
+        'opacity': '0',
+        'height': '0',
+        'width': '0',
+        'max-height': '0',
+        'max-width': '0',
+        'overflow': 'hidden',
+        'margin': '0',
+        'padding': '0',
+        'font-size': '0',
+        'line-height': '0',
+        'position': 'absolute',
+        'pointer-events': 'none',
+        'clip': 'rect(0, 0, 0, 0)',
+        'color': 'transparent',
+        'border': '0',
+        'text-indent': '-9999px',
+        'z-index': '-9999'
+      };
+      
+      // Apply all hiding styles with !important
+      Object.entries(hideStyles).forEach(([prop, value]) => {
+        span.style.setProperty(prop, value, 'important');
+      });
+      
+      // Mark it as removed for CSS targeting
+      span.classList.add('removed-label');
+      
+      // Try to physically remove the span if possible
+      if (span.parentNode) {
+        try {
+          span.parentNode.removeChild(span);
+          removedCount++;
+        } catch (e) {
+          console.warn('Could not remove span, but it has been hidden:', e);
+        }
+      }
+    } catch (e) {
+      console.warn('Error processing span:', e);
+    }
+  });
+  
+  console.log(`✂️ Processed ${spans.length} spans, removed ${removedCount}`);
+  
+  // Also check for and process any text nodes that might contain labels
+  document.querySelectorAll('.tech-item').forEach(item => {
+    const childNodes = Array.from(item.childNodes);
+    childNodes.forEach(node => {
+      if (node.nodeType === 3) { // Text node
+        if (node.textContent.trim()) {
+          try {
+            node.textContent = '';
+          } catch (e) {
+            console.warn('Could not clear text node:', e);
+          }
+        }
+      }
+    });
+  });
+  
+  // Set up a MutationObserver to catch any new spans that might be added
+  if (typeof MutationObserver !== 'undefined' && !window._techLabelObserverSet) {
+    window._techLabelObserverSet = true;
+    
+    const observer = new MutationObserver(mutations => {
+      let newSpansFound = false;
+      
+      mutations.forEach(mutation => {
+        if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeName === 'SPAN' || 
+                (node.nodeType === 1 && node.querySelector('span'))) {
+              newSpansFound = true;
+            }
+          });
+        }
+      });
+      
+      // If new spans were added, run the removal again
+      if (newSpansFound) {
+        removeAllTextLabels();
+      }
+    });
+    
+    // Start observing the entire document
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
 }
 
 // Automatically inject required CSS

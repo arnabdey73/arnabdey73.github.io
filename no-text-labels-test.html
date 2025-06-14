@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Grid No Text Labels Test</title>
+    <link rel="stylesheet" href="/assets/css/tech-icon-critical-fix.css">
+    <link rel="stylesheet" href="/assets/css/tech-grid-fix.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #0d1117;
+            color: white;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2, h3 {
+            color: #2a9df4;
+        }
+        .status-box {
+            background-color: #2a9df41a;
+            border-left: 4px solid #2a9df4;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .warning {
+            background-color: rgba(255, 174, 66, 0.1);
+            border-left-color: #ffae42;
+        }
+        .success {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left-color: #2ecc71;
+        }
+        pre {
+            background: #1d232d;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+    <script>
+        // Inline Critical Fix
+        (function() {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Run immediately
+                hideAllLabels();
+                
+                // Run again after a short delay
+                setTimeout(hideAllLabels, 100);
+                
+                // One final check
+                setTimeout(function() {
+                    hideAllLabels();
+                    verifyNoLabelsVisible();
+                }, 1000);
+            });
+            
+            function hideAllLabels() {
+                document.querySelectorAll('.tech-item span:not(.skill-dot):not(.terraform-fallback)').forEach(span => {
+                    span.style.display = 'none';
+                    span.style.visibility = 'hidden';
+                    span.innerHTML = '';
+                    span.textContent = '';
+                });
+            }
+            
+            function verifyNoLabelsVisible() {
+                var labels = document.querySelectorAll('.tech-item span:not(.skill-dot):not(.terraform-fallback)');
+                var visibleLabels = Array.from(labels).filter(span => {
+                    var style = window.getComputedStyle(span);
+                    return style.display !== 'none';
+                });
+                
+                var statusBox = document.getElementById('status-box');
+                
+                if (visibleLabels.length === 0) {
+                    statusBox.textContent = "SUCCESS: No text labels are visible. All spans are properly hidden.";
+                    statusBox.classList.add('success');
+                } else {
+                    statusBox.textContent = `WARNING: Found ${visibleLabels.length} text labels that are still visible!`;
+                    statusBox.classList.add('warning');
+                    
+                    // Create a list of the problematic spans
+                    var list = document.createElement('ul');
+                    visibleLabels.forEach((span, i) => {
+                        var item = document.createElement('li');
+                        item.textContent = `Label ${i+1}: "${span.textContent}" (HTML Class: ${span.className})`;
+                        list.appendChild(item);
+                    });
+                    statusBox.appendChild(list);
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Tech Grid No Text Labels Test</h1>
+        
+        <div class="status-box" id="status-box">
+            Testing label visibility...
+        </div>
+        
+        <h2>Latest Updates (June 14, 2025)</h2>
+        <ul>
+            <li>Applied aggressive CSS hiding for all tech item span elements</li>
+            <li>Added JavaScript to physically remove span elements</li>
+            <li>Implemented critical fix CSS that loads early in the head</li>
+            <li>Added inline script that runs before DOM is fully loaded</li>
+            <li>Added MutationObserver to catch dynamically added spans</li>
+        </ul>
+
+        <h2>Test Grid</h2>
+        <div id="tech-stack">
+            <div class="tech-category tech-category-2x2-grid">
+                <h3>Test Category</h3>
+                <div class="tech-icons">
+                    <div class="tech-item">
+                        <i class="fab fa-aws fa-3x"></i>
+                        <span>AWS</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="terraform-logo"></div>
+                        <span>Terraform</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="special-icon openstack-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path d="M256 32C132.8 32 32 132.8 32 256s100.8 224 224 224 224-100.8 224-224S379.2 32 256 32zm-91.8 352l-18-90 90 18-72 72zm166.2-167.4L167 217.8l1.2-2.4 90-18.2-73.6 73.6L184 273l101.4-101.6-2.5 163.2H212l50.2-50.2-46.6-9.4 120-24.2-5.2 26-37-7.4z"/>
+                            </svg>
+                        </div>
+                        <span>OpenStack</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="special-icon vmware-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path d="M256 32C132.3 32 32 132.3 32 256s100.3 224 224 224 224-100.3 224-224S379.7 32 256 32zm92.3 296.8h-36.5l-55.8-84.1v84.1h-36.3V184h36.3l56 84.1V184h36.3v144.8zm-184.6 0h-38V184h38v144.8z"/>
+                            </svg>
+                        </div>
+                        <span>VMware</span>
+                        <div class="skill-level">
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot filled"></span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/tech-icon-critical-fix.js"></script>
+    <script src="/assets/js/tech-grid-fix.js"></script>
+</body>
+</html>

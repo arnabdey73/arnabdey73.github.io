@@ -168,26 +168,36 @@
   font-family: "Font Awesome 5 Brands" !important;
 }
 
-/* Hide span inside tech items */
-.tech-category-2x2-grid .tech-item span {
+/* Hide span inside tech items - Multiple selectors for ultimate specificity */
+.tech-category-2x2-grid .tech-item span,
+.tech-category-2x2-grid .tech-item > span,
+.tech-category .tech-item span,
+.tech-icons .tech-item span,
+#tech-stack .tech-item span,
+body .tech-item span:not(.skill-dot):not(.terraform-fallback),
+html body .tech-item span:not(.skill-dot):not(.terraform-fallback),
+html body #tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback),
+html body .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fallback),
+[class*="tech-"] .tech-item span:not(.skill-dot):not(.terraform-fallback) {
   display: none !important; /* Hide the text labels */
-}
-
-/* Alternative method to make labels visible on hover only 
-.tech-category-2x2-grid .tech-item:hover span {
-  display: block !important;
-  font-size: 0.8rem !important;
-  margin-top: 0.4rem !important;
-  text-align: center !important;
-  line-height: 1.2 !important;
-  max-width: 100% !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
   overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.01em !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-} */
+  margin: 0 !important;
+  padding: 0 !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  clip: rect(0, 0, 0, 0) !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  border: 0 !important;
+  content: "" !important;
+}
 
 /* Fix for Font Awesome solid icons */
 .tech-category-2x2-grid .tech-item .fas {
@@ -195,21 +205,21 @@
   font-weight: 900 !important;
 }
 
-/* Ensure span labels are visible */
-.tech-category-2x2-grid .tech-item span {
-  font-size: 0.8rem !important;
-  line-height: 1.2 !important;
-  margin-top: 0.25rem !important;
-  margin-bottom: 0.25rem !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
-  font-weight: 500 !important;
-  text-align: center !important;
-  display: block !important;
-  max-width: 90% !important;
+/* REMOVE ALL TEXT LABELS - Override previous styles */
+.tech-category-2x2-grid .tech-item span:not(.skill-dot):not(.terraform-fallback) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
   overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
+  position: absolute !important;
+  pointer-events: none !important;
 }
 
 /* Special fix for the Terraform logo */
