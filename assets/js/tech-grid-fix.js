@@ -82,14 +82,15 @@ function fixFontAwesomeIcons() {
   fontAwesomeIcons.forEach(icon => {
     // Apply styling inline for maximum compatibility
     icon.style.display = 'block';
-    icon.style.fontSize = '2rem';
-    icon.style.width = '2rem';
-    icon.style.height = '2rem';
+    icon.style.fontSize = '2.5rem';
+    icon.style.width = '48px';
+    icon.style.height = '48px';
     icon.style.lineHeight = '1';
-    icon.style.margin = '0 auto 0.5rem auto';
+    icon.style.margin = '0 auto 0.75rem auto';
     icon.style.color = '#2a9df4';
     icon.style.opacity = '1';
     icon.style.visibility = 'visible';
+    icon.style.objectFit = 'contain';
     
     // Fix for Font Awesome brand icons
     if (icon.classList.contains('fab')) {
@@ -173,13 +174,14 @@ function fixTerraformLogos() {
     }
     
     // Apply terraform logo styles inline
-    terraformLogo.style.width = '2rem';
-    terraformLogo.style.height = '2rem';
+    terraformLogo.style.width = '48px';
+    terraformLogo.style.height = '48px';
     terraformLogo.style.position = 'relative';
-    terraformLogo.style.margin = '0 auto 0.5rem auto';
+    terraformLogo.style.margin = '0 auto 0.75rem auto';
     terraformLogo.style.display = 'flex';
     terraformLogo.style.alignItems = 'center';
     terraformLogo.style.justifyContent = 'center';
+    terraformLogo.style.objectFit = 'contain';
     
     // Add fallback span for older browsers that don't support mask-image
     if (!terraformLogo.querySelector('.terraform-fallback')) {
