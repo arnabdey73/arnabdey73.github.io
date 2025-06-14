@@ -48,7 +48,7 @@
 {% include /comments-providers/scripts.html %}
 
 <!-- Custom scripts -->
-<!-- Tech Icons Fixes - June 2025 -->
+<!-- Tech Icons & Theme Management - Consolidated June 2025 -->
 <script>
   // Load devicon CSS immediately (high priority)
   document.addEventListener('DOMContentLoaded', function() {
@@ -64,39 +64,15 @@
     }
   });
 </script>
+
+<!-- Primary Scripts - Consolidated to prevent duplicates -->
 <script src="{{ '/assets/js/devicon-integration.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/tech-grid-fix.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/terraform-icon-checker.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
-
-<!-- Tech Stack and Navigation Fixes -->
-<script src="{{ '/assets/js/mobile-menu-flickering-fix.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/enhanced-tech-icon-repair.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/card-overlap-fixes.js' | relative_url }}"></script>
-
-<!-- Tech Stack 2x2 Grid Diagnostics (only in development) -->
-{% if jekyll.environment == 'development' %}
-<script src="{{ '/assets/js/tech-stack-diagnostics.js' | relative_url }}"></script>
-{% endif %}
 <script src="{{ '/assets/js/tech-stack.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/tech-stack-fixes.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/tech-stack-icon-repair.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/mobile-nav-fixed.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/mobile-menu-enhanced.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/visibility-fixes.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/mobile-menu-visibility-fix.js' | relative_url }}"></script>
-
-<!-- Latest Fixes for Remaining Issues -->
-<script src="{{ '/assets/js/mobile-menu-flickering-fix.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/enhanced-tech-icon-repair.js' | relative_url }}"></script>
-
-<!-- Critical Tech Icon Fix - Added June 2025 -->
-<script src="{{ '/assets/js/tech-icon-critical-fix.js' | relative_url }}"></script>
-<!-- Devicon Integration - Added July 2025 (Priority) -->
-<script src="{{ '/assets/js/devicon-integration.js' | relative_url }}"></script>
-<!-- Tech Grid 2x2 Fix - Added June 2025 (Latest) -->
-<script src="{{ '/assets/js/tech-grid-fix.js' | relative_url }}"></script>
-<!-- Devicon Status Check - Added June 2025 -->
 <script src="{{ '/assets/js/devicon-status-check.js' | relative_url }}"></script>
 
 {% if site.after_footer_scripts %}

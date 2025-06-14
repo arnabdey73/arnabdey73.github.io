@@ -4,77 +4,27 @@
 <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="shortcut icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
 
-<!-- Devicon Early Loader - CRITICAL (June 2025) -->
-<script src="{{ '/assets/js/devicon-early-loader.js' | relative_url }}"></script>
-<!-- Devicon CSS - Load Early (June 2025) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-<!-- Preconnect to CDN for faster icon loading -->
+<!-- Devicon CSS - Load Early with Preconnect (June 2025) -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<!-- Preconnect to CDN for faster devicon loading -->
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-<!-- CRITICAL TECH ICON FIX - Loaded First (June 2025) -->
+<!-- Tech Icon CSS (Consolidated June 2025) -->
 <link rel="stylesheet" href="{{ '/assets/css/tech-icon-critical-fix.css' | relative_url }}">
-<script>
-  // Inline Critical Tech Icon Fix - Ensures NO text labels ever appear
-  (function() {
-    // Create style for ultimate label removal
-    var style = document.createElement('style');
-    style.textContent = '.tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-category .tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-category-2x2-grid .tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-icons .tech-item span:not(.skill-dot):not(.terraform-fallback),#tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fallback),html body .tech-item span:not(.skill-dot):not(.terraform-fallback),html body #tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback),html body .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fallback),.tech-item > span:not(.skill-dot):not(.terraform-fallback),body[class] .tech-item span:not(.skill-dot):not(.terraform-fallback),[class*="tech-"] .tech-item span:not(.skill-dot):not(.terraform-fallback){display:none!important;visibility:hidden!important;opacity:0!important;height:0!important;width:0!important;max-height:0!important;max-width:0!important;font-size:0!important;line-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;position:absolute!important;pointer-events:none!important;clip:rect(0,0,0,0)!important;color:transparent!important;border:0!important;z-index:-9999!important;}';
-    document.head.appendChild(style);
-    
-    // Ultra-early DOM observer
-    if (typeof MutationObserver !== 'undefined') {
-      var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === 'childList') {
-            mutation.addedNodes.forEach(function(node) {
-              if (node.nodeType === 1 && node.querySelectorAll) {
-                var spans = node.querySelectorAll('.tech-item span:not(.skill-dot):not(.terraform-fallback)');
-                spans.forEach(function(span) {
-                  span.style.display = 'none';
-                  span.style.visibility = 'hidden';
-                  span.textContent = '';
-                });
-              }
-            });
-          }
-        });
-      });
-      
-      // Start observing
-      observer.observe(document.documentElement, { childList: true, subtree: true });
-    }
-  })();
-</script>
 
-<!-- Custom CSS for additional fixes -->
+<!-- Core CSS for site functionality - Consolidated June 2025 -->
 <link rel="stylesheet" href="{{ '/assets/css/footer-fixes.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/menu-toggle-fix.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/visibility-fixes.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/line-clamp-fix.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/master-layout-fixes.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/card-overlapping-fixes.css' | relative_url }}">
-<!-- Tech Grid 2x2 Fix - Added June 2025 (Latest) -->
 <link rel="stylesheet" href="{{ '/assets/css/tech-grid-fix.css' | relative_url }}">
-<!-- Icon Size Consistency CSS - Critical (June 2025) -->
 <link rel="stylesheet" href="{{ '/assets/css/icon-size-consistency.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/devicon-mini.css' | relative_url }}">
 
-<!-- Devicon Critical CSS - Early Devicon Styling -->
+<!-- Devicon Critical CSS - Inline for faster loading -->
 <style>
-  /* Preconnect to devicon CDN for faster loading */
-  /* CSS-based preconnect isn't supported, using HTML link instead */
-  
-  /* Devicon Loading - Critical Path CSS */
+  /* Devicon basic styling for main tech stack */
   [class*="devicon-"],
-  i[class*="devicon-"],
-  .tech-item [class*="devicon-"],
-  .tech-category [class*="devicon-"],
-  .tech-stack [class*="devicon-"],
-  .tech-category-2x2-grid [class*="devicon-"],
-  .tech-item i[class*="devicon-"],
-  html body [class*="devicon-"] {
+  .tech-item [class*="devicon-"] {
     font-size: 2.5rem !important;
     width: 48px !important;
     height: 48px !important;
@@ -83,18 +33,16 @@
     justify-content: center !important;
     margin: 0 auto 0.5rem auto !important;
     text-align: center !important;
-    opacity: 1 !important;
-    visibility: visible !important;
   }
   
-  /* Special handling for Terraform devicon */
-  .devicon-terraform-plain.colored,
-  i.devicon-terraform-plain.colored,
-  [class*="tech-"] .devicon-terraform-plain.colored,
-  html body .devicon-terraform-plain.colored {
-    color: #844FBA !important; 
-    filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
-  }
+  /* Special brand colors for key technologies */
+  .devicon-terraform-plain.colored { color: #844FBA !important; }
+  .devicon-azure-plain.colored { color: #0078D4 !important; }
+  .devicon-amazonwebservices-original.colored { color: #FF9900 !important; }
+  .devicon-python-plain.colored { color: #3776AB !important; }
+  .devicon-kubernetes-plain.colored { color: #326CE5 !important; }
+  .devicon-docker-plain.colored { color: #2496ED !important; }
+  .devicon-jenkins-plain.colored { color: #D33833 !important; }
   
   /* Remove all text labels */
   .tech-item span:not(.skill-dot) {
