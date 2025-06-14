@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Stack 2x2 Grid Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/tech-grid-fix.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+        .status {
+            padding: 1rem;
+            margin: 2rem auto;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+        .tech-category h3 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        button {
+            display: block;
+            margin: 2rem auto;
+            padding: 10px 20px;
+            background-color: #2a9df4;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result-box {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid #2a9df4;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .problem {
+            color: #ff6b6b;
+        }
+        .good {
+            color: #69db7c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tech Stack 2x2 Grid Test</h1>
+    
+    <div class="status">
+        <h2>Grid Layout Test</h2>
+        <p>This page tests the 2x2 grid layout for tech stack items. Each tech category should display icons in a proper 2x2 grid with appropriate sizing and padding.</p>
+    </div>
+    
+    <div class="container">
+        <!-- Test Case 1: 4 items (Full 2x2 grid) -->
+        <div class="tech-category" data-item-count="4">
+            <h3>Test: Full Grid (4 items)</h3>
+            <div class="tech-icons">
+                <div class="tech-item">
+                    <i class="fab fa-aws fa-3x"></i>
+                    <span>AWS</span>
+                    <div class="skill-level">
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot"></span>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-microsoft fa-3x"></i>
+                    <span>Azure</span>
+                    <div class="skill-level">
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="terraform-logo"></div>
+                    <span>Terraform</span>
+                    <div class="skill-level">
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot"></span>
+                        <span class="skill-dot"></span>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-python fa-3x"></i>
+                    <span>Python</span>
+                    <div class="skill-level">
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot"></span>
+                        <span class="skill-dot"></span>
+                        <span class="skill-dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Case 2: 2 items (Horizontal layout) -->
+        <div class="tech-category" data-item-count="2">
+            <h3>Test: 2 Items (Row)</h3>
+            <div class="tech-icons">
+                <div class="tech-item">
+                    <i class="fab fa-js fa-3x"></i>
+                    <span>JavaScript</span>
+                    <div class="skill-level">
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot"></span>
+                        <span class="skill-dot"></span>
+                        <span class="skill-dot"></span>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt fa-3x"></i>
+                    <span>CSS</span>
+                    <div class="skill-level">
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot"></span>
+                        <span class="skill-dot"></span>
+                        <span class="skill-dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Case 3: 1 item (Centered) -->
+        <div class="tech-category" data-item-count="1">
+            <h3>Test: 1 Item (Center)</h3>
+            <div class="tech-icons">
+                <div class="tech-item">
+                    <div class="terraform-logo"></div>
+                    <span>Terraform</span>
+                    <div class="skill-level">
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                        <span class="skill-dot filled"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button id="diagnose">Run Grid Diagnostics</button>
+    
+    <div id="results" class="result-box" style="display: none;"></div>
+    
+    <script src="/assets/js/tech-grid-fix.js"></script>
+    <script>
+        document.getElementById('diagnose').addEventListener('click', function() {
+            const results = document.getElementById('results');
+            results.style.display = 'block';
+            results.innerHTML = '';
+            
+            // Check tech categories
+            const categories = document.querySelectorAll('.tech-category');
+            results.innerHTML += `Found ${categories.length} tech categories\n\n`;
+            
+            // Check each category
+            categories.forEach((category, index) => {
+                const itemCount = category.getAttribute('data-item-count');
+                const heading = category.querySelector('h3').textContent;
+                const techIcons = category.querySelector('.tech-icons');
+                const items = category.querySelectorAll('.tech-item');
+                
+                results.innerHTML += `Category ${index + 1}: "${heading}"\n`;
+                results.innerHTML += `- Items: ${items.length} (data-item-count: ${itemCount})\n`;
+                
+                // Check grid layout
+                const computedStyle = window.getComputedStyle(techIcons);
+                const display = computedStyle.getPropertyValue('display');
+                const columns = computedStyle.getPropertyValue('grid-template-columns');
+                const rows = computedStyle.getPropertyValue('grid-template-rows');
+                
+                if (display === 'grid') {
+                    results.innerHTML += `- <span class="good">✓ Grid display: ${display}</span>\n`;
+                } else {
+                    results.innerHTML += `- <span class="problem">✗ Grid display: ${display} (should be 'grid')</span>\n`;
+                }
+                
+                if (columns.includes('repeat(2') || columns.includes('1fr 1fr')) {
+                    results.innerHTML += `- <span class="good">✓ Grid columns: ${columns}</span>\n`;
+                } else {
+                    results.innerHTML += `- <span class="problem">✗ Grid columns: ${columns} (should be 2 columns)</span>\n`;
+                }
+                
+                // Check items
+                let visibleItems = 0;
+                let iconIssues = 0;
+                
+                items.forEach(item => {
+                    if (window.getComputedStyle(item).display !== 'none') {
+                        visibleItems++;
+                        
+                        // Check icons
+                        const icon = item.querySelector('i, .terraform-logo');
+                        if (!icon || window.getComputedStyle(icon).opacity !== '1') {
+                            iconIssues++;
+                        }
+                    }
+                });
+                
+                results.innerHTML += `- <span class="${visibleItems === parseInt(itemCount) ? 'good' : 'problem'}">Items visible: ${visibleItems}/${itemCount}</span>\n`;
+                results.innerHTML += `- <span class="${iconIssues === 0 ? 'good' : 'problem'}">Icon issues: ${iconIssues}</span>\n\n`;
+            });
+            
+            // Overall assessment
+            const allCategories = document.querySelectorAll('.tech-category');
+            let passedTests = 0;
+            
+            allCategories.forEach(category => {
+                const techIcons = category.querySelector('.tech-icons');
+                if (
+                    window.getComputedStyle(techIcons).display === 'grid' &&
+                    category.querySelectorAll('.tech-item').length > 0
+                ) {
+                    passedTests++;
+                }
+            });
+            
+            if (passedTests === allCategories.length) {
+                results.innerHTML += `\n<span class="good">✓ All categories passed grid layout tests</span>`;
+            } else {
+                results.innerHTML += `\n<span class="problem">✗ ${allCategories.length - passedTests} categories failed grid layout tests</span>`;
+            }
+        });
+    </script>
+</body>
+</html>

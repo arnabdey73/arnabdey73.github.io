@@ -1,0 +1,248 @@
+/* 
+   Tech Grid 2x2 Layout Fix - June 2025
+   Specific fix for tech icons appearing as small boxes instead of proper icons
+*/
+
+/* Force proper 2x2 grid layout with suitable sizing and padding */
+.tech-category {
+  padding: 1.5rem !important;
+  background: #1a1a1a !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  position: relative !important;
+  overflow: visible !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-height: 300px !important;
+}
+
+/* Ensure proper grid layout specifically for 2x2 */
+.tech-category-2x2-grid .tech-icons {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-rows: repeat(2, 1fr) !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  max-width: 280px !important;
+  height: 200px !important; /* Fixed height for 2x2 grid */
+  padding: 1rem !important;
+  margin: 1rem auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  justify-items: center !important;
+  align-content: center !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  background: rgba(255, 255, 255, 0.03) !important; /* Subtle background */
+  border-radius: 10px !important;
+}
+
+/* Special layout for categories with fewer items */
+.tech-category[data-item-count="1"] .tech-icons {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 1fr !important;
+  height: 120px !important;
+}
+
+.tech-category[data-item-count="2"] .tech-icons {
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-rows: 1fr !important;
+  height: 120px !important;
+}
+
+.tech-category[data-item-count="3"] .tech-icons,
+.tech-category[data-item-count="4"] .tech-icons {
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-rows: repeat(2, 1fr) !important;
+  height: 200px !important;
+}
+
+/* Proper styling for tech items with increased size and visibility */
+.tech-category-2x2-grid .tech-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0.75rem !important;
+  width: 90px !important; /* Fixed width */
+  height: 90px !important; /* Fixed height */
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease !important;
+  z-index: 1 !important;
+  position: relative !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Special hover styling */
+.tech-category-2x2-grid .tech-item:hover {
+  transform: translateY(-3px) !important;
+  background: rgba(42, 157, 244, 0.1) !important;
+  border-color: rgba(42, 157, 244, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(42, 157, 244, 0.15) !important;
+  z-index: 2 !important;
+}
+
+/* Fix Font Awesome icon sizes */
+.tech-category-2x2-grid .tech-item i {
+  font-size: 2rem !important; /* Use rem units for consistency */
+  width: 2rem !important;
+  height: 2rem !important;
+  line-height: 1 !important;
+  margin-bottom: 0.5rem !important;
+  color: #2a9df4 !important; /* Consistent blue color */
+  text-shadow: 0 0 5px rgba(42, 157, 244, 0.3) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Fix for Font Awesome brand icons */
+.tech-category-2x2-grid .tech-item .fab {
+  font-family: "Font Awesome 5 Brands" !important;
+}
+
+/* Fix for Font Awesome solid icons */
+.tech-category-2x2-grid .tech-item .fas {
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+}
+
+/* Ensure span labels are visible */
+.tech-category-2x2-grid .tech-item span {
+  font-size: 0.8rem !important;
+  line-height: 1.2 !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  display: block !important;
+  max-width: 90% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Special fix for the Terraform logo */
+.tech-category-2x2-grid .tech-item .terraform-logo {
+  width: 2rem !important;
+  height: 2rem !important;
+  position: relative !important;
+  margin: 0 0 0.5rem 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.tech-category-2x2-grid .tech-item .terraform-logo::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #844FBA !important;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
+  mask-size: contain !important;
+  mask-repeat: no-repeat !important;
+  mask-position: center !important;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M36.4 20.2v19.6l17-9.8v-19.6l-17 9.8zm-12.8 0l17-9.8v19.6l-17 9.8v-19.6zm-1.6 21.5l17 9.8v-19.6l-17-9.8v19.6z' fill='currentColor'/%3E%3C/svg%3E") !important;
+  -webkit-mask-size: contain !important;
+  -webkit-mask-repeat: no-repeat !important;
+  -webkit-mask-position: center !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Skill level styling */
+.tech-category-2x2-grid .tech-item .skill-level {
+  display: flex !important;
+  gap: 2px !important;
+  margin-top: 0.15rem !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.tech-category-2x2-grid .tech-item .skill-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(42, 157, 244, 0.5) !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 0.3 !important;
+}
+
+.tech-category-2x2-grid .tech-item .skill-dot.filled {
+  background-color: #2a9df4 !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 3px #2a9df4 !important;
+}
+
+/* Ensure Font Awesome is properly loaded */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tech-category-2x2-grid .tech-icons {
+    gap: 1rem !important;
+    height: 180px !important;
+    max-width: 240px !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item {
+    width: 80px !important;
+    height: 80px !important;
+    padding: 0.5rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item i,
+  .tech-category-2x2-grid .tech-item .terraform-logo {
+    font-size: 1.75rem !important;
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item span {
+    font-size: 0.7rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item .skill-dot {
+    width: 5px !important;
+    height: 5px !important;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .tech-category-2x2-grid .tech-icons {
+    gap: 0.75rem !important;
+    height: 160px !important;
+    max-width: 200px !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item {
+    width: 70px !important;
+    height: 70px !important;
+    padding: 0.4rem !important;
+  }
+  
+  .tech-category-2x2-grid .tech-item i,
+  .tech-category-2x2-grid .tech-item .terraform-logo {
+    font-size: 1.5rem !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+}
