@@ -56,3 +56,56 @@
 <link rel="stylesheet" href="{{ '/assets/css/card-overlapping-fixes.css' | relative_url }}">
 <!-- Tech Grid 2x2 Fix - Added June 2025 (Latest) -->
 <link rel="stylesheet" href="{{ '/assets/css/tech-grid-fix.css' | relative_url }}">
+<!-- Icon Size Consistency CSS - Critical (June 2025) -->
+<link rel="stylesheet" href="{{ '/assets/css/icon-size-consistency.css' | relative_url }}">
+
+<!-- Inline Terraform Devicon Fix - Ensuring Terraform icon always uses devicon -->
+<style>
+  /* Critical Terraform Icon Fix - Must be in head for earliest loading */
+  .devicon-terraform-plain.colored,
+  .devicon-terraform-plain,
+  i.devicon-terraform-plain,
+  i.devicon-terraform-plain.colored,
+  [class*="tech-"] .devicon-terraform-plain,
+  #tech-stack .devicon-terraform-plain,
+  .tech-category .devicon-terraform-plain,
+  .tech-item .devicon-terraform-plain {
+    color: #844FBA !important; 
+    filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
+    font-size: 2.5rem !important; 
+    width: 48px !important; 
+    height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 0.5rem auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Universal Icon Size Consistency - Applied Early */
+  [class*="fa-"],
+  [class*="devicon-"],
+  .tech-item i,
+  .tech-icon,
+  i.tech-icon,
+  .tech-grid i,
+  .special-icon,
+  .tech-item .special-icon,
+  .tech-stack i,
+  .terraform-logo,
+  .tech-item [class*="icon"],
+  div[class*="icon"] {
+    font-size: 2.5rem !important;
+    width: 48px !important;
+    height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 0.5rem auto !important;
+    text-align: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    object-fit: contain !important;
+  }
+</style>

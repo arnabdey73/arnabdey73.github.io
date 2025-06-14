@@ -48,6 +48,25 @@
 {% include /comments-providers/scripts.html %}
 
 <!-- Custom scripts -->
+<!-- Tech Icons Fixes - June 2025 -->
+<script>
+  // Load devicon CSS immediately (high priority)
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('🔄 Loading required Tech Icon resources...');
+    
+    // Load or verify devicon CSS
+    if (!document.querySelector('link[href*="devicon"]')) {
+      const deviconLink = document.createElement('link');
+      deviconLink.rel = 'stylesheet';
+      deviconLink.href = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css';
+      document.head.insertBefore(deviconLink, document.head.firstChild);
+      console.log('✅ Injected Devicon CSS');
+    }
+  });
+</script>
+<script src="{{ '/assets/js/devicon-integration.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/tech-grid-fix.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/terraform-icon-checker.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
 
 <!-- Tech Stack and Navigation Fixes -->

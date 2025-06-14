@@ -1,0 +1,122 @@
+/**
+ * Icon Size Consistency - June 2025
+ * Ensures all icons across the site have consistent size
+ */
+
+/* Universal icon sizing for consistency */
+[class*="fa-"],
+[class*="devicon-"],
+.tech-item i,
+.tech-icon,
+i.tech-icon,
+.tech-grid i,
+.special-icon,
+.tech-item .special-icon,
+.tech-stack i,
+.terraform-logo,
+.tech-item [class*="icon"],
+div[class*="icon"] {
+  font-size: 2.5rem !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 0.5rem auto !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  object-fit: contain !important;
+}
+
+/* Special handling for devicon Terraform icon - Enhanced June 2025 */
+.devicon-terraform-plain.colored,
+.devicon-terraform-plain,
+i.devicon-terraform-plain,
+i.devicon-terraform-plain.colored,
+[class*="tech-"] .devicon-terraform-plain,
+#tech-stack .devicon-terraform-plain,
+.tech-item .devicon-terraform-plain,
+.tech-category .devicon-terraform-plain,
+.devicon-terraform-plain.colored[style*="width"],
+.devicon-terraform-plain.colored[style*="height"] {
+  color: #844FBA !important; /* HashiCorp Terraform purple */
+  filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
+  font-size: 2.5rem !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 0.5rem auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Infrastructure icons unified styling */
+.devicon-kubernetes-plain.colored,
+.devicon-docker-plain.colored,
+.devicon-ansible-plain.colored {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.25)) !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  /* For medium screens, slightly smaller */
+  [class*="fa-"],
+  [class*="devicon-"],
+  .tech-item i,
+  .tech-icon,
+  i.tech-icon,
+  .tech-grid i,
+  .special-icon,
+  .tech-item .special-icon,
+  .tech-stack i,
+  .terraform-logo,
+  .tech-item [class*="icon"],
+  div[class*="icon"] {
+    font-size: 2.25rem !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* For small screens, smaller sizing */
+  [class*="fa-"],
+  [class*="devicon-"],
+  .tech-item i,
+  .tech-icon,
+  i.tech-icon,
+  .tech-grid i,
+  .special-icon,
+  .tech-item .special-icon,
+  .tech-stack i,
+  .terraform-logo,
+  .tech-item [class*="icon"],
+  div[class*="icon"] {
+    font-size: 2rem !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /* For very small screens, even smaller sizing */
+  [class*="fa-"],
+  [class*="devicon-"],
+  .tech-item i,
+  .tech-icon,
+  i.tech-icon,
+  .tech-grid i,
+  .special-icon,
+  .tech-item .special-icon,
+  .tech-stack i,
+  .terraform-logo,
+  .tech-item [class*="icon"],
+  div[class*="icon"] {
+    font-size: 1.75rem !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+}

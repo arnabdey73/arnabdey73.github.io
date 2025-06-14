@@ -148,8 +148,11 @@
   z-index: 2 !important;
 }
 
-/* Fix Font Awesome icon sizes */
-.tech-category-2x2-grid .tech-item i {
+/* Fix Font Awesome icon sizes - Standardized */
+.tech-category-2x2-grid .tech-item i,
+.tech-item i,
+i[class*="fa-"],
+i.tech-icon {
   font-size: 2.25rem !important; /* Adjusted for 48px icons */
   width: 48px !important; /* Exact width as suggested */
   height: 48px !important; /* Exact height as suggested */
@@ -369,8 +372,13 @@ html body .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fal
   filter: drop-shadow(0 0 3px rgba(0, 120, 212, 0.5)) !important;
 }
 
-/* DevIcon styling - Enhanced June 2025 */
-.tech-category-2x2-grid .tech-item [class*="devicon-"] {
+/* DevIcon styling - Enhanced June 2025 - Universal selector */
+[class*="devicon-"],
+.tech-item [class*="devicon-"],
+.tech-category-2x2-grid .tech-item [class*="devicon-"],
+.tech-grid .tech-item [class*="devicon-"],
+.tech-stack [class*="devicon-"],
+div [class*="devicon-"] {
   font-size: 2.5rem !important;
   width: 48px !important;
   height: 48px !important;
@@ -418,9 +426,16 @@ html body .tech-stack-section .tech-item span:not(.skill-dot):not(.terraform-fal
 }
 
 /* Infrastructure as Code */
-.tech-category-2x2-grid .tech-item .devicon-terraform-plain.colored {
+/* Terraform special styling - Updated June 2025 */
+.tech-category-2x2-grid .tech-item .devicon-terraform-plain.colored,
+.devicon-terraform-plain.colored,
+i.devicon-terraform-plain.colored,
+div .devicon-terraform-plain.colored {
   color: #844FBA !important; /* HashiCorp purple */
   filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
+  font-size: 2.5rem !important;
+  width: 48px !important;
+  height: 48px !important;
 }
 
 .tech-category-2x2-grid .tech-item .devicon-ansible-plain.colored {

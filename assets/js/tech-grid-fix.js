@@ -58,13 +58,20 @@ function setupTechGridObserver() {
 }
 
 function fixTechGrid() {
-  // Call devicon integration first if available (priority June 2025)
+  // Call devicon integration first if available (priority June 2025) - Enhanced for Terraform
   if (typeof window.applyDeviconIcons === 'function') {
     console.log('🔄 Tech Grid: Calling devicon integration from fixTechGrid...');
     try {
+      // First apply all devicons
       window.applyDeviconIcons();
+      
+      // Then normalize icon sizes for consistency
+      normalizeIconSizes();
+      
+      // Special focus on ensuring Terraform uses proper devicons
+      ensureTerraformDevicon();
     } catch (e) {
-      console.error('Error calling applyDeviconIcons:', e);
+      console.error('Error calling icon enhancements:', e);
     }
   }
 
@@ -170,6 +177,125 @@ function fixTechGrid() {
   });
   
   console.log(`✅ Fixed special icons (OpenStack: ${openStackItems.length}, VMware: ${vmwareItems.length}, Azure: ${azureItems.length})`);
+}
+
+// New helper function to ensure all Terraform items use devicon
+function ensureTerraformDevicon() {
+  console.log('🛠️ Running specialized Terraform devicon fixer...');
+  
+  // Find all Terraform items that might have been missed
+  const terraformItems = Array.from(document.querySelectorAll('.tech-item'))
+    .filter(item => {
+      const text = item.textContent.toLowerCase();
+      return text.includes('terraform') && !item.querySelector('.devicon-terraform-plain');
+    });
+    
+  console.log(`🔍 Found ${terraformItems.length} additional Terraform items needing devicon fix`);
+    
+  terraformItems.forEach(item => {
+    // Create the terraform devicon
+    const iconWrapper = document.createElement('i');
+    iconWrapper.className = 'devicon-terraform-plain colored';
+    
+    // Style properly
+    iconWrapper.style.cssText = `
+      color: #844FBA !important; 
+      filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
+      font-size: 2.5rem !important; 
+      width: 48px !important; 
+      height: 48px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 auto 0.5rem auto !important;
+    `;
+    
+    // Find and replace ANY existing icon
+    const existingIcon = item.querySelector('i') || 
+                        item.querySelector('.terraform-logo') ||
+                        item.querySelector('svg') ||
+                        item.querySelector('[class*="icon"]');
+    
+    if (existingIcon) {
+      existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
+    } else {
+      // If no icon at all, insert as first child
+      item.insertBefore(iconWrapper, item.firstChild);
+    }
+    
+    // Mark as fixed
+    item.setAttribute('data-terraform-fixed', 'true');
+  });
+  
+  console.log(`✅ Fixed ${terraformItems.length} additional Terraform icons with devicon versions`);
+}
+
+// Helper function to normalize all icon sizes for consistency
+function normalizeIconSizes() {
+  console.log('📐 Normalizing all icon sizes for consistency...');
+  
+  // Target all possible icon elements
+  const allIcons = document.querySelectorAll([
+    '.tech-item i', 
+    '.tech-item [class*="icon"]',
+    '.tech-item [class*="logo"]',
+    '.tech-item [class*="devicon"]',
+    '.tech-category i',
+    '.tech-category [class*="icon"]',
+    '.tech-category [class*="devicon"]',
+    '.tech-icon',
+    '.special-icon',
+    'i.devicon-terraform-plain',
+    '.devicon-terraform-plain'
+  ].join(', '));
+  
+  console.log(`🔍 Found ${allIcons.length} icons to normalize`);
+  
+  // Apply consistent sizing
+  allIcons.forEach(icon => {
+    // Skip skill dots and small indicators
+    if (icon.className.includes('skill-dot')) return;
+    
+    // Apply standardized size (48x48px)
+    icon.style.width = '48px';
+    icon.style.height = '48px';
+    icon.style.fontSize = '2.5rem';
+    icon.style.display = 'flex';
+    icon.style.alignItems = 'center';
+    icon.style.justifyContent = 'center';
+    
+    // Special handling for Terraform
+    if (icon.className.includes('terraform')) {
+      icon.style.color = '#844FBA';
+      icon.style.filter = 'drop-shadow(0 0 3px rgba(132, 79, 186, 0.5))';
+    }
+  });
+  
+  console.log('✅ Icon sizes normalized for consistency');
+}
+
+// Function to check if devicon CSS is properly loaded
+function checkDeviconCSS() {
+  console.log('🔍 Checking if devicon CSS is properly loaded...');
+  
+  // Check if link element exists
+  const deviconLink = document.querySelector('link[href*="devicon"]');
+  
+  if (!deviconLink) {
+    console.warn('⚠️ Devicon CSS link not found! Adding it now...');
+    
+    // Create and inject link
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css';
+    
+    // Add to head
+    document.head.appendChild(link);
+    
+    console.log('✅ Added devicon CSS link to head');
+  } else {
+    console.log('✅ Devicon CSS link found');
+  }
 }
 
 // Function to physically remove span elements from tech items

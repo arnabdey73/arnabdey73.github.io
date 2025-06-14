@@ -342,45 +342,108 @@ function forceApplyIcons() {
   console.log(`🛠️ Force-replaced ${forcedCount} icons with best-guess devicon versions`);
 }
 
-// Special case function to handle IaC tech (Terraform, etc.)
+// Special case function to handle IaC tech (Terraform, etc.) - Enhanced June 2025
 function handleIaCTech() {
-  // Look for Terraform specifically
-  const terraformItems = Array.from(document.querySelectorAll('.tech-item')).filter(item => {
-    return item.textContent.toLowerCase().includes('terraform');
-  });
+  // Comprehensive selectors to find ANY Terraform items
+  const terraformSelectors = [
+    '.tech-item:contains("Terraform")',
+    '.tech-item span:contains("Terraform")',
+    '.tech-item > .terraform-logo',
+    '.tech-category-2x2-grid .tech-item:contains("Terraform")',
+    '#tech-stack .tech-item:contains("Terraform")',
+    '[class*="tech-"] .tech-item:contains("Terraform")',
+    '[data-tech="terraform"]', 
+    '[data-tech*="terraform"]'
+  ];
   
-  terraformItems.forEach(item => {
-    // Create the terraform devicon
+  // Use jQuery-like contains selector functionality for broader detection
+  function getElementsContainingText(selector, text) {
+    const elements = document.querySelectorAll(selector);
+    return Array.from(elements).filter(element => 
+      element.textContent.toLowerCase().includes(text.toLowerCase())
+    );
+  }
+  
+  // First find all direct elements with classes
+  let terraformItems = Array.from(document.querySelectorAll('.tech-item'))
+    .filter(item => item.textContent.toLowerCase().includes('terraform'));
+  
+  // Then find elements with terraform-logo class
+  const terraformLogoItems = Array.from(document.querySelectorAll('.terraform-logo'))
+    .map(logo => logo.closest('.tech-item') || logo.parentElement);
+  
+  // Combine results and remove duplicates
+  terraformItems = [...new Set([...terraformItems, ...terraformLogoItems])];
+  
+  console.log(`🔍 Found ${terraformItems.length} Terraform items using enhanced selectors`);
+  
+  terraformItems.forEach((item, index) => {
+    // Create the terraform devicon with optimal styling
     const iconWrapper = document.createElement('i');
     iconWrapper.className = 'devicon-terraform-plain colored';
-    iconWrapper.style.fontSize = '2.5rem';
-    iconWrapper.style.width = '48px';
-    iconWrapper.style.height = '48px';
-    iconWrapper.style.display = 'flex';
-    iconWrapper.style.alignItems = 'center';
-    iconWrapper.style.justifyContent = 'center';
-    iconWrapper.style.margin = '0 auto 0.5rem auto';
+    iconWrapper.setAttribute('aria-hidden', 'true');
     
-    // Find and replace existing terraform logo
-    const existingLogo = item.querySelector('.terraform-logo');
+    // Apply correct styles inline for immediate effect
+    iconWrapper.style.cssText = `
+      color: #844FBA !important; 
+      filter: drop-shadow(0 0 3px rgba(132, 79, 186, 0.5)) !important;
+      font-size: 2.5rem !important; 
+      width: 48px !important; 
+      height: 48px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 auto 0.5rem auto !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    `;
+    
+    // Find and replace ANY existing terraform logo
+    const existingLogo = item.querySelector('.terraform-logo') || 
+                          item.querySelector('[class*="terraform"]') ||
+                          item.querySelector('svg[class*="terraform"]');
+                          
     if (existingLogo) {
       existingLogo.parentNode.replaceChild(iconWrapper, existingLogo);
+      console.log(`✅ Replaced existing Terraform logo in item ${index+1}`);
     } else {
       // If no terraform logo, find any other icon and replace it
-      const existingIcon = item.querySelector('i');
+      const existingIcon = item.querySelector('i') || 
+                           item.querySelector('[class*="fa-"]') ||
+                           item.querySelector('[class*="icon"]') ||
+                           item.querySelector('svg');
+                           
       if (existingIcon) {
         existingIcon.parentNode.replaceChild(iconWrapper, existingIcon);
+        console.log(`✅ Replaced existing icon with Terraform devicon in item ${index+1}`);
       } else {
         // If no icon at all, insert as first child
         item.insertBefore(iconWrapper, item.firstChild);
+        console.log(`✅ Added new Terraform devicon to item ${index+1}`);
       }
     }
     
-    // Mark as fixed
+    // Mark as fixed with enhanced data attribute
     item.setAttribute('data-icon-replaced', 'devicon-terraform');
+    item.setAttribute('data-terraform-enhanced', 'true');
+    
+    // Remove any label spans that might still exist
+    const spans = item.querySelectorAll('span:not(.skill-dot)');
+    spans.forEach(span => {
+      if (span.textContent.toLowerCase().includes('terraform')) {
+        span.style.display = 'none';
+        span.style.visibility = 'hidden';
+        span.style.opacity = '0';
+        span.style.height = '0';
+        span.style.width = '0';
+        span.style.overflow = 'hidden';
+        span.style.position = 'absolute';
+        span.style.pointerEvents = 'none';
+      }
+    });
   });
   
-  console.log(`🛠️ Fixed ${terraformItems.length} Terraform icons with Devicon versions`);
+  console.log(`🛠️ Fixed ${terraformItems.length} Terraform icons with enhanced Devicon versions`);
 }
 
 // Special case function to handle Cloud tech (Azure, AWS, etc.)
