@@ -68,6 +68,29 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleMenu();
   });
   
+  // Make navigation links work properly
+  const navLinks = document.querySelectorAll('#nav-menu li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Get the href attribute
+      const href = this.getAttribute('href');
+      
+      // Close the menu
+      navMenu.classList.remove('show');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      
+      // Change button icon back to bars
+      const iconElement = menuToggle.querySelector('i');
+      if (iconElement) {
+        iconElement.className = 'fas fa-bars';
+      }
+      
+      // Navigate to the page (don't prevent default)
+      // The default navigation will happen naturally
+    });
+  });
+  
   // Close menu when clicking outside
   document.addEventListener('click', function(event) {
     if (navMenu.classList.contains('show') && 

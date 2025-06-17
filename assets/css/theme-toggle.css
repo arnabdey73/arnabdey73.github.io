@@ -1,0 +1,52 @@
+/**
+ * Theme Toggle Styles - June 2025
+ */
+
+/* Theme toggle buttons */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Light and dark icons inside the theme toggle */
+.theme-toggle i {
+  font-size: 18px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show only appropriate icon based on current theme */
+html[data-theme="dark"] .theme-toggle .light-icon,
+html:not([data-theme="dark"]) .theme-toggle .dark-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+html[data-theme="dark"] .theme-toggle .dark-icon,
+html:not([data-theme="dark"]) .theme-toggle .light-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+/* Theme transition effect */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

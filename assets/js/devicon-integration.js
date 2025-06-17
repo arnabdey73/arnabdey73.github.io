@@ -16,14 +16,19 @@ window.deviconIntegrationLoaded = true;
   // Apply devicon icons right away
   applyDeviconIcons();
   
+  // Fix tech icons visibility
+  fixTechIconsVisibility();
+  
   // Also run on DOMContentLoaded
   document.addEventListener('DOMContentLoaded', function() {
     console.log('🔄 Devicon Tech Icons: DOM Content Loaded');
     applyDeviconIcons();
+    fixTechIconsVisibility();
     
     // Run again after a short delay to catch any late-rendered elements
     setTimeout(() => {
       applyDeviconIcons();
+      fixTechIconsVisibility();
     }, 500);
     
     // And one more time after everything has settled
@@ -483,4 +488,61 @@ function handleCloudTech() {
   });
   
   console.log(`☁️ Fixed ${azureItems.length} Azure icons with Devicon versions`);
+}
+
+// Function to fix tech icons visibility issues
+function fixTechIconsVisibility() {
+  // Find all devicon elements
+  const deviconElements = document.querySelectorAll('[class*="devicon-"]');
+  
+  deviconElements.forEach(icon => {
+    // Ensure visibility and opacity
+    icon.style.visibility = 'visible';
+    icon.style.opacity = '1';
+    icon.style.display = 'flex';
+    
+    // Force dimensions
+    if (icon.closest('.tech-item-mini')) {
+      icon.style.width = '32px';
+      icon.style.height = '32px';
+      icon.style.fontSize = '1.6rem';
+    } else if (icon.closest('.tech-item')) {
+      icon.style.width = '48px';
+      icon.style.height = '48px';
+      icon.style.fontSize = '2.5rem';
+    }
+  });
+  
+  // Fix tech item spans (technology titles)
+  document.querySelectorAll('.tech-item span:not(.skill-dot)').forEach(span => {
+    span.style.display = 'block';
+    span.style.visibility = 'visible';
+    span.style.opacity = '1';
+  });
+  
+  // Fix tech-item-mini spans
+  document.querySelectorAll('.tech-item-mini span').forEach(span => {
+    span.style.display = 'block';
+    span.style.visibility = 'visible';
+    span.style.opacity = '1';
+    span.style.textAlign = 'center';
+    span.style.fontSize = '0.75rem';
+  });
+  
+  // Fix skill dots
+  document.querySelectorAll('.skill-level').forEach(skillLevel => {
+    skillLevel.style.display = 'flex';
+    skillLevel.style.visibility = 'visible';
+    skillLevel.style.opacity = '1';
+    
+    // Find child dots
+    const dots = skillLevel.querySelectorAll('.skill-dot');
+    dots.forEach(dot => {
+      dot.style.display = 'inline-block';
+      dot.style.visibility = 'visible';
+      dot.style.opacity = '1';
+    });
+  });
+  
+  console.log('✅ Tech icons visibility enforced');
 }

@@ -8,13 +8,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1.2rem;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  border-radius: 6px !important;
 }
 
 /* Updated tech item mini styling for devicons - smaller size and row display */
@@ -22,21 +24,23 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  width: 32px;
-  min-width: 32px;
-  margin: 0 0.25rem;
+  width: 50px;
+  min-width: 50px;
+  margin: 0 0.35rem;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
               filter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  padding: 0.25rem;
+  padding: 0.35rem;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
 }
 
 /* Devicon mini styling - smaller size for row display */
 .tech-item-mini [class*="devicon-"],
 .tech-item-mini i[class*="devicon-"] {
-  font-size: 1.25rem !important;
-  width: 24px !important;
-  height: 24px !important;
+  font-size: 1.6rem !important;
+  width: 32px !important;
+  height: 32px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -45,6 +49,8 @@
               color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
               filter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
               text-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Terraform devicon special styling */
@@ -72,20 +78,17 @@
   height: 20px !important;
 }
 
-/* Mini tech labels - smaller text for row display */
+/* Tech item mini span (technology title) */
 .tech-item-mini span {
-  font-size: 0.65rem;
-  font-weight: 400;
-  color: #e0e0e0;
-  text-align: center;
-  margin-top: 0.1rem;
-  transition: color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-              text-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  display: block !important;
+  font-size: 0.75rem !important;
+  margin-top: 0.35rem !important;
+  text-align: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: nowrap !important;
+  color: #e0e0e0 !important;
+  width: 100% !important;
 }
 
 /* Card hover states - subtle effect for row display */

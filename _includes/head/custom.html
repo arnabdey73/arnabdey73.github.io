@@ -22,6 +22,10 @@
 <link rel="stylesheet" href="{{ '/assets/css/card-layout-optimizations.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/certification-tech-icons.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/mobile-nav-fixed.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/theme-toggle.css' | relative_url }}">
+
+<!-- Font Awesome for icons (needed for theme toggle and other UI elements) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Devicon Critical CSS - Inline for faster loading -->
 <style>
@@ -36,6 +40,8 @@
     justify-content: center !important;
     margin: 0 auto 0.5rem auto !important;
     text-align: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
   /* Special brand colors for key technologies */
@@ -52,9 +58,13 @@
     display: block !important; 
     font-size: 0.85rem !important;
     margin-top: 0.2rem !important;
+    margin-bottom: 0.1rem !important;
     text-align: center !important;
     visibility: visible !important;
     opacity: 1 !important;
+    font-weight: 500 !important;
+    color: #e0e0e0 !important;
+    z-index: 10 !important;
     visibility: hidden !important;
     height: 0 !important;
     width: 0 !important;
