@@ -4,14 +4,12 @@
  */
 
 /* Universal devicon sizing for consistency - Standardized on devicon.dev icons */
-[class*="devicon-"],
-i[class*="devicon-"],
-.tech-item [class*="devicon-"],
+/* Main tech stack icons - larger size */
 .tech-category [class*="devicon-"],
 .tech-stack [class*="devicon-"],
 .tech-category-2x2-grid [class*="devicon-"],
-.tech-item i[class*="devicon-"],
-html body [class*="devicon-"] {
+.tech-item [class*="devicon-"]:not(.tech-item-mini [class*="devicon-"]),
+.tech-item i[class*="devicon-"]:not(.tech-item-mini i[class*="devicon-"]) {
   font-size: 2.5rem !important;
   width: 48px !important;
   height: 48px !important;

@@ -1,0 +1,107 @@
+/**
+ * Mobile Navigation Fixes - June 2025
+ * Ensures mobile navigation menu properly shows/hides and has correct positioning
+ */
+
+/* Mobile menu toggle button */
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1010;
+}
+
+.menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-toggle.active {
+  background-color: #0078D4;
+  border-color: #0078D4;
+}
+
+/* Mobile navigation dropdown */
+#nav-menu {
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Hide navigation by default on small screens */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  #nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1009;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+  
+  #nav-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+  }
+  
+  #nav-menu .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  #nav-menu .nav-link {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  #nav-menu .nav-link:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .menu-toggle {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+[data-theme="light"] .menu-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .menu-toggle.active {
+  background-color: #0078D4;
+  color: #fff;
+}
+
+[data-theme="light"] #nav-menu {
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] #nav-menu .nav-link {
+  border-color: rgba(0, 0, 0, 0.05);
+}

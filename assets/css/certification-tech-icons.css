@@ -14,8 +14,45 @@
 
 /* Position tech icons nicely between the certificate description and the button */
 .certification-card .tech-icons-mini {
-  margin: 1rem 0;
+  margin: 1.25rem 0;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Certificate button container styling */
+.cert-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+/* Certificate verification button */
+.cert-verify-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #2a9df4;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.cert-verify-button:hover {
+  background-color: #1e8ae0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(42, 157, 244, 0.3);
+}
+
+/* Certificate button icon */
+.cert-verify-button i {
+  font-size: 1rem;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }

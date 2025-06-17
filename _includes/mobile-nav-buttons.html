@@ -1,8 +1,8 @@
 <!-- Mobile nav buttons: menu and theme toggle, for use below the intro card on mobile only -->
 <div class="nav-container" style="width:100%;justify-content:center;gap:1rem;z-index:1001;">
   <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle light/dark theme" title="Toggle theme">
-    <i class="fas fa-sun light-icon" aria-hidden="true"></i>
-    <i class="fas fa-moon dark-icon" aria-hidden="true"></i>
+    <i class="devicon-linkedin-plain light-icon" aria-hidden="true"></i>
+    <i class="devicon-github-original dark-icon" aria-hidden="true"></i>
     <span class="sr-only">Toggle theme</span>
   </button>
   <button class="menu-toggle" id="menu-toggle-mobile" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" title="Open site navigation">
@@ -10,39 +10,7 @@
     <span class="sr-only">Menu</span>
   </button>
 </div>
-<script>
-// Mobile theme toggle
-document.addEventListener('DOMContentLoaded', function() {
-  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-  if (themeToggleMobile) {
-    themeToggleMobile.addEventListener('click', function() {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      // Ensure page refreshes theme styling
-      document.body.classList.remove('theme-' + currentTheme);
-      document.body.classList.add('theme-' + newTheme);
-    });
-  }
-});
-// Mobile menu toggle - should work the same as the main menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  const menuToggleMobile = document.getElementById('menu-toggle-mobile');
-  const navMenu = document.getElementById('nav-menu');
-  
-  if (menuToggleMobile && navMenu) {
-    menuToggleMobile.addEventListener('click', function() {
-      // Toggle menu visibility
-      navMenu.classList.toggle('show');
-      
-      // Toggle active class on button
-      this.classList.toggle('active');
-      
-      // Toggle between menu and close icon
-      const isExpanded = navMenu.classList.contains('show');
-      this.setAttribute('aria-expanded', isExpanded);
+<!-- Note: Theme toggle and mobile navigation functionality is now managed by dedicated JS files -->
       
       // Change icon between bars and X
       const iconElement = this.querySelector('i');

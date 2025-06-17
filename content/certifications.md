@@ -14,17 +14,17 @@ author: "Arnab Dey"
     <p>Issued March 2023</p>
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-cloud" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Cloud</span>
       </div>
     </div>
     <div class="cert-button-container">
       <a href="https://learn.microsoft.com/api/credentials/share/en-us/ArnabDey-3507/801D970BAA49297?sharingId=7AA14B7D39956A51" target="_blank" rel="noopener" class="cert-verify-button">
-        <i class="fas fa-certificate"></i> View Certificate
+        <i class="devicon-azure-plain"></i> View Certificate
       </a>
     </div>
   </div>
@@ -34,21 +34,21 @@ author: "Arnab Dey"
     <p>Issued June 2025</p>
     <div class="tech-icons-mini">
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Azure</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fas fa-cloud" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Cloud</span>
       </div>
       <div class="tech-item-mini">
-        <i class="fab fa-microsoft" aria-hidden="true"></i>
+        <i class="devicon-azure-plain colored" aria-hidden="true"></i>
         <span>Bicep</span>
       </div>
     </div>
     <div class="cert-button-container">
       <a href="#" target="_blank" rel="noopener" class="cert-verify-button">
-        <i class="fas fa-certificate"></i> View Certificate
+        <i class="devicon-azure-plain"></i> View Certificate
       </a>
     </div>
   </div>

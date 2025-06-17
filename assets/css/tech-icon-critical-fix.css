@@ -49,7 +49,19 @@
   z-index: 0 !important;
 }
 
-/* Ensure skill dots are visible */
+/* Enhanced skill dots with improved visibility */
+.skill-level {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 0.4rem !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  min-height: 10px !important;
+  z-index: 5 !important;
+}
+
 .skill-dot {
   display: inline-block !important;
   visibility: visible !important;
@@ -57,17 +69,25 @@
   height: 8px !important;
   border-radius: 50% !important;
   margin: 0 2px !important;
-  border: 1px solid rgba(42, 157, 244, 0.5) !important;
+  border: 1px solid rgba(42, 157, 244, 0.6) !important;
   box-sizing: border-box !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  z-index: 6 !important;
 }
 
 .skill-dot.filled {
   background-color: #2a9df4 !important;
   opacity: 1 !important;
-  box-shadow: 0 0 4px rgba(42, 157, 244, 0.5) !important;
+  box-shadow: 0 0 4px rgba(42, 157, 244, 0.7) !important;
 }
 
-/* Fixes for tech items */
+/* Add hover effect for better interactivity */
+.tech-item:hover .skill-dot.filled {
+  transform: scale(1.15) !important;
+  box-shadow: 0 0 6px rgba(42, 157, 244, 0.7) !important;
+}
+
+/* Enhanced tech items with better visibility and spacing */
 .tech-item {
   opacity: 1 !important;
   visibility: visible !important;
@@ -76,24 +96,66 @@
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  animation: none !important;
-  transform: none !important;
+  padding: 0.5rem !important;
+  margin: 0.35rem !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   z-index: 1 !important;
+  min-height: 120px !important;
+  position: relative !important;
 }
 
-/* Fix icon fonts */
-.tech-item i {
+/* Tech item title span enhancement */
+.tech-item span {
+  display: block !important;
+  font-size: 0.85rem !important;
+  margin-top: 0.3rem !important;
+  margin-bottom: 0.2rem !important;
+  font-weight: 500 !important;
+  color: #e0e0e0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 5 !important;
+}
+
+/* Improved icon styling for better visibility */
+.tech-item i,
+.tech-item i[class*="devicon-"],
+.tech-item [class*="devicon-"] {
   font-size: 36px !important;
   width: 36px !important;
   height: 36px !important;
   line-height: 1 !important;
   opacity: 1 !important;
   visibility: visible !important;
-  display: block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   margin-bottom: 0.5rem !important;
+  color: inherit !important;
 }
 
-/* HIDE ALL TEXT LABELS - Ultra High Priority */
+/* Brand colors for specific devicons */
+.devicon-terraform-plain.colored { color: #844FBA !important; }
+.devicon-azure-plain.colored { color: #0078D4 !important; }
+.devicon-amazonwebservices-original.colored { color: #FF9900 !important; }
+.devicon-googlecloud-plain.colored { color: #4285F4 !important; }
+.devicon-python-plain.colored { color: #3776AB !important; }
+.devicon-javascript-plain.colored { color: #F7DF1E !important; }
+.devicon-bash-plain.colored { color: #4EAA25 !important; }
+.devicon-kubernetes-plain.colored { color: #326CE5 !important; }
+.devicon-docker-plain.colored { color: #2496ED !important; }
+.devicon-jenkins-plain.colored { color: #D33833 !important; }
+
+/* Add slight hover effect for better interactivity */
+.tech-item:hover {
+  transform: translateY(-2px) !important;
+}
+
+/* SHOW ALL TEXT LABELS - High Priority */
 .tech-item span:not(.skill-dot):not(.terraform-fallback),
 html body .tech-item span:not(.skill-dot):not(.terraform-fallback),
 #tech-stack .tech-item span:not(.skill-dot):not(.terraform-fallback),
@@ -102,25 +164,22 @@ html body .tech-item span:not(.skill-dot):not(.terraform-fallback),
 .tech-icons .tech-item span:not(.skill-dot):not(.terraform-fallback),
 .tech-item > span:not(.skill-dot):not(.terraform-fallback),
 [class*="tech-"] .tech-item span:not(.skill-dot):not(.terraform-fallback),
-.removed-label,
 body[class] .tech-item span:not(.skill-dot):not(.terraform-fallback) {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  width: 0 !important;
-  max-height: 0 !important;
-  max-width: 0 !important;
-  font-size: 0 !important;
-  line-height: 0 !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: 100% !important;
+  font-size: 0.85rem !important;
+  line-height: 1.2 !important;
+  overflow: visible !important;
+  white-space: normal !important;
   margin: 0.2rem 0 !important;
   text-align: center !important;
-  color: inherit !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  color: #e0e0e0 !important;
+  padding: 0.1rem !important;
 }
 
 /* Fix the grid layout */

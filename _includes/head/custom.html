@@ -19,6 +19,9 @@
 <link rel="stylesheet" href="{{ '/assets/css/tech-grid-fix.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/icon-size-consistency.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/devicon-mini.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/card-layout-optimizations.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/certification-tech-icons.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/mobile-nav-fixed.css' | relative_url }}">
 
 <!-- Devicon Critical CSS - Inline for faster loading -->
 <style>
@@ -44,9 +47,14 @@
   .devicon-docker-plain.colored { color: #2496ED !important; }
   .devicon-jenkins-plain.colored { color: #D33833 !important; }
   
-  /* Remove all text labels */
+  /* Ensure tech item labels are visible */
   .tech-item span:not(.skill-dot) {
-    display: none !important;
+    display: block !important; 
+    font-size: 0.85rem !important;
+    margin-top: 0.2rem !important;
+    text-align: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     visibility: hidden !important;
     height: 0 !important;
     width: 0 !important;

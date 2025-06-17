@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 50);
 
   // Theme toggle functionality
-  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleDesktop = document.getElementById('theme-toggle');
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
   
   // Check for saved theme preference or respect OS preference
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -23,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // If no saved theme, default to dark theme
     document.documentElement.setAttribute('data-theme', 'dark');
   }
+  
+  console.log('🎨 Theme: Initialized with theme:', document.documentElement.getAttribute('data-theme'));
 
   // Announce theme change for screen readers
   function announceThemeChange(theme) {
@@ -75,11 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Set up the main header theme toggle
-  setupThemeToggle(themeToggle);
-  
-  // Set up the mobile theme toggle (if it exists - it may load after this script)
-  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  // Set up all theme toggle buttons
+  setupThemeToggle(themeToggleDesktop);
   setupThemeToggle(themeToggleMobile);
 
   // Listen for OS theme preference changes
